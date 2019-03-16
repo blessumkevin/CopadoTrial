@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Base Page --></label>
+        <name>copado__Base_Page__c</name>
+        <picklistValues>
+            <masterLabel>GitCommitChanges</masterLabel>
+            <translation><!-- GitCommitChanges --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Help Text --></label>
+        <name>copado__Help_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Triggering Action --></label>
+        <name>copado__Triggering_Action__c</name>
+        <picklistValues>
+            <masterLabel>Always show</masterLabel>
+            <translation><!-- Always show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Copado Metadata Grid selection</masterLabel>
+            <translation><!-- Copado Metadata Grid selection --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Triggering Value --></label>
+        <name>copado__Triggering_Value__c</name>
+    </fields>
+</CustomObjectTranslation>

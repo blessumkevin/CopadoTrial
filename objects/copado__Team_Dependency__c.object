@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Deliverable__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Short description (255 chars max) of the User Story that is needed from the other team. More detailed description can be added to the Notes field.</inlineHelpText>
+        <label>Deliverable</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Dependency_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dependency Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>More Info Needed</fullName>
+                    <default>false</default>
+                    <label>More Info Needed</label>
+                </value>
+                <value>
+                    <fullName>Prioritized</fullName>
+                    <default>false</default>
+                    <label>Prioritized</label>
+                </value>
+                <value>
+                    <fullName>Committed</fullName>
+                    <default>false</default>
+                    <label>Committed</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Deferred</fullName>
+                    <default>false</default>
+                    <label>Deferred</label>
+                </value>
+                <value>
+                    <fullName>Never</fullName>
+                    <default>false</default>
+                    <label>Never</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>copado__Dependent_Team__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Team that is dependent on another team to provide the User Story.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Team that is dependent on another team to provide the User Story.</inlineHelpText>
+        <label>Dependent Team</label>
+        <referenceTo>copado__Team__c</referenceTo>
+        <relationshipLabel>Team Dependencies needed for this Team</relationshipLabel>
+        <relationshipName>Team_Dependencies_For_Team</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Dependent_User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The User Story that is dependent on the completion of the specified deliverable.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The User Story that is dependent on the completion of the specified deliverable.</inlineHelpText>
+        <label>Dependent User Story</label>
+        <referenceTo>copado__User_Story__c</referenceTo>
+        <relationshipLabel>Team Dependencies needed for this User Story</relationshipLabel>
+        <relationshipName>Team_Dependencies_For_UStory</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Needed_by_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Needed by (Date)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>copado__Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>copado__Provider_Team__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The team that will provide the deliverable to fulfill this dependency.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The team that will provide the deliverable to fulfill this dependency.</inlineHelpText>
+        <label>Provider Team</label>
+        <referenceTo>copado__Team__c</referenceTo>
+        <relationshipLabel>Team Dependencies on this Team</relationshipLabel>
+        <relationshipName>Team_Dependencies_On_Team</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Provider_User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The record representing the User Story to satisfy the deliverable of this dependency.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The record representing the User Story to satisfy the deliverable of this dependency.</inlineHelpText>
+        <label>Provider User Story</label>
+        <referenceTo>copado__User_Story__c</referenceTo>
+        <relationshipLabel>Team Dependencies on this User Story</relationshipLabel>
+        <relationshipName>Team_Dependencies_On_UStory</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Release</label>
+        <referenceTo>copado__Release__c</referenceTo>
+        <relationshipLabel>Team Dependencies</relationshipLabel>
+        <relationshipName>Team_Dependencies</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Skip_Dependency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>OR( ISPICKVAL( copado__Dependency_Status__c ,&apos;Completed&apos;), ISPICKVAL( copado__Dependency_Status__c ,&apos;Deferred&apos;), ISPICKVAL( copado__Dependency_Status__c ,&apos;Never&apos;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Skip Dependency</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Team Dependency</label>
+    <listViews>
+        <fullName>copado__All</fullName>
+        <columns>NAME</columns>
+        <columns>copado__Deliverable__c</columns>
+        <columns>copado__Dependency_Status__c</columns>
+        <columns>copado__Needed_by_Date__c</columns>
+        <columns>copado__Dependent_Team__c</columns>
+        <columns>copado__Provider_Team__c</columns>
+        <columns>copado__Dependent_User_Story__c</columns>
+        <columns>copado__Provider_User_Story__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>TD-{0000000}</displayFormat>
+        <label>Team Dependency Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Team Dependencies</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>copado__Deliverable__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Dependency_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Dependent_Team__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Provider_Team__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Dependent_User_Story__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Provider_User_Story__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Deliverable__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Dependency_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Dependent_Team__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Provider_Team__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Dependent_User_Story__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Provider_User_Story__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Deliverable__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Dependency_Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Dependent_Team__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Provider_Team__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Dependent_User_Story__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>copado__Provider_User_Story__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Deliverable__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Dependency_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Dependent_Team__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Provider_Team__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Dependent_User_Story__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>copado__Provider_User_Story__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

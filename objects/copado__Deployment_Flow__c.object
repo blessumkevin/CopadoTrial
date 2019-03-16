@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, all Branch Management features will be enabled in the Deployment Flow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, all Branch Management features will be enabled in the Deployment Flow.</inlineHelpText>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Block_Commits__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, committing changes on user stories linked to this deployment flow will not be allowed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, committing changes on user stories linked to this deployment flow will not be allowed.</inlineHelpText>
+        <label>Block Commits</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Branch_Management_Coordinates__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to store the Branch Management Step locations of each box. This field should not be added to the page layout.</description>
+        <externalId>false</externalId>
+        <label>Branch Management Coordinates</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>copado__Copado_DX_Mode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Selected DX mode will determine scratch metadata sources.</inlineHelpText>
+        <label>Copado DX Mode</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Git Artifacts</fullName>
+                    <default>false</default>
+                    <label>Git Artifacts</label>
+                </value>
+                <value>
+                    <fullName>Package Artifacts</fullName>
+                    <default>false</default>
+                    <label>Package Artifacts</label>
+                </value>
+                <value>
+                    <fullName>Branches</fullName>
+                    <default>false</default>
+                    <label>Branches</label>
+                </value>
+                <value>
+                    <fullName>Org Metadata</fullName>
+                    <default>false</default>
+                    <label>Org Metadata</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>copado__Disable_Validations__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, Deployment Flow Steps best practices validations will be disabled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, Deployment Flow Steps best practices validations will be disabled.</inlineHelpText>
+        <label>Disable Validations</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Enable_Copado_DX__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Copado DX</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Equal_Branch_Environment_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, Environment names must equal their corresponding Branches in the Deployment Flow Steps.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, Environment names must equal their corresponding Branches in the Deployment Flow Steps.</inlineHelpText>
+        <label>Enforce branch/env naming convention</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Exclude_From_Auto_Resolve__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Conflicts found in the selected metadata types are not auto-resolved by Copado when merging feature branches into the promotion branch. The conflicts can be manually resolved using Copado.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Conflicts found in the selected metadata types are not auto-resolved by Copado when merging feature branches into the promotion branch. The conflicts can be manually resolved using Copado.</inlineHelpText>
+        <label>Exclude From Auto Resolve</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>copado__Auto_Resolve_Exceptions</valueSetName>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>copado__Flow_Step_Coordinates__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to store the Deployment Flow Step locations of each box. This field should not be added to the page layout.</description>
+        <externalId>false</externalId>
+        <label>Flow Step Coordinates</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>copado__Git_Repository__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Git Repository linked to the Deployment Flow. All branches of the Deployment Flow Steps must exist in this Git Repository.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Git Repository linked to the Deployment Flow. All branches of the Deployment Flow Steps must exist in this Git Repository.</inlineHelpText>
+        <label>Git Repository</label>
+        <referenceTo>copado__Git_Repository__c</referenceTo>
+        <relationshipLabel>Deployment Flows</relationshipLabel>
+        <relationshipName>Deployment_Flows</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Main_Branch__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Main branch of the selected Git Repository (e.g. master).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Main branch of the selected Git Repository (e.g. master).</inlineHelpText>
+        <label>Main Branch</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Manage_Branches__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Link to open the Branch Management application for the Deployment Flow.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/apex/&apos;&amp;
+IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;,
+  IF(isblank($Setup.copado__Settings__c.copado__Namespace__c),&apos;copado__&apos;,$Setup.copado__Settings__c.copado__Namespace__c)
+)&amp;&apos;BranchManagement?id=&apos;&amp;Id, &apos;Manage Branches&apos;, &apos;_blank&apos;)</formula>
+        <inlineHelpText>Link to open the Branch Management application for the Deployment Flow.</inlineHelpText>
+        <label>Manage Branches</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Static_Code_Analysis_Settings__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Static Code Analysis settings used whenever the analysis is run in Environments or User Stories linked to the Deployment Flow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Static Code Analysis settings used whenever the analysis is run in Environments or User Stories linked to the Deployment Flow.</inlineHelpText>
+        <label>Static Code Analysis Settings</label>
+        <referenceTo>copado__Static_Code_Analysis_Settings__c</referenceTo>
+        <relationshipLabel>Deployment Flows</relationshipLabel>
+        <relationshipName>Deployment_Flows</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Deployment Flow</label>
+    <listViews>
+        <fullName>copado__All</fullName>
+        <columns>NAME</columns>
+        <columns>copado__Active__c</columns>
+        <columns>copado__Manage_Branches__c</columns>
+        <columns>copado__Git_Repository__c</columns>
+        <columns>copado__Main_Branch__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Deployment Flow Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Deployment Flows</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>copado__Active__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>copado__Manage_Branches__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>copado__Active__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <searchFilterFields>copado__Active__c</searchFilterFields>
+        <searchResultsAdditionalFields>copado__Active__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>copado__Find_Replace_Rule_Editor</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Find &amp; Replace Rule Editor</masterLabel>
+        <openType>newWindow</openType>
+        <page>copado__Flow_FindAndReplaceEditor</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Manage_Branches</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Manage Branches</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/{!if($Setup.copado__Settings__c.copado__Namespace__c =&apos;none&apos;,&apos;&apos;,&apos;copado__&apos;)}BranchManagement?id={!copado__Deployment_Flow__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Manage_Environment_Variables</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Environment Variables</masterLabel>
+        <openType>sidebar</openType>
+        <page>copado__ManageEnvVars</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Manage_Regression_Tests</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Manage Regression Tests</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/{!if($Setup.copado__Settings__c.copado__Namespace__c =&apos;none&apos;,&apos;&apos;,&apos;copado__&apos;)}ManageSeleniumTesting?regression=true&amp;flowId={!copado__Deployment_Flow__c.Id}</url>
+    </webLinks>
+</CustomObject>

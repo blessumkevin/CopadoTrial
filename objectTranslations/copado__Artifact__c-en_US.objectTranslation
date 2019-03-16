@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- This is Repository where the Artifact can be stored, in the master branch --></help>
+        <label><!-- Artifact Repository --></label>
+        <name>copado__Artifact_Repository__c</name>
+        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>copado__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Org Credential where the metadata of the Artifact is going to be retrieved from --></help>
+        <label><!-- Org Credential --></label>
+        <name>copado__Org_Credential__c</name>
+        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+    </fields>
+    <recordTypes>
+        <description><!-- Version control system centric artifact --></description>
+        <label><!-- Git Artifact --></label>
+        <name>Git_Artifact</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Salesforce unmanaged package as artifact --></description>
+        <label><!-- Package Artifact --></label>
+        <name>Package_Artifact</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Artifact names are in use for DX folder structure, therefore, artifact names are not editable. --></errorMessage>
+        <name>copado__ArtifactNameCannotChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Artifact name cannot contain white spaces --></errorMessage>
+        <name>copado__Name_should_not_contain_empty_space</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Manage_Metadata --></label>
+        <name>copado__Manage_Metadata</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Package_Selection --></label>
+        <name>copado__Manage_Package_Selection</name>
+    </webLinks>
+</CustomObjectTranslation>

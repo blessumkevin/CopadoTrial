@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Days in sprint --></label>
+        <name>copado__Days_in_sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>copado__End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Full time resources in sprint --></label>
+        <name>copado__Full_time_resources_in_sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Objective --></label>
+        <name>copado__Objective__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>copado__Project__c</name>
+        <relationshipLabel><!-- Sprints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <name>copado__Release__c</name>
+        <relationshipLabel><!-- Sprints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>copado__Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>copado__Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In progress</masterLabel>
+            <translation><!-- In progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation><!-- Planned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Story points --></label>
+        <name>copado__Story_points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>copado__Team__c</name>
+        <relationshipLabel><!-- Sprints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Working days in sprint --></label>
+        <name>copado__Working_days_in_sprint__c</name>
+    </fields>
+</CustomObjectTranslation>

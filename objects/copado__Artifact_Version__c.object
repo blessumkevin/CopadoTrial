@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Artifact__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Artifact</label>
+        <referenceTo>copado__Artifact__c</referenceTo>
+        <relationshipLabel>Artifact Versions</relationshipLabel>
+        <relationshipName>Artifact_Versions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>copado__Release_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(copado__Release__r.copado__Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Release Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Release</label>
+        <referenceTo>copado__Release__c</referenceTo>
+        <relationshipLabel>Artifact Versions</relationshipLabel>
+        <relationshipName>Artifact_Versions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Version__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>copado__Release__r.copado__Version__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Version</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__View_In_Git__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(
+	IF(
+		AND(NOT(ISNULL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c )), copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c != &apos;&apos;),
+		IF(
+			AND(NOT(ISPICKVAL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c,&apos;&apos;)),NOT(ISPICKVAL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c, &apos;Others&apos;))),
+			copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c +  copado__Version__c,
+			IF(
+				CONTAINS(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c,&apos;[TAG_NAME]&apos;),
+				SUBSTITUTE(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c,&apos;[TAG_NAME]&apos;,copado__Version__c),
+				copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Tag_Base_URL__c + copado__Version__c
+			)
+		),
+	&apos;&apos;), 
+	copado__Version__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>View In Git</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Artifact Version</label>
+    <nameField>
+        <label>Artifact Versions Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Artifact Versions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>copado__Merge_Version</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Merge Version</masterLabel>
+        <openType>noSidebar</openType>
+        <page>copado__MergeVersion</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

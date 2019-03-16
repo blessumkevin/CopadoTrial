@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Artifact --></label>
+        <name>copado__Artifact__c</name>
+        <relationshipLabel><!-- Artifact Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Release Status --></label>
+        <name>copado__Release_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <name>copado__Release__c</name>
+        <relationshipLabel><!-- Artifact Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>copado__Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- View In Git --></label>
+        <name>copado__View_In_Git__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- Merge_Version --></label>
+        <name>copado__Merge_Version</name>
+    </webLinks>
+</CustomObjectTranslation>

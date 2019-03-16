@@ -1,0 +1,13 @@
+<messaging:emailTemplate subject="Deployment {!relatedTo.copado__Status__c} - {!relatedTo.Name}" recipientType="User" relatedToType="copado__Deployment__c">
+    <messaging:htmlEmailBody >
+        <style>
+            body { font-family: Arial,Helvetica,sans-serif; color:#222;font-size: 75%;}
+        </style>
+        <img src="http://www.copa.do/resource/1466181044000/WebsitePack/Images/CopadoLogo.png"/>
+        <br/>
+        Deployment: {!relatedTo.Name}<br />
+        Status: {!relatedTo.Status__c}<br /> 
+        
+        <c:DeploymentEmail dpId="{!relatedTo.Id}"/>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Compliance Rule Group --></label>
+        <name>copado__Compliance_Rule_Group__c</name>
+        <relationshipLabel><!-- Environments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Compliance Scan Events --></label>
+        <name>copado__Compliance_Scan_Events__c</name>
+        <picklistValues>
+            <masterLabel>Commits</masterLabel>
+            <translation><!-- Commits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployments</masterLabel>
+            <translation><!-- Deployments --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Compliance Status --></label>
+        <name>copado__Compliance_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Code Coverage --></label>
+        <name>copado__Current_Code_Coverage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Current Static Code Analysis Score --></help>
+        <label><!-- Current SCA Score --></label>
+        <name>copado__Current_SCA_Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- If enabled, when a Back Promotion is completed and contains Metadata found in User Stories in the destination Environment, the status of the User Story Metadata records of these User Stories will be updated to &quot;Back Promoted&quot;. --></help>
+        <label><!-- Index Back Promotion metadata --></label>
+        <name>copado__Index_Back_Promotion_metadata__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Compliance Scan Date --></label>
+        <name>copado__Last_Compliance_Scan_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maximum Static Code Analysis Score --></help>
+        <label><!-- Maximum SCA Score --></label>
+        <name>copado__Maximum_SCA_Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set the Minimum Apex Test Coverage here which will be used for Apex Test Results on the Org Credential detail page. --></help>
+        <label><!-- Minimum Apex Test Coverage --></label>
+        <name>copado__Minimum_Apex_Test_Coverage__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you&apos;re developing managed packages, this will help you to write only one version of the pre/post Apex Code in Selenium Test Suites. Copado will replace any &quot;{!NS}&quot; text with this value. --></help>
+        <label><!-- Namespace --></label>
+        <name>copado__Namespace__c</name>
+    </fields>
+    <fields>
+        <label><!-- Org ID --></label>
+        <name>copado__Org_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- If selected, &quot;Run all tests&quot; will be enforced when deploying to this environment. --></help>
+        <label><!-- Run all tests --></label>
+        <name>copado__Run_all_tests__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>copado__Type__c</name>
+        <picklistValues>
+            <masterLabel>Production/Developer</masterLabel>
+            <translation><!-- Production/Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sandbox</masterLabel>
+            <translation><!-- Sandbox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scratch Org</masterLabel>
+            <translation><!-- Scratch Org --></translation>
+        </picklistValues>
+    </fields>
+    <webLinks>
+        <label><!-- Find_Replace_Rule_Editor --></label>
+        <name>copado__Find_Replace_Rule_Editor</name>
+    </webLinks>
+</CustomObjectTranslation>

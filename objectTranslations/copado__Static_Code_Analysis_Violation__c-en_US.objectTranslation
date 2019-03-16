@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- File --></label>
+        <name>copado__File__c</name>
+    </fields>
+    <fields>
+        <label><!-- Info URL --></label>
+        <name>copado__Info_URL_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Info URL --></label>
+        <name>copado__Info_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line --></label>
+        <name>copado__Line__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>copado__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>copado__Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rule --></label>
+        <name>copado__Rule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Score --></label>
+        <name>copado__Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Static Code Analysis Result --></label>
+        <name>copado__Static_Code_Analysis_Result__c</name>
+        <relationshipLabel><!-- Static Code Analysis Violations --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

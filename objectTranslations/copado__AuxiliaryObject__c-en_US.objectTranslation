@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Continuous Integration --></label>
+        <name>copado__Continuous_Integration__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deployment Flow --></label>
+        <name>copado__Deployment_Flow__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deployment --></label>
+        <name>copado__Deployment__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Environment --></label>
+        <name>copado__Environment__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Git Snapshot --></label>
+        <name>copado__Git_Backup__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Git Repository --></label>
+        <name>copado__Git_Repository__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Org Credential --></label>
+        <name>copado__Org_Credential__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Org Difference --></label>
+        <name>copado__Org_Difference__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Promotion --></label>
+        <name>copado__Promotion__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <name>copado__Release__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Selenium Test Group --></label>
+        <name>copado__Selenium_Test_Group__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Selenium Test Run --></label>
+        <name>copado__Selenium_Test_Run__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Snapshot Difference --></label>
+        <name>copado__Snapshot_Difference__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

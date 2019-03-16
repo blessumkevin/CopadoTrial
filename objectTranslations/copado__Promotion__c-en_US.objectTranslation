@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Copado Header Fields --></label>
+        <name>Copado_Header_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Custom Fields --></label>
+        <name>CustomFields</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Back Promotion --></label>
+        <name>copado__Back_Promotion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select if you wish to move added permission sets to a Full Permission Sets deployment step.  This will remove them from the Metadata deployment step. --></help>
+        <label><!-- Create Full Permission Sets Step --></label>
+        <name>copado__Create_Full_Permission_Sets_Step__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select if you wish to move added profiles to a Full Profiles deployment step.  This will remove them from the Metadata deployment step. --></help>
+        <label><!-- Create Full Profiles Step --></label>
+        <name>copado__Create_Full_Profiles_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Environment --></label>
+        <name>copado__Destination_Environment__c</name>
+        <relationshipLabel><!-- Promotions (Destination Environment) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The credential to the Destination Environment that should be used when creating a deployment. This may be auto-populated, if left blank, based on the project&apos;s deployment flow if you are the owner of an Org Credential to the Destination Environment. --></help>
+        <label><!-- Destination Org Credential --></label>
+        <name>copado__Destination_Org_Credential__c</name>
+        <relationshipLabel><!-- Promotions (Destination Org Credential) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Conflicts found in the selected metadata types are not auto-resolved by Copado when merging feature branches into the promotion branch. The conflicts can be manually resolved using Copado. --></help>
+        <label><!-- Exclude From Auto Resolve --></label>
+        <name>copado__Exclude_From_Auto_Resolve__c</name>
+    </fields>
+    <fields>
+        <help><!-- The selected Project should be linked to an active Deployment Flow --></help>
+        <label><!-- Project --></label>
+        <name>copado__Project__c</name>
+        <relationshipLabel><!-- Promotions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <name>copado__Release__c</name>
+        <relationshipLabel><!-- Promotions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Send Deployment Complete email --></label>
+        <name>copado__Send_Deployment_Complete_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Environment --></label>
+        <name>copado__Source_Environment__c</name>
+        <relationshipLabel><!-- Promotions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The credential to the Source Environment that should be used when creating a deployment. This may be auto-populated, if left blank, based on the project&apos;s deployment flow if you are the owner of an Org Credential to the Source Environment. --></help>
+        <label><!-- Source Org Credential --></label>
+        <name>copado__Source_Org_Credential__c</name>
+        <relationshipLabel><!-- Promotions (Source Org Credential) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>copado__Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed with errors</masterLabel>
+            <translation><!-- Completed with errors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merge Conflict</masterLabel>
+            <translation><!-- Merge Conflict --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation><!-- Validated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation failed</masterLabel>
+            <translation><!-- Validation failed --></translation>
+        </picklistValues>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Back Promotions to Scratch Orgs are not allowed --></errorMessage>
+        <name>copado__Scratch_Orgs_Disabled_for_Back_Promoting</name>
+    </validationRules>
+</CustomObjectTranslation>
