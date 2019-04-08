@@ -16,12 +16,12 @@
         <objectMapping>
             <inputObject>Lead</inputObject>
             <mappingFields>
-                <inputField>Email</inputField>
-                <outputField>Email</outputField>
-            </mappingFields>
-            <mappingFields>
                 <inputField>Company</inputField>
                 <outputField>AccountId</outputField>
+            </mappingFields>
+            <mappingFields>
+                <inputField>Email</inputField>
+                <outputField>Email</outputField>
             </mappingFields>
             <mappingFields>
                 <inputField>FirstName</inputField>
