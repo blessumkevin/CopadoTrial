@@ -6,26 +6,6 @@
             <end>157.130.97.242</end>
             <start>157.130.97.242</start>
         </ipRanges>
-        <ipRanges>
-            <description>Copado 3</description>
-            <end>54.88.136.216</end>
-            <start>54.88.136.216</start>
-        </ipRanges>
-        <ipRanges>
-            <description>Copado 4</description>
-            <end>54.84.188.199</end>
-            <start>54.84.188.199</start>
-        </ipRanges>
-        <ipRanges>
-            <description>Copado 2</description>
-            <end>35.174.57.133</end>
-            <start>35.174.57.133</start>
-        </ipRanges>
-        <ipRanges>
-            <description>Copado 1</description>
-            <end>18.233.58.2</end>
-            <start>18.233.58.2</start>
-        </ipRanges>
     </networkAccess>
     <passwordPolicies>
         <complexity>AlphaNumeric</complexity>
