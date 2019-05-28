@@ -63,6 +63,14 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Special_Edition__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Special Edition</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
