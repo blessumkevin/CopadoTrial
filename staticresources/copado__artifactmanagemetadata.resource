@@ -5,10 +5,11 @@ copadoApp.init = function(conf, force, isScalable, type){
     conf.force = force;    
     conf.isScalable = isScalable;
     conf.gridMode = 'metadataselector';
-    metadataGrid2 = new MetadataGrid2(conf); 
-
+    conf.dxGridType = 'dxartifact';
+    metadataGrid2 = new MetadataGrid2(conf);
 
     metadataGrid2.loadMetaData = function(callbackFinished, forceRefresh) {
+        console.log('called from artifact management');
         var that = this;
         var conf = this.conf;
 
@@ -50,10 +51,16 @@ copadoApp.init = function(conf, force, isScalable, type){
                     if(total.length>0){
                         for( var i = 0; i < total.length; i++){
                             for( var j = 0; j< allMetaData.length; j++){
+                                allMetaData[j].rd = false;
                                 if ( (total[i].t === allMetaData[j].t) && (total[i].n === allMetaData[j].n) ){
                                     allMetaData.splice(j, 1);
                                 }
+
                             }
+                        }
+                    } else {
+                        for( var j = 0; j< allMetaData.length; j++){
+                            allMetaData[j].rd = false;
                         }
                     }
                 } catch (e) {
@@ -62,17 +69,35 @@ copadoApp.init = function(conf, force, isScalable, type){
                 }
 
             }
+            console.log('allMetaData0',allMetaData[0]);
             that._setGridData(allMetaData);
+            that.render();
 
-                that.allMetaData_cachedDate  = cachedDate;
-                that._createCacheDeleteButton();
+            that.allMetaData_cachedDate  = cachedDate;
+            that._createCacheDeleteButton();
 
-                // refresh the grid/filter, so the column type has filter values
-                if(!this.isTypeFilterable)
-                    that.eltGrid.jqxGrid('updatebounddata');
+            // refresh the grid/filter, so the column type has filter values
+            if(!this.isTypeFilterable)
+                that.eltGrid.jqxGrid('updatebounddata');
 
-                if(callbackFinished)
-                    callbackFinished();
+            if(metadataGrid2.conf.gridMode === 'metadataselector' && metadataGrid2.conf.dxGridType === 'dxartifact') {
+                metadataGrid2.eltGrid.on('cellvaluechanged', function (event) {
+                    var t = metadataGrid2.eltGrid.jqxGrid('getrowdata', event.args.rowindex);
+                    if (event.args.datafield=='rd' && t.rd === true) {
+                        metadataGrid2.eltGrid.jqxGrid('setcellvalue', event.args.rowindex, "rd", true);
+                        metadataGrid2.dependencyRetrieveArray.push(t);
+                    } else if(event.args.datafield=='rd' && t.rd === false){
+                        metadataGrid2.eltGrid.jqxGrid('setcellvalue', event.args.rowindex, "rd", false);
+                        var index = metadataGrid2.dependencyRetrieveArray.indexOf(t);
+                        if (index > -1) {
+                          metadataGrid2.dependencyRetrieveArray.splice(index, 1);
+                        }
+                    }
+                });
+            }
+
+            if(callbackFinished)
+                callbackFinished();
            },
            error: function(r){
                console.error('MetadataGrid2.Error: ',r);
@@ -86,58 +111,68 @@ copadoApp.init = function(conf, force, isScalable, type){
     metadataGrid2._getColumnsByGridMode = function() {
         var columns;
             columns = [{
-                    text: copadoLabels.selected,
-                    columntype: 'checkbox',
-                    filtertype: 'bool',
-                    datafield: 's',
-                    width: '7%'
-                },
-                {
-                    text: copadoLabels.name,
-                    filtertype: 'textbox',
-                    filtercondition: 'contains',
-                    editable: false,
-                    datafield: 'n',
-                    width: '30%'
-                },
-                {
-                    text: copadoLabels.type,
-                    datafield: 't',
-                    filterable: !this.isTypeFilterable,
-                    filtertype: this.TypeFilterType,
-                    editable: false,
-                    columntype: 'textbox',
-                    width: '15%'
-                },
-                {
-                    text: copadoLabels.LASTMODIFIEDBY,
-                    filtertype: 'textbox',
-                    editable: false,
-                    datafield: 'b',
-                    width: '14%'
-                },
-                {
-                    text: copadoLabels.LastModifiedDate,
-                    filtertype: 'textbox',
-                    editable: false,
-                    datafield: 'd',
-                    width: '10%'
-                },
-                {
-                    text: copadoLabels.CREATEDBY,
-                    filtertype: 'textbox',
-                    editable: false,
-                    datafield: 'cb',
-                    width: '14%'
-                },
-                {
-                    text: copadoLabels.CREATEDDATE,
-                    filtertype: 'textbox',
-                    editable: false,
-                    datafield: 'cd',
-                    width: '10%'
+                text: copadoLabels.selected,
+                columntype: 'checkbox',
+                filtertype: 'bool',
+                datafield: 's',
+                width: 60
+            },
+            {
+                text: 'Retrieve',
+                columntype: 'checkbox',
+                datafield: 'rd',
+                width: 90,
+                cellsrenderer: function(row, columnfield, value, defaulthtml, columnproperties) {
+                    if(typeof value === 'undefined' || value === null) {
+                        value = false;
+                    }
                 }
-            ];
+            },
+            {
+                text: copadoLabels.name,
+                filtertype: 'textbox',
+                filtercondition: 'contains',
+                editable: false,
+                datafield: 'n',
+                width: 400
+            },
+            {
+                text: copadoLabels.type,
+                datafield: 't',
+                filterable: !this.isTypeFilterable,
+                filtertype: this.TypeFilterType,
+                editable: false,
+                columntype: 'textbox'
+            },
+            {
+                text: copadoLabels.LASTMODIFIEDBY,
+                filtertype: 'textbox',
+                editable: false,
+                datafield: 'b',
+                width: 220
+            },
+            {
+                text: copadoLabels.LastModifiedDate,
+                filtertype: 'textbox',
+                editable: false,
+                datafield: 'd',
+                width: 120
+            },
+            {
+                text: copadoLabels.CREATEDBY,
+                filtertype: 'textbox',
+                editable: false,
+                datafield: 'cb',
+                width: 220
+            },
+            {
+                text: copadoLabels.CREATEDDATE,
+                filtertype: 'textbox',
+                editable: false,
+                datafield: 'cd',
+                width: 120
+            }
+        ];
         return columns;
     };
 
@@ -176,6 +211,22 @@ copadoApp.init = function(conf, force, isScalable, type){
 copadoApp.refreshCache = function() {
     metadataGrid2.refreshCache();
 };
+
+copadoApp.renderGridColumnsForDependency = function(tabIndex){
+    console.log('renderGridColumnsForDependency:::tabIndex',tabIndex);
+    if(tabIndex !== 2) {
+        metadataGrid2.eltGrid.jqxGrid('hidecolumn', 'rd');
+        metadataGrid2.eltGrid.jqxGrid('showcolumn', 's');
+        $copado('button#selectAll').show();
+        $copado('button#unselectAll').show();
+    } else if(tabIndex === 2){
+        metadataGrid2.dependencyRetrieveArray = [];
+        metadataGrid2.eltGrid.jqxGrid('hidecolumn', 's');
+        metadataGrid2.eltGrid.jqxGrid('showcolumn', 'rd');
+        $copado('button#selectAll').hide();
+        $copado('button#unselectAll').hide();
+    }
+}
 
 copadoApp.save = function(callback){
     var sizeWarning = $copado('#mdHardSizeLimitMessage');

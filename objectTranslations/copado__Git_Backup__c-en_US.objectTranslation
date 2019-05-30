@@ -12,6 +12,14 @@
         <label><!-- CustomFields --></label>
         <name>CustomFields</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- Git Commit Header --></label>
+        <name>Git_Commit_Header</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Snapshot Waiting Page --></label>
+        <name>Snapshot_Waiting_Page</name>
+    </fieldSets>
     <fields>
         <help><!-- Branch of the selected Git Repository (e.g. master). Snapshots and Commits done in the Git Snapshot will affect the specified branch. --></help>
         <label><!-- Branch --></label>
@@ -91,4 +99,8 @@
         <label><!-- View in Git --></label>
         <name>copado__View_in_Git__c</name>
     </fields>
+    <webLinks>
+        <label><!-- Select_Branch --></label>
+        <name>copado__Select_Branch</name>
+    </webLinks>
 </CustomObjectTranslation>

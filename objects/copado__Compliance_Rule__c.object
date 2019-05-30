@@ -49,6 +49,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -569,6 +570,16 @@
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>copado__Required_Criteria_Fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+ISPICKVAL(copado__Matching_Criteria__c ,&quot;&quot;),
+ISPICKVAL(copado__Record_Count_Criteria__c,&quot;&quot;),
+ISNULL(copado__Record_Count__c),
+ISBLANK(copado__Record_Count__c))</errorConditionFormula>
+        <errorMessage>Matching Criteria, Record Count and Record Count Criteria are required fields.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
     <webLinks>
         <fullName>copado__Manage_Criteria</fullName>

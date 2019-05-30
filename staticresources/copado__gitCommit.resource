@@ -26,7 +26,7 @@ app.resetGrid = function(_config){
             unlockScreen();
         });
     });
-}
+};
 
 /**
  * Update the config values from outside the closure. These values are different from the init values if the user changed the Git Operation in the UI.
@@ -65,7 +65,7 @@ app.resetGrid = function(_config){
     if(showCommitMessage === 'true') {
         app.conf.data.showCommitMessage = true;
     }
- }
+ };
 
 /**
  * Call heroku to request the commit action
@@ -74,8 +74,12 @@ app.resetGrid = function(_config){
  */
 app.callBackEnd = function(commitId){
     console.log('remote call for ', commitId, app.conf.data.userStoryId, app.conf.data.snapshotId, app.conf.data.repositoryId);
-
     // add both snapshot AND repo. snapshot for regular commits, repo for user story (unconfirmed?)
+    if(app.conf.data.userStoryId) {
+        // this means it is a user story commit, use the new UserStoryWaitingFor page
+        redirectToWaitingForPage(commitId);
+        return;
+    }
     statusManager.parentId = app.conf.data.snapshotId;
     statusManager.parentId2 = app.conf.data.repositoryId;
     document.addEventListener('copadoJobFinished1', function (e) {
@@ -86,17 +90,22 @@ app.callBackEnd = function(commitId){
             return;
         if( e.detail.jobType.indexOf('retriever')>-1 )
             return;
-        location.href='/'+ (app.conf.data.userStoryId || app.conf.data.snapshotId );
+        // waiting 1 seconds after redirecting to allow the sf attachemnt of metadata to get created
+        console.log('redirect will start in 3.5 second');
+        setTimeout(function(){location.href='/'+ (app.conf.data.snapshotId );},3500);
     }, false);
-
     // first tell the global job manager, THEN, call the status mgr.
     statusManager.lastAttachment = globalJobsManagerStart(app.conf.data.snapshotId, 'GitCommit', 'GIT-'+app.conf.data.repositoryId+'-'+app.conf.data.branch);
     statusManager.startProcess(function() {
         var msg = encodeURIComponent($copado('.js-message').val());
         var commitUrl = app.conf.server.commitUrl.replace('__ENDPOINT__',app.conf.server.endpoint).replace('__COMMITID__',commitId).replace('__MSG__',msg);
+        console.log('commitURL : ',commitUrl);
         dw.u.getRemote(commitUrl,function(res){
             console.info('commit callback >',res);
+            jsCreateRunningJob(res.copadoJobId,'GitCommit',app.conf.data.snapshotId,res.ok);
             statusManager.setStatusComplete();
+            setStatusMessage(res.ok,'screenLockerMessage');
+            lockScreen();
         }, null, true);
     }, false, 'GitCommit');
 };
@@ -207,7 +216,7 @@ app.doCommit = function(sel){
     if(app.conf.data.mainBranch && !app.conf.server.commitUrl.includes("&mainBranch=") ) {
         app.conf.server.commitUrl += '&mainBranch=' + app.conf.data.mainBranch;
     }
-
+    console.log('app.conf.server.commitUrl===> ',app.conf.server.commitUrl);
     if(app.conf.data.customSelections) {
         try {
             dw.u.upsertAttach(commitId, attachmentName, app.conf.data.customSelections, true);
@@ -336,7 +345,6 @@ app.init = function(conf){
     });
 
     conf.isScalable = conf.scalableGrid;
-
     if(!(metadataGrid2 && metadataGrid2.conf))
         metadataGrid2 = new MetadataGrid2(conf);
 
@@ -386,8 +394,10 @@ app.init = function(conf){
                 }
             setWithoutRebinding(metadataGrid2.selectedMetadata, savedItems);
             }
-        if(callbackFinished)
+
+        if(callbackFinished){
             callbackFinished();
+        }
 };
  //MethodTo add selections from org credential
         metadataGrid2.loadSourceStatus = function(isDestructive) {
@@ -457,11 +467,13 @@ app.init = function(conf){
         metadataGrid2.loadData(function() {
             console.info("MetadataGrid2:init grid data loaded");
             metadataGrid2.render();
-                                unlockScreen();
-                        });
-                    });
+            selectionTab();
+            unlockScreen();
+        });
+    });
 
     app.refreshMetadataTypes = function() { metadataGrid2.refreshMetadataTypes(); };
+
     };
 
 }(gitCommit)); //end closure

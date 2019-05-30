@@ -13,6 +13,18 @@
         <name>Copado_Header_Fields</name>
     </fieldSets>
     <fieldSets>
+        <label><!-- Git Commit Header --></label>
+        <name>Git_Commit_Header</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Mass Back Promote --></label>
+        <name>Mass_Back_Promote</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Pipeline Manager Pending Approvals --></label>
+        <name>Pipeline_Manager_Pending_Approvals</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- Promotion Related List --></label>
         <name>PromotionRelatedList</name>
     </fieldSets>
@@ -25,6 +37,10 @@
         <name>Sprint_Wall_Columns</name>
     </fieldSets>
     <fieldSets>
+        <label><!-- User Story Waiting Page --></label>
+        <name>User_Story_Waiting_Page</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- Work Manager Columns --></label>
         <name>Work_Manager_Columns</name>
     </fieldSets>
@@ -32,6 +48,14 @@
         <label><!-- Work Manager Relations --></label>
         <name>Work_Manager_Relations</name>
     </fieldSets>
+    <fields>
+        <label><!-- SCA Score --></label>
+        <name>SCA_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCA Violations --></label>
+        <name>SCA_Violations__c</name>
+    </fields>
     <fields>
         <label><!-- Acceptance Criteria Status --></label>
         <name>copado__Acceptance_Criteria_Status__c</name>
@@ -145,6 +169,10 @@
         <name>copado__Documentation_Complete__c</name>
     </fields>
     <fields>
+        <label><!-- Environment Type --></label>
+        <name>copado__Environment_Type__c</name>
+    </fields>
+    <fields>
         <help><!-- Current environment of the User Story. This value is added automatically by Copado based on the selected Org Credential. --></help>
         <label><!-- Environment --></label>
         <name>copado__Environment__c</name>
@@ -192,6 +220,10 @@
         <help><!-- Latest Compliance Scan execution date. --></help>
         <label><!-- Last Compliance Scan Date --></label>
         <name>copado__Last_Compliance_Scan_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Promotion Date --></label>
+        <name>copado__Last_Promotion_Date__c</name>
     </fields>
     <fields>
         <help><!-- Status of the latest validation Deployment for the User Story. --></help>
@@ -772,6 +804,18 @@
         <name>User_Story</name>
     </recordTypes>
     <validationRules>
+        <errorMessage><!-- A pull request must first be approved in order to promote this User Story. --></errorMessage>
+        <name>Pull_Request_Approved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Static Code Analysis has either not been run or the SCA Score is too high. --></errorMessage>
+        <name>Static_Code_Analysis_Results</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Testing this description --></errorMessage>
+        <name>Test</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- A cancellation reason must be given. --></errorMessage>
         <name>copado__Cancellation_reason_required</name>
     </validationRules>
@@ -794,6 +838,10 @@
     <webLinks>
         <label><!-- Add_Metadata --></label>
         <name>copado__Add_Metadata</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Apex_Test --></label>
+        <name>copado__Apex_Test</name>
     </webLinks>
     <webLinks>
         <label><!-- Assign_to_Release --></label>
@@ -828,11 +876,23 @@
         <name>copado__Mass_Add_User_Stories_Sprint</name>
     </webLinks>
     <webLinks>
+        <label><!-- Perform_Validation --></label>
+        <name>copado__Perform_Validation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Pull_Request --></label>
+        <name>copado__Pull_Request</name>
+    </webLinks>
+    <webLinks>
         <label><!-- Run_Compliance_Scan --></label>
         <name>copado__Run_Compliance_Scan</name>
     </webLinks>
     <webLinks>
         <label><!-- Run_Static_Code_Analysis --></label>
         <name>copado__Run_Static_Code_Analysis</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Base_Branch --></label>
+        <name>copado__Select_Base_Branch</name>
     </webLinks>
 </CustomObjectTranslation>

@@ -125,7 +125,7 @@
         <description>To leverage for Data Migration demos.</description>
         <externalId>true</externalId>
         <label>External ID</label>
-        <length>25</length>
+        <length>100</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>

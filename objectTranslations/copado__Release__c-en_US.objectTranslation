@@ -51,4 +51,8 @@
         <label><!-- Mass_add_to_Release --></label>
         <name>copado__Mass_add_to_Release</name>
     </webLinks>
+    <webLinks>
+        <label><!-- Select_Base_Branch --></label>
+        <name>copado__Select_Base_Branch</name>
+    </webLinks>
 </CustomObjectTranslation>

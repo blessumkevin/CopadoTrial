@@ -15,6 +15,19 @@
         <name>copado__Branch_Management_Coordinates__c</name>
     </fields>
     <fields>
+        <help><!-- If Branch is selected, Branch Management page will work as before, if User Story selected, calculation and result will be based on User Stories. --></help>
+        <label><!-- Calculate Based on --></label>
+        <name>copado__Calculate_Based_on__c</name>
+        <picklistValues>
+            <masterLabel>Branch</masterLabel>
+            <translation><!-- Branch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Story</masterLabel>
+            <translation><!-- User Story --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help><!-- Selected DX mode will determine scratch metadata sources. --></help>
         <label><!-- Copado DX Mode --></label>
         <name>copado__Copado_DX_Mode__c</name>
@@ -62,7 +75,44 @@
         <help><!-- Git Repository linked to the Deployment Flow. All branches of the Deployment Flow Steps must exist in this Git Repository. --></help>
         <label><!-- Git Repository --></label>
         <name>copado__Git_Repository__c</name>
-        <relationshipLabel><!-- Deployment Flows --></relationshipLabel>
+        <relationshipLabel><!-- Pipelines --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Tabs to hide in Branch Management detail window --></help>
+        <label><!-- Hide Tabs --></label>
+        <name>copado__Hide_Tabs__c</name>
+        <picklistValues>
+            <masterLabel>Auto Resolved Conflicts</masterLabel>
+            <translation><!-- Auto Resolved Conflicts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commits Ahead</masterLabel>
+            <translation><!-- Commits Ahead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commits Behind</masterLabel>
+            <translation><!-- Commits Behind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance Scan Results</masterLabel>
+            <translation><!-- Compliance Scan Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployment Error</masterLabel>
+            <translation><!-- Deployment Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>File Differences</masterLabel>
+            <translation><!-- File Differences --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merged Files</masterLabel>
+            <translation><!-- Merged Files --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Selenium Test Groups</masterLabel>
+            <translation><!-- Selenium Test Groups --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <help><!-- Main branch of the selected Git Repository (e.g. master). --></help>
@@ -71,14 +121,33 @@
     </fields>
     <fields>
         <help><!-- Link to open the Branch Management application for the Deployment Flow. --></help>
-        <label><!-- Manage Branches --></label>
+        <label><!-- Manage Releases --></label>
         <name>copado__Manage_Branches__c</name>
+    </fields>
+    <fields>
+        <help><!-- When a conflicted file cannot be semantically merged during an Auto Resolve, the entire file is overwritten by default. You can choose to overwrite only the conflicting lines and merge the mergeable lines; Copado uses the &quot;Theirs&quot; git merge strategy. --></help>
+        <label><!-- Auto Resolve Conflict Strategy --></label>
+        <name>copado__Merge_Strategy__c</name>
+        <picklistValues>
+            <masterLabel>Overwrite conflicting lines only</masterLabel>
+            <translation><!-- Overwrite conflicting lines only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overwrite file</masterLabel>
+            <translation><!-- Overwrite file --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Fill that field only if you want to change the selected user stories order on deployment.
+This value will prefill the order by field on related Promotion record creation if set. (usage exp: name asc) --></help>
+        <label><!-- Order User Stories by --></label>
+        <name>copado__Order_by__c</name>
     </fields>
     <fields>
         <help><!-- Static Code Analysis settings used whenever the analysis is run in Environments or User Stories linked to the Deployment Flow. --></help>
         <label><!-- Static Code Analysis Settings --></label>
         <name>copado__Static_Code_Analysis_Settings__c</name>
-        <relationshipLabel><!-- Deployment Flows --></relationshipLabel>
+        <relationshipLabel><!-- Pipelines --></relationshipLabel>
     </fields>
     <webLinks>
         <label><!-- Find_Replace_Rule_Editor --></label>
@@ -95,5 +164,9 @@
     <webLinks>
         <label><!-- Manage_Regression_Tests --></label>
         <name>copado__Manage_Regression_Tests</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Select_Main_Branch --></label>
+        <name>copado__Select_Main_Branch</name>
     </webLinks>
 </CustomObjectTranslation>

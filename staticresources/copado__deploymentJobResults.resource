@@ -1,9 +1,8 @@
 var deploymentJobResults = deploymentJobResults || {};
 deploymentJobResults.labels = deploymentJobResults.labels || {};
-var $copado = $copado || jQuery.noConflict();
 
 deploymentJobResults.labels.SELECTED = 'Select';
-deploymentJobResults.labels.LEVEL = 'Level';
+deploymentJobResults.labels.LEVELHEADER = 'Level';//UCU made it LEVELHEADER, cause LEVEL keyword does not work for some reason, possible reserved keyword on the process by jqx maybe.
 deploymentJobResults.labels.MESSAGE = 'Message';
 deploymentJobResults.labels.COPADOTIP = 'Copado Tip';
 deploymentJobResults.labels.NO_STEP_RESULTS_FOUND = 'No results found';
@@ -66,10 +65,10 @@ deploymentJobResults.createResultTable = function(res, $container) {
 
 	var source2 = {
 		localdata: res,
-		datafields: [{
+		datafields: [/*{//commented out by UCU, not needed
 			name: 'b',
 			type: 'bool'
-		},{
+		}*/,{
 			name: 'l',
 			type: 'string'
 		}, {
@@ -101,31 +100,31 @@ deploymentJobResults.createResultTable = function(res, $container) {
 
 	$grid2.jqxGrid({
 		width: '100%',
-		height: height,
-		source: dataAdapter2,
-		showfilterrow: true,
-		filterable: true,
-		theme: 'base',
-		editable: true,
-		selectionmode: 'none',
-		enablebrowserselection: true,
-		pageable: true,
-		pagesizeoptions: ['10', '20', '50', '100', '200', '500', '1000', '2000', '5000'],
-		pagesize: pageSize,
-		sortable: true,
-		columnsresize: true,
-		autorowheight: true,
-		autoheight: true,
-		altrows: true,
-		localization: localizationobj,
-		columns: [{
+        source: dataAdapter2,
+        showfilterrow: true,
+        filterable: true,
+        theme: 'base',
+        editable: false,
+        scrollmode: 'logical',
+        selectionmode: 'none',
+        enablebrowserselection: true,
+        pageable: true,
+        pagesizeoptions: ['10', '20', '50', '100', '200', '500', '1000', '2000', '5000'],
+        pagesize: 20,
+        sortable: true,
+        columnsresize: true,
+        autorowheight: true,
+        autoheight: true,
+        altrows: true,
+        localization: localizationobj,
+		columns: [/*{//commented out by UCU, not needed
 			text: deploymentJobResults.labels.SELECTED,
 			columntype: 'checkbox',
 			filtertype: 'bool',
 			datafield: 'b',
 			width: 80
-		},{
-			text: deploymentJobResults.labels.LEVEL,
+		},*/{
+			text: deploymentJobResults.labels.LEVELHEADER,
 			columntype: 'textbox',
 			filtertype: 'textbox',
 			datafield: 'l',

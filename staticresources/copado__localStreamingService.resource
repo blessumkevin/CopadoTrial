@@ -2,8 +2,6 @@ var localStreamingService = localStreamingService || {};
 localStreamingService.config = localStreamingService.config = {};
 localStreamingService.data = localStreamingService.data = {};
 
-var $copado = $copado || jQuery.noConflict();
-
 //Properties
 localStreamingService.streamingAPI_clientId = '';
 localStreamingService.config.ns = '';

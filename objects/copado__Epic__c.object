@@ -48,19 +48,31 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>copado__Cancelled_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cancelled Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>copado__Epic_Details__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Epic Details</label>
-        <length>32000</length>
+        <length>131072</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>copado__Epic_Title__c</fullName>
@@ -72,6 +84,19 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Release</label>
+        <referenceTo>copado__Release__c</referenceTo>
+        <relationshipLabel>Epics</relationshipLabel>
+        <relationshipName>Epics</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>copado__Status__c</fullName>

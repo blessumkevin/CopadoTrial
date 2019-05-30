@@ -48,6 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -84,6 +85,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>copado__Commit_Datetime__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Commit Datetime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>copado__Commit_Id__c</fullName>
