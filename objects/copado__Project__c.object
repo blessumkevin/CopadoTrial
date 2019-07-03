@@ -49,6 +49,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -59,7 +60,7 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>If working with Copado Change Management, the Project must be linked to a Deployment Flow.</inlineHelpText>
-        <label>Deployment Flow</label>
+        <label>Pipeline</label>
         <referenceTo>copado__Deployment_Flow__c</referenceTo>
         <relationshipLabel>Projects</relationshipLabel>
         <relationshipName>Projects</relationshipName>
@@ -90,8 +91,40 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>copado__Exclude_Tabs_from_Promotion_Page__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Exclude Tabs from Promotion Page</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Static Code Analysis Summary</fullName>
+                    <default>false</default>
+                    <label>Static Code Analysis Summary</label>
+                </value>
+                <value>
+                    <fullName>Selenium Test</fullName>
+                    <default>false</default>
+                    <label>Selenium Test</label>
+                </value>
+                <value>
+                    <fullName>Promotion User Story Metadata</fullName>
+                    <default>false</default>
+                    <label>Promotion User Story Metadata</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>copado__Index_Metadata__c</fullName>
-        <defaultValue>false</defaultValue>
+        <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>When this field is checked, Copado will index the metadata selected against the user stories into the User Story Metadata custom object. Indexed metadata can be used for reporting and compliance, and it&apos;s also used by Copado overlap awareness feature.</inlineHelpText>

@@ -72,6 +72,7 @@ var gitCommit = gitCommit || {};
         // Filter metadata items without Artifact. If any, doCommit() will call DXArtifact_render()
         var itemsWithoutArtifact = [];
         for(var i=0 ; i < selectedObjectsList.length ; i++) {
+            console.log('selectedObjectsList[i]===> ',selectedObjectsList[i]);
             if(!selectedObjectsList[i].ai || selectedObjectsList[i].ai === 'Select') {
                 itemsWithoutArtifact.push(selectedObjectsList[i]);
             }

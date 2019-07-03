@@ -13,6 +13,10 @@
         <name>copado__Commit_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Commit Datetime --></label>
+        <name>copado__Commit_Datetime__c</name>
+    </fields>
+    <fields>
         <label><!-- Commit Id --></label>
         <name>copado__Commit_Id__c</name>
     </fields>

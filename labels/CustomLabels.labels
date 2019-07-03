@@ -5,7 +5,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Account Summary Label</shortDescription>
-        <value>{!Environment.Account_Summary_Label}</value>
+        <value>https://Prodfakeurl.html</value>
     </labels>
     <labels>
         <fullName>Test_Label</fullName>

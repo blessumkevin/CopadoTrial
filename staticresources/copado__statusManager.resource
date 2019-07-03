@@ -5,6 +5,7 @@ var statusManager = statusManager || {
     statusCheckerInterval: 5000,
     retry_count: 0,
     fileName: 'PROGRESS_STATUS_COPADO',
+    showAlert: true,
     copadoServer: '',
     urlParameters: '',
     operationInProgress: false,
@@ -54,16 +55,16 @@ var statusManager = statusManager || {
 
     statusCheckerTimer: false,
 
-    startStatusChecker: function() {
+    startStatusChecker: function(startStatusPoller) {
         var me = statusManager;
-        /*
-        me.operationInProgress = true; // NR: when the status checker starts, we assume there is a job in progress.
-        if (!me.statusCheckerTimer) {
-            window.setTimeout(function() {
-                me.statusCheckerTimer = setInterval(me.statusChecker, me.statusCheckerInterval);
-            }, 5000); // NR: testing a timing issue, when statusChecker() is called even before creating the attachment
+        if(startStatusPoller){
+            me.operationInProgress = true; // NR: when the status checker starts, we assume there is a job in progress.
+            if (!me.statusCheckerTimer) {
+                window.setTimeout(function() {
+                    me.statusCheckerTimer = setInterval(me.statusChecker, me.statusCheckerInterval);
+                }, 5000); // NR: testing a timing issue, when statusChecker() is called even before creating the attachment
+            }
         }
-        */
     },
     stopStatusChecker: function() {
         var me = statusManager;
@@ -158,8 +159,13 @@ var statusManager = statusManager || {
         var me = statusManager;
 
         if (msg && msg.isSuccess == false) {
-            var errorMsgs = (msg.messages && msg.messages.length > 0) ? msg.messages.join('\n') : 'Unexpected Error. Please contact support@copa.do';
-            alert(errorMsgs);
+            var errorMsgs = (msg.messages && msg.messages.length > 0) ? msg.messages.join('\n') : (msg.type == 'MetadataRetriever' ?  copadoLabels.IF_MODIFY_METADATA_ENABLED : copadoLabels.UNEXPECTED_ERROR);
+            console.log('me.showAlert==> ',me.showAlert);
+            //to Prevent multiple error pop-ups when an error occurs in a callout
+            if(me.showAlert == true){
+                alert(errorMsgs);
+                me.showAlert = false;
+            }
             statusManager.stopStatusChecker();
             console.error('Error Messages: ', errorMsgs);
         }
@@ -167,7 +173,7 @@ var statusManager = statusManager || {
         statusManager.setStatusComplete();
 
         //invoke callback
-        console.log('invoke callback', msg.type, me.callbackMap, me.successFunction, me.successFunction2);
+        msg && console.log('invoke callback', msg.type, me.callbackMap, me.successFunction, me.successFunction2);
         unlockScreen();
         //additional callback using className
         if (msg && typeof me.callbackMap[msg.type] == 'function') {
@@ -179,8 +185,10 @@ var statusManager = statusManager || {
         }
         // NR: also fire a browser event to notify anyone listening that the task finished.
         // this is a better way of handling stuff than single callbacks.
-        var event = new CustomEvent('copadoJobFinished1', { 'detail': {jobType: msg.type, parentId: me.parentId} });
-        document.dispatchEvent(event);
+        if(msg){
+            var event = new CustomEvent('copadoJobFinished1', { 'detail': {jobType: msg.type, parentId: me.parentId} });
+            document.dispatchEvent(event);
+        }
     },
 
     readStatusFromResponse: function(res) {
@@ -302,7 +310,10 @@ var statusManager = statusManager || {
             //we know job is in progress so we wait for streaming API.
         } else {
             me.operationInProgress = false;
-            if (typeof me.initFunction != "undefined") me.initFunction();
+            console.log('typeof me.initFunction ',typeof me.initFunction);
+            if (typeof me.initFunction != "undefined"){
+                me.initFunction();
+            }
             //unlockScreen(); Expecting the initFunction to lock/unlock screen as required.
         }
     },
@@ -349,7 +360,6 @@ var statusManager = statusManager || {
         }
 
         var msg = JSON.parse(notification[me.ns + 'Message__c']);
-
         if (!msg) {
             console.log('readStream: no Message__c field found in', notification);
             var att = me.getAttachment(notification[me.ns + 'ParentId__c'], me.fileName);

@@ -8,8 +8,6 @@ urlCallout.config = urlCallout.config || {};
 urlCallout.hookUrl = urlCallout.hookUrl || {};
 urlCallout.webhookLookup = urlCallout.webhookLookup || {};
 
-var $copado = $copado || jQuery.noConflict();
-
 //Properties
 urlCallout.config.ns = '';
 urlCallout.config.herokuServer = '';

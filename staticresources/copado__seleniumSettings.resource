@@ -7,8 +7,6 @@ seleniumSettings.grid = seleniumSettings.grid || {};
 
 seleniumSettings.labels = seleniumSettings.labels || {};
 
-var $copado = $copado || jQuery.noConflict();
-
 seleniumSettings.config.url = '';
 seleniumSettings.config.GRID_DIV_ID = 'jqxGrid';
 seleniumSettings.data.hasPreviousSelected = false;
@@ -296,7 +294,7 @@ seleniumSettings.grid.getGridSelections = function(){
 		return seleniumSettings.data.gridSelections;
 	}
 };
-seleniumSettings.grid.setSaveValues = function(){
+seleniumSettings.grid.setSaveValues = function(retUrl){
 	seleniumSettings.grid.getGridSelections();
 	if(seleniumSettings.data.selectedProvider!='' && seleniumSettings.data.selectedProvider!='Custom/Other' && seleniumSettings.data.gridSelections.length==0){
 		console.log(seleniumSettings.data.selectedProvider, seleniumSettings.grid.getGridSelections);
@@ -306,7 +304,8 @@ seleniumSettings.grid.setSaveValues = function(){
 	else if(seleniumSettings.data.selectedProvider=='Browser Stack' || seleniumSettings.data.selectedProvider=='Sauce Labs'){
 		$copado('textarea[class$="js-selectedPlatforms"]').val(JSON.stringify(seleniumSettings.data.gridSelections));
 	}
-	doSalesforceSave();
+	//retUrl parameter is for editSeleniumSettingOverride page
+	retUrl ? doSalesforceSave(retUrl) : doSalesforceSave();
 };
 
 

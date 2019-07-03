@@ -4,8 +4,6 @@ deploymentFlow.config = deploymentFlow.config || {};
 deploymentFlow.branch = deploymentFlow.branch || {};
 deploymentFlow.showCIEnvironments = false;
 
-var $copado = $copado || jQuery.noConflict();
-
 deploymentFlow.config.ns = copadoApp.ns;
 deploymentFlow.config.AUTOCOMPLETE_MIN_LENGTH = 2;
 //deploymentFlow.config.searchbox = $copado('.jsEnvAutoComplete');

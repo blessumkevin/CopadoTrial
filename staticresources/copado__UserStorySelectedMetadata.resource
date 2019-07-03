@@ -97,6 +97,10 @@ var USselectedMetadata = USselectedMetadata || {};
                     if(records.length == 1){
                         var fn = records[0].Name;
                         var b = Base64.decode(records[0].Body);
+                        //below replaces opening and closing tags based on xss concerns
+                        while(b.indexOf('<') > -1 || b.indexOf('>') > -1){
+                            b = b.replace('<','').replace('>','');
+                        }
                         var obj = JSON.parse(b);
                         if(fn=='Delete MetaData')app.deletions = obj;
                         if(fn=='Git Deletion')app.deletions = obj;
@@ -219,8 +223,8 @@ var USselectedMetadata = USselectedMetadata || {};
                 {text: copadoLabels.GIT_UPSERTS, columntype:'checkbox', filtertype:'bool', datafield:'gs', width:80},
                 {text: copadoLabels.GIT_DELETIONS, columntype:'checkbox', filtertype:'bool', datafield:'gd', width:80},
                 {text: 'Test Only', columntype:'checkbox', filtertype:'bool', datafield:'to', width:80},
-                {text: copadoLabels.name, filtertype:'textbox', filtercondition: 'contains', editable:false, datafield:'n'},
-                {text: copadoLabels.type, datafield:'t', filtertype:'checkedlist', editable:false, columntype:'textbox'},
+                {text: copadoLabels.name, filtertype:'textbox', filtercondition: 'contains', editable:false, datafield:'n',width:220},
+                {text: copadoLabels.type, datafield:'t', filtertype:'checkedlist', editable:false, columntype:'textbox',width:150},
                 {text: copadoLabels.LastModifiedById, filtertype:'checkedlist', editable:false, datafield:'b', width:150},
                 {text: copadoLabels.LastModifiedDate, filtertype:'textbox', editable:false, datafield:'d', width:100},
                 {text: copadoLabels.CREATEDBY, filtertype:'checkedlist', editable:false, datafield:'cb', width:150},

@@ -98,6 +98,10 @@
         <label><!-- Other --></label>
         <name>Other</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Matching Criteria, Record Count and Record Count Criteria are required fields. --></errorMessage>
+        <name>copado__Required_Criteria_Fields</name>
+    </validationRules>
     <webLinks>
         <label><!-- Manage_Criteria --></label>
         <name>copado__Manage_Criteria</name>

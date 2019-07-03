@@ -96,6 +96,7 @@ var unmSelectionsList = [];
                 var selectedMetadata = $copado.parseJSON(res);
                 console.log(selectedMetadata);
                 total = total.concat(selectedMetadata); // add current metadata scope into all retrieved metadata scope
+                total = copadoDX.preventXSSonJQXGrid(total);
                 //permissionSets = permissionSets.concat(selectedMetadata);
                 console.log(filterType);
                 console.info('total',total);
@@ -131,6 +132,26 @@ var unmSelectionsList = [];
             callback();
         return null;
 
+    };
+    //added this function to be able to prevent Stored XSS Vulnerability based on Salesforce security report - UCU
+    copadoDX.preventXSSonJQXGrid = function(objectArray){
+        //below return all fields of the current object to check on the loop
+        if(typeof objectArray == undefined || objectArray.length === 0) return; // added this condition, because it was throwing error if the objectArray was null or undefined
+
+        var fields = Object.keys(objectArray[0]);
+        for(var i=0;i<objectArray.length;i++){
+                for(var c=0;c<fields.length;c++){
+                    var currentValue = objectArray[i][fields[c]];
+                    if(currentValue && typeof currentValue === 'string'){
+                        while(currentValue.indexOf('<') > -1 || currentValue.indexOf('>') > -1){
+                            currentValue = currentValue.replace('<','').replace('>','');
+                        }
+                        objectArray[i][fields[c]] = currentValue;
+                    }
+                }
+            }
+
+        return objectArray;
     };
 
     copadoDX.filterGridMetadata = function (jsonArray, jsonField, filter) {

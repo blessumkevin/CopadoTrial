@@ -48,6 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -87,6 +88,33 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>copado__Calculate_Based_on__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>If Branch is selected, Branch Management page will work as before, if User Story selected, calculation and result will be based on User Stories.</inlineHelpText>
+        <label>Calculate Based on</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Branch</fullName>
+                    <default>false</default>
+                    <label>Branch</label>
+                </value>
+                <value>
+                    <fullName>User Story</fullName>
+                    <default>true</default>
+                    <label>User Story</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>copado__Copado_DX_Mode__c</fullName>
@@ -197,12 +225,69 @@
         <inlineHelpText>Git Repository linked to the Deployment Flow. All branches of the Deployment Flow Steps must exist in this Git Repository.</inlineHelpText>
         <label>Git Repository</label>
         <referenceTo>copado__Git_Repository__c</referenceTo>
-        <relationshipLabel>Deployment Flows</relationshipLabel>
         <relationshipName>Deployment_Flows</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>copado__Hide_Tabs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Tabs to hide in Branch Management detail window</inlineHelpText>
+        <label>Hide Tabs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Commits Ahead</fullName>
+                    <default>false</default>
+                    <label>Commits Ahead</label>
+                </value>
+                <value>
+                    <fullName>Commits Behind</fullName>
+                    <default>false</default>
+                    <label>Commits Behind</label>
+                </value>
+                <value>
+                    <fullName>Deployment Error</fullName>
+                    <default>false</default>
+                    <label>Deployment Error</label>
+                </value>
+                <value>
+                    <fullName>File Differences</fullName>
+                    <default>false</default>
+                    <label>File Differences</label>
+                </value>
+                <value>
+                    <fullName>Auto Resolved Conflicts</fullName>
+                    <default>false</default>
+                    <label>Auto Resolved Conflicts</label>
+                </value>
+                <value>
+                    <fullName>Merged Files</fullName>
+                    <default>false</default>
+                    <label>Merged Files</label>
+                </value>
+                <value>
+                    <fullName>Selenium Test Groups</fullName>
+                    <default>false</default>
+                    <label>Selenium Test Groups</label>
+                </value>
+                <value>
+                    <fullName>Compliance Scan Results</fullName>
+                    <default>false</default>
+                    <label>Compliance Scan Results</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>copado__Main_Branch__c</fullName>
@@ -221,14 +306,55 @@
     <fields>
         <fullName>copado__Manage_Branches__c</fullName>
         <deprecated>false</deprecated>
-        <description>Link to open the Branch Management application for the Deployment Flow.</description>
+        <description>Link to open the Pipeline Manager to promote and back promote User Stories.</description>
         <externalId>false</externalId>
         <formula>HYPERLINK(&apos;/apex/&apos;&amp;
 IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;,
   IF(isblank($Setup.copado__Settings__c.copado__Namespace__c),&apos;copado__&apos;,$Setup.copado__Settings__c.copado__Namespace__c)
-)&amp;&apos;BranchManagement?id=&apos;&amp;Id, &apos;Manage Branches&apos;, &apos;_blank&apos;)</formula>
+)&amp;IF( ISPICKVAL(copado__Calculate_Based_on__c, &apos;User Story&apos;), IF( copado__Active__c,&apos;PipelineManager?id=&apos;&amp;Id, &apos;PipelineDiagram?id=&apos;&amp;Id), &apos;BranchManagement?id=&apos;&amp;Id), &apos;Pipeline Manager&apos;, &apos;_blank&apos;)</formula>
         <inlineHelpText>Link to open the Branch Management application for the Deployment Flow.</inlineHelpText>
-        <label>Manage Branches</label>
+        <label>Manage Releases</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__Merge_Strategy__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>When a conflicted file cannot be semantically merged during an Auto Resolve, the entire file is overwritten by default. You can choose to overwrite only the conflicting lines and merge the mergeable lines; Copado uses the &quot;Theirs&quot; git merge strategy.</inlineHelpText>
+        <label>Auto Resolve Conflict Strategy</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Default</fullName>
+                    <default>true</default>
+                    <label>Overwrite file</label>
+                </value>
+                <value>
+                    <fullName>Theirs</fullName>
+                    <default>false</default>
+                    <label>Overwrite conflicting lines only</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>copado__Order_by__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Fill that field only if you want to change the selected user stories order on deployment.
+This value will prefill the order by field on related Promotion record creation if set. (usage exp: name asc)</inlineHelpText>
+        <label>Order User Stories by</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -244,14 +370,13 @@ IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;
         <inlineHelpText>Static Code Analysis settings used whenever the analysis is run in Environments or User Stories linked to the Deployment Flow.</inlineHelpText>
         <label>Static Code Analysis Settings</label>
         <referenceTo>copado__Static_Code_Analysis_Settings__c</referenceTo>
-        <relationshipLabel>Deployment Flows</relationshipLabel>
         <relationshipName>Deployment_Flows</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Deployment Flow</label>
+    <label>Pipeline</label>
     <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
@@ -266,11 +391,11 @@ IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;
         <language>en_US</language>
     </listViews>
     <nameField>
-        <label>Deployment Flow Name</label>
+        <label>Pipeline Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Deployment Flows</pluralLabel>
+    <pluralLabel>Pipelines</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>copado__Active__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>copado__Manage_Branches__c</customTabListAdditionalFields>
@@ -280,6 +405,7 @@ IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;
         <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
         <searchFilterFields>copado__Active__c</searchFilterFields>
+        <searchResultsAdditionalFields>copado__Manage_Branches__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>copado__Active__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
@@ -315,13 +441,16 @@ IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Manage Branches</masterLabel>
+        <masterLabel>Manage Releases</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/apex/{!if($Setup.copado__Settings__c.copado__Namespace__c =&apos;none&apos;,&apos;&apos;,&apos;copado__&apos;)}BranchManagement?id={!copado__Deployment_Flow__c.Id}</url>
+        <url>/apex/{!
+IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;, &apos;copado__&apos;) &amp; 
+IF( 
+ISPICKVAL(copado__Deployment_Flow__c.copado__Calculate_Based_on__c, &apos;User Story&apos;),   IF( copado__Deployment_Flow__c.copado__Active__c , &apos;PipelineManager&apos;, &apos;PipelineDiagram&apos;) , &apos;BranchManagement&apos;)}?Id={!copado__Deployment_Flow__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>copado__Manage_Environment_Variables</fullName>
@@ -344,5 +473,16 @@ IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;
         <openType>replace</openType>
         <protected>false</protected>
         <url>/apex/{!if($Setup.copado__Settings__c.copado__Namespace__c =&apos;none&apos;,&apos;&apos;,&apos;copado__&apos;)}ManageSeleniumTesting?regression=true&amp;flowId={!copado__Deployment_Flow__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Select_Main_Branch</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Select Main Branch</masterLabel>
+        <openType>sidebar</openType>
+        <page>copado__DeploymentFlowBranchSelection</page>
+        <protected>false</protected>
     </webLinks>
 </CustomObject>

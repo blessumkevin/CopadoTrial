@@ -35,7 +35,7 @@ var apexTestResult = {
         me.showError = true;
         me.renderTables = false;
     },
-    updateUserStory: function(cc){
+    /*updateUserStory: function(cc){
         var me = apexTestResult;
         if(me.userStoryClassesArray.length > 0)me.hasApexCode = true;
         if(me.userStoryTriggersArray.length > 0)me.hasApexCode = true;
@@ -84,29 +84,7 @@ var apexTestResult = {
         booleanDiffer('Has_Apex_Code__c', me.hasApexCode, changes);
         var hasChanges = Object.keys(changes).length>0;
         
-        /*
-        if(usRecord[me.ns+'Apex_Code_Coverage__c'] !== undefined && parseInt(usRecord[me.ns+'Apex_Code_Coverage__c']) !== me.userStoryCoverage && !isNaN(me.userStoryCoverage)){
-            changes[me.ns+'Apex_Code_Coverage__c'] = !isNaN(me.userStoryCoverage) ? me.userStoryCoverage : 0;
-            change = true;
-        }
-        if(usRecord[me.ns+'Has_Apex_Code__c'] !== undefined && usRecord[me.ns+'Has_Apex_Code__c'] !== me.hasApexCode.toString()){
-            changes[me.ns+'Has_Apex_Code__c'] = me.hasApexCode;
-            change = true;
-        }
-        if(usRecord[me.ns+'Classes_Without_Coverage__c'] !== undefined && parseInt(usRecord[me.ns+'Classes_Without_Coverage__c']) !== me.classesWithoutCoverage){
-            changes[me.ns+'Classes_Without_Coverage__c'] = me.classesWithoutCoverage;
-            change = true;
-        }
-        
-        if(usRecord[me.ns+'Triggers_Without_Coverage__c'] !== undefined && parseInt(usRecord[me.ns+'Triggers_Without_Coverage__c']) !== me.triggersWithoutCoverage){
-            changes[me.ns+'Triggers_Without_Coverage__c'] = me.triggersWithoutCoverage;
-            change = true;
-        }
-        if(usRecord[me.ns+'Failing_Methods__c'] !== undefined && parseInt(usRecord[me.ns+'Failing_Methods__c']) !== me.failingMethods && me.failingMethods !== undefined){
-            changes[me.ns+'Failing_Methods__c'] = me.failingMethods;
-            change = true;
-        }
-        */
+
         console.debug(JSON.stringify(changes));
         window.parent.postMessage({"from":"apexTestResult", "hasChanges":hasChanges, "change":changes}, "*");
     },
@@ -121,7 +99,7 @@ var apexTestResult = {
             }
         }
         return validFields;
-    },
+    },*/
 
     updateEnvironmentCodeCoverage: function(){
         var me = apexTestResult;
@@ -166,7 +144,7 @@ var apexTestResult = {
             return;
         }
     },
-    arrayUnique: function(array) {
+    /*arrayUnique: function(array) {
         var a = array.concat();
         for(var i=0; i<a.length; ++i) {
             for(var j=i+1; j<a.length; ++j) {
@@ -176,7 +154,7 @@ var apexTestResult = {
             }
         }
         return a;
-    },
+    },*/
     getOrgTestClasses: function(cb){
         var me = apexTestResult;
         url = copadoApp.urlBase+'testClasses/'+copadoApp.orgId+copadoApp.urlParameters;
@@ -367,6 +345,11 @@ var apexTestResult = {
             var nsPrefix = (me.namespace.length==0)?'none/':me.namespace+'/';
             //prepare URL
             var herokuServer = copadoApp.herokuServer;
+            if(copadoApp.userStoryId) {
+                // this means it is a user story commit, use the new UserStoryWaitingFor page
+                redirectToWaitingForPage(testClassList);
+                return;
+            }
             var uri = herokuServer+'/json/v1/apexTest/'+copadoApp.orgId+'/'+nsPrefix+testClassList+copadoApp.urlParameters+'&parentId='+copadoApp.userStoryId;
 
             console.log('before remote2', uri);
@@ -408,7 +391,7 @@ var apexTestResult = {
         return o;
     },
     /**
-     * Helper to find element in array 
+     * Helper to find element in array
      * Because IE doesnt support indexOf in Array
      * @param  {[type]} arr [description]
      * @param  {[type]} val [description]
@@ -418,7 +401,7 @@ var apexTestResult = {
         return $copado.inArray(val, arr)>-1 ;
     },
     /**
-     * This method creates an array that includes: 
+     * This method creates an array that includes:
      *  the name, covetage, is include in User Story
      * @param  {[type]} source     [description]
      * @param  {[type]} result     [description]
@@ -429,7 +412,7 @@ var apexTestResult = {
 
         var me = apexTestResult;
         //key == className
-        var keys = Object.keys(source);   
+        var keys = Object.keys(source);
         var userStoryItemsCount = 0;
 
         var useNamespace = (me.namespace.length>0)?me.namespace+'__':'';
@@ -441,7 +424,7 @@ var apexTestResult = {
         for(var k in usArray){
             tmp_names.push(usArray[k].n);
         }
-        
+
         //for each item in test results
         for(var i=0; i<keys.length; i++){
 
@@ -450,7 +433,7 @@ var apexTestResult = {
 
             // get coverage or zero
             var c = (classRes && classRes.coverage) || 0;
-            
+
             //Seek if key (className ) is in results
             var booly = me.valueInArray( tmp_names, useNamespace+name);
 
@@ -459,7 +442,7 @@ var apexTestResult = {
                 inUserStory: booly,
                 name: name,
                 coverage:  Math.floor(c)+'%',
-                coverageStatus: (c >=copadoApp.minCodeCoverage)? copadoLabels.PASSED : copadoLabels.FAILED, 
+                coverageStatus: (c >=copadoApp.minCodeCoverage)? copadoLabels.PASSED : copadoLabels.FAILED,
                 progress:  c
             }
 
@@ -484,7 +467,7 @@ var apexTestResult = {
      * @param {[type]} classRes [description]
      */
     addCoverageData: function(classRes, booly){
-
+        console.log('booly : ',booly);
         var me = apexTestResult;
 
         if(classRes && (classRes.numLocations||classRes.numLocations===0)){
@@ -492,11 +475,13 @@ var apexTestResult = {
             // *ONLY* when it's null/undefined/whatever, we should go to mode 1.
             me.coverageMode = 2;
             if(booly &&  copadoApp.userStoryId){
-                me.totalLines += classRes.numLocations; 
+                console.log('classRes.numLocations : ',classRes.numLocations);
+                me.totalLines += classRes.numLocations;
                 me.linesNotCovered += classRes.numLocationsNotCovered;
             }
             if(!copadoApp.userStoryId){
-                me.totalLines += classRes.numLocations; 
+                console.log('classRes.numLocations : ',classRes.numLocations);
+                me.totalLines += classRes.numLocations;
                 me.linesNotCovered += classRes.numLocationsNotCovered;
             }
         }
@@ -789,14 +774,17 @@ apexTestResult.init =  function(){
         var url = new URL(url_string);
         var reload = url.searchParams.get("rl");
         
-        if(location.href.indexOf('sfdcIFrameHost=web') < 0 && reload === null){
+        /*if(location.href.indexOf('sfdcIFrameHost=web') < 0 && reload === null){
             apexTestResult.updateUserStory(apexTestResult.userStoryCoverage);        
-        }
+        }*/
         $copado('#summaryUserStory').show();
     }
     else{
-        if(!isNaN(apexTestResult.userStoryCoverage)){
+        if(!isNaN(apexTestResult.orgCoverage)){
             $copado('.jstxt_Coverage').text(Math.floor(apexTestResult.orgCoverage)+'%');
+            $copado('#summaryOrg').show();
+        } else {
+            $copado('.jstxt_Coverage').text('0%');
             $copado('#summaryOrg').show();
         }
     }
