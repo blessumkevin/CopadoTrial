@@ -13,7 +13,7 @@
         <name>copado__Full_time_resources_in_sprint__c</name>
     </fields>
     <fields>
-        <label><!-- Objective --></label>
+        <label><!-- Sprint Goal --></label>
         <name>copado__Objective__c</name>
     </fields>
     <fields>

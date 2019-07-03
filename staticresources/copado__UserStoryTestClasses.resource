@@ -26,16 +26,47 @@ usTestClasses.refreshCache = function() {
 };
 
 usTestClasses.save = function(){
-     lockScreen();
-     coGridHelper.datasource = metadataGrid2.datasource;
-     coGridHelper.saveSelected(_config.data.id, _config.attachmentName, null, true, function(){
-         location.href = '/apex/'+metadataGrid2.conf.ns+'userstoryselectedmetadata?id='+metadataGrid2.conf.data.id+'&inline=1'
-     });
-     window.parent.postMessage({"from":"userStorySelectedMetadata", "hasChanges":true,"change":null}, "*");
-     return false;
+    lockScreen();
+    coGridHelper.datasource = metadataGrid2.datasource;
+    coGridHelper.saveSelected(_config.data.id, _config.attachmentName, null, true, function(){
+        window.top.location.href = '/'+metadataGrid2.conf.data.id;
+    });
+    return false;
  };
 
- usTestClasses.cancel = function(){
-      location.href = '/apex/'+metadataGrid2.conf.ns+'userstoryselectedmetadata?id='+metadataGrid2.conf.data.id+'&inline=1'
-      return false;
-  };
+usTestClasses.cancel = function(){
+    window.top.location.href = '/'+metadataGrid2.conf.data.id;
+    return false;
+};
+
+usTestClasses.autoIdentify = function(usId){
+    lockScreen();
+    dw.u.getRemote(metadataGrid2.conf.server.autoSelectURL,
+        function(res){
+             if(res){
+                 console.log('res identified');
+                 if(res.copadoJobId){
+                     console.debug('job id located');
+                     jsCreateRunningJob(res.copadoJobId,'UserStoryTestClassesRetriever',usId,'Preparing...');
+                 }
+                 console.info('usTestClasses.autoIdentify:::success',res);
+                 metadataGrid2.reloadSelections(0);
+                 return false;
+             } else if(res && res.error){
+                console.error('usTestClasses.autoIdentify:::callback:::error',res.error);
+                showMessage('ERROR',res.error);
+                unlockScreen();
+                return false;
+             }
+        },
+        false,
+        false,
+        function(res){
+            console.error('usTestClasses.autoIdentify:::errorFunction:::error',res.error);
+            showMessage('ERROR',(res.error||res));
+            unlockScreen();
+            return false;
+        },
+        'autoTestSelection'
+    );
+}

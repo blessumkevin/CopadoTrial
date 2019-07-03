@@ -49,6 +49,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -93,7 +94,7 @@
         <fullName>copado__Objective__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <label>Objective</label>
+        <label>Sprint Goal</label>
         <length>10000</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

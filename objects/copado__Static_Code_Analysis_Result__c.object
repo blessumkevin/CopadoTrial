@@ -49,10 +49,131 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Blocker__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Blocker violations</description>
+        <externalId>false</externalId>
+        <label>Blocker</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+            <operation>equals</operation>
+            <value>Blocker</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Bugs__c</fullName>
+        <deprecated>false</deprecated>
+        <description>CodeScan Bugs in violations</description>
+        <externalId>false</externalId>
+        <label>Bugs</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Type__c</field>
+            <operation>equals</operation>
+            <value>Bug</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Closed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Closed</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Code_Smells__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Code Smell violations</description>
+        <externalId>false</externalId>
+        <label>Code Smells</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Type__c</field>
+            <operation>equals</operation>
+            <value>Code Smell</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Confirmed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Confirmed</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Critical__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Critical violations</description>
+        <externalId>false</externalId>
+        <label>Critical</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+            <operation>equals</operation>
+            <value>Critical</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
     <fields>
         <fullName>copado__Details__c</fullName>
         <deprecated>false</deprecated>
@@ -65,11 +186,142 @@
         <visibleLines>2</visibleLines>
     </fields>
     <fields>
+        <fullName>copado__False_Positive__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>False Positive</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>equals</operation>
+            <value>False Positive</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Fixed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fixed</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>equals</operation>
+            <value>Fixed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Highest_Priority_Violation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Highest Priority Violation</label>
+        <summarizedField>copado__Static_Code_Analysis_Violation__c.copado__Priority__c</summarizedField>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Info__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Info violations</description>
+        <externalId>false</externalId>
+        <label>Info</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+            <operation>equals</operation>
+            <value>Info</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Major__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Major violations</description>
+        <externalId>false</externalId>
+        <label>Major</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+            <operation>equals</operation>
+            <value>Major</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Minor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Minor violations</description>
+        <externalId>false</externalId>
+        <label>Minor</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+            <operation>equals</operation>
+            <value>Minor</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>copado__Number_of_Violations__c</fullName>
         <deprecated>false</deprecated>
         <description>Overall number of rule violations.</description>
         <externalId>false</externalId>
         <label>Number of Violations</label>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Open__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Open</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </summaryFilterItems>
         <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -91,14 +343,98 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>copado__Removed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Removed</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>equals</operation>
+            <value>Removed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Reopened__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reopened</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>equals</operation>
+            <value>Reopened</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Resolved__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resolved</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>equals</operation>
+            <value>Resolved</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>copado__Score_v11__c</fullName>
         <deprecated>false</deprecated>
         <description>New v11 version of the Score field.</description>
         <externalId>false</externalId>
         <label>Score</label>
         <summarizedField>copado__Static_Code_Analysis_Violation__c.copado__Score__c</summarizedField>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
         <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Unresolved__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unresolved</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>notEqual</operation>
+            <value>Fixed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>notEqual</operation>
+            <value>False Positive</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>notEqual</operation>
+            <value>Won&apos;t fix</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>notEqual</operation>
+            <value>Removed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
@@ -117,6 +453,44 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>copado__Vulnerabilities__c</fullName>
+        <deprecated>false</deprecated>
+        <description>CodeScan Vulnerability violations</description>
+        <externalId>false</externalId>
+        <label>Vulnerabilities</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Type__c</field>
+            <operation>equals</operation>
+            <value>Vulnerability</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Resolved, Closed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>copado__Wont_fix__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Won&apos;t fix</label>
+        <summaryFilterItems>
+            <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+            <operation>equals</operation>
+            <value>Won&apos;t fix</value>
+        </summaryFilterItems>
+        <summaryForeignKey>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
     <label>Static Code Analysis Result</label>
     <nameField>
         <displayFormat>SCA-{00000}</displayFormat>
@@ -125,6 +499,19 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Static Code Analysis Results</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>copado__CodeScan</fullName>
+        <active>true</active>
+        <description>Record Type for CodeScan integration. Requires CodeScan licensing.</description>
+        <label>CodeScan</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>copado__PMD</fullName>
+        <active>true</active>
+        <description>Record Type for free of charge PMD integration</description>
+        <label>PMD</label>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

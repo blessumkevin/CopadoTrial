@@ -48,10 +48,73 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Cloud_Organization__c</fullName>
+        <deprecated>false</deprecated>
+        <description>You can get this Organization Id in CodeScan Cloud, under your profile, in the &quot;My Organizations&quot; setup menu.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You can get this Organization Id in CodeScan Cloud, under your profile, in the &quot;My Organizations&quot; setup menu.</inlineHelpText>
+        <label>Cloud Organization</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__CodeScan_Token__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CodeScan Token</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__CodeScan_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CodeScan URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>copado__CodeScan_Version__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Cloud version requires a CodeScan Cloud license.
+On-premise SonarQube requires your SonarQube instance to be accesible through internet.</inlineHelpText>
+        <label>CodeScan Version</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cloud</fullName>
+                    <default>false</default>
+                    <label>Cloud</label>
+                </value>
+                <value>
+                    <fullName>On-premise SonarQube</fullName>
+                    <default>false</default>
+                    <label>On-premise SonarQube</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Static Code Analysis Settings</label>
     <listViews>
         <fullName>copado__All</fullName>
@@ -63,8 +126,52 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Static Code Analysis Settings</pluralLabel>
+    <recordTypes>
+        <fullName>copado__CodeScan</fullName>
+        <active>true</active>
+        <description>Record Type for CodeScan integration. Requires CodeScan licensing.</description>
+        <label>CodeScan</label>
+        <picklistValues>
+            <picklist>copado__CodeScan_Version__c</picklist>
+            <values>
+                <fullName>Cloud</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-premise SonarQube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>copado__PMD</fullName>
+        <active>true</active>
+        <description>Record Type for free of charge PMD integration</description>
+        <label>PMD</label>
+        <picklistValues>
+            <picklist>copado__CodeScan_Version__c</picklist>
+            <values>
+                <fullName>Cloud</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-premise SonarQube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>copado__CodeScan_Required_Fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF (ISPICKVAL( copado__CodeScan_Version__c, &apos;Cloud&apos;),
+            ISBLANK( copado__Cloud_Organization__c ), 
+            FALSE )</errorConditionFormula>
+        <errorMessage>Review the following required fields:
+Cloud Organization is required for Cloud Version.
+SonarQube Token and URL are required for On-premise Version.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
     <webLinks>
         <fullName>copado__Generate_Default_RuleSet</fullName>

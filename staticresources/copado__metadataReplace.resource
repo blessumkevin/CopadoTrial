@@ -4,8 +4,6 @@ metadataReplace.bindings = metadataReplace.bindings || {};
 metadataReplace.template = metadataReplace.template || {};
 metadataReplace.findReplace = metadataReplace.findReplace || {};
 
-var $copado = $copado || jQuery.noConflict();
-
 //Properties
 metadataReplace.findReplaceArray = [];
 

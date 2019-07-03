@@ -48,6 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -128,11 +129,11 @@
     </fields>
     <fields>
         <fullName>copado__Index_Back_Promotion_metadata__c</fullName>
-        <defaultValue>false</defaultValue>
+        <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>If enabled, when a Back Promotion is completed and contains Metadata found in User Stories in the destination Environment, the status of the User Story Metadata records of these User Stories will be updated to &quot;Back Promoted&quot;.</inlineHelpText>
-        <label>Index Back Promotion metadata</label>
+        <label>Index Back Promotion Metadata</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -196,12 +197,38 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>copado__Promotion_Default_Credential__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The Default Credential for the target Org is always selected by default. Optionally, the Default Credential can be selected only if the user has no Org Credential for the target Org.</inlineHelpText>
+        <label>Promotion Default Credential</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All Promotions</fullName>
+                    <default>true</default>
+                    <label>All Promotions</label>
+                </value>
+                <value>
+                    <fullName>Only If User Has No Org Credential</fullName>
+                    <default>false</default>
+                    <label>Only If User Has No Org Credential</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>copado__Run_all_tests__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>If selected, &quot;Run all tests&quot; will be enforced when deploying to this environment.</inlineHelpText>
-        <label>Run all tests</label>
+        <label>Run all local tests</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -230,6 +257,32 @@
                     <fullName>Scratch Org</fullName>
                     <default>false</default>
                     <label>Scratch Org</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>copado__Validation_Promotion_Default_Credential__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The Default Credential for the target Org is always selected by default. Optionally, the Default Credential can be selected only if the user has no Org Credential for the target Org.</inlineHelpText>
+        <label>Validation Promotion Default Credential</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All Validation Promotions</fullName>
+                    <default>true</default>
+                    <label>All Validation Promotions</label>
+                </value>
+                <value>
+                    <fullName>Only If User Has No Org Credential</fullName>
+                    <default>false</default>
+                    <label>Only If User Has No Org Credential</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

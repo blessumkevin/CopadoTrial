@@ -367,9 +367,9 @@ dw.qb.testQuery = function(e){
     $copado('#testQuery')
         .attr('disabled','disabled')
         .html(labels.config.testing);
-    
+
+    lockScreen();
     dw.u.getRemote(datasetup.config.testquery_url,function(r){
-        console.log('testquery response:',r);
         if(r && r.done){
             dw.qb.queryTested = true;
             showMessage('CONFIRM',labels.config.successful_testing);
@@ -377,17 +377,18 @@ dw.qb.testQuery = function(e){
             dw.qb.queryTested = false;
             showMessage('ERROR',r.error);
             
-        }                
+        }
+        unlockScreen();
         $copado('#testQuery')
             .removeAttr('disabled')
             .html(labels.config.test_query);
         
-    },dw.qb.query, true,function(r){
+    },dw.qb.query, false,function(r){
         //TODO: unify this code and response error
-        console.log('testquery response error:',r);
+
         dw.qb.queryTested = false;
         showMessage('ERROR',(r.error||r));
-         
+        unlockScreen();
         $copado('#testQuery')
             .removeAttr('disabled')
             .html(labels.config.test_query);

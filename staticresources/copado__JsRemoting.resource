@@ -93,8 +93,9 @@ JsRemoting.metaData.getList = function(envId, ns, successCB, exceptionCB, errorC
     console.debug("JsRemoting.metaData.getList starting", envId,core);
     var attach = dw.u.getAttach(envId,'MetadataTypes');
     console.log('Metadata type cache found : ',attach.length == 1 );
-
+    console.log('attach===> ',attach);
     if(attach.length){
+        console.log('jsr in if....');
         var res = JSON.parse(Base64.decode(attach[0].Body));
         if(res && res.length) {
             successCB(res);
@@ -103,8 +104,9 @@ JsRemoting.metaData.getList = function(envId, ns, successCB, exceptionCB, errorC
             console.info('Could not load metadata types from attachment?', res);
         }
     }
+    console.log('envId=====> ',envId);
     (core).JsRemotingController.getMetadataTypes(envId,function(result, event){
-        console.debug("(core).JsRemotingController.getMetadataTypes event=", event);
+        console.log("(core).JsRemotingController.getMetadataTypes event=", event);
         if (event.status) {
             dw.u.upsertAttach(envId,'MetadataTypes',JSON.stringify(result), false);
             console.info('Upserting metadata type cache...', result);
@@ -131,7 +133,7 @@ JsRemoting.deploymentFlows.getFlowStepCoordinates = function(ns, flowId){
     return records;
 };
 JsRemoting.deploymentFlows.queryFlowSteps = function(ns, flowId){
-    var q = 'SELECT Id, Name, __NAMESPACE__Branch__c, __NAMESPACE__Test_Level__c, __NAMESPACE__Automatically_Merge_and_Deploy__c, __NAMESPACE__Deployment_Flow__c, __NAMESPACE__Destination_Environment__c, __NAMESPACE__Destination_Environment__r.Name, __NAMESPACE__Source_Environment__c, __NAMESPACE__Source_Environment__r.Name,  __NAMESPACE__Source_Environment__r.__NAMESPACE__Type__c FROM __NAMESPACE__Deployment_Flow_Step__c WHERE __NAMESPACE__Deployment_Flow__c = \''+flowId+'\' order by __NAMESPACE__Source_Environment__c ASC';
+    var q = 'SELECT Id, Name, __NAMESPACE__Branch__c, __NAMESPACE__Destination_Branch__c,__NAMESPACE__Test_Level__c, __NAMESPACE__Automatically_Merge_and_Deploy__c, __NAMESPACE__Deployment_Flow__c, __NAMESPACE__Destination_Environment__c, __NAMESPACE__Destination_Environment__r.Name, __NAMESPACE__Source_Environment__c, __NAMESPACE__Source_Environment__r.Name,  __NAMESPACE__Source_Environment__r.__NAMESPACE__Type__c FROM __NAMESPACE__Deployment_Flow_Step__c WHERE __NAMESPACE__Deployment_Flow__c = \''+flowId+'\' order by __NAMESPACE__Source_Environment__c ASC';
     q = q.replace(new RegExp('__NAMESPACE__','g'), ns);
     var result = sforce.connection.query(q);
     var records = result.getArray('records');
@@ -172,10 +174,11 @@ JsRemoting.common.deleteIds = function(ids){
 };
 JsRemoting.vlocity.getDependencies = function(usId,keys,ns,successCB,exceptionCB,errorCB){
      var core = ns ? window[ns.split('__')[0]] : window;
-     console.debug("JsRemoting.vlocity.getDependencies starting", usId,core);
+     console.log("JsRemoting.vlocity.getDependencies starting", usId);
+     console.log("JsRemoting.vlocity.getDependencies starting", keys);
 
      var jobId = (core).JsRemotingController.getVlocityDependencies(usId,keys,function(result, event){
-         console.debug("(core).JsRemotingController.getVlocityDependencies event=", event);
+         console.log("(core).JsRemotingController.getVlocityDependencies event=", event);
          if (event.status) {
              successCB();
          }else if (event.type === 'exception') {

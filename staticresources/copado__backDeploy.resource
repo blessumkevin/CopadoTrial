@@ -11,7 +11,7 @@ backDeploy.labels = backDeploy.labels || {};
 backDeploy.error = backDeploy.error || {};
 
 var $copado = $copado || jQuery.noConflict();
-
+backDeploy.resultMapforU;
 
 backDeploy.config.ns = copadoApp.ns;
 backDeploy.config.fileName = 'PROGRESS_STATUS_COPADO';
@@ -32,6 +32,7 @@ backDeploy.config.imageUrl.lookup = '../../src/statics/img/icons/view.png';
 backDeploy.config.herokuServer = '';
 
 backDeploy.data.flowId = copadoApp.data.flowId;
+backDeploy.data.calculationBasedOn = copadoApp.data.calculationBasedOn;
 backDeploy.data.diffIndex = {};
 backDeploy.data.mapStepIdEnvironments = [];
 backDeploy.data.mapBoxIdToStepId = [];
@@ -222,6 +223,7 @@ backDeploy.initialiseDraggable = function() {
             }
         });
     } else {
+        setLockScreenMessage("");
         console.log('copadoApp.envConnections array is empty!');
         $copado('.jsEnvBoxWrapper').draggable();
     }
@@ -327,26 +329,34 @@ backDeploy.callHerokuAction = function(fromEnvId, toEnvId, action) {
     return false;
 };
 backDeploy.recalculate = function(el) {
-    el.value = 'Recalculating';
-    var url = backDeploy.config.herokuServer + '/json/v1/branchStatuses/' + backDeploy.data.flowId + copadoApp.urlParameters;
+    var calBase = $copado('[id$="calbase"]').attr('id').slice(0,1);
+    if(calBase == 'b'){
+        el.value = 'Recalculating';
+        var url = backDeploy.config.herokuServer + '/json/v1/branchStatuses/' + backDeploy.data.flowId + copadoApp.urlParameters;
 
-    console.log('Calling Heroku', url);
-    utilsV2.method = 'GET';
-    utilsV2.onSuccessCB = function() {
-        el.value = 'Recalculate';
-    };
-    utilsV2.onFailureCB = function(res) {
-        console.error(res);
-        el.value = 'Recalculate';
-        unlock();
-        alert(res);
-    };
+        utilsV2.method = 'GET';
+        utilsV2.onSuccessCB = function() {
+            el.value = 'Recalculate';
+        };
+        utilsV2.onFailureCB = function(res) {
+            console.error(res);
+            el.value = 'Recalculate';
+            unlock();
+            alert(res);
+        };
 
-    var jobDidStart = utilsV2.getRemote(url);
-    if(jobDidStart)
-        setLockScreenMessage("Recalculating...");
+        var jobDidStart = utilsV2.getRemote(url);
+        if(jobDidStart)
+            setLockScreenMessage("Recalculating...");
+    }
+    else{
+        setLockScreenMessage("Recalculating ");
+        backDeploy.resultMapforU = null;
+        backDeploy.setBoxStates();
+    }
 };
 backDeploy.recalculateSingleBranch = function(el, branchName) {
+
     el.value = '';
     branchName = branchName || $copado(el).attr('data-branch');
     var flowStepId = $copado(el).closest("div[data-boxId]").attr('data-boxId');
@@ -908,34 +918,39 @@ backDeploy.setEnvironmentValues = function(envId, destEnvName, destEnvId, flowSt
 backDeploy.buildEnvBox = function(envName, envId, style, branch, env, flowStepId) {
     //console.debug('backDeploy.buildEnvBox', envName, branch);
     style = (style == '' || style == null || typeof style == 'undefined') ? '' : style;
-    branch = (typeof branch == 'undefined' || branch == null) ? '' : branch;
+    branch = (typeof branch == 'undefined' || branch == null) ? '' : htmlEntities(branch);
     // NR: this determines if this EnvBox is the dest org of a CI job.
     // if so, it needs to be rendered differently.
     var step = backDeploy.data.flowStepMapByToEnvId ? backDeploy.data.flowStepMapByToEnvId[envId] : null;
     var s;
+    var callBase = $copado('[id$="calbase"]').attr('id').slice(0,1);
     if (step && step.ContinuousIntegrationId) {
         s = "<div style='" + style + "'class='jsEnvBoxWrapper CIStepWrapper' id='wrapper_" + envId + "' data-flowStepId=''>" +
             "<div id='box_" + envId + "' class='envBox CIStep'>" +
             "<h4 class='clearfix' style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>" +
-            "<span onclick=\"window.open('/" + step.ContinuousIntegrationId + "')\" class='title' title='Click to see details...' target='_blank' style='cursor: pointer;float:left;'><u>" + envName + "</u></span>" +
+            "<span onclick=\"window.open('/" + step.ContinuousIntegrationId + "')\" class='title' title='Click to see details...' target='_blank' style='cursor: pointer;float:left;'><u>" + htmlEntities(envName) + "</u></span>" +
             "</h4>" +
             "<p> Status: " + step.ContinuousIntegrationStatus + "</p>" +
         "</div>" +
         "</div>";
     } else {
         s = "<div style='" + style + "'class='jsEnvBoxWrapper' id='wrapper_" + envId + "' data-flowStepId='"+flowStepId+"' data-floaters='' data-branch='" + branch + "'>" ;
-            if(env.orgType == 'Scratch Org'){
-                s += "<img id='typeImage' src='https://lh3.googleusercontent.com/-SKXUk6eYz2I/WmDRX0UjIPI/AAAAAAAAAW8/dCvjQ4cQWBYJldC9HaVZSSozqWpU32PegCK8BGAs/s0/2018-01-18.png' style='width: 62px;position:  absolute;bottom: 10px;right: 159px; z-index: 100;'>";
-            }
-            s += "<div id='box_" + envId + "' data-branch='" + branch + "' data-boxId='' class='envBox' style='background-color:#f4f6f9 !important; border-color:#0070d2;margin-left:5px !important'>" +
-            "<div style='float: left;height: 100%;text-align: center;background-color:#f4f6f9;'>" +
-            "<input type='button' onclick='backDeploy.recalculateSingleBranch(this);' data-branch='" + branch + "' data-parentSelector='box_" + envId + "' class='resyncEnv' value='↺'' title='Recalculate this branch'>" +
-            "</div>" +
-            "<div style='float:left;width:70%;'><h3 class='clearfix' style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>" +
-            "<a onclick='javascript:return false;' id='" + envId + "_title' class='title' style='color:#16325c;' target='_blank' title='" + envName + "'>" + envName + "</a></br>" +
-            "<p class='title' style='color:darkgray;font-size:12px;padding:0;' title='"+branch+"'>branch : "+branch+"</p></div>" +
-            "</h3>"+
-            "<div>";
+        if(env.orgType == 'Scratch Org'){
+            s += "<img id='typeImage' src='https://lh3.googleusercontent.com/-SKXUk6eYz2I/WmDRX0UjIPI/AAAAAAAAAW8/dCvjQ4cQWBYJldC9HaVZSSozqWpU32PegCK8BGAs/s0/2018-01-18.png' style='width: 62px;position:  absolute;bottom: 10px;right: 159px; z-index: 100;'>";
+        }
+        s += "<div id='box_" + envId + "' data-branch='" + branch + "' data-boxId='' class='envBox' style='background-color:#f4f6f9 !important; border-color:#0070d2;margin-left:5px !important'>"+
+        "<div style='float: left;height: 100%;text-align: center;background-color:#f4f6f9;'>";
+        if(backDeploy.data.calculationBasedOn != 'User Story'){
+          s+="<input type='button' onclick='backDeploy." +(callBase == 'u' ? "recalculate" : "recalculateSingleBranch")+"(this);' data-branch='" + branch + "' data-parentSelector='box_" + envId + "' class='resyncEnv' value='↺'' title='Recalculate this branch'>";
+        } else {
+            s+="<input type='button'class='resyncEnv' title='Re-calculation is disabled for user story based flows' disabled='true'>";
+        }
+        s += "</div>"+
+        "<div style='float:left;width:70%;'><h3 class='clearfix' style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>" +
+        "<a onclick='javascript:return false;' id='" + envId + "_title' class='title' style='color:#16325c;' target='_blank' title='" + envName + "'>" + htmlEntities(envName) + "</a></br>" +
+        "<p class='title' style='color:darkgray;font-size:12px;padding:0;' title='"+branch+"'>branch : "+htmlEntities(branch)+"</p></div>" +
+        "</h3>"+
+        "<div>";
         if (envId != copadoApp.finalDestination) {
             s += "<button type='button' style='border-top-right-radius:.44em' onclick='openModal(this);' title='Promote...' class='btnPromotion paper-raise slds-button btn_" + envId + "_promotion' data-envId='" + envId + "' data-type='merge' data-flowStepId='"+flowStepId+"' data-flowId='" + backDeploy.data.flowId + "'>" + backDeploy.SVG_ARROW_RIGHT + "</button>";
             if(env.orgType != 'Scratch Org'){
@@ -958,13 +973,61 @@ backDeploy.environmentboxOnCanvas = function(envId) {
     if ($copado('#box_' + envId).length) return true;
     return false;
 };
-
+backDeploy.calloutCounter = 0;
 backDeploy.setBoxStates = function() {
+    console.log('here we are again!');
+    var calBase = $copado('[id$="calbase"]').attr('id').slice(0,1);
+    //there are two inputHiddens each ends with calbase(calculation base) but starts with u or b
+    //if the first letter is U then, User panel is rendered, if not then, Branch panel is rendered
+    var ns = backDeploy.config.ns;
+    var core = ns ? window[ns.split('__')[0]] : window;
+    console.log('calbase==> ',calBase);
+    if(calBase!='b' && !backDeploy.resultMapforU){
+        console.log('selam...');
+        var jIter;
+        console.time();
+        //it supports up to 200 parallel async callouts which means 199 different deployment flow step under 1 deployment flow.
+        //https://help.salesforce.com/articleView?id=000187436&type=1
+
+
+        //UCU - used to send flowId instead but changed it to flowStepId based on too many soql query promlem
+        var returnColor4perOrg = function(j) {
+            console.log('backDeploy.calloutCounter===> ',backDeploy.calloutCounter);
+            if(document.querySelectorAll('.jsEnvBoxWrapper').length != backDeploy.calloutCounter){
+                (core).BranchManagementExtension.returnOrgColors(
+                document.querySelectorAll('.jsEnvBoxWrapper')[j].getAttribute('data-flowstepid'),
+                function( result, event ) {
+                    if(event.status){
+                        backDeploy.resultMapforU = backDeploy.resultMapforU ? $copado.extend(backDeploy.resultMapforU ,result) : result;
+                        backDeploy.calloutCounter++;
+                        console.log('remaining cpu ===> ',parseInt(backDeploy.resultMapforU.cpuTime.color));
+                        if(document.querySelectorAll('.jsEnvBoxWrapper').length  == backDeploy.calloutCounter){
+                            backDeploy.setStates(backDeploy.resultMapforU,calBase);
+                        } else{
+                            setLockScreenMessage('Loaded '+(j+1)+' of '+document.querySelectorAll('.jsEnvBoxWrapper').length+' deployment flow steps.');
+                            returnColor4perOrg(++j);
+                        }
+                    }
+                });
+            } else if(document.querySelectorAll('.jsEnvBoxWrapper').length  == backDeploy.calloutCounter){
+                backDeploy.setStates(backDeploy.resultMapforU,calBase);
+            }
+        }
+        returnColor4perOrg(0);
+    }
+    else if(calBase=='b'){
+        backDeploy.setStates(null,calBase);
+    }
+};
+
+backDeploy.setStates = function(resultMapforU,calBase){
     $copado(".btnPromotion").each(function(wrapperElt) {
         var buttonElt = $copado(this);
         var boxElt = buttonElt.closest('.envBox');
         var flowStepId = buttonElt.data('flowstepid');
         var contentElt = boxElt.find(".statusContent");
+
+        var usRelatedData = {fromEnvId : $copado(this).data('to'), envId : $copado(this).data('from'),sucCount:0,errCount:0,nullCount:0,totalCount:0}
 
         // reset any state
         buttonElt.removeClass('btnAheadOrBehind');
@@ -984,37 +1047,55 @@ backDeploy.setBoxStates = function() {
         var Sync_Pull_State = stepDetail[backDeploy.config.ns+'Sync_Pull_State__c'];
 
         var inSync = Sync_Merge_State=='In sync'&&Sync_Pull_State=='In sync';
+        //console.log('calBase===> ',calBase);
+        if(calBase=='b'){
+            if(inSync) {
+                if(!contentElt.text()) {
+                    htmlMessage = ''+backDeploy.SVG_INSYNC_CHECKBOX + backDeploy.labels.IN_SYNC+'';
+                    contentElt.addClass('statusContentSync').show().html(htmlMessage);
+                }
+            }else{
 
-        if(inSync) {
-            if(!contentElt.text()) {
-                htmlMessage = ''+backDeploy.SVG_INSYNC_CHECKBOX + backDeploy.labels.IN_SYNC+'';
-                contentElt.addClass('statusContentSync').show().html(htmlMessage);
+                if( (contentElt.text()||'').indexOf(backDeploy.labels.IN_SYNC)>-1 )
+                    contentElt.hide().html('');
+
+                //If the step source and destination are not in sync change bg-color of the action buttons on the env box.
+                var color='transparent', msg='', isUnsynced=false;
+
+                if (isMergeOrPull) {
+                    if(Sync_Merge_State=='Needs recalculating') { color = 'yellow'; msg=Sync_Merge_State; }
+                    else if(Sync_Merge_State=='Validated') { color = 'green'; isUnsynced=true; }
+                    else if(Sync_Merge_State=='Validation errors') { color = 'red'; isUnsynced=true; }
+                } else {
+                    if(Sync_Pull_State=='Needs recalculating') { color = 'yellow'; msg=Sync_Pull_State; }
+                    else if(Sync_Pull_State=='Validated') { color = 'green'; isUnsynced=true; }
+                    else if(Sync_Pull_State=='Validation errors') { color = 'red'; isUnsynced=true; }
+                }
+                if(isUnsynced)
+                    buttonElt.addClass('btnAheadOrBehind');
+                buttonElt.css('background-color', color);
+                buttonElt.attr('title', (isMergeOrPull?'Promote...':'Back Promote...') + msg );
             }
-        }else{
-
-            if( (contentElt.text()||'').indexOf(backDeploy.labels.IN_SYNC)>-1 )
-                contentElt.hide().html('');
-
-            //If the step source and destination are not in sync change bg-color of the action buttons on the env box.
-            var color='transparent', msg='', isUnsynced=false;
-            if (isMergeOrPull) {
-                if(Sync_Merge_State=='Needs recalculating') { color = 'yellow'; msg=Sync_Merge_State; }
-                else if(Sync_Merge_State=='Validated') { color = 'green'; isUnsynced=true; }
-                else if(Sync_Merge_State=='Validation errors') { color = 'red'; isUnsynced=true; }
-            } else {
-                if(Sync_Pull_State=='Needs recalculating') { color = 'yellow'; msg=Sync_Pull_State; }
-                else if(Sync_Pull_State=='Validated') { color = 'green'; isUnsynced=true; }
-                else if(Sync_Pull_State=='Validation errors') { color = 'red'; isUnsynced=true; }
-            }
-            if(isUnsynced)
+        }
+        else if(resultMapforU && calBase!='b'){
+            var color = '';
+            //below control is to prevent showing US's available for back promotion to same org
+            var key = (isMergeOrPull == false ? usRelatedData.fromEnvId : '') + usRelatedData.envId + isMergeOrPull.toString();
+            //console.log('key===========> ',key);
+			color = (resultMapforU[key] ? resultMapforU[key].color : 'transparent');
+            if(color != 'transparent' && color != 'yellow'){
                 buttonElt.addClass('btnAheadOrBehind');
+            }
             buttonElt.css('background-color', color);
-            buttonElt.attr('title', (isMergeOrPull?'Promote...':'Back Promote...') + msg );
+            buttonElt.attr('title', (isMergeOrPull?'Promote...':'Back Promote...'));
         }
     });
+    console.timeEnd();
+    setLockScreenMessage('');
 };
-
+backDeploy.counter = 0;
 backDeploy.addEnvBox = function(fromEnvId, envName, envId, flowStepId, branch, environment) {
+
     var style = '';
     if (typeof fromEnvId != 'undefined' && fromEnvId != null) {
         $copado('#wrapper_' + envId).attr('data-flowStepId', flowStepId);
@@ -1050,8 +1131,11 @@ backDeploy.addEnvBox = function(fromEnvId, envName, envId, flowStepId, branch, e
             $copado('#detailModeBody_' + envId).show();
         }
     }
-
-    backDeploy.setBoxStates();
+    backDeploy.counter++;
+    //UCU - below condition checks for +1 cause there will be always one more environment box than a deployment flow steps
+    if((backDeploy.data.stepIds.length + 1) == backDeploy.counter){
+        backDeploy.setBoxStates();
+    }
 };
 backDeploy.splitCoordinates = function(s) {
     var data = s.split(',');
@@ -1094,7 +1178,7 @@ backDeploy.queryCIRecords = function(environments) {
             continue;
         }
         if (allEnvIds[toEnvId]) {
-            var warningMessage = "- Cannot show " + toEnvName + " of <a target='_blank' href='/" + records[i].Id + "'>" + records[i].Name + "</a><br/>";
+            var warningMessage = "- Cannot show " + htmlEntities(toEnvName) + " of <a target='_blank' href='/" + records[i].Id + "'>" + htmlEntities(records[i].Name) + "</a><br/>";
             console.warn(warningMessage);
             $copado('#warningMessages').append(warningMessage);
             backDeploy.data.hasCIWarningMessages = true;
@@ -1260,7 +1344,7 @@ backDeploy.getPermissions = function() {
 };
 
 backDeploy.loadPage = function() {
-
+    console.log('load page');
     setLockScreenMessage(backDeploy.labels.LOADING);
     //lockScreen();
     try {
@@ -1273,8 +1357,9 @@ backDeploy.loadPage = function() {
         window.setTimeout(function() {
             backDeploy.processAttachments('load');
             // Only close if there were no git status running processes
-            if($copado('#screenLockerLightningText').html()==backDeploy.labels.LOADING)
-                setLockScreenMessage('');
+            // it was not unlocking at the page load so opened the code block again
+            //if($copado('#screenLockerLightningText').html()==backDeploy.labels.LOADING)
+                //setLockScreenMessage('');
         }, 500);
     } catch (error) {
         console.error(error);
@@ -1347,12 +1432,12 @@ backDeploy.calculateFileDifferences = function(jsonObject,conf){
                         backDeploy.assignCBMTabLabels(fileDiffLabel, 0);
                     }
                     var autoResolvedLabel = $copado('#autoresolved');
-                    if(backDeploy.data.gridConflictedItems) {
+                    if(backDeploy.data.gridConflictedItems){
                         var elem = item["filesMergedConflictBehind"];
                         if(elem){
-                            for(var j = 0; j < elem.length;j++){
-                                backDeploy.data.gridConflictedItems.push({f:elem[j]})
-                            }
+                        for(var j = 0; j < elem.length;j++){
+                            backDeploy.data.gridConflictedItems.push({f:elem[j]})
+                        }
                         }
                         autoResolveSize = backDeploy.data.gridConflictedItems.length;
                         backDeploy.assignCBMTabLabels(autoResolvedLabel,autoResolveSize);
@@ -1376,7 +1461,7 @@ backDeploy.calculateFileDifferences = function(jsonObject,conf){
                             var t = backDeploy.data.gridItems;
                             backDeploy.data.gridItems = backDeploy.filterGridMetadata(t,'d','update');
                             if(backDeploy.data.gridItems) {
-                                backDeploy.assignCBMTabLabels($copado('#mergeddiffsize'),backDeploy.data.gridItems.length);
+                            backDeploy.assignCBMTabLabels($copado('#mergeddiffsize'),backDeploy.data.gridItems.length);
                             } else {
                                 backDeploy.assignCBMTabLabels($copado('#mergeddiffsize'), 0);
                             }
@@ -1385,7 +1470,7 @@ backDeploy.calculateFileDifferences = function(jsonObject,conf){
                             var fileDiffElem = backDeploy.filterGridMetadata(t,'d','update');
                             var fileMergedDiffLabel = $copado('#mergeddiffsize');
                             if(fileDiffElem){
-                                backDeploy.assignCBMTabLabels(fileMergedDiffLabel,fileDiffElem.length);
+                            backDeploy.assignCBMTabLabels(fileMergedDiffLabel,fileDiffElem.length);
                             } else {
                                 backDeploy.assignCBMTabLabels(fileMergedDiffLabel, 0);
                             }
