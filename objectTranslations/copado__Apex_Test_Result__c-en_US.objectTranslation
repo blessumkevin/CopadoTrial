@@ -38,4 +38,9 @@
         <label><!-- Total time (ms) --></label>
         <name>copado__Total_time__c</name>
     </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>copado__User_Story__c</name>
+        <relationshipLabel><!-- Apex Test Results --></relationshipLabel>
+    </fields>
 </CustomObjectTranslation>

@@ -21,6 +21,11 @@
         <label>ApexTrigger</label>
     </customValue>
     <customValue>
+        <fullName>AuraDefinitionBundle</fullName>
+        <default>false</default>
+        <label>AuraDefinitionBundle</label>
+    </customValue>
+    <customValue>
         <fullName>Layout</fullName>
         <default>false</default>
         <label>Layout</label>

@@ -110,6 +110,38 @@
         <name>copado__SFDC_Login_Url__c</name>
     </fields>
     <fields>
+        <label><!-- Source Metadata Type --></label>
+        <name>copado__Source_Metadata_Type__c</name>
+        <picklistValues>
+            <masterLabel>Branch</masterLabel>
+            <translation><!-- Branch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Git Artifacts</masterLabel>
+            <translation><!-- Git Artifacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Metadata</masterLabel>
+            <translation><!-- Metadata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patch a Release (Beta)</masterLabel>
+            <translation><!-- Patch a Release (Beta) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second-Generation Packages</masterLabel>
+            <translation><!-- Second-Generation Packages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unlocked Packages</masterLabel>
+            <translation><!-- Unlocked Packages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unmanaged Packages</masterLabel>
+            <translation><!-- Unmanaged Packages --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Source Org Credential --></label>
         <name>copado__Source_Org_Credential__c</name>
         <relationshipLabel><!-- Scratch Org Project Templates (Source Org Credential) --></relationshipLabel>

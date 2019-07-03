@@ -25,7 +25,7 @@ public class EnvironmentVariableClass {
         return a;
        }
    public static Account setDefaultURL(Account a) { //DEV 1
-       a.website = 'www.{!Environment.UniqueWebsite}.copado.com'; // DEV 1 updates
+       a.website = 'www.Prod.copado.com'; // DEV 1 updates
        return a;
        }
 }

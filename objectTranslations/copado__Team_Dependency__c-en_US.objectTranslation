@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <help><!-- The Status of the child user story --></help>
+        <label><!-- Child User Story Status --></label>
+        <name>copado__Child_User_Story_Status__c</name>
+    </fields>
+    <fields>
         <help><!-- Short description (255 chars max) of the User Story that is needed from the other team. More detailed description can be added to the Notes field. --></help>
         <label><!-- Deliverable --></label>
         <name>copado__Deliverable__c</name>
@@ -41,13 +46,13 @@
         <help><!-- The Team that is dependent on another team to provide the User Story. --></help>
         <label><!-- Dependent Team --></label>
         <name>copado__Dependent_Team__c</name>
-        <relationshipLabel><!-- Team Dependencies needed for this Team --></relationshipLabel>
+        <relationshipLabel><!-- User Story Dependencies (Dependent Team) --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- The User Story that is dependent on the completion of the specified deliverable. --></help>
-        <label><!-- Dependent User Story --></label>
+        <label><!-- Child User Story --></label>
         <name>copado__Dependent_User_Story__c</name>
-        <relationshipLabel><!-- Team Dependencies needed for this User Story --></relationshipLabel>
+        <relationshipLabel><!-- Parent User Stories --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Needed by (Date) --></label>
@@ -58,21 +63,26 @@
         <name>copado__Notes__c</name>
     </fields>
     <fields>
+        <help><!-- The Status of the parent user story --></help>
+        <label><!-- Parent User Story Status --></label>
+        <name>copado__Parent_User_Story_Status__c</name>
+    </fields>
+    <fields>
         <help><!-- The team that will provide the deliverable to fulfill this dependency. --></help>
         <label><!-- Provider Team --></label>
         <name>copado__Provider_Team__c</name>
-        <relationshipLabel><!-- Team Dependencies on this Team --></relationshipLabel>
+        <relationshipLabel><!-- User Story Dependencies (Provider Team) --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- The record representing the User Story to satisfy the deliverable of this dependency. --></help>
-        <label><!-- Provider User Story --></label>
+        <label><!-- Parent User Story --></label>
         <name>copado__Provider_User_Story__c</name>
-        <relationshipLabel><!-- Team Dependencies on this User Story --></relationshipLabel>
+        <relationshipLabel><!-- Child User Stories --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Release --></label>
         <name>copado__Release__c</name>
-        <relationshipLabel><!-- Team Dependencies --></relationshipLabel>
+        <relationshipLabel><!-- User Story Dependencies --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Skip Dependency --></label>

@@ -6,7 +6,7 @@
         <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Deployment Flow --></label>
+        <label><!-- Pipeline --></label>
         <name>copado__Deployment_Flow__c</name>
         <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
     </fields>
@@ -63,6 +63,11 @@
     <fields>
         <label><!-- Snapshot Difference --></label>
         <name>copado__Snapshot_Difference__c</name>
+        <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>copado__User_Story__c</name>
         <relationshipLabel><!-- AuxiliaryObjects --></relationshipLabel>
     </fields>
 </CustomObjectTranslation>

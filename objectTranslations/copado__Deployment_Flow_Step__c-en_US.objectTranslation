@@ -18,9 +18,9 @@
         <name>copado__Commits_Behind__c</name>
     </fields>
     <fields>
-        <label><!-- Deployment Flow --></label>
+        <label><!-- Pipeline --></label>
         <name>copado__Deployment_Flow__c</name>
-        <relationshipLabel><!-- Deployment Flow Steps --></relationshipLabel>
+        <relationshipLabel><!-- Pipeline Connections --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- Value updated automatically by Copado. This is defined in the Deployment Flow Step of the Destination Environment. --></help>
@@ -30,7 +30,7 @@
     <fields>
         <label><!-- Destination Environment --></label>
         <name>copado__Destination_Environment__c</name>
-        <relationshipLabel><!-- Deployment Flow Steps (Destination Environment) --></relationshipLabel>
+        <relationshipLabel><!-- Pipeline Connections (Destination Environment) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Enable as Scratch Org Target --></label>
@@ -76,7 +76,7 @@
     <fields>
         <label><!-- Source Environment --></label>
         <name>copado__Source_Environment__c</name>
-        <relationshipLabel><!-- Deployment Flow Steps --></relationshipLabel>
+        <relationshipLabel><!-- Pipeline Connections (Source Environment) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Sync Merge State --></label>
@@ -155,4 +155,8 @@
             <translation><!-- Run Specified Tests --></translation>
         </picklistValues>
     </fields>
+    <webLinks>
+        <label><!-- Select_Branch --></label>
+        <name>copado__Select_Branch</name>
+    </webLinks>
 </CustomObjectTranslation>
