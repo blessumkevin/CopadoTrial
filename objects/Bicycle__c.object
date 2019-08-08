@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BMX</fullName>
+                    <default>false</default>
+                    <label>BMX Version 2</label>
+                </value>
+                <value>
+                    <fullName>Mountain</fullName>
+                    <default>false</default>
+                    <label>Mountain</label>
+                </value>
+                <value>
+                    <fullName>Road</fullName>
+                    <default>false</default>
+                    <label>Road</label>
+                </value>
+                <value>
+                    <fullName>Tandem</fullName>
+                    <default>false</default>
+                    <label>Tandem</label>
+                </value>
+                <value>
+                    <fullName>Testing 4th Value</fullName>
+                    <default>false</default>
+                    <label>Testing 4th Value</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>
