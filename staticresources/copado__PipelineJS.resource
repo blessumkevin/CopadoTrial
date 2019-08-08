@@ -356,7 +356,7 @@ pipelineConnector.buildEnvBox = function(envName, envId, style, branch, env, flo
         "<div class='title' style='color:#d0d9e2;font-size:12px;padding:0;' title='"+branch+"'>branch : "+htmlEntities(branch)+"</div></div>";
         
     if(needsOauth) {
-        s+="<div><a href='#' onclick='doOauth(\"" + flowStepId + "\",\"" + envId + "\",\"" + envName + "\",\"" + branch + "\");' value='Authenticate' title='Authenticate' class='btn slds-button' target='_parent' style='color:#3593c6;'>Authenticate</a></div>";
+        s+="<div><apex:commandButton onclick='doOauth(\"" + flowStepId + "\",\"" + envId + "\",\"" + envName + "\",\"" + branch + "\");' value='Authenticate' title='Authenticate' styleClass='btn slds-button' style='cursor:pointer;color:#3593c6;'>Authenticate</apex:commandButton></div>";
     }
     s+= "</div></div></div>"
 

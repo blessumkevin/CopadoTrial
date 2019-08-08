@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Related List Fields --></label>
-        <name>relatedListFields</name>
+        <name>copado__relatedListFields</name>
     </fieldSets>
     <fields>
         <label><!-- Description --></label>

@@ -10,11 +10,11 @@
     </caseValues>
     <fieldSets>
         <label><!-- Copado Header Fields --></label>
-        <name>Copado_Header_Fields</name>
+        <name>copado__Copado_Header_Fields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- CustomFields --></label>
-        <name>CustomFields</name>
+        <name>copado__CustomFields</name>
     </fieldSets>
     <fields>
         <label><!-- Build Task --></label>

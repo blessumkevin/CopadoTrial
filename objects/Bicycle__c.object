@@ -101,6 +101,11 @@
                     <default>false</default>
                     <label>Tandem</label>
                 </value>
+                <value>
+                    <fullName>Testing 4th Value</fullName>
+                    <default>false</default>
+                    <label>Testing 4th Value</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
