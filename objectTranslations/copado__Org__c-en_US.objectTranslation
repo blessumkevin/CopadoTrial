@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Copado Header Fields --></label>
-        <name>Copado_Header_Fields</name>
+        <name>copado__Copado_Header_Fields</name>
     </fieldSets>
     <fields>
         <help><!-- Status of the most recent Compliance Scan of the Org. --></help>

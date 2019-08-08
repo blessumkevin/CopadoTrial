@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>copado__Copado_DX</customButtons>
-    <customButtons>copado__Create_Scratch_Org</customButtons>
-    <customButtons>copado__Run_Static_Code_Analysis</customButtons>
-    <customButtons>copado__Run_Compliance_Scan</customButtons>
-    <customButtons>copado__Manage_Selenium_Tests</customButtons>
-    <customButtons>copado__Add_Metadata</customButtons>
     <customButtons>copado__Commit_Files</customButtons>
+    <customButtons>copado__Run_Static_Code_Analysis</customButtons>
+    <customButtons>copado__Apex_Test</customButtons>
+    <customButtons>copado__Manage_Selenium_Tests</customButtons>
+    <customButtons>copado__Run_Compliance_Scan</customButtons>
+    <customButtons>copado__Perform_Validation</customButtons>
+    <customButtons>copado__Pull_Request</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -15,7 +15,7 @@
         <label>Deployment Flow</label>
         <layoutColumns>
             <layoutItems>
-                <height>60</height>
+                <height>80</height>
                 <page>copado__UserStory</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
@@ -243,11 +243,23 @@
                 <behavior>Readonly</behavior>
                 <field>copado__Compliance_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Compliance__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>copado__Last_Compliance_Scan_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Compliance_Criteria__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Compliance_Highest_Rule_Action__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -293,11 +305,6 @@
             <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Run_Compliance_Scan</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>6</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>1</sortOrder>
@@ -323,9 +330,19 @@
             <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Pull_Request</actionName>
+            <actionName>copado__Run_Compliance_Scan</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>6</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__Perform_Validation</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>7</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__Pull_Request</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>8</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>

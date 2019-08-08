@@ -2,19 +2,19 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Copado Header Fields --></label>
-        <name>Copado_Header_Fields</name>
+        <name>copado__Copado_Header_Fields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- Custom Fields --></label>
-        <name>CustomFields</name>
+        <name>copado__CustomFields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- ManageBranchesDialog --></label>
-        <name>ManageBranchesDialog</name>
+        <name>copado__ManageBranchesDialog</name>
     </fieldSets>
     <fieldSets>
         <label><!-- Pipeline Manager --></label>
-        <name>Pipeline_Manager</name>
+        <name>copado__Pipeline_Manager</name>
     </fieldSets>
     <fields>
         <label><!-- Back Promotion --></label>

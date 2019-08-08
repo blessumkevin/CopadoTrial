@@ -79,12 +79,12 @@
     <recordTypes>
         <description><!-- Test a generic web application --></description>
         <label><!-- Generic Web Application --></label>
-        <name>Generic_Web_Application</name>
+        <name>copado__Generic_Web_Application</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Test a Salesforce Org using OAuth Authentication --></description>
         <label><!-- Salesforce --></label>
-        <name>Salesforce</name>
+        <name>copado__Salesforce</name>
     </recordTypes>
     <validationRules>
         <errorMessage><!-- Base URL cannot be populated if Org Credentials were selected. --></errorMessage>
