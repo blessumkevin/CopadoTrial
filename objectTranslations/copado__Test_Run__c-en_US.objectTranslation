@@ -2,11 +2,11 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- InputFields --></label>
-        <name>InputFields</name>
+        <name>copado__InputFields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- OutputFields --></label>
-        <name>OutputFields</name>
+        <name>copado__OutputFields</name>
     </fieldSets>
     <fields>
         <label><!-- Environment --></label>

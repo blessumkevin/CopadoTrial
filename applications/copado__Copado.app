@@ -7,6 +7,7 @@
     <label>Copado</label>
     <logo>copado__Copado/copado__Copado_Logo.png</logo>
     <tabs>copado__Getting_Started</tabs>
+    <tabs>copado__Snapshot_Difference__c</tabs>
     <tabs>copado__Org__c</tabs>
     <tabs>copado__Deployment__c</tabs>
     <tabs>copado__OrgDiff__c</tabs>
@@ -15,7 +16,6 @@
     <tabs>copado__Git_Backup__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>copado__Environment__c</tabs>
-    <tabs>copado__Snapshot_Difference__c</tabs>
     <tabs>copado__Continuous_Integration__c</tabs>
     <tabs>copado__Copado_License_Manager</tabs>
     <tabs>copado__Scheduled_Job__c</tabs>

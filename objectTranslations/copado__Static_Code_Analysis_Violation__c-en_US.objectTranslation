@@ -128,11 +128,11 @@
     <recordTypes>
         <description><!-- Record Type for CodeScan integration. Requires CodeScan licensing. --></description>
         <label><!-- CodeScan --></label>
-        <name>CodeScan</name>
+        <name>copado__CodeScan</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Record Type for free of charge PMD integration --></description>
         <label><!-- PMD --></label>
-        <name>PMD</name>
+        <name>copado__PMD</name>
     </recordTypes>
 </CustomObjectTranslation>
