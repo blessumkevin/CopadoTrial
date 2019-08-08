@@ -9,6 +9,14 @@
         <value>Bicycles</value>
     </caseValues>
     <fields>
+        <label><!-- Price --></label>
+        <name>Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Edition --></label>
+        <name>Special_Edition__c</name>
+    </fields>
+    <fields>
         <label><!-- Type --></label>
         <name>Type__c</name>
         <picklistValues>

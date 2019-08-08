@@ -47,10 +47,30 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Price__c</fullName>
+        <description>Using to test CI Job.</description>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Special_Edition__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Special Edition</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
