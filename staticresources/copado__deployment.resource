@@ -4522,16 +4522,16 @@ var copadoCSStep = {
 
         var settings = [];
         var type;
-        if($copado('[id$="js-stepBlock-CustomSettings"] #jqxgrid-custom-setting div[role="row"]').length > 0){
-            type = $copado('[id$="js-stepBlock-CustomSettings"] #jqxgrid-custom-setting div[role="row"]:first').find('[role="gridcell"]:nth(1) div').text();
-        }
-        console.log('type===> ',type);
-        $copado('[id$="js-stepBlock-CustomSettings"] #jqxgrid-custom-setting div[role="row"]').each(function(){
-        	if($copado(this).find('[role="gridcell"]:first span').attr('class') && $copado(this).find('[role="gridcell"]:first span').attr('class').indexOf('jqx-checkbox-check-checked') > -1){
-        	    settings.push($copado(this).find('[role="gridcell"]:nth('+(type != 'List' ? '2' : '3')+')>div').text());
+        var allData = dataAdapter2.records;
+        allData.forEach(function(element) {
+            if (element.s) {
+                if (element.type == 'List') {
+                    settings.push(element.Name);
+                } else {
+                    settings.push(element.SetupOwnerId);
+                }
             }
         });
-        console.log('settings==getObjToSave==> ',settings);
         return {
             fromSuffix: $copado('.cs-fromSuffix').val(),
             toSuffix: $copado('.cs-toSuffix').val(),

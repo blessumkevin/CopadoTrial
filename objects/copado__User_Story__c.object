@@ -4604,6 +4604,36 @@
         <label>Work Manager Relations</label>
     </fieldSets>
     <fields>
+        <fullName>Compliance_Highest_Rule_Action__c</fullName>
+        <description>Pulls the value from &quot;Highest Rule Action&quot; off the most recent Compliance Scan Result Record.</description>
+        <externalId>false</externalId>
+        <label>Compliance Highest Rule Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abort Process</fullName>
+                    <default>false</default>
+                    <label>Abort Process</label>
+                </value>
+                <value>
+                    <fullName>Document Only</fullName>
+                    <default>false</default>
+                    <label>Document Only</label>
+                </value>
+                <value>
+                    <fullName>Continue with alert</fullName>
+                    <default>false</default>
+                    <label>Continue with alert</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>SCA_Score__c</fullName>
         <description>This field is updated by a process that pastes the most recent SCA results.</description>
         <externalId>false</externalId>
@@ -6095,6 +6125,21 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <active>true</active>
         <label>Bug</label>
         <picklistValues>
+            <picklist>Compliance_Highest_Rule_Action__c</picklist>
+            <values>
+                <fullName>Abort Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continue with alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -6542,6 +6587,21 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <active>true</active>
         <label>Investigation</label>
         <picklistValues>
+            <picklist>Compliance_Highest_Rule_Action__c</picklist>
+            <values>
+                <fullName>Abort Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continue with alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -6988,6 +7048,21 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <fullName>copado__User_Story</fullName>
         <active>true</active>
         <label>User Story</label>
+        <picklistValues>
+            <picklist>Compliance_Highest_Rule_Action__c</picklist>
+            <values>
+                <fullName>Abort Process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continue with alert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Document Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
@@ -7456,6 +7531,45 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <searchResultsAdditionalFields>copado__Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Compliance_Scan_Passed</fullName>
+        <active>false</active>
+        <description>Looks at the &quot;Compliance Highest Rule Violation&quot; field to make sure that it does not say &quot;Abort Process&quot;.</description>
+        <errorConditionFormula>AND( 
+OR( 
+AND( 
+PRIORVALUE(copado__Promote_Change__c) = false, 
+copado__Promote_Change__c = true 
+), 
+AND( 
+PRIORVALUE(copado__Promote_and_Deploy__c) = false, 
+copado__Promote_and_Deploy__c = true 
+) 
+), 
+ISPICKVAL( Compliance_Highest_Rule_Action__c, &quot;Abort Process&quot;
+)
+)</errorConditionFormula>
+        <errorMessage>This User Story contains critical compliance violations. Please view the Scan Result for more details.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Compliance_Scan_Run</fullName>
+        <active>false</active>
+        <description>Looks at the &quot;Last Compliance Scan Date&quot; field to make sure a scan has been run.</description>
+        <errorConditionFormula>AND( 
+OR( 
+AND( 
+PRIORVALUE(copado__Promote_Change__c) = false, 
+copado__Promote_Change__c = true 
+), 
+AND( 
+PRIORVALUE(copado__Promote_and_Deploy__c) = false, 
+copado__Promote_and_Deploy__c = true 
+) 
+),
+ISBLANK( copado__Last_Compliance_Scan_Date__c )
+)</errorConditionFormula>
+        <errorMessage>Please run a compliance scan.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Pull_Request_Approved</fullName>
         <active>false</active>

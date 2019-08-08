@@ -251,12 +251,12 @@
     <recordTypes>
         <description><!-- Version control system centric artifact --></description>
         <label><!-- Git Artifact --></label>
-        <name>Git_Artifact</name>
+        <name>copado__Git_Artifact</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Salesforce unmanaged, unlocked or manage package as a artifact --></description>
         <label><!-- Package Artifact --></label>
-        <name>Package_Artifact</name>
+        <name>copado__Package_Artifact</name>
     </recordTypes>
     <validationRules>
         <errorMessage><!-- Artifact names are in use for DX folder structure, therefore, artifact names are not editable. --></errorMessage>

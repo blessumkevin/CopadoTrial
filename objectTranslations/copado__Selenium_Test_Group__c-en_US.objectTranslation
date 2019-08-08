@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Selenium_Results_Tab --></label>
-        <name>Selenium_Results_Tab</name>
+        <name>copado__Selenium_Results_Tab</name>
     </fieldSets>
     <fields>
         <label><!-- Description --></label>
