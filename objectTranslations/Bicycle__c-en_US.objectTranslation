@@ -35,6 +35,10 @@
             <masterLabel>Tandem</masterLabel>
             <translation><!-- Tandem --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing 4th Value</masterLabel>
+            <translation><!-- Testing 4th Value --></translation>
+        </picklistValues>
     </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
