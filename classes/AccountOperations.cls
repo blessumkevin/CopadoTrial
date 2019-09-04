@@ -1,27 +1,20 @@
 public class AccountOperations {
-   Public static Account setDefaultDescription(Account a){
-       If (a.Description != null) return a;
-         Else {
-                a.Description = 'NBN';    
-                return a;
-              }
-           }
-   //New methods introduced by Developer 1 working on the US-003
-   public static Account setDefaultBillingAddress(Account a){
-       a.billingstreet = 'Po Castellana, 77 5th floor'; // DEV 1 updates
-       a.billingstate = 'Madrid';
-       a.billingpostalcode ='28046'; // DEV 2 updates
-       return a;
-       }
-   public static Account setDefaultShippingAddress(Account a){
-       a.shippingstreet = 'Po Castellana, 77 5th floor'; // DEV 1 updates
-       a.shippingstate = 'Madrid';
-       a.shippingpostalcode ='28046'; // DEV 2 updates
-       return a;
-       }
-      
-   public static Account setDefaultPhone(Account a) {//DEV 1
-        a.Phone='611111111'; // DEV 1 updates
+    public static Account setDefaultDescription(Account a) {        
+        // If statements must use braces
+        if (a.Description != null) return a;
+	else a.Description = 'Default Description';
+        
+        // Avoid SOQL inside loops
+        for (Integer i = 0; i < 10; i++) {
+	    List<Account> accounts = [SELECT Id FROM Account];
+	}
+        
+        // Avoid DML Statements inside loops 
+        //testing the Copado CLI
+        for (Integer i = 0; i < 1; i++) {
+	    update a;
+	}
+       	
         return a;
        }
    public static Account setDefaultURL(Account a) { //DEV 1
