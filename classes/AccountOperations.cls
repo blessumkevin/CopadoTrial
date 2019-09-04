@@ -10,7 +10,7 @@ public class AccountOperations {
 	}
         
         // Avoid DML Statements inside loops 
-        //testing the Copado CLI
+        //testing the Copado
         for (Integer i = 0; i < 1; i++) {
 	    update a;
 	}
