@@ -14,7 +14,11 @@ public class AccountOperations {
         for (Integer i = 0; i < 1; i++) {
 	    update a;
 	}
-       	
+       	       
+        // Testing
+        for (Integer i = 1; i < 1; i++) {
+	    update a;
+	}
         return a;
        }
    public static Account setDefaultURL(Account a) { //DEV 1
