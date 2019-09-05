@@ -9,8 +9,7 @@ public class AccountOperations {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
         
-        // Avoid DML Statements inside loops 
-        //testing the Copado
+        // Avoid DML Statements inside loops
         for (Integer i = 0; i < 1; i++) {
 	    update a;
 	}
@@ -20,9 +19,5 @@ public class AccountOperations {
 	    update a;
 	}
         return a;
-       }
-   public static Account setDefaultURL(Account a) { //DEV 1
-       a.website = 'www.copado-enterprise.com'; // DEV 1 updates
-       return a;
-       }
+    }
 }
