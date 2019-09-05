@@ -9,12 +9,15 @@ public class AccountOperations {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
         
-        // Avoid DML Statements inside loops 
-        //testing the Copado CLI
+        // Avoid DML Statements inside loops
         for (Integer i = 0; i < 1; i++) {
 	    update a;
 	}
-       	
+       	       
+        // Testing
+        for (Integer i = 1; i < 1; i++) {
+	    update a;
+	}
         return a;
     }
 }
