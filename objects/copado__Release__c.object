@@ -48,6 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -254,5 +255,16 @@
         <openType>replace</openType>
         <protected>false</protected>
         <url>/apex/{!if($Setup.copado__Settings__c.copado__Namespace__c =&apos;none&apos;,&apos;&apos;,&apos;copado__&apos;)}MassAddToRelease?id={!copado__Release__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Select_Base_Branch</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Select Base Branch</masterLabel>
+        <openType>sidebar</openType>
+        <page>copado__ReleaseBranchSelection</page>
+        <protected>false</protected>
     </webLinks>
 </CustomObject>

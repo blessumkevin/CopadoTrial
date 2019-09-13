@@ -2,11 +2,19 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Copado Header Fields --></label>
-        <name>Copado_Header_Fields</name>
+        <name>copado__Copado_Header_Fields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- Custom Fields --></label>
-        <name>CustomFields</name>
+        <name>copado__CustomFields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- ManageBranchesDialog --></label>
+        <name>copado__ManageBranchesDialog</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Pipeline Manager --></label>
+        <name>copado__Pipeline_Manager</name>
     </fieldSets>
     <fields>
         <label><!-- Back Promotion --></label>
@@ -37,6 +45,11 @@
         <help><!-- Conflicts found in the selected metadata types are not auto-resolved by Copado when merging feature branches into the promotion branch. The conflicts can be manually resolved using Copado. --></help>
         <label><!-- Exclude From Auto Resolve --></label>
         <name>copado__Exclude_From_Auto_Resolve__c</name>
+    </fields>
+    <fields>
+        <help><!-- Fill this field only if you want to change the selected user stories order on deployment. (usage exp: name asc, copado__backlog_rank__c desc) --></help>
+        <label><!-- Order User Stories by --></label>
+        <name>copado__Order_by__c</name>
     </fields>
     <fields>
         <help><!-- The selected Project should be linked to an active Deployment Flow --></help>

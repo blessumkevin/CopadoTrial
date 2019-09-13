@@ -73,5 +73,5 @@
         <filterScope>Mine</filterScope>
         <label>My Contact Requests</label>
     </listViews>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -49,6 +49,7 @@
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -660,22 +661,20 @@ copado__SUM_Deployed__c / copado__Deployment_Jobs_Count__c,
         <fullName>copado__Cancel_Deployment</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Cancel Deployment</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Cancel Deployment (Deprecated)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
-var updateRecords = sforce.connection.query(&quot;select id from {!$Setup.copado__Settings__c.copado__Namespace__c}Deployment_Job__c where {!$Setup.copado__Settings__c.copado__Namespace__c}Step__r.{!$Setup.copado__Settings__c.copado__Namespace__c}Deployment__c = &apos;{!copado__Deployment__c.Id}&apos;and {!$Setup.copado__Settings__c.copado__Namespace__c}Status__c in (&apos;Pending&apos;,&apos;Not started&apos;)&quot;).getArray(&quot;records&quot;);
-if(updateRecords == null || updateRecords.length == 0){
-	alert(&quot;{!$Label.copado__nothing_to_cancel}&quot;);
-}
-else{
-  for (var i = 0; i &lt; updateRecords.length; i++) {
-    updateRecords[i].{!$Setup.copado__Settings__c.copado__Namespace__c}Status__c = &quot;Cancelled&quot;;
-  }
-  var result = sforce.connection.update(updateRecords);
-  window.location.reload();
-}</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/</url>
     </webLinks>
     <webLinks>
         <fullName>copado__Deploy</fullName>

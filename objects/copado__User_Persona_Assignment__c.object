@@ -48,6 +48,7 @@
     <enableBulkApi>false</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>false</enableSharing>
@@ -248,6 +249,20 @@
 )</errorConditionFormula>
         <errorDisplayField>copado__Type__c</errorDisplayField>
         <errorMessage>Cannot  specify End and Start time for Permanent permissions.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>copado__Start_End_date_illogicalness</fullName>
+        <active>true</active>
+        <description>If current user sets start date less than the end date, then the rule&apos;s error message will appear on the top of the page.</description>
+        <errorConditionFormula>IF( copado__Start_Time__c &gt;  copado__End_Time__c ,true, false)</errorConditionFormula>
+        <errorMessage>Start Time cannot be after the End Time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>copado__Start_date_issue</fullName>
+        <active>true</active>
+        <description>If either start date or end date is set less than current datetime, the rule&apos;s error message will appear on the top of the page.</description>
+        <errorConditionFormula>If( OR(copado__Start_Time__c &lt;  NOW() , copado__End_Time__c &lt; NOW()),true,false )</errorConditionFormula>
+        <errorMessage>Start Time or End Time cannot be in the past. Please add a couple of minutes to related field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Temporary_with_Dates</fullName>

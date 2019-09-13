@@ -17,11 +17,11 @@
     <recordTypes>
         <description><!-- This record type is used for scan findings produced by Copado. --></description>
         <label><!-- Copado --></label>
-        <name>Copado</name>
+        <name>copado__Copado</name>
     </recordTypes>
     <recordTypes>
         <description><!-- Use this record type to capture non-Salesforce scan findings. --></description>
         <label><!-- Other --></label>
-        <name>Other</name>
+        <name>copado__Other</name>
     </recordTypes>
 </CustomObjectTranslation>

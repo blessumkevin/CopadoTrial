@@ -32,7 +32,7 @@
     </fields>
     <fields>
         <help><!-- If enabled, when a Back Promotion is completed and contains Metadata found in User Stories in the destination Environment, the status of the User Story Metadata records of these User Stories will be updated to &quot;Back Promoted&quot;. --></help>
-        <label><!-- Index Back Promotion metadata --></label>
+        <label><!-- Index Back Promotion Metadata --></label>
         <name>copado__Index_Back_Promotion_metadata__c</name>
     </fields>
     <fields>
@@ -59,8 +59,21 @@
         <name>copado__Org_ID__c</name>
     </fields>
     <fields>
+        <help><!-- The Default Credential for the target Org is always selected by default. Optionally, the Default Credential can be selected only if the user has no Org Credential for the target Org. --></help>
+        <label><!-- Promotion Default Credential --></label>
+        <name>copado__Promotion_Default_Credential__c</name>
+        <picklistValues>
+            <masterLabel>All Promotions</masterLabel>
+            <translation><!-- All Promotions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Only If User Has No Org Credential</masterLabel>
+            <translation><!-- Only If User Has No Org Credential --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help><!-- If selected, &quot;Run all tests&quot; will be enforced when deploying to this environment. --></help>
-        <label><!-- Run all tests --></label>
+        <label><!-- Run all local tests --></label>
         <name>copado__Run_all_tests__c</name>
     </fields>
     <fields>
@@ -77,6 +90,19 @@
         <picklistValues>
             <masterLabel>Scratch Org</masterLabel>
             <translation><!-- Scratch Org --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The Default Credential for the target Org is always selected by default. Optionally, the Default Credential can be selected only if the user has no Org Credential for the target Org. --></help>
+        <label><!-- Validation Promotion Default Credential --></label>
+        <name>copado__Validation_Promotion_Default_Credential__c</name>
+        <picklistValues>
+            <masterLabel>All Validation Promotions</masterLabel>
+            <translation><!-- All Validation Promotions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Only If User Has No Org Credential</masterLabel>
+            <translation><!-- Only If User Has No Org Credential --></translation>
         </picklistValues>
     </fields>
     <webLinks>

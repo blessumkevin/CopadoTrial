@@ -8,7 +8,6 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -17,6 +16,40 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <name>Facet-dd565897-00d3-4b0f-958b-c19fa1f80668</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>parentFieldApiName</name>
+                <value>copado__User_Story__c.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListApiName</name>
+                <value>copado__User_Story_Commits__r</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListSingleContainer</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>parentFieldApiName</name>
+                <value>copado__User_Story__c.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListApiName</name>
+                <value>copado__User_Story_Metadata__r</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListSingleContainer</componentName>
+        </componentInstances>
+        <name>Facet-8xezeb7dwc</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -57,22 +90,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListApiName</name>
-                <value>copado__Test_Executions__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>copado__User_Story__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>copado__Test_Scripts_UserStory__r</value>
+                <value>copado__Pull_Requests__r</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
@@ -92,6 +110,14 @@
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
                 <value>NONE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
@@ -114,37 +140,7 @@
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>copado__User_Story__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>copado__User_Story_Commits__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>parentFieldApiName</name>
-                <value>copado__User_Story__c.Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListApiName</name>
-                <value>copado__Pull_Requests__r</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListSingleContainer</componentName>
-        </componentInstances>
-        <name>Facet-8xezeb7dwc</name>
+        <name>Facet-6efe7de5-bfd6-430b-b294-5d3cc873dca9</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -204,22 +200,33 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>Facet-8c609fdb-5a34-45d6-a248-0754096d6e79</value>
+                <value>Facet-8xezeb7dwc</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Testing</value>
+                <value>Commits</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>Facet-8xezeb7dwc</value>
+                <value>Facet-8c609fdb-5a34-45d6-a248-0754096d6e79</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Commits</value>
+                <value>Quality Gates</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-6efe7de5-bfd6-430b-b294-5d3cc873dca9</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Conflict Resolution</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -245,7 +252,6 @@
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>maintabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -257,20 +263,13 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <flexiPageRegions>
-        <mode>Replace</mode>
-        <name>sidebar</name>
-        <type>Region</type>
-    </flexiPageRegions>
     <masterLabel>User Story Record Page</masterLabel>
-    <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
     <sobjectType>copado__User_Story__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeTemplateDesktop</name>
+        <name>flexipage:recordHomeSingleColTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

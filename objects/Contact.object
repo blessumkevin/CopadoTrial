@@ -137,7 +137,7 @@
         <description>To leverage for Data Migration demos.</description>
         <externalId>true</externalId>
         <label>External ID</label>
-        <length>25</length>
+        <length>100</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
@@ -158,6 +158,11 @@
     <fields>
         <fullName>HomePhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>IndividualId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>

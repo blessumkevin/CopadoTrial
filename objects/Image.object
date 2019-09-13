@@ -70,12 +70,10 @@
         <fullName>Name</fullName>
     </fields>
     <searchLayouts>
-        <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ContentDocument</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ContentDocument</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

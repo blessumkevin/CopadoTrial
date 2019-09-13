@@ -7,8 +7,6 @@ webhookLookup.config = webhookLookup.config || {};
 webhookLookup.hookUrl = webhookLookup.hookUrl || {};
 webhookLookup.webhookLookup = webhookLookup.webhookLookup || {};
 
-var $copado = $copado || jQuery.noConflict();
-
 //Properties
 webhookLookup.config.ns = '';
 webhookLookup.config.herokuServer = '';
@@ -16,6 +14,7 @@ webhookLookup.config.ADD_API_KEY_TO_URL = true;
 webhookLookup.config.URL_ELEMENT_ID = '';
 webhookLookup.host = '';
 webhookLookup.url = '';
+webhookLookup.referalMap = [];
 //webhookLookup.responseUrl = '';
 webhookLookup.webhookLookup.currentUrl = '';
 
@@ -31,17 +30,25 @@ webhookLookup.onSuccessCB = function(){};
 /* WEBHOOK LOOKUP */
 webhookLookup.templateRow = function(i, row){
     var _row = '<tr class="dataRow">'+
-        '<td>'+
-            '<a id="whn-'+i+'" href="javascript:void(0)" onclick="webhookLookup.showLookupField(\''+row.referTo+'\', \''+row.url+'\');">'+row.name+'</a>'+
-        '</td>'+
+        '<td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">';
+        if(!row.multiReferal || row.multiReferal === false){
+            _row += '<a id="whn-'+i+'" title="' + row.name +'" href="javascript:void(0)" onclick="webhookLookup.showLookupField(\''+row.referTo+'\', \''+row.url+'\');">'+row.name+'</a>';
+        } else {
+            _row += '<a id="whn-'+i+'" title="' + row.name +'" href="javascript:void(0)" onclick="webhookLookup.showLookupFieldsMultiReferal(\''+row.referTo+'\', \''+row.url+'\');">'+row.name+'</a>';
+        }
+        _row+= '</td>'+
         '<td style="white-space: pre-wrap;"><span id="whd-'+i+'">'+row.description+'</span></td>'+
         '<td><a id="whdl-'+i+'" href="'+row.documentationLink+'" data-ref="webhookNameLink" target="_blank">'+webhookLookup.config.VIEW_DOCUMENTATION+'</a></td>'+
     '</tr>';
     return _row;
 };
 webhookLookup.showSpecificLookup = function(referTo){
+    $copado('#btnApplyMultiReferal').hide();
 	$copado('[data-type="lookupDiv"]').hide();
 	$copado('#js-'+referTo.toLowerCase()).show();
+};
+webhookLookup.showSpecificLookupsMultiReferal = function(referTo){
+	$copado('#js-'+referTo.toLowerCase().trim()).show();
 };
 webhookLookup.showLookupField = function(referTo, url){
 	webhookLookup.currentUrl = url;
@@ -49,12 +56,63 @@ webhookLookup.showLookupField = function(referTo, url){
 	webhookLookup.showSpecificLookup(referTo);
 	$copado('#webhookLookupFields').show();
 };
+webhookLookup.showLookupFieldsMultiReferal = function(referTos, url){
+    if(!referTos) return;
+    var parsedArray = referTos.split(",").map(String);
+    webhookLookup.multiReferals = parsedArray;
+    $copado('#divWebhooksTable').hide();
+    $copado('[data-type="lookupDiv"]').hide();
+    webhookLookup.currentUrl = url;
+    for(var i=0; i<parsedArray.length;i++){
+        console.debug('showLookupFieldsMultiReferal::parsedArray',parsedArray[i],parsedArray);
+        webhookLookup.showSpecificLookupsMultiReferal(parsedArray[i]);
+        $copado('#webhookLookupFields').show();
+    }
+    $copado('#btnApplyMultiReferal').show();
+};
 webhookLookup.show = function(){
 	webhookLookup.currentUrl = '';
 	$copado('#whl-popup').show();
     webhookLookup.getWebhooks();
 };
+webhookLookup.applyMultiReferal = function(){
+    var templateUrl = webhookLookup.currentUrl;
+    var ns = webhookLookup.config.ns;
+    if(webhookLookup.config.ADD_API_KEY_TO_URL===true){
+        JsRemoting.apiKey.createKey(ns,
+            function(result){
+                var url = webhookLookup.config.herokuServer;
+                for(var i = 0; i < webhookLookup.multiReferals.length; i++){
+                    templateUrl = templateUrl.replace('__RECORDID_'+i+'__', webhookLookup.referalMap[webhookLookup.multiReferals[i].toLowerCase().trim()]);
+                }
+                templateUrl = templateUrl.replace('__APIKEY__', result);
+                url += templateUrl;
+                webhookLookup.setValue(url);
+                webhookLookup.onSuccessCB();
+                webhookLookup.hide(true);
+            }, function(event){
+                webhookLookup.hide(true);
+                alert('Exception: '+event.message);
+            }, function(event){
+                webhookLookup.hide(true);
+                alert('Error: '+event.message);
+            }
+        );
+    }
+    else{
+        var url = webhookLookup.config.herokuServer;
+        for(var i = 0; i < webhookLookup.multiReferals.length; i++){
+            templateUrl = templateUrl.replace('__RECORDID_'+i+'__', webhookLookup.referalMap[webhookLookup.multiReferals[i].toLowerCase().trim()]);
+        }
+        url += templateUrl.replace('api_key=__APIKEY__', '');
+        webhookLookup.setValue(url);
+        webhookLookup.onSuccessCB();
+        webhookLookup.hide(true);
+    }
+
+}
 webhookLookup.hide = function(){
+
 	$copado('#whl-popup').hide();
 	$copado('#divWebhooksTable').show();
 	$copado('#webhooksTable').hide();
@@ -84,26 +142,32 @@ webhookLookup.renderWebhooksTable = function(response){
 		}
     }
 };
+var globalResult = {};
 webhookLookup.getWebhooks = function(){
     var url = webhookLookup.config.herokuServer+'/json/v1/describeWebhooks';
-    console.log('Calling Heroku to get webhook urls', url);
+    console.log('Calling Heroku to get webhook urls');
     utilsV2.method = 'GET';
     utilsV2.onFailureCB = function(res){
     	webhookLookup.hide();
         alert(res);
     };
     utilsV2.onSuccessCB = function(res){
+        globalResult = res;
         webhookLookup.renderWebhooksTable(res);
     };
     utilsV2.getRemote(url);
 };
-webhookLookup.setUrl = function(templateUrl, recordId){
+webhookLookup.setUrl = function(templateUrl, recordId, skipValueSet){
 	var ns = webhookLookup.config.ns;
 	if(webhookLookup.config.ADD_API_KEY_TO_URL==true){
 		JsRemoting.apiKey.createKey(ns,
 	        function(result){
 	            var url = webhookLookup.config.herokuServer+templateUrl.replace('__RECORDID__', recordId).replace('__APIKEY__', result);
-	            webhookLookup.setValue(url);
+	            
+	            if(url.indexOf('&') > -1 && url.indexOf('?') == -1){
+                    url = url.replace('&','?');
+                }
+	            if(!skipValueSet) webhookLookup.setValue(url);
 	            webhookLookup.onSuccessCB();
 	            webhookLookup.hide();
 	        }, function(event){
@@ -117,16 +181,35 @@ webhookLookup.setUrl = function(templateUrl, recordId){
 	}
 	else{
 		var url = webhookLookup.config.herokuServer+templateUrl.replace('__RECORDID__', recordId).replace('?api_key=__APIKEY__', '');
+		console.debug('url===2=> ',url);
+		if(url.indexOf('&') > -1 && url.indexOf('?') == -1){
+            url = url.replace('&','?');
+        }
 		webhookLookup.setValue(url);
 		webhookLookup.onSuccessCB();
         webhookLookup.hide();
 	}
 	    
 };
-webhookLookup.getLookupRecordId = function(id){
-	var recordId = $copado('[id$="'+id+'_lkid"]').val();
-	if(recordId!='000000000000000'){
-		webhookLookup.setUrl(webhookLookup.currentUrl, recordId);
+webhookLookup.getLookupRecordId = function(id,key,typeText){
+	var recordId;
+	if(key && !typeText){
+	    recordId = $copado('[id$="'+id+'_lkid"]').val();
+	    webhookLookup.referalMap[key] = recordId
+    } else if(key && typeText){
+        recordId = $copado('[id$="'+id+'"]').val();
+        webhookLookup.referalMap[key] = recordId
+    } else if(!key && !typeText){
+        recordId = $copado('[id$="'+id+'_lkid"]').val();
+    } else {
+        recordId = $copado('[id$="'+id+'"]').val();
+    }
+	var lookupElements = $copado('td > span.lookupInput > input:not(:hidden)');
+    var textElements = $copado('td > input[type=text]:not(:hidden)');
+    var applyEnabled = $copado('#btnApplyMultiReferal').css('display') != 'none';
+    if((lookupElements.length > 1 || textElements > 1) && applyEnabled ) return;
+	if(recordId != '000000000000000'){
+		webhookLookup.setUrl(webhookLookup.currentUrl, recordId,applyEnabled);
 	}
 };
 webhookLookup.setValue = function(url){

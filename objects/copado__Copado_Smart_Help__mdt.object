@@ -17,6 +17,11 @@
                     <default>true</default>
                     <label>GitCommitChanges</label>
                 </value>
+                <value>
+                    <fullName>GitCommitMain</fullName>
+                    <default>false</default>
+                    <label>GitCommitMain</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

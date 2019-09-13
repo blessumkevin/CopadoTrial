@@ -10,7 +10,7 @@
     </caseValues>
     <fieldSets>
         <label><!-- ViewDeploymentColumns --></label>
-        <name>ViewDeploymentColumns</name>
+        <name>copado__ViewDeploymentColumns</name>
     </fieldSets>
     <fields>
         <label><!-- Attachment Id --></label>

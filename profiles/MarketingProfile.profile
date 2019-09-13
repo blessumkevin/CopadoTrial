@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>Copado_Trial</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
@@ -88,6 +93,14 @@
         <apexClass>AccountOperationsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>EnvironmentVariableClass</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EnvironmentVariableTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -138,6 +151,11 @@
         <editable>false</editable>
         <field>Account.DunsNumber</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.External_ID__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -641,6 +659,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ConsumptionRate.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ConsumptionRate.UpperBound</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ConsumptionSchedule.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ConsumptionSchedule.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ConsumptionSchedule.MatchingAttribute</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ConsumptionSchedule.UnitOfMeasure</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -683,6 +731,11 @@
         <editable>true</editable>
         <field>Contact.Email</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.External_ID__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -891,6 +944,111 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Individual.BirthDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.CanStorePiiElsewhere</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.ChildrenCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.ConsumerCreditScore</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.ConsumerCreditScoreProviderName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.ConvictionsCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.DeathDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.HasOptedOutGeoTracking</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.HasOptedOutProcessing</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.HasOptedOutProfiling</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.HasOptedOutSolicit</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.HasOptedOutTracking</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.IndividualsAge</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.InfluencerRating</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.IsHomeOwner</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.MasterRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.MilitaryService</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.Occupation</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.SendIndividualData</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.ShouldForget</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Individual.Website</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1063,6 +1221,11 @@
         <editable>true</editable>
         <field>Opportunity.ExpectedRevenue</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.External_ID__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1406,6 +1569,46 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Apex_Test_Result__c.copado__User_Story__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Dependency__c.copado__Depending_Artifact_Version__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Dependency__c.copado__Depending_Artifact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Dependency__c.copado__Depends_on_the_latest_version__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Branch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Is_released__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Package_Version_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Production_Installation_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Artifact_Version__c.copado__Release_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1416,7 +1619,37 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Sandbox_Installation_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Subscriber_Version_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Tag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Version_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Version_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Artifact_Version__c.copado__Version__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact_Version__c.copado__Version_number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1431,12 +1664,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Artifact__c.copado__Artifact_Version__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Artifact__c.copado__Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Artifact__c.copado__No_Namespace__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Artifact__c.copado__Org_Credential__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Package_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Package_Namespace__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Package_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Sfdc_Login_Url__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Source_Api_Version__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Artifact__c.copado__Target_Dev_Hub_Org__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1506,6 +1779,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__AuxiliaryObject__c.copado__User_Story__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Branch_Management_Permission__c.copado__Allow_Deployments__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1537,6 +1815,26 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Build_Task__c.copado__Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Burndown_Item__c.copado__Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Burndown_Item__c.copado__Expected_Story_Point__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Burndown_Item__c.copado__Sprint__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Burndown_Item__c.copado__Total_Story_Point__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1971,6 +2269,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Deployment_Flow__c.copado__Calculate_Based_on__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Deployment_Flow__c.copado__Copado_DX_Mode__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2006,12 +2309,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Deployment_Flow__c.copado__Hide_Tabs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Deployment_Flow__c.copado__Main_Branch__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Deployment_Flow__c.copado__Manage_Branches__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Deployment_Flow__c.copado__Merge_Strategy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Deployment_Flow__c.copado__Order_by__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2341,6 +2659,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Environment__c.copado__Promotion_Default_Credential__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Environment__c.copado__Run_all_tests__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2351,7 +2674,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Environment__c.copado__Validation_Promotion_Default_Credential__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Environmental_Variable__c.copado__Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Epic__c.copado__Cancelled_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2362,6 +2695,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Epic__c.copado__Epic_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Epic__c.copado__Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2541,6 +2879,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Git_Commit__c.copado__Commit_Datetime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Git_Commit__c.copado__Commit_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2632,6 +2975,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Git_Repository__c.copado__Username__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Kanban_Board_View__c.copado__Kanban_Board__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Kanban_Board_View__c.copado__SOQL_Json__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2861,6 +3214,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Project__c.copado__Exclude_Tabs_from_Promotion_Page__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Project__c.copado__Index_Metadata__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2902,6 +3260,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Promotion__c.copado__Exclude_From_Auto_Resolve__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Promotion__c.copado__Order_by__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3182,6 +3545,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Scratch_Org_Project_Template__c.copado__SFDC_Login_Url__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Scratch_Org_Project_Template__c.copado__Source_Metadata_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3531,7 +3899,67 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Blocker__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Bugs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Closed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Code_Smells__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Confirmed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Critical__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Static_Code_Analysis_Result__c.copado__Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__False_Positive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Fixed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Highest_Priority_Violation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Info__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Major__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Minor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3541,7 +3969,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Open__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Static_Code_Analysis_Result__c.copado__Org_Credential__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Removed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Reopened__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Resolved__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3551,12 +3999,47 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Unresolved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Static_Code_Analysis_Result__c.copado__User_Story__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Vulnerabilities__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Result__c.copado__Wont_fix__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Static_Code_Analysis_Rule__c.copado__Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Settings__c.copado__Cloud_Organization__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Settings__c.copado__CodeScan_Token__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Settings__c.copado__CodeScan_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Settings__c.copado__CodeScan_Version__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3591,12 +4074,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Static_Code_Analysis_Violation__c.copado__Rule__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Static_Code_Analysis_Violation__c.copado__Score__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Static_Code_Analysis_Violation__c.copado__Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3696,6 +4199,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__Team_Dependency__c.copado__Child_User_Story_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__Team_Dependency__c.copado__Deliverable__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3722,6 +4230,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Team_Dependency__c.copado__Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Team_Dependency__c.copado__Parent_User_Story_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4051,6 +4564,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__User_Story_Metadata__c.copado__Last_Commit_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__User_Story_Metadata__c.copado__Metadata_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4092,6 +4610,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__User_Story_Task__c.copado__Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__User_Story__c.Compliance_Highest_Rule_Action__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__User_Story__c.SCA_Score__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__User_Story__c.SCA_Violations__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4181,6 +4714,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__User_Story__c.copado__Environment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__User_Story__c.copado__Environment__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4217,6 +4755,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__User_Story__c.copado__Last_Compliance_Scan_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__User_Story__c.copado__Last_Promotion_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4439,6 +4982,12 @@
         <layout>CommunityMemberLayout-Community Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ConsumptionRate-Consumption Rate Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ConsumptionSchedule-Consumption Schedule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4473,6 +5022,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Idea-Idea Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Individual-Individual Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>JobTracker-Job Tracker Layout - Winter %2716</layout>
@@ -4517,6 +5069,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
@@ -4645,6 +5200,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Idea</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Individual</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -4795,6 +5359,36 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Result__c.copado__CodeScan</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Result__c.copado__PMD</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Settings__c.copado__CodeScan</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Settings__c.copado__PMD</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Violation__c.copado__CodeScan</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>copado__Static_Code_Analysis_Violation__c.copado__PMD</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>copado__User_Story__c.copado__Bug</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -4817,6 +5411,22 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-AuthorizationForm</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormConsent</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormDataUse</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormText</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Campaign</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -4829,7 +5439,15 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-ConsumptionSchedule</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Contact</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ContactPointTypeConsent</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -4845,6 +5463,14 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-DataUseLegalBasis</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-DataUsePurpose</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-DuplicateRecordSet</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -4858,6 +5484,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Image</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Individual</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

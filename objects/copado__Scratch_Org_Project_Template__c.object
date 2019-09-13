@@ -48,6 +48,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -62,7 +63,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -234,6 +234,57 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>copado__Source_Metadata_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Metadata Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>artifact</fullName>
+                    <default>false</default>
+                    <label>Git Artifacts</label>
+                </value>
+                <value>
+                    <fullName>unlockPackage</fullName>
+                    <default>false</default>
+                    <label>Unlocked Packages</label>
+                </value>
+                <value>
+                    <fullName>secondGenerationPackage</fullName>
+                    <default>false</default>
+                    <label>Second-Generation Packages</label>
+                </value>
+                <value>
+                    <fullName>artifactUMP</fullName>
+                    <default>false</default>
+                    <label>Unmanaged Packages</label>
+                </value>
+                <value>
+                    <fullName>patch</fullName>
+                    <default>false</default>
+                    <label>Patch a Release (Beta)</label>
+                </value>
+                <value>
+                    <fullName>Branch</fullName>
+                    <default>false</default>
+                    <label>Branch</label>
+                </value>
+                <value>
+                    <fullName>Metadata</fullName>
+                    <default>false</default>
+                    <label>Metadata</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>copado__Source_Org_Credential__c</fullName>

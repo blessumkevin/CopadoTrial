@@ -49,6 +49,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -68,7 +69,6 @@
         <externalId>false</externalId>
         <label>Environment</label>
         <referenceTo>copado__Environment__c</referenceTo>
-        <relationshipLabel>Branch Management Permissions</relationshipLabel>
         <relationshipName>Branch_Management_Permissisions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -83,19 +83,18 @@
         <externalId>false</externalId>
         <label>User</label>
         <referenceTo>User</referenceTo>
-        <relationshipLabel>Branch Management Permissisions</relationshipLabel>
         <relationshipName>Branch_Management_Permissisions</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Branch Management Permission</label>
+    <label>Pipeline Permission</label>
     <nameField>
         <displayFormat>BMP-{000000}</displayFormat>
-        <label>Branch Management Permission Ref</label>
+        <label>Pipeline Permission Ref</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Branch Management Permissions</pluralLabel>
+    <pluralLabel>Pipeline Permissions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

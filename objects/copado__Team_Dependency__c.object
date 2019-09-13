@@ -48,10 +48,26 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>copado__Child_User_Story_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Status of the child user story</description>
+        <externalId>false</externalId>
+        <formula>Text( copado__Dependent_User_Story__r.copado__Status__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Status of the child user story</inlineHelpText>
+        <label>Child User Story Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>copado__Deliverable__c</fullName>
         <deprecated>false</deprecated>
@@ -125,7 +141,7 @@
         <inlineHelpText>The Team that is dependent on another team to provide the User Story.</inlineHelpText>
         <label>Dependent Team</label>
         <referenceTo>copado__Team__c</referenceTo>
-        <relationshipLabel>Team Dependencies needed for this Team</relationshipLabel>
+        <relationshipLabel>User Story Dependencies (Dependent Team)</relationshipLabel>
         <relationshipName>Team_Dependencies_For_Team</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -136,12 +152,12 @@
         <fullName>copado__Dependent_User_Story__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
-        <description>The User Story that is dependent on the completion of the specified deliverable.</description>
+        <description>The User Story that is dependent on the completion of the parent user story.</description>
         <externalId>false</externalId>
         <inlineHelpText>The User Story that is dependent on the completion of the specified deliverable.</inlineHelpText>
-        <label>Dependent User Story</label>
+        <label>Child User Story</label>
         <referenceTo>copado__User_Story__c</referenceTo>
-        <relationshipLabel>Team Dependencies needed for this User Story</relationshipLabel>
+        <relationshipLabel>Parent User Stories</relationshipLabel>
         <relationshipName>Team_Dependencies_For_UStory</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -170,6 +186,21 @@
         <visibleLines>8</visibleLines>
     </fields>
     <fields>
+        <fullName>copado__Parent_User_Story_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Status of the parent user story</description>
+        <externalId>false</externalId>
+        <formula>Text( copado__Provider_User_Story__r.copado__Status__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Status of the parent user story</inlineHelpText>
+        <label>Parent User Story Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>copado__Provider_Team__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -178,7 +209,7 @@
         <inlineHelpText>The team that will provide the deliverable to fulfill this dependency.</inlineHelpText>
         <label>Provider Team</label>
         <referenceTo>copado__Team__c</referenceTo>
-        <relationshipLabel>Team Dependencies on this Team</relationshipLabel>
+        <relationshipLabel>User Story Dependencies (Provider Team)</relationshipLabel>
         <relationshipName>Team_Dependencies_On_Team</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -192,9 +223,9 @@
         <description>The record representing the User Story to satisfy the deliverable of this dependency.</description>
         <externalId>false</externalId>
         <inlineHelpText>The record representing the User Story to satisfy the deliverable of this dependency.</inlineHelpText>
-        <label>Provider User Story</label>
+        <label>Parent User Story</label>
         <referenceTo>copado__User_Story__c</referenceTo>
-        <relationshipLabel>Team Dependencies on this User Story</relationshipLabel>
+        <relationshipLabel>Child User Stories</relationshipLabel>
         <relationshipName>Team_Dependencies_On_UStory</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -208,7 +239,6 @@
         <externalId>false</externalId>
         <label>Release</label>
         <referenceTo>copado__Release__c</referenceTo>
-        <relationshipLabel>Team Dependencies</relationshipLabel>
         <relationshipName>Team_Dependencies</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -226,7 +256,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <label>Team Dependency</label>
+    <label>User Story Dependency</label>
     <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
@@ -242,12 +272,12 @@
         <language>en_US</language>
     </listViews>
     <nameField>
-        <displayFormat>TD-{0000000}</displayFormat>
-        <label>Team Dependency Name</label>
+        <displayFormat>UD-{0000000}</displayFormat>
+        <label>User Story Dependency Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Team Dependencies</pluralLabel>
+    <pluralLabel>User Story Dependencies</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>copado__Deliverable__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>copado__Dependency_Status__c</customTabListAdditionalFields>

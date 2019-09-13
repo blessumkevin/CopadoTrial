@@ -2,15 +2,23 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldSets>
         <label><!-- Commit Files Information --></label>
-        <name>Commit_Files_Information</name>
+        <name>copado__Commit_Files_Information</name>
     </fieldSets>
     <fieldSets>
         <label><!-- Copado Header Fields --></label>
-        <name>Copado_Header_Fields</name>
+        <name>copado__Copado_Header_Fields</name>
     </fieldSets>
     <fieldSets>
         <label><!-- CustomFields --></label>
-        <name>CustomFields</name>
+        <name>copado__CustomFields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Git Commit Header --></label>
+        <name>copado__Git_Commit_Header</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Snapshot Waiting Page --></label>
+        <name>copado__Snapshot_Waiting_Page</name>
     </fieldSets>
     <fields>
         <help><!-- Branch of the selected Git Repository (e.g. master). Snapshots and Commits done in the Git Snapshot will affect the specified branch. --></help>
@@ -91,4 +99,8 @@
         <label><!-- View in Git --></label>
         <name>copado__View_in_Git__c</name>
     </fields>
+    <webLinks>
+        <label><!-- Select_Branch --></label>
+        <name>copado__Select_Branch</name>
+    </webLinks>
 </CustomObjectTranslation>
