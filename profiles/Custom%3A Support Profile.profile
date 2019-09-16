@@ -1553,66 +1553,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__File__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Info_URL_Link__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Info_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Line__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Priority__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Resolution__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Rule__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Score__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Severity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Static_Code_Analysis_Violation__c.copado__Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>copado__Step__c.copado__Attachment_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3642,15 +3582,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>copado__Promoted_User_Story__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>copado__Static_Code_Analysis_Violation__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
