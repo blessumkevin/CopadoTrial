@@ -1552,11 +1552,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>copado__Copado_Protected_Settiing__mdt.copado__Text_Field__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>copado__Copado_Setting__mdt.copado__Enabled__c</field>
         <readable>true</readable>
