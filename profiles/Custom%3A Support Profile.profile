@@ -2,11 +2,6 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Custom%3A Support Profile</fullName>
     <applicationVisibilities>
-        <application>Copado_Trial</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
