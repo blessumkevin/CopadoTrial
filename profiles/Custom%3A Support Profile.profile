@@ -1553,16 +1553,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>copado__Selenium_Locator_Reference__c.copado__External_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>copado__Selenium_Locator_Reference__c.copado__Selenium_Test_Case_Version__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>copado__Selenium_Locator__c.copado__External_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4102,15 +4092,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>copado__Promoted_User_Story__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>copado__Selenium_Locator_Reference__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
