@@ -6,6 +6,7 @@ public class AccountOperations {
         
         // Avoid SOQL inside loops
         // Testing??
+        // Testing again
         for (Integer i = 0; i < 10; i++) {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
