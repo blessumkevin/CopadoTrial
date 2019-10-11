@@ -5,22 +5,16 @@ public class AccountOperations {
 	else a.Description = 'Default Description';
         
         // Avoid SOQL inside loops
-        // Demo for Traction-On-Demand
-        //testing Dev1 comment
+        // This is an example of Copado's IDE integration
         for (Integer i = 0; i < 10; i++) {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
         
         // Avoid DML Statements inside loops
-        // this is an example of changes
         for (Integer i = 0; i < 1; i++) {
 	    update a;
 	}
-       	       
-        // Testing
-        for (Integer i = 1; i < 1; i++) {
-	    update a;
-	}
+       	
         return a;
     }
 }
