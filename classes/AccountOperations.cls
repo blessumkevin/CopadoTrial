@@ -6,8 +6,6 @@ public class AccountOperations {
         
         // Avoid SOQL inside loops
         // Additional Comment to Review
-         // Changes With State Farm
-        // JM Family demo
         for (Integer i = 0; i < 10; i++) {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
