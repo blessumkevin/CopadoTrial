@@ -5,4 +5,5 @@
     <label>Routing Configuration 1</label>
     <routingModel>MOST_AVAILABLE</routingModel>
     <routingPriority>1</routingPriority>
+    <userOverflowAssignee>{!Environment.Routing_User_Kevin}</userOverflowAssignee>
 </QueueRoutingConfig>
