@@ -5,5 +5,4 @@
     <label>Routing Configuration 1</label>
     <routingModel>MOST_AVAILABLE</routingModel>
     <routingPriority>1</routingPriority>
-    <userOverflowAssignee>dev1@copado.com</userOverflowAssignee>
 </QueueRoutingConfig>
