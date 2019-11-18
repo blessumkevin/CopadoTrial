@@ -5,6 +5,9 @@ public class AccountOperations {
 	else a.Description = 'Default Description';
         
         // Avoid SOQL inside loops
+        // State Farm Changes
+        // Important for reliability
+        // Integer must not repeat
         for (Integer i = 0; i < 10; i++) {
 	    List<Account> accounts = [SELECT Id FROM Account];
 	}
