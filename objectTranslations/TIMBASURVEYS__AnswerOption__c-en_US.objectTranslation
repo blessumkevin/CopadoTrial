@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- IsPicklistValue --></label>
+        <name>TIMBASURVEYS__IsPicklistValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- OptionValue --></label>
+        <name>TIMBASURVEYS__OptionValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist --></label>
+        <name>TIMBASURVEYS__Picklist__c</name>
+        <relationshipLabel><!-- AnswerOptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>TIMBASURVEYS__Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- ResponseType --></label>
+        <name>TIMBASURVEYS__ResponseType__c</name>
+        <picklistValues>
+            <masterLabel>Boolean</masterLabel>
+            <translation><!-- Boolean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DateTime</masterLabel>
+            <translation><!-- DateTime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number</masterLabel>
+            <translation><!-- Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>String</masterLabel>
+            <translation><!-- String --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SurveyQuestion --></label>
+        <name>TIMBASURVEYS__SurveyQuestion__c</name>
+        <relationshipLabel><!-- AnswerOptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Weight --></label>
+        <name>TIMBASURVEYS__Weight__c</name>
+    </fields>
+    <fields>
+        <label><!-- numericRange --></label>
+        <name>TIMBASURVEYS__numericRange__c</name>
+    </fields>
+    <fields>
+        <label><!-- x --></label>
+        <name>TIMBASURVEYS__x__c</name>
+    </fields>
+    <fields>
+        <label><!-- y --></label>
+        <name>TIMBASURVEYS__y__c</name>
+    </fields>
+</CustomObjectTranslation>

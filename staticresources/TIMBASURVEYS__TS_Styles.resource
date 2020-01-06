@@ -1,0 +1,3 @@
+.strongTxt{
+	font-weight: bold;
+}

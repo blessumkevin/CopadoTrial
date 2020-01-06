@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -131,14 +231,14 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Git Artifacts</fullName>
+                    <fullName>Git Package</fullName>
                     <default>false</default>
-                    <label>Git Artifacts</label>
+                    <label>Git Package</label>
                 </value>
                 <value>
-                    <fullName>Package Artifacts</fullName>
+                    <fullName>Salesforce Package</fullName>
                     <default>false</default>
-                    <label>Package Artifacts</label>
+                    <label>Salesforce Package</label>
                 </value>
                 <value>
                     <fullName>Branches</fullName>
@@ -149,6 +249,18 @@
                     <fullName>Org Metadata</fullName>
                     <default>false</default>
                     <label>Org Metadata</label>
+                </value>
+                <value>
+                    <fullName>Git Artifacts</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Git Artifacts</label>
+                </value>
+                <value>
+                    <fullName>Package Artifacts</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Package Artifacts</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -199,8 +311,9 @@
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>copado__Auto_Resolve_Exceptions</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
         </valueSet>
         <visibleLines>5</visibleLines>
     </fields>
@@ -312,7 +425,7 @@
 IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;,
   IF(isblank($Setup.copado__Settings__c.copado__Namespace__c),&apos;copado__&apos;,$Setup.copado__Settings__c.copado__Namespace__c)
 )&amp;IF( ISPICKVAL(copado__Calculate_Based_on__c, &apos;User Story&apos;), IF( copado__Active__c,&apos;PipelineManager?id=&apos;&amp;Id, &apos;PipelineDiagram?id=&apos;&amp;Id), &apos;BranchManagement?id=&apos;&amp;Id), &apos;Pipeline Manager&apos;, &apos;_blank&apos;)</formula>
-        <inlineHelpText>Link to open the Branch Management application for the Deployment Flow.</inlineHelpText>
+        <inlineHelpText>Link to open the Pipeline Manager to promote and back promote User Stories.</inlineHelpText>
         <label>Manage Releases</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -405,7 +518,6 @@ This value will prefill the order by field on related Promotion record creation 
         <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
         <searchFilterFields>copado__Active__c</searchFilterFields>
-        <searchResultsAdditionalFields>copado__Manage_Branches__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>copado__Active__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>

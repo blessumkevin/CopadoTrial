@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- TestRunExecutionFieldSet --></label>
-        <name>copado__TestRunExecutionFieldSet</name>
-    </fieldSets>
     <fields>
         <label><!-- Action/Description --></label>
         <name>copado__Action_Description__c</name>

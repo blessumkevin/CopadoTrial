@@ -182,6 +182,7 @@ var gitCommitCommons = {};
                 return;
             }
         }
+
         /**
          * Update the config values from outside the closure. These values are different from the init values if the user changed the Git Operation in the UI.
          * Currently used in GitCommitChanges page

@@ -2,11 +2,6 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Planned</fullName>
-        <default>true</default>
-        <label>Planned</label>
-    </standardValue>
-    <standardValue>
         <fullName>In Progress</fullName>
         <default>false</default>
         <label>In Progress</label>
@@ -20,5 +15,10 @@
         <fullName>Aborted</fullName>
         <default>false</default>
         <label>Aborted</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Planned</fullName>
+        <default>true</default>
+        <label>Planned</label>
     </standardValue>
 </StandardValueSet>

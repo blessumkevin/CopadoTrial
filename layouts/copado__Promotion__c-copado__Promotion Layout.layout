@@ -34,6 +34,10 @@
                 <behavior>Edit</behavior>
                 <field>copado__Destination_Org_Credential__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Order_by__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

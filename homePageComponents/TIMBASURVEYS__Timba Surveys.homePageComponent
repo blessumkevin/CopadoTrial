@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>.btn  {text-decoration:none !important;background-image:url(/img/bgButton.gif);background-position:left top;text-decoration:none;background-repeat:repeat-x;border-color:-moz-use-text-color #5C5D61 #5C5D61 -moz-use-text-color;border-style:none solid solid none;border-width:medium 1px 1px medium;color:#FFFFFF;cursor:pointer;display:inline;font-family:&amp;#39;Verdana&amp;#39;,&amp;#39;Geneva&amp;#39;,sans-serif;font-size:60%;font-weight:bold;padding:3px;}.btn span {margin:4px;}.label {color:#333333;font-size:70%;font-weight:bold;padding:2px 10px 2px 2px;text-align:right;width:38%;}&lt;font size=&quot;2&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Related Surveys&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;&quot;&gt;&lt;span&gt;Related Surveys&lt;/span&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;&quot;&gt;&lt;span&gt;View Related Survey Summaries&lt;/span&gt;&lt;/a&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

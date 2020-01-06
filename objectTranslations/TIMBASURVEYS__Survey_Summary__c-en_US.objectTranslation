@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Complete Survey Name --></label>
+        <name>TIMBASURVEYS__Complete_Survey_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>TIMBASURVEYS__Contact__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recipient Email --></label>
+        <name>TIMBASURVEYS__RecipientEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recipient --></label>
+        <name>TIMBASURVEYS__Recipient__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedAccount --></label>
+        <name>TIMBASURVEYS__RelatedAccount__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedCase --></label>
+        <name>TIMBASURVEYS__RelatedCase__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedContact --></label>
+        <name>TIMBASURVEYS__RelatedContact__c</name>
+        <relationshipLabel><!-- Survey Summaries (RelatedContact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedContract --></label>
+        <name>TIMBASURVEYS__RelatedContract__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedLead --></label>
+        <name>TIMBASURVEYS__RelatedLead__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedOpportunity --></label>
+        <name>TIMBASURVEYS__RelatedOpportunity__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedSolution --></label>
+        <name>TIMBASURVEYS__RelatedSolution__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total Weight --></label>
+        <name>TIMBASURVEYS__Total_Weight__c</name>
+    </fields>
+    <fields>
+        <label><!-- Who Id --></label>
+        <name>TIMBASURVEYS__Who_Id__c</name>
+        <relationshipLabel><!-- Survey Summaries --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

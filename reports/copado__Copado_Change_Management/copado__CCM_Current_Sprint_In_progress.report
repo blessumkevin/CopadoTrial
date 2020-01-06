@@ -56,7 +56,7 @@
             <column>copado__User_Story__c.copado__Progress__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
-            <value>100</value>
+            <value>100.0</value>
         </criteriaItems>
         <criteriaItems>
             <column>copado__User_Story__c.copado__Status__c</column>

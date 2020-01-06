@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Above question --></label>
+        <name>TIMBASURVEYS__Above_question__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alignment --></label>
+        <name>TIMBASURVEYS__Alignment__c</name>
+        <picklistValues>
+            <masterLabel>align to question</masterLabel>
+            <translation><!-- align to question --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>center</masterLabel>
+            <translation><!-- center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>left</masterLabel>
+            <translation><!-- left --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rigth</masterLabel>
+            <translation><!-- rigth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Alternative text --></label>
+        <name>TIMBASURVEYS__Alt_text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Height --></label>
+        <name>TIMBASURVEYS__Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Width --></label>
+        <name>TIMBASURVEYS__Width__c</name>
+    </fields>
+</CustomObjectTranslation>

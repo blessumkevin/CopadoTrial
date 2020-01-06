@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- ElseGoToPage --></label>
+        <name>TIMBASURVEYS__ElseGoToPage__c</name>
+    </fields>
+    <fields>
+        <label><!-- GoToPage --></label>
+        <name>TIMBASURVEYS__GoToPage__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurveyPage --></label>
+        <name>TIMBASURVEYS__SurveyPage__c</name>
+        <relationshipLabel><!-- PageBranchingRules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- PageBranchingRules --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

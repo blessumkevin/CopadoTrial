@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -54,138 +154,20 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fieldSets>
-        <fullName>copado__Criteria_Page_Fields</fullName>
-        <availableFields>
-            <field>copado__Action__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Active__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Error_Message__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Filter_Criteria__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>Id</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>IsDeleted</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Is_Valid__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>LastModifiedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Last_Validation_Date_time__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Last_Validation_Status_Message__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Metadata_Type__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>OwnerId</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>RecordTypeId</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Record_Count_Criteria__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Record_Count__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>SystemModstamp</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <description>AddCCHRuleCriteria</description>
-        <displayedFields>
-            <field>Name</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Matching_Criteria__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Risk_Details__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Severity__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Criteria Page Fields</label>
-    </fieldSets>
     <fields>
         <fullName>copado__Action__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
+        <inlineHelpText>Action to be performed automatically by Copado</inlineHelpText>
         <label>Action</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>copado__Compliance_Action</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -227,6 +209,7 @@
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
+        <inlineHelpText>Automatically updated by copado when saving managing criteria</inlineHelpText>
         <label>Is Valid</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -374,14 +357,16 @@
         <fullName>copado__Severity__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
+        <inlineHelpText>Field to report on the Lightning Platform, Copado Doesn&apos;t action over this field</inlineHelpText>
         <label>Severity</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>copado__Compliance_Severity</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <label>Compliance Rule</label>
@@ -410,148 +395,12 @@
         <active>true</active>
         <description>Use this record type to define scan rules run by Copado.</description>
         <label>Copado</label>
-        <picklistValues>
-            <picklist>copado__Action__c</picklist>
-            <values>
-                <fullName>Abort Process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continue with alert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Document Only</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Matching_Criteria__c</picklist>
-            <values>
-                <fullName>Equals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greater Than</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greater or Equal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Less Than</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Less or Equal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Equals</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Record_Count_Criteria__c</picklist>
-            <values>
-                <fullName>Number of groups</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Severity__c</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>copado__Other</fullName>
         <active>true</active>
         <description>Use this record type to define scan rules for 3rd party systems.</description>
         <label>Other</label>
-        <picklistValues>
-            <picklist>copado__Action__c</picklist>
-            <values>
-                <fullName>Abort Process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continue with alert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Document Only</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Matching_Criteria__c</picklist>
-            <values>
-                <fullName>Equals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greater Than</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greater or Equal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Less Than</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Less or Equal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Equals</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Record_Count_Criteria__c</picklist>
-            <values>
-                <fullName>Number of groups</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Severity__c</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>copado__Active__c</customTabListAdditionalFields>
@@ -572,7 +421,7 @@
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>copado__Required_Criteria_Fields</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(
 ISPICKVAL(copado__Matching_Criteria__c ,&quot;&quot;),
 ISPICKVAL(copado__Record_Count_Criteria__c,&quot;&quot;),

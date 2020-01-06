@@ -1,0 +1,155 @@
+<apex:page controller="SelectInspectionController" showHeader="false" sidebar="false">
+    <apex:styleSheet value="{!$Resource.status_slider_popup_css}"/> 
+    <style>
+        body {
+            font-family: "ProximaNovaSoft-Regular", "ITCOfficinaSerifBookRegular", "Calibri", "Helvetica", "Arial", "sans-serif";
+//            font-family: ProximaNovaSoft-Regular, ITCOfficinaSerifBookRegular, Helvetica;        
+        }
+
+        
+        .header {
+            background-color: #1797c0; 
+            width: 100%; 
+            height: 50px; 
+            text-align: center; 
+            line-height: 50px;
+            color: white;
+            font-size: 15pt;
+        }
+        
+        .locText {
+            font-size:16px;
+            font-weight: normal;
+            color: #dddddd;
+        }
+
+        .selectPanel {
+            width:92%; 
+            border-radius:10px; 
+            background-color: #eeeeee;
+            margin: 10px 0 20px 0;
+        }
+
+        .selectTitle {
+            width: 100%; 
+            height: 50px; 
+            border-bottom: 1px solid #cccccc; 
+            line-height:50px; 
+            text-align: left; 
+            padding-left: 15px; 
+            font-size: 13pt;
+            box-sizing: border-box;
+        }
+        
+        .selectButton {
+            border: 1px solid #aaaaaa; 
+            border-radius: 10px; 
+            width: 100%; 
+            height: 42px; 
+            line-height: 42px;
+            margin-top: 20px; 
+            color: #1797c0; 
+            background-color: #ffffff; 
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .combo {
+            color: #3c3d3e;
+            padding: 7px 14px;
+            line-height: 25px;
+            font-size: 12px;
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0Mv6g0000008VofMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImRvd25fMV8iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0ID6g0000008PW7BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJEb3duX3g0MF8yeC5wbmdfMV8iPg0KCTxnIGlkPSJkaXJlY3Rkb3duX2NvcHkiPg0KCQk8Zz4NCgkJCTxwYXRoIGZpbGw9IiM5Njk4OTkiIGQ9Ik01NS4wNjYsMTcuODY2Yy0wLjUzMy0wLjkzNC0xLjQ2Ny0xLjUzMy0yLjUzMy0xLjZDNTIuMzk4LDE2LjE5OSw0Mi4zOTgsMTUuNiwzMiwxNS42DQoJCQkJYy0xMC4zOTksMC0yMC40LDAuNi0yMC41MzMsMC42NjdjLTEuMDY2LDAuMDY2LTIuMDY2LDAuNjY2LTIuNTMzLDEuNmMtMC41MzMsMC45MzQtMC41MzMsMi4wNjYsMCwzDQoJCQkJYzcuOTMzLDE0LjA2NiwyMC40LDI2LjI2NywyMC45MzMsMjYuNzMyYzEuMiwxLjA2NiwzLjA2NiwxLjA2Niw0LjI2NywwYzAuNTMzLTAuNDY3LDEzLTEyLjY2NiwyMC45MzMtMjYuNzMyDQoJCQkJQzU1LjYsMTkuOTMzLDU1LjYsMTguOCw1NS4wNjYsMTcuODY2eiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=),linear-gradient(#ffffff,#f1f1f1);
+            background-repeat: no-repeat;
+            background-position: 99% 50%;
+            background-size: 16px 16px,100% 100%;
+            height: auto;
+            width: 100%;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            border: 1px solid #bbc0c4;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 0px rgba(0,0,0,.02),inset 0 0 0 1px rgba(255,255,255,.5);
+        }
+            
+    </style>
+   
+    <apex:outputPanel id="pageContent" style="height: 100%; width: 100%">
+        <apex:outputPanel styleClass="popupBackground" rendered="{!located = false}">
+            <script>
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition, errorHandler, {timeout:10000});
+                    } else {
+                        alert("Geolocation is not supported or enabled.");
+                        actionPrepareData();
+                    }
+                }
+                
+                function errorHandler() {
+                    alert('Unable to determine your location.');
+                    actionPrepareData();
+                }
+                
+                function showPosition(position) {
+                    document.getElementById('{!$Component.f1.latitude}').value = position.coords.latitude;
+                    document.getElementById('{!$Component.f1.longitude}').value = position.coords.longitude;            
+                    actionPrepareData();
+                }
+                  
+                window.onload = getLocation;
+            </script>        
+            <center>
+                <div style='height: 200px'/>
+                <apex:image value="{!$Resource.spinner_white_png}" styleClass="spinner centered.no"/><br/><br/>
+                <center class='locText'>Locating</center>
+            </center>
+            <apex:form id="f1">
+              <div style='display: none;'>
+                  <apex:inputHidden id="latitude" value="{!latitude}" />
+                  <apex:inputHidden id="longitude" value="{!longitude}" />
+                  <apex:actionFunction name="actionPrepareData" action="{!prepareData}" reRender="pageContent"/>
+              </div>
+           </apex:form>
+        </apex:outputPanel>
+        
+        <!-- INSPECTION -->
+        <apex:outputPanel id="inspectionPanel" rendered="{!located = true}">
+            <apex:outputLink value="/" style="text-decoration: none;">
+                <div class='header'>Inspection</div>
+            </apex:outputLink>
+            <br/>
+            <apex:form >
+                <center>
+                    <apex:outputPanel rendered='{!inspections.size > 0}'>
+                        <div class='selectPanel'>
+                            <div class='selectTitle'>Select Your Inspection (in progress):</div>                        
+                            <div style='padding: 20px;'>
+                                <apex:selectList value="{!inspection}" multiselect="false" styleClass="combo" size="1">
+                                    <apex:selectOptions value="{!inspectionOptions}"/>
+                                </apex:selectList>
+                                <div class="selectButton" onclick="javascript:actionProcessInspection();">Accept</div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    
+                    <div class='selectPanel'>
+                        <div class='selectTitle'>Select The Store:</div>                        
+                        <div style='padding: 20px;'>
+                            <apex:selectList value="{!store}" multiselect="false" styleClass="combo" size="1">
+                                <apex:selectOptions value="{!storeOptions}"/>
+                            </apex:selectList>
+                            <div class="selectButton" onclick="javascript:actionProcessStore();">Accept</div>
+                        </div>
+                    </div>
+                </center>
+                <apex:actionFunction name="actionProcessStore" action="{!processStore}"/>
+                <apex:actionFunction name="actionProcessInspection" action="{!processInspection}"/>
+            </apex:form>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

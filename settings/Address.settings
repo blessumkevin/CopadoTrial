@@ -2014,6 +2014,14 @@
             </states>
             <states>
                 <active>true</active>
+                <integrationValue>Telangana</integrationValue>
+                <isoCode>TG</isoCode>
+                <label>Telangana</label>
+                <standard>true</standard>
+                <visible>true</visible>
+            </states>
+            <states>
+                <active>true</active>
                 <integrationValue>Tamil Nadu</integrationValue>
                 <isoCode>TN</isoCode>
                 <label>Tamil Nadu</label>

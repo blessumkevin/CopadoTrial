@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -59,9 +159,9 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>This is Repository where the Artifact can be stored, in the master branch</inlineHelpText>
-        <label>Artifact Repository</label>
+        <label>Package Repository</label>
         <referenceTo>copado__Git_Repository__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
+        <relationshipLabel>Packages</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -74,17 +174,7 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Latest Package Version</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>$Source.Id</field>
-                <operation>equals</operation>
-                <valueField>copado__Artifact_Version__c.copado__Artifact__c</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>copado__Artifact_Version__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -95,6 +185,7 @@
         <fullName>copado__Description__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
+        <inlineHelpText>The description of the package</inlineHelpText>
         <label>Description</label>
         <length>131072</length>
         <trackHistory>false</trackHistory>
@@ -118,10 +209,10 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
-        <inlineHelpText>Org Credential where the metadata of the Artifact is going to be retrieved from</inlineHelpText>
+        <inlineHelpText>The org credential where the metadata of the Artifact is going to be retrieved from, for unlocked packages and 2GP.
+The org credential where the unmanaged package is created from.</inlineHelpText>
         <label>Source Org Credential</label>
         <referenceTo>copado__Org__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -179,8 +270,14 @@
                     <label>Second-Generation Package</label>
                 </value>
                 <value>
+                    <fullName>First-Generation Package</fullName>
+                    <default>false</default>
+                    <label>First-Generation Package</label>
+                </value>
+                <value>
                     <fullName>Unmanaged</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Unmanaged</label>
                 </value>
             </valueSetDefinition>
@@ -431,8 +528,13 @@
                 </value>
                 <value>
                     <fullName>44.0</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>44.0</label>
+                </value>
+                <value>
+                    <fullName>45.0</fullName>
+                    <default>true</default>
+                    <label>45.0</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -444,25 +546,14 @@
         <externalId>false</externalId>
         <inlineHelpText>Copado org credential for the dev hub which will be used to create and store the package and its versions</inlineHelpText>
         <label>Target Dev Hub Org</label>
-        <lookupFilter>
-            <active>true</active>
-            <errorMessage>Only dev hub org credentials can be selected. Given value not found or it is not a dev hub org.</errorMessage>
-            <filterItems>
-                <field>copado__Org__c.copado__is_Developer_Hub_Org__c</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>copado__Org__c</referenceTo>
-        <relationshipLabel>Artifacts (Target Dev Hub Org)</relationshipLabel>
         <relationshipName>packageArtifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Artifact</label>
+    <label>Package</label>
     <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
@@ -474,411 +565,23 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Artifact Name</label>
+        <label>Package Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Artifacts</pluralLabel>
+    <pluralLabel>Packages</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>copado__Git_Artifact</fullName>
         <active>true</active>
-        <description>Version control system centric artifact</description>
-        <label>Git Artifact</label>
-        <picklistValues>
-            <picklist>copado__Package_Type__c</picklist>
-            <values>
-                <fullName>Second-Generation Package</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unlocked</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Unmanaged</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Source_Api_Version__c</picklist>
-            <values>
-                <fullName>1%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>13%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>14%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>15%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>16%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>17%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>18%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>19%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>20%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>21%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>22%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>23%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>24%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>25%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>26%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>27%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>28%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>29%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>30%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>31%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>32%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>33%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>34%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>35%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>36%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>37%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>38%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>39%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>40%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>41%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>42%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>43%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>44%2E0</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>5%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%2E0</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        <description>Version Control System centric package</description>
+        <label>Git Package</label>
     </recordTypes>
     <recordTypes>
         <fullName>copado__Package_Artifact</fullName>
         <active>true</active>
-        <description>Salesforce unmanaged, unlocked or manage package as a artifact</description>
-        <label>Package Artifact</label>
-        <picklistValues>
-            <picklist>copado__Package_Type__c</picklist>
-            <values>
-                <fullName>Second-Generation Package</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unlocked</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Unmanaged</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Source_Api_Version__c</picklist>
-            <values>
-                <fullName>1%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>13%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>14%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>15%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>16%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>17%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>18%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>19%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>20%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>21%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>22%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>23%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>24%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>25%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>26%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>27%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>28%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>29%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>30%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>31%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>32%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>33%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>34%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>35%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>36%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>37%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>38%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>39%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>40%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>41%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>42%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>43%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>44%2E0</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>5%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%2E0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%2E0</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        <description>Salesforce unlocked, First Generation Package or Second-Generation Package as a package</description>
+        <label>Salesforce Package</label>
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
@@ -886,27 +589,27 @@
         <fullName>copado__ArtifactNameCannotChange</fullName>
         <active>true</active>
         <errorConditionFormula>PRIORVALUE(Name) != Name</errorConditionFormula>
-        <errorMessage>Artifact names are in use for DX folder structure, therefore, artifact names are not editable.</errorMessage>
+        <errorMessage>Package names are in use for DX folder structure, therefore, package names are not editable.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Artifact_Repo_Control_For_Package_Type</fullName>
         <active>true</active>
-        <description>Artifact Reposiroty null control depending of Package Type</description>
+        <description>Package Repository null control depending of Package Type</description>
         <errorConditionFormula>IF(
 OR(
 AND(ISBLANK(copado__Artifact_Repository__c), 
 (ISPICKVAL(copado__Package_Type__c, &apos;Unlocked&apos;) || ISPICKVAL(copado__Package_Type__c, &apos;Second-Generation Package&apos;))),
-(NOT(ISBLANK(copado__Artifact_Repository__c)) &amp;&amp; ISPICKVAL(copado__Package_Type__c, &apos;Unmanaged&apos;))), true, false
+(NOT(ISBLANK(copado__Artifact_Repository__c)) &amp;&amp; ISPICKVAL(copado__Package_Type__c, &apos;First-Generation Package&apos;))), true, false
 )</errorConditionFormula>
         <errorDisplayField>copado__Artifact_Repository__c</errorDisplayField>
-        <errorMessage>Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for Unmanaged Packages</errorMessage>
+        <errorMessage>Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for First Second Generation Packages</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Name_should_not_contain_empty_space</fullName>
         <active>true</active>
         <errorConditionFormula>CONTAINS(Name,&apos; &apos;)</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Artifact name cannot contain white spaces</errorMessage>
+        <errorMessage>Package name cannot contain white spaces</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
     <webLinks>
@@ -959,7 +662,7 @@ AND(ISBLANK(copado__Artifact_Repository__c),
         <displayType>button</displayType>
         <height>600</height>
         <linkType>page</linkType>
-        <masterLabel>Manage Artifact Content</masterLabel>
+        <masterLabel>Manage Package Content</masterLabel>
         <openType>noSidebar</openType>
         <page>copado__ArtifactPackage</page>
         <protected>false</protected>

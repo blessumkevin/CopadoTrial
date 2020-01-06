@@ -49,7 +49,7 @@
         <relationshipLabel><!-- User Story Dependencies (Dependent Team) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The User Story that is dependent on the completion of the specified deliverable. --></help>
+        <help><!-- The User Story that is dependent on the completion of the parent user story. --></help>
         <label><!-- Child User Story --></label>
         <name>copado__Dependent_User_Story__c</name>
         <relationshipLabel><!-- Parent User Stories --></relationshipLabel>

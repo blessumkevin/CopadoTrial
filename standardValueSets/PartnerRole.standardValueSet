@@ -2,10 +2,10 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>System Integrator</fullName>
+        <fullName>Advertiser</fullName>
         <default>false</default>
-        <label>System Integrator</label>
-        <reverseRole>Client</reverseRole>
+        <label>Advertiser</label>
+        <reverseRole>Vendor</reverseRole>
     </standardValue>
     <standardValue>
         <fullName>Agency</fullName>
@@ -14,15 +14,27 @@
         <reverseRole>Client</reverseRole>
     </standardValue>
     <standardValue>
-        <fullName>Advertiser</fullName>
+        <fullName>Broker</fullName>
         <default>false</default>
-        <label>Advertiser</label>
-        <reverseRole>Vendor</reverseRole>
+        <label>Broker</label>
+        <reverseRole>Agent</reverseRole>
     </standardValue>
     <standardValue>
-        <fullName>VAR/Reseller</fullName>
+        <fullName>Consultant</fullName>
         <default>false</default>
-        <label>VAR/Reseller</label>
+        <label>Consultant</label>
+        <reverseRole>Client</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Dealer</fullName>
+        <default>false</default>
+        <label>Dealer</label>
+        <reverseRole>Supplier</reverseRole>
+    </standardValue>
+    <standardValue>
+        <fullName>Developer</fullName>
+        <default>false</default>
+        <label>Developer</label>
         <reverseRole>Vendor</reverseRole>
     </standardValue>
     <standardValue>
@@ -32,16 +44,10 @@
         <reverseRole>Vendor</reverseRole>
     </standardValue>
     <standardValue>
-        <fullName>Developer</fullName>
+        <fullName>Institution</fullName>
         <default>false</default>
-        <label>Developer</label>
-        <reverseRole>Vendor</reverseRole>
-    </standardValue>
-    <standardValue>
-        <fullName>Broker</fullName>
-        <default>false</default>
-        <label>Broker</label>
-        <reverseRole>Agent</reverseRole>
+        <label>Institution</label>
+        <reverseRole>Client</reverseRole>
     </standardValue>
     <standardValue>
         <fullName>Lender</fullName>
@@ -50,33 +56,15 @@
         <reverseRole>Broker</reverseRole>
     </standardValue>
     <standardValue>
-        <fullName>Supplier</fullName>
+        <fullName>System Integrator</fullName>
         <default>false</default>
-        <label>Supplier</label>
-        <reverseRole>Retailer</reverseRole>
-    </standardValue>
-    <standardValue>
-        <fullName>Institution</fullName>
-        <default>false</default>
-        <label>Institution</label>
+        <label>System Integrator</label>
         <reverseRole>Client</reverseRole>
     </standardValue>
     <standardValue>
-        <fullName>Contractor</fullName>
+        <fullName>VAR/Reseller</fullName>
         <default>false</default>
-        <label>Contractor</label>
-        <reverseRole>Sub Contractor</reverseRole>
-    </standardValue>
-    <standardValue>
-        <fullName>Dealer</fullName>
-        <default>false</default>
-        <label>Dealer</label>
-        <reverseRole>Supplier</reverseRole>
-    </standardValue>
-    <standardValue>
-        <fullName>Consultant</fullName>
-        <default>false</default>
-        <label>Consultant</label>
-        <reverseRole>Client</reverseRole>
+        <label>VAR/Reseller</label>
+        <reverseRole>Vendor</reverseRole>
     </standardValue>
 </StandardValueSet>

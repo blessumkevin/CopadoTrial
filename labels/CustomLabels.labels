@@ -1,17 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
-    <labels>
-        <fullName>Account_Summary_Label</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Account Summary Label</shortDescription>
-        <value>https://Prodfakeurl.html</value>
-    </labels>
-    <labels>
-        <fullName>Test_Label</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Test Label</shortDescription>
-        <value>{!Environment.Test_Label}</value>
-    </labels>
-</CustomLabels>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"/>
+

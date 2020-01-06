@@ -1026,6 +1026,42 @@
         <apexPage>copado__viewOrg</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Finding__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Finding__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Rule__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Rule__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Scan_Result__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Scan_Result__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__Bug</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__Investigation</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__User_Story</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabSettings>
         <tab>copado__Account_Summary</tab>
         <visibility>Visible</visibility>

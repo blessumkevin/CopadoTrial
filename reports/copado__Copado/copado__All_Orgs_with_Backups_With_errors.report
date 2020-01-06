@@ -37,8 +37,8 @@
     <reportType>copado__Orgs_with_Git_Backups__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>false</showGrandTotal>
-    <showSubTotals>false</showSubTotals>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>copado__Org__c$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

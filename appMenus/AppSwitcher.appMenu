@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AppMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <appMenuItems>
+        <name>Getting_Started</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Shopping_List</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>standard__Platform</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -17,11 +25,7 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__ServiceConsole</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__AppLauncher</name>
+        <name>standard__Chatter</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -29,27 +33,47 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Sites</name>
+        <name>standard__AppLauncher</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Chatter</name>
+        <name>Inspections</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Content</name>
+        <name>Chatter_Desktop</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Chatter_for_Android</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Chatter_for_BlackBerry</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Chatter_for_iOS</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Salesforce1_for_Windows</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>SalesforceA</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Salesforce_Chatterbox</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>TIMBASURVEYS__Timba_Survey</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Insights</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__LightningSalesConsole</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__LightningService</name>
+        <name>standard__ServiceConsole</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -57,7 +81,11 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__LightningInstrumentation</name>
+        <name>standard__LightningSalesConsole</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__SalesforceCMS</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -81,27 +109,11 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>copado__Copado_Continuous_Integration</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>copado__Copado_DX</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>copado__Copado_Permissioner</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
         <name>copado__Copado_Selenium_Testing</name>
         <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Copado_Trial</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Copado_DX</name>
-        <type>ConnectedApp</type>
     </appMenuItems>
 </AppMenu>

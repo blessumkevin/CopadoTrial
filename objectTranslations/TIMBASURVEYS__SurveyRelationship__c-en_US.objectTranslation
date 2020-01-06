@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- ObjectId --></label>
+        <name>TIMBASURVEYS__ObjectId__c</name>
+    </fields>
+    <fields>
+        <label><!-- ObjectName --></label>
+        <name>TIMBASURVEYS__ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recipient --></label>
+        <name>TIMBASURVEYS__Recipient__c</name>
+        <relationshipLabel><!-- SurveyRelationship --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SingleRecord --></label>
+        <name>TIMBASURVEYS__SingleRecord__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- SurveyRelationship --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

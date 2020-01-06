@@ -2,29 +2,16 @@
 <SecuritySettings xmlns="http://soap.sforce.com/2006/04/metadata">
     <networkAccess>
         <ipRanges>
-            <description>Copado Laptop</description>
-            <end>157.130.97.242</end>
-            <start>157.130.97.242</start>
+            <end>132.255.255.255</end>
+            <start>132.0.0.0</start>
         </ipRanges>
         <ipRanges>
-            <description>Copado 3</description>
-            <end>54.88.136.216</end>
-            <start>54.88.136.216</start>
+            <end>133.255.255.255</end>
+            <start>132.0.0.0</start>
         </ipRanges>
         <ipRanges>
-            <description>Copado 4</description>
-            <end>54.84.188.199</end>
-            <start>54.84.188.199</start>
-        </ipRanges>
-        <ipRanges>
-            <description>Copado 2</description>
-            <end>35.174.57.133</end>
-            <start>35.174.57.133</start>
-        </ipRanges>
-        <ipRanges>
-            <description>Copado 1</description>
-            <end>18.233.58.2</end>
-            <start>18.233.58.2</start>
+            <end>1.255.255.255</end>
+            <start>0.0.0.0</start>
         </ipRanges>
     </networkAccess>
     <passwordPolicies>
@@ -50,24 +37,24 @@
         <enableClickjackSetup>true</enableClickjackSetup>
         <enableContentSniffingProtection>true</enableContentSniffingProtection>
         <enablePostForSessions>false</enablePostForSessions>
-        <enableSMSIdentity>true</enableSMSIdentity>
+        <enableSMSIdentity>false</enableSMSIdentity>
         <enableUpgradeInsecureRequests>true</enableUpgradeInsecureRequests>
         <enableXssProtection>true</enableXssProtection>
         <enforceIpRangesEveryRequest>false</enforceIpRangesEveryRequest>
-        <forceLogoutOnSessionTimeout>true</forceLogoutOnSessionTimeout>
-        <forceRelogin>true</forceRelogin>
+        <forceLogoutOnSessionTimeout>false</forceLogoutOnSessionTimeout>
+        <forceRelogin>false</forceRelogin>
         <hstsOnForcecomSites>false</hstsOnForcecomSites>
         <identityConfirmationOnEmailChange>false</identityConfirmationOnEmailChange>
         <identityConfirmationOnTwoFactorRegistrationEnabled>true</identityConfirmationOnTwoFactorRegistrationEnabled>
         <lockSessionsToDomain>true</lockSessionsToDomain>
         <lockSessionsToIp>false</lockSessionsToIp>
-        <lockerServiceCSP>false</lockerServiceCSP>
+        <lockerServiceCSP>true</lockerServiceCSP>
         <lockerServiceFrozenRealm>false</lockerServiceFrozenRealm>
         <redirectionWarning>true</redirectionWarning>
         <referrerPolicy>true</referrerPolicy>
         <requireHttpOnly>false</requireHttpOnly>
         <requireHttps>true</requireHttps>
         <securityCentralKillSession>true</securityCentralKillSession>
-        <sessionTimeout>TwentyFourHours</sessionTimeout>
+        <sessionTimeout>TwoHours</sessionTimeout>
     </sessionSettings>
 </SecuritySettings>

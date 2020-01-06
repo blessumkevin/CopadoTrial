@@ -21,6 +21,10 @@
         <label><!-- Status --></label>
         <name>copado__Status__c</name>
         <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Completed</masterLabel>
             <translation><!-- Completed --></translation>
         </picklistValues>

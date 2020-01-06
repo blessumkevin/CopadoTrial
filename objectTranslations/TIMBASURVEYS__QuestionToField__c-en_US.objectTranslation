@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- FieldLabel --></label>
+        <name>TIMBASURVEYS__FieldLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldLength --></label>
+        <name>TIMBASURVEYS__FieldLength__c</name>
+    </fields>
+    <fields>
+        <label><!-- FieldType --></label>
+        <name>TIMBASURVEYS__FieldType__c</name>
+    </fields>
+    <fields>
+        <label><!-- ObjectName --></label>
+        <name>TIMBASURVEYS__ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- QuestionId --></label>
+        <name>TIMBASURVEYS__QuestionId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- QuestionToFields --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- Compliance_Result_Tab --></label>
-        <name>copado__Compliance_Result_Tab</name>
-    </fieldSets>
     <fields>
         <label><!-- Deployment --></label>
         <name>copado__Deployment__c</name>

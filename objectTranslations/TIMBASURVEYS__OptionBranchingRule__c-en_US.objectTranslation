@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- AnswerOption --></label>
+        <name>TIMBASURVEYS__AnswerOption__c</name>
+        <relationshipLabel><!-- OptionBranchingRules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Answered --></label>
+        <name>TIMBASURVEYS__Answered__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsPageBranch --></label>
+        <name>TIMBASURVEYS__IsPageBranch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- OptionBranchingRules --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

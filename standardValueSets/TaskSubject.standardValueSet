@@ -7,11 +7,6 @@
         <label>Call</label>
     </standardValue>
     <standardValue>
-        <fullName>Email</fullName>
-        <default>false</default>
-        <label>Email</label>
-    </standardValue>
-    <standardValue>
         <fullName>Send Letter</fullName>
         <default>false</default>
         <label>Send Letter</label>

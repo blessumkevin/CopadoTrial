@@ -72,7 +72,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- If selected, &quot;Run all tests&quot; will be enforced when deploying to this environment. --></help>
+        <help><!-- If selected, &quot;Run all local tests&quot; will be enforced when deploying to this environment. --></help>
         <label><!-- Run all local tests --></label>
         <name>copado__Run_all_tests__c</name>
     </fields>

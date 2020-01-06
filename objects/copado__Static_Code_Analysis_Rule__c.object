@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -115,7 +215,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -137,6 +236,11 @@
                     <fullName>ApexDangerousMethods</fullName>
                     <default>false</default>
                     <label>ApexDangerousMethods</label>
+                </value>
+                <value>
+                    <fullName>ApexDoc</fullName>
+                    <default>false</default>
+                    <label>ApexDoc</label>
                 </value>
                 <value>
                     <fullName>ApexInsecureEndpoint</fullName>
@@ -184,6 +288,11 @@
                     <label>ApexXSSFromURLParam</label>
                 </value>
                 <value>
+                    <fullName>AvoidDirectAccessTriggerMap</fullName>
+                    <default>false</default>
+                    <label>AvoidDirectAccessTriggerMap</label>
+                </value>
+                <value>
                     <fullName>AvoidDeeplyNestedIfStmts</fullName>
                     <default>false</default>
                     <label>AvoidDeeplyNestedIfStmts</label>
@@ -199,6 +308,16 @@
                     <label>AvoidGlobalModifier</label>
                 </value>
                 <value>
+                    <fullName>AvoidHardcodingId</fullName>
+                    <default>false</default>
+                    <label>AvoidHardcodingId</label>
+                </value>
+                <value>
+                    <fullName>AvoidNonExistentAnnotations</fullName>
+                    <default>false</default>
+                    <label>AvoidNonExistentAnnotations</label>
+                </value>
+                <value>
                     <fullName>AvoidLogicInTrigger</fullName>
                     <default>false</default>
                     <label>AvoidLogicInTrigger</label>
@@ -212,6 +331,36 @@
                     <fullName>ClassNamingConventions</fullName>
                     <default>false</default>
                     <label>ClassNamingConventions</label>
+                </value>
+                <value>
+                    <fullName>CyclomaticComplexity</fullName>
+                    <default>false</default>
+                    <label>CyclomaticComplexity</label>
+                </value>
+                <value>
+                    <fullName>EmptyCatchBlock</fullName>
+                    <default>false</default>
+                    <label>EmptyCatchBlock</label>
+                </value>
+                <value>
+                    <fullName>EmptyIfStmt</fullName>
+                    <default>false</default>
+                    <label>EmptyIfStmt</label>
+                </value>
+                <value>
+                    <fullName>EmptyStatementBlock</fullName>
+                    <default>false</default>
+                    <label>EmptyStatementBlock</label>
+                </value>
+                <value>
+                    <fullName>EmptyTryOrFinallyBlock</fullName>
+                    <default>false</default>
+                    <label>EmptyTryOrFinallyBlock</label>
+                </value>
+                <value>
+                    <fullName>EmptyWhileStmt</fullName>
+                    <default>false</default>
+                    <label>EmptyWhileStmt</label>
                 </value>
                 <value>
                     <fullName>ExcessiveClassLength</fullName>
@@ -287,11 +436,6 @@
                     <fullName>WhileLoopsMustUseBraces</fullName>
                     <default>false</default>
                     <label>WhileLoopsMustUseBraces</label>
-                </value>
-                <value>
-                    <fullName>TestingCustomRule</fullName>
-                    <default>false</default>
-                    <label>TestingCustomRule</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

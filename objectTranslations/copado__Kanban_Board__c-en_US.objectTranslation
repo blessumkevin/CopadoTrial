@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- Edit --></label>
-        <name>copado__Edit</name>
-    </fieldSets>
     <fields>
         <help><!-- SOQL Query to retrieve the columns. Id and Name fields will be used to generate the list. --></help>
         <label><!-- Columns from SOQL --></label>

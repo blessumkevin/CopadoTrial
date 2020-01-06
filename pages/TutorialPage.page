@@ -1,0 +1,8 @@
+<apex:page sidebar="false">
+    <center>     
+        <video width="900" height="564" controls="true">
+            <source src="{!URLFOR($Resource.Tutorial)}" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+    </center>     
+</apex:page>

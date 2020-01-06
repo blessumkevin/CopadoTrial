@@ -19,6 +19,14 @@ orgMetadata.init = function(conf, force, isScalable, type){
         metadataGrid2.loadData(function() {
             console.info("MetadataGrid:init grid data loaded");
             metadataGrid2.render();
+            if(conf.isScalable){
+                var metadataTypeList = [];
+                for (var i = 0; i < metadataGrid2.filterByTypeList.length; i++) {
+                    metadataTypeList.push(metadataGrid2.filterByTypeList[i]);
+                }
+                metadataGrid2.eltMetaDataTypeFilter.jqxComboBox({source: metadataTypeList});
+            }
+
             unlockScreen();
         });
     });

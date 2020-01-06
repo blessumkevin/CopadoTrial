@@ -2,19 +2,29 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Conference</fullName>
+        <fullName>Advertisement</fullName>
         <default>true</default>
-        <label>Conference</label>
+        <label>Advertisement</label>
     </standardValue>
     <standardValue>
-        <fullName>Webinar</fullName>
+        <fullName>Email</fullName>
         <default>false</default>
-        <label>Webinar</label>
+        <label>Email</label>
     </standardValue>
     <standardValue>
-        <fullName>Trade Show</fullName>
+        <fullName>Telemarketing</fullName>
         <default>false</default>
-        <label>Trade Show</label>
+        <label>Telemarketing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Banner Ads</fullName>
+        <default>false</default>
+        <label>Banner Ads</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar / Conference</fullName>
+        <default>false</default>
+        <label>Seminar / Conference</label>
     </standardValue>
     <standardValue>
         <fullName>Public Relations</fullName>
@@ -30,31 +40,6 @@
         <fullName>Referral Program</fullName>
         <default>false</default>
         <label>Referral Program</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Advertisement</fullName>
-        <default>false</default>
-        <label>Advertisement</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Banner Ads</fullName>
-        <default>false</default>
-        <label>Banner Ads</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Direct Mail</fullName>
-        <default>false</default>
-        <label>Direct Mail</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Email</fullName>
-        <default>false</default>
-        <label>Email</label>
-    </standardValue>
-    <standardValue>
-        <fullName>Telemarketing</fullName>
-        <default>false</default>
-        <label>Telemarketing</label>
     </standardValue>
     <standardValue>
         <fullName>Other</fullName>

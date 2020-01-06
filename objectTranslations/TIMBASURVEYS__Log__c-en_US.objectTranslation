@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Extra Comments --></label>
+        <name>TIMBASURVEYS__Extra_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Number --></label>
+        <name>TIMBASURVEYS__Line_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>TIMBASURVEYS__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method Name --></label>
+        <name>TIMBASURVEYS__Method_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class Name --></label>
+        <name>TIMBASURVEYS__className__c</name>
+    </fields>
+</CustomObjectTranslation>

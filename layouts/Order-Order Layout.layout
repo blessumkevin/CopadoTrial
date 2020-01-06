@@ -7,10 +7,6 @@
         <label>Order Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>OrderNumber</field>
             </layoutItems>

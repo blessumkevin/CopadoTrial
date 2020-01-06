@@ -32,6 +32,11 @@
     </dispositions>
     <dispositions>
         <behavior>DOWNLOAD</behavior>
+        <fileType>JSON</fileType>
+        <securityRiskFileType>false</securityRiskFileType>
+    </dispositions>
+    <dispositions>
+        <behavior>DOWNLOAD</behavior>
         <fileType>RFC822</fileType>
         <securityRiskFileType>true</securityRiskFileType>
     </dispositions>

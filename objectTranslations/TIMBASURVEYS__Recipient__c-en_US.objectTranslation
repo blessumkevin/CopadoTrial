@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Collected --></label>
+        <name>TIMBASURVEYS__Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Send Invitation --></label>
+        <name>TIMBASURVEYS__DateSendInvitation__c</name>
+    </fields>
+    <fields>
+        <label><!-- EmailAddress --></label>
+        <name>TIMBASURVEYS__EmailAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- FirstName --></label>
+        <name>TIMBASURVEYS__FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPAddress --></label>
+        <name>TIMBASURVEYS__IPAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- InvitationPending --></label>
+        <name>TIMBASURVEYS__InvitationPending__c</name>
+    </fields>
+    <fields>
+        <label><!-- InvitationSent --></label>
+        <name>TIMBASURVEYS__InvitationSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsPortalUser --></label>
+        <name>TIMBASURVEYS__IsPortalUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- LastName --></label>
+        <name>TIMBASURVEYS__LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Publish In Portal --></label>
+        <name>TIMBASURVEYS__Publish_In_Portal__c</name>
+    </fields>
+    <fields>
+        <label><!-- RelatedAccount --></label>
+        <name>TIMBASURVEYS__RelatedAccount__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedCampaign --></label>
+        <name>TIMBASURVEYS__RelatedCampaign__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedCase --></label>
+        <name>TIMBASURVEYS__RelatedCase__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedContactName --></label>
+        <name>TIMBASURVEYS__RelatedContactName__c</name>
+    </fields>
+    <fields>
+        <label><!-- RelatedContact --></label>
+        <name>TIMBASURVEYS__RelatedContact__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedLead --></label>
+        <name>TIMBASURVEYS__RelatedLead__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedObjectId --></label>
+        <name>TIMBASURVEYS__RelatedObjectId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Opportunity --></label>
+        <name>TIMBASURVEYS__RelatedOpportunity__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedUser --></label>
+        <name>TIMBASURVEYS__RelatedUser__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Summary_Created --></label>
+        <name>TIMBASURVEYS__Summary_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>TIMBASURVEYS__Survey__c</name>
+        <relationshipLabel><!-- Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- WhoId --></label>
+        <name>TIMBASURVEYS__WhoId__c</name>
+    </fields>
+    <fields>
+        <label><!-- isAnonymous --></label>
+        <name>TIMBASURVEYS__isAnonymous__c</name>
+    </fields>
+</CustomObjectTranslation>

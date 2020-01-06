@@ -2,16 +2,17 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <help><!-- This is Repository where the Artifact can be stored, in the master branch --></help>
-        <label><!-- Artifact Repository --></label>
+        <label><!-- Package Repository --></label>
         <name>copado__Artifact_Repository__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Latest Package Version --></label>
         <name>copado__Artifact_Version__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The description of the package --></help>
         <label><!-- Description --></label>
         <name>copado__Description__c</name>
     </fields>
@@ -21,10 +22,11 @@
         <name>copado__No_Namespace__c</name>
     </fields>
     <fields>
-        <help><!-- Org Credential where the metadata of the Artifact is going to be retrieved from --></help>
+        <help><!-- The org credential where the metadata of the Artifact is going to be retrieved from, for unlocked packages and 2GP.
+The org credential where the unmanaged package is created from. --></help>
         <label><!-- Source Org Credential --></label>
         <name>copado__Org_Credential__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages (Source Org Credential) --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- Related package identifier. Being used as a Package Id for package version creation and also in use into the sfdx-project.json file as a package alias. --></help>
@@ -41,16 +43,16 @@
         <label><!-- Package Type --></label>
         <name>copado__Package_Type__c</name>
         <picklistValues>
+            <masterLabel>First-Generation Package</masterLabel>
+            <translation><!-- First-Generation Package --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Second-Generation Package</masterLabel>
             <translation><!-- Second-Generation Package --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unlocked</masterLabel>
             <translation><!-- Unlocked --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Unmanaged</masterLabel>
-            <translation><!-- Unmanaged --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -219,6 +221,10 @@
             <translation><!-- 44.0 --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>45.0</masterLabel>
+            <translation><!-- 45.0 --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>5.0</masterLabel>
             <translation><!-- 5.0 --></translation>
         </picklistValues>
@@ -242,32 +248,29 @@
     <fields>
         <help><!-- Copado org credential for the dev hub which will be used to create and store the package and its versions --></help>
         <label><!-- Target Dev Hub Org --></label>
-        <lookupFilter>
-            <errorMessage><!-- Only dev hub org credentials can be selected. Given value not found or it is not a dev hub org. --></errorMessage>
-        </lookupFilter>
         <name>copado__Target_Dev_Hub_Org__c</name>
-        <relationshipLabel><!-- Artifacts (Target Dev Hub Org) --></relationshipLabel>
+        <relationshipLabel><!-- Packages (Target Dev Hub Org) --></relationshipLabel>
     </fields>
     <recordTypes>
-        <description><!-- Version control system centric artifact --></description>
-        <label><!-- Git Artifact --></label>
+        <description><!-- Version Control System centric package --></description>
+        <label><!-- Git Package --></label>
         <name>copado__Git_Artifact</name>
     </recordTypes>
     <recordTypes>
-        <description><!-- Salesforce unmanaged, unlocked or manage package as a artifact --></description>
-        <label><!-- Package Artifact --></label>
+        <description><!-- Salesforce unlocked, First Generation Package or Second-Generation Package as a package --></description>
+        <label><!-- Salesforce Package --></label>
         <name>copado__Package_Artifact</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- Artifact names are in use for DX folder structure, therefore, artifact names are not editable. --></errorMessage>
+        <errorMessage><!-- Package names are in use for DX folder structure, therefore, package names are not editable. --></errorMessage>
         <name>copado__ArtifactNameCannotChange</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for Unmanaged Packages --></errorMessage>
+        <errorMessage><!-- Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for First Second Generation Packages --></errorMessage>
         <name>copado__Artifact_Repo_Control_For_Package_Type</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Artifact name cannot contain white spaces --></errorMessage>
+        <errorMessage><!-- Package name cannot contain white spaces --></errorMessage>
         <name>copado__Name_should_not_contain_empty_space</name>
     </validationRules>
     <webLinks>

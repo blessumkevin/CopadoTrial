@@ -35,71 +35,6 @@ var apexTestResult = {
         me.showError = true;
         me.renderTables = false;
     },
-    /*updateUserStory: function(cc){
-        var me = apexTestResult;
-        if(me.userStoryClassesArray.length > 0)me.hasApexCode = true;
-        if(me.userStoryTriggersArray.length > 0)me.hasApexCode = true;
-
-        if(!isNaN(cc)){
-            me.userStoryCoverage = Math.floor(cc);
-        }
-        console.log('FLS check',me.userStory[me.ns+"Failing_Methods__c"]);
-        var queryFields = [me.ns+"Apex_Code_Coverage__c", me.ns+"Failing_Methods__c", me.ns+"Triggers_Without_Coverage__c", me.ns+"Has_Apex_Code__c", me.ns+"Classes_Without_Coverage__c"];
-        var validFields = me.flsCheck(queryFields);
-
-        var soql = "Select Id, Name, "+validFields.join()+" FROM " +me.ns+"User_Story__c WHERE Id='"+copadoApp.userStoryId+"' limit 1";
-        console.debug('updateUserStory() soql=', soql);
-        
-        var oldResult = sforce.connection.query(soql);
-        usRecord = oldResult.getArray("records")[0];
-
-        var changes = {};
-        // NOTE: this will fail if any of this fields have no FLS for the current user.
-
-        // check if number b differs from usRecord[name] and if so, add the value to the changes dict.
-        var numbersDiffer = function(name, b, changes) {
-            var a = usRecord[me.ns+name];
-            a = a&&!isNaN(a)?a:0;
-            b = b&&!isNaN(b)?b:0;
-            console.debug("numbersDiffer()2", name, b, a, changes);
-            if(a != b) {
-                changes[me.ns+name] = b;
-            }
-        };
-        // check if bool b differs from usRecord[name] and if so, add the value to the changes dict.
-        var booleanDiffer = function(name, b, changes) {
-            var a = usRecord[me.ns+name];
-            a = a&&a!=='false'?1:0;
-            b = b&&b!=='false'?1:0;
-            console.debug("booleanDiffer()2", name, b, a, changes);
-            if(a != b) {
-                changes[me.ns+name] = b;
-            }
-        };
-
-        numbersDiffer('Apex_Code_Coverage__c', me.userStoryCoverage, changes);
-        numbersDiffer('Classes_Without_Coverage__c', me.classesWithoutCoverage, changes);
-        numbersDiffer('Triggers_Without_Coverage__c', me.triggersWithoutCoverage, changes);
-        numbersDiffer('Failing_Methods__c', me.failingMethods, changes);
-        booleanDiffer('Has_Apex_Code__c', me.hasApexCode, changes);
-        var hasChanges = Object.keys(changes).length>0;
-        
-
-        console.debug(JSON.stringify(changes));
-        window.parent.postMessage({"from":"apexTestResult", "hasChanges":hasChanges, "change":changes}, "*");
-    },
-
-    flsCheck: function(fields){
-        var me = apexTestResult;
-        var validFields = [];
-        for(var i = 0; i< fields.length; i++){
-            console.log('FLS check:::',fields[i],me.userStory[fields[i]]);
-            if(me.userStory[fields[i]] !== undefined){
-                validFields.push(fields[i]);
-            }
-        }
-        return validFields;
-    },*/
 
     updateEnvironmentCodeCoverage: function(){
         var me = apexTestResult;
@@ -136,7 +71,6 @@ var apexTestResult = {
         try{
             var result = sforce.connection.query("Select Id, Name, Body from Attachment where Name='"+name+"' and ParentId='"+parentId+"' limit 1");
             records = result.getArray("records");
-            //console.log('getUserStoryAttachment',name,  parentId, records);
             return records;
         }
         catch(error){
@@ -144,17 +78,6 @@ var apexTestResult = {
             return;
         }
     },
-    /*arrayUnique: function(array) {
-        var a = array.concat();
-        for(var i=0; i<a.length; ++i) {
-            for(var j=i+1; j<a.length; ++j) {
-                if(a[i] === a[j]){
-                    a.splice(j--, 1);
-                }
-            }
-        }
-        return a;
-    },*/
     getOrgTestClasses: function(cb){
         var me = apexTestResult;
         url = copadoApp.urlBase+'testClasses/'+copadoApp.orgId+copadoApp.urlParameters;
@@ -342,15 +265,15 @@ var apexTestResult = {
 
             //set namespace from first item
             me.namespace = me.testClassesArray[0].ns;
-            var nsPrefix = (me.namespace.length==0)?'none/':me.namespace+'/';
+            var nsPrefix = (uniqueNameSpaceName.length == 0) ? 'none/' : uniqueNameSpaceName + '/';
             //prepare URL
             var herokuServer = copadoApp.herokuServer;
             if(copadoApp.userStoryId) {
                 // this means it is a user story commit, use the new UserStoryWaitingFor page
-                redirectToWaitingForPage(testClassList);
+                redirectToWaitingForPage(testClassList, nsPrefix);
                 return;
             }
-            var uri = herokuServer+'/json/v1/apexTest/'+copadoApp.orgId+'/'+nsPrefix+testClassList+copadoApp.urlParameters+'&parentId='+copadoApp.userStoryId;
+            var uri = herokuServer + '/json/v1/apexTest/' + copadoApp.orgId + '/' + nsPrefix + testClassList + copadoApp.urlParameters + '&parentId=' + copadoApp.userStoryId;
 
             console.log('before remote2', uri);
 
@@ -415,7 +338,7 @@ var apexTestResult = {
         var keys = Object.keys(source);
         var userStoryItemsCount = 0;
 
-        var useNamespace = (me.namespace.length>0)?me.namespace+'__':'';
+        var useNamespace = (me.namespace.length>0) ? me.namespace + '__' : '';
 
         //prepare classes/trigger names for US Array
         var tmp_names = [];
@@ -773,10 +696,7 @@ apexTestResult.init =  function(){
         var url_string = location.href;
         var url = new URL(url_string);
         var reload = url.searchParams.get("rl");
-        
-        /*if(location.href.indexOf('sfdcIFrameHost=web') < 0 && reload === null){
-            apexTestResult.updateUserStory(apexTestResult.userStoryCoverage);        
-        }*/
+
         $copado('#summaryUserStory').show();
     }
     else{

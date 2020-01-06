@@ -8,14 +8,6 @@
         <plural>true</plural>
         <value><!-- Deployment --></value>
     </caseValues>
-    <fieldSets>
-        <label><!-- Copado Header Fields --></label>
-        <name>copado__Copado_Header_Fields</name>
-    </fieldSets>
-    <fieldSets>
-        <label><!-- CustomFields --></label>
-        <name>copado__CustomFields</name>
-    </fieldSets>
     <fields>
         <label><!-- Build Task --></label>
         <name>copado__Build_Task__c</name>
@@ -49,6 +41,18 @@
     <fields>
         <label><!-- Deployment Jobs Count --></label>
         <name>copado__Deployment_Jobs_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Last Step --></label>
+        <name>copado__Deployment_Last_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Source Type --></label>
+        <name>copado__Deployment_Source_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Type --></label>
+        <name>copado__Deployment_Type__c</name>
     </fields>
     <fields>
         <label><!-- Deployment command sent --></label>
@@ -96,6 +100,10 @@
     <fields>
         <label><!-- Server_URL --></label>
         <name>copado__Server_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Environment --></label>
+        <name>copado__Source_Environment__c</name>
     </fields>
     <fields>
         <label><!-- Status --></label>

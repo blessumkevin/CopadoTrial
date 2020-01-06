@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -54,66 +154,6 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fieldSets>
-        <fullName>copado__Compliance_Result_Tab</fullName>
-        <availableFields>
-            <field>copado__Deployment__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Org_Credential__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <description>In Copado Pipeline Promotion page</description>
-        <displayedFields>
-            <field>Name</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__User_Story__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Resolution_Details__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Findings__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Highest_Severity__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Highest_Rule_Action__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedById</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>LastModifiedDate</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Compliance_Result_Tab</label>
-    </fieldSets>
     <fields>
         <fullName>copado__Deployment__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -181,8 +221,9 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>copado__Compliance_Action</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -197,8 +238,9 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>copado__Compliance_Severity</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -347,134 +389,12 @@
         <active>true</active>
         <description>This record type is used for scan results produced by Copado.</description>
         <label>Copado</label>
-        <picklistValues>
-            <picklist>copado__Highest_Rule_Action__c</picklist>
-            <values>
-                <fullName>Abort Process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continue with alert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Document Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Highest_Severity__c</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Status__c</picklist>
-            <values>
-                <fullName>Completed - Findings detected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed - No Findings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed - Resolved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Error</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Under Investigation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>copado__Other</fullName>
         <active>true</active>
         <description>Use this record type to capture non-Salesforce scan results.</description>
         <label>Other</label>
-        <picklistValues>
-            <picklist>copado__Highest_Rule_Action__c</picklist>
-            <values>
-                <fullName>Abort Process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continue with alert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Document Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Highest_Severity__c</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>copado__Status__c</picklist>
-            <values>
-                <fullName>Completed - Findings detected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed - No Findings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed - Resolved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Error</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Under Investigation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>copado__Scan_Start__c</customTabListAdditionalFields>

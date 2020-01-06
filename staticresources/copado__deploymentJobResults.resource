@@ -63,12 +63,19 @@ deploymentJobResults.createResultTable = function(res, $container) {
 		res[i].b = false;
 	}
 
+	function escapeHtml(unsafe) {
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+     }
+
+    console.log('------ res: ', res);
 	var source2 = {
 		localdata: res,
-		datafields: [/*{//commented out by UCU, not needed
-			name: 'b',
-			type: 'bool'
-		}*/,{
+		datafields: [,{
 			name: 'l',
 			type: 'string'
 		}, {
@@ -117,33 +124,30 @@ deploymentJobResults.createResultTable = function(res, $container) {
         autoheight: true,
         altrows: true,
         localization: localizationobj,
-		columns: [/*{//commented out by UCU, not needed
-			text: deploymentJobResults.labels.SELECTED,
-			columntype: 'checkbox',
-			filtertype: 'bool',
-			datafield: 'b',
-			width: 80
-		},*/{
-			text: deploymentJobResults.labels.LEVELHEADER,
-			columntype: 'textbox',
-			filtertype: 'textbox',
-			datafield: 'l',
-			width: 80
-		}, {
-			text: deploymentJobResults.labels.MESSAGE,
-			filtertype: 'textbox',
-			filtercondition: 'contains',
-			datafield: 'm',
-			cellsrenderer: preRender
-		}, {
-			text: deploymentJobResults.labels.COPADOTIP,
-			datafield: 't',
-			filtertype: 'textbox',
-			filtercondition: 'contains',
-			columntype: 'textbox',
-			cellsrenderer: preRender,
-			width: '20%'
-		}]
+		columns: [
+            {
+                text: deploymentJobResults.labels.LEVELHEADER,
+                columntype: 'textbox',
+                filtertype: 'textbox',
+                datafield: 'l',
+                width: '10%'
+            }, {
+                text: deploymentJobResults.labels.MESSAGE,
+                columntype: 'textbox',
+                filtertype: 'input',
+                datafield: 'm',
+                cellsrenderer: preRender,
+                width: '70%'
+            }, {
+                text: deploymentJobResults.labels.COPADOTIP,
+                datafield: 't',
+                filtertype: 'textbox',
+                filtercondition: 'contains',
+                columntype: 'textbox',
+                cellsrenderer: preRender,
+                width: '20%'
+            }
+        ]
 	});
 
 	var filtergroup2 = new $copado.jqx.filter();

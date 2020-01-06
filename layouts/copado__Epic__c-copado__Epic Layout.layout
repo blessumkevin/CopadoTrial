@@ -38,6 +38,14 @@
                 <behavior>Edit</behavior>
                 <field>copado__Epic_Details__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Cancelled_Reason__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -82,12 +90,11 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>copado__User_Story_Title__c</fields>
-        <fields>copado__userStory_Role__c</fields>
-        <fields>copado__userStory_reason__c</fields>
-        <fields>copado__userStory_need__c</fields>
         <fields>copado__Status__c</fields>
-        <fields>copado__Close_Date__c</fields>
+        <fields>copado__Progress__c</fields>
+        <fields>copado__Environment__c</fields>
         <fields>copado__Project__c</fields>
+        <fields>copado__View_in_Git__c</fields>
         <relatedList>copado__User_Story__c.copado__Epic__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -115,7 +122,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hb0000005axpK</masterLabel>
+        <masterLabel>00h0Y000000UiJA</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

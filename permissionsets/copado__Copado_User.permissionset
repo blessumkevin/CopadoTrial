@@ -125,6 +125,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>copado__CLIInterface</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>copado__CMTestMethodUtilities</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -142,6 +146,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>copado__CheckFeaturesController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__CliProxy</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__CliSecurityService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__CliSfDataWrapper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -198,6 +214,34 @@
     </classAccesses>
     <classAccesses>
         <apexClass>copado__CreateUserStoryScratchOrgController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_DeploymentExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_IntermediaryExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_OverviewExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_SelectChangesExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_SourceExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_SummaryExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__DW_TargetExtension</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1417,7 +1461,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>copado__WorkDisplayService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>copado__WorkManager</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__WorkPushService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__WorkSetService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>copado__WorkSubmitService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2401,6 +2461,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__Deployment__c.copado__Deployment_Last_Step__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__Deployment__c.copado__Deployment_Source_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__Deployment__c.copado__Deployment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>copado__Deployment__c.copado__Deployment_command_sent__c</field>
         <readable>true</readable>
@@ -2443,6 +2518,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>copado__Deployment__c.copado__Server_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__Deployment__c.copado__Source_Environment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2828,6 +2908,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Git_Repository__c.copado__Pull_Request_Base_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Git_Repository__c.copado__Source_Format__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3673,6 +3758,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>copado__Snapshot_Difference__c.copado__Destination_Org_Credential__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>copado__Snapshot_Difference__c.copado__Format__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5622,6 +5712,34 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>copado__DW_Deployment</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_Intermediary</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_Overview</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_SelectChanges</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_Source</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_Summary</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>copado__DW_Target</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>copado__DXOperation</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -6109,6 +6227,82 @@
         <apexPage>copado__viewOrg</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <recordType>copado__Artifact__c.copado__Git_Artifact</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Artifact__c.copado__Package_Artifact</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Finding__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Finding__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Rule__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Rule__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Scan_Result__c.copado__Copado</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Compliance_Scan_Result__c.copado__Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Selenium_Test_Run__c.copado__Generic_Web_Application</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Selenium_Test_Run__c.copado__Salesforce</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Result__c.copado__CodeScan</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Result__c.copado__PMD</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Settings__c.copado__CodeScan</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Settings__c.copado__PMD</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Violation__c.copado__CodeScan</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__Static_Code_Analysis_Violation__c.copado__PMD</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__Bug</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__Investigation</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>copado__User_Story__c.copado__User_Story</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabSettings>
         <tab>copado__Account_Summary</tab>
         <visibility>Visible</visibility>

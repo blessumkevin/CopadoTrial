@@ -179,7 +179,15 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>Project__c</tabs>
+    <tabs>Invoice__c</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>Invoice__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Project__c</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

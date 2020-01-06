@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- AllowAnonymousRecipients --></label>
+        <name>TIMBASURVEYS__AllowAnonymousRecipients__c</name>
+    </fields>
+    <fields>
+        <label><!-- AllowMultiFill --></label>
+        <name>TIMBASURVEYS__AllowMultiFill__c</name>
+    </fields>
+    <fields>
+        <label><!-- CollectedResponses --></label>
+        <name>TIMBASURVEYS__CollectedResponses__c</name>
+    </fields>
+    <fields>
+        <label><!-- CollectingData --></label>
+        <name>TIMBASURVEYS__CollectingData__c</name>
+    </fields>
+    <fields>
+        <label><!-- CreateLeads --></label>
+        <name>TIMBASURVEYS__CreateLeads__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description2 --></label>
+        <name>TIMBASURVEYS__Description2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>TIMBASURVEYS__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expiration Date Enabled --></label>
+        <name>TIMBASURVEYS__Expiration_Date_Enabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expiration Date --></label>
+        <name>TIMBASURVEYS__Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- FirstCollection --></label>
+        <name>TIMBASURVEYS__FirstCollection__c</name>
+    </fields>
+    <fields>
+        <label><!-- NotificationEmail --></label>
+        <name>TIMBASURVEYS__NotificationEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- NotifyResponses --></label>
+        <name>TIMBASURVEYS__NotifyResponses__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumberOfPages --></label>
+        <name>TIMBASURVEYS__NumberOfPages__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumberOfQuestions --></label>
+        <name>TIMBASURVEYS__NumberOfQuestions__c</name>
+    </fields>
+    <fields>
+        <label><!-- QuestionsPerPage --></label>
+        <name>TIMBASURVEYS__QuestionsPerPage__c</name>
+    </fields>
+    <fields>
+        <label><!-- RelatedAccount --></label>
+        <name>TIMBASURVEYS__RelatedAccount__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedCase --></label>
+        <name>TIMBASURVEYS__RelatedCase__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedContact --></label>
+        <name>TIMBASURVEYS__RelatedContact__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedContract --></label>
+        <name>TIMBASURVEYS__RelatedContract__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedLead --></label>
+        <name>TIMBASURVEYS__RelatedLead__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedObjectId --></label>
+        <name>TIMBASURVEYS__RelatedObjectId__c</name>
+    </fields>
+    <fields>
+        <label><!-- RelatedOpportunity --></label>
+        <name>TIMBASURVEYS__RelatedOpportunity__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RelatedSolution --></label>
+        <name>TIMBASURVEYS__RelatedSolution__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RequireLeads --></label>
+        <name>TIMBASURVEYS__RequireLeads__c</name>
+    </fields>
+    <fields>
+        <label><!-- SalesforceBaseURL --></label>
+        <name>TIMBASURVEYS__SalesforceBaseURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>TIMBASURVEYS__Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SurveyEmailTemplatePlain --></label>
+        <name>TIMBASURVEYS__SurveyEmailTemplatePlain__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurveyEmailTemplate --></label>
+        <name>TIMBASURVEYS__SurveyEmailTemplate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurveyTheme --></label>
+        <name>TIMBASURVEYS__SurveyTheme__c</name>
+        <relationshipLabel><!-- Survey --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TimesSent --></label>
+        <name>TIMBASURVEYS__TimesSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>TIMBASURVEYS__Version__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- Preview --></label>
+        <name>TIMBASURVEYS__Preview</name>
+    </webLinks>
+</CustomObjectTranslation>

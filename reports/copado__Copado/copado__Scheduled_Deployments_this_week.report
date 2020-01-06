@@ -31,8 +31,8 @@
     <reportType>CustomEntity$copado__Deployment__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>false</showGrandTotal>
-    <showSubTotals>false</showSubTotals>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>copado__Deployment__c.copado__Date__c</dateColumn>
         <interval>INTERVAL_THISWEEK</interval>

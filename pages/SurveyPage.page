@@ -1,0 +1,563 @@
+<apex:page controller="SurveyController" showHeader="false" sidebar="false">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=yes"/> 
+  
+        <apex:stylesheet value="{!$Resource.jquery_mmenu_css}"/>
+        <apex:stylesheet value="{!$Resource.animate_css}"/>
+        <apex:styleSheet value="{!$Resource.status_slider_popup_css}"/>      
+
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>         
+        <script src="{!URLFOR($Resource.jquery_mmenu_min_js)}"></script>
+        <script src="{!URLFOR($Resource.knob_js)}"></script>
+        <script src="{!URLFOR($Resource.jquery_layout_js)}"></script>
+
+        <style>
+            html {
+                height: 100%
+            }
+            
+            body {
+                font-family: "ProximaNovaSoft-Regular", "ITCOfficinaSerifBookRegular", "Calibri", "Helvetica", "Arial", "sans-serif";
+                height: 100%;
+            }
+    
+            a, a:hover, a:visited, a:active {
+                color: inherit!important;
+                text-decoration: none!important;
+            }
+            
+            textArea {
+                width: 100%; 
+                box-sizing: border-box;
+                border-radius: 5px; 
+                border: none; 
+                resize: none;  
+                padding: 5px;
+                font-size: 13px;
+                outline: none; 
+            }
+
+            .ui-layout-pane {
+                overflow: auto;
+            }
+           
+            .header {
+                background-color: #1797c0; 
+                width: 100%; 
+                height: 50px; 
+                min-height: 50px;
+                overflow: none!important;
+            }
+            
+            .header #title {
+                text-align: center; 
+                color: white;
+                font-size: 15px;        
+            }
+            
+            .header a
+            {
+                background: center center no-repeat transparent;
+                background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC );
+            
+                display: block;
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+            
+            #respKnob {
+                font-size: 8px!important; 
+                border: none; 
+                background-color: rgba(0, 0, 0, 0);
+            }
+    
+            .surveyTable {
+                width: 100%; 
+                border-spacing: 0;
+                border-bottom: 1px solid #a9a9a9;
+                overflow: scroll; 
+            }
+            
+            .surveyTableCell {
+                border-top: 1px solid #a9a9a9; 
+                color: #555555; 
+                vertical-align:middle!important;
+                height: 55px;
+                font-size: 14px;
+                padding-left: 10px;
+                text-align: justify;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }         
+            
+            .surveyOrderDiv {
+                font-weight: bold;
+                color: #1797c0;
+                background-color: #dddddd;
+                text-align: center;
+                height: 25px;
+                width: 25px;
+                line-height: 25px;
+                border-radius: 15px;
+                margin-bottom: 5px;    
+            }
+    
+            .selectPanel {
+                width:92%; 
+                border-radius:10px; 
+                background-color: #eeeeee;
+                margin: auto;
+                margin-bottom: 10px            
+            }
+    
+            .selectTitle {
+                width: 100%; 
+                height: 50px; 
+                border-bottom: 1px solid #cccccc; 
+                line-height:50px; 
+                text-align: left; 
+                padding-left: 15px; 
+                font-size: 14px;
+                box-sizing: border-box;
+            }
+            
+            input.imgCheckbox[type="checkbox"] {
+                display: none;
+                pointer-events:none;
+            }
+            
+            input.imgCheckbox[type="checkbox"]+label {   
+                display: block; 
+                background: url('{!$Resource.not_passed_png}') no-repeat;
+                height:25px;
+                width: 25px;
+                background-size: 25px 25px;
+                background-position: 0 0;  
+                padding-left: 0px;
+                pointer-events: none;
+            }
+            
+            input.imgCheckbox[type="checkbox"]:checked + label {
+                display: block; 
+                background: url('{!$Resource.passed_png}')  no-repeat;
+                height:25px;
+                width: 25px;
+                background-size: 25px 25px;
+                background-position: 0 0;  
+                pointer-events: none;
+            } 
+    
+            .cmn-toggle {
+              display: none;
+            }
+    
+            .cmn-toggle + label {
+              display: block;
+              position: relative;
+              cursor: pointer;
+              outline: none;
+              user-select: none;
+            }
+    
+            input.cmn-switch + label {
+              margin: 2px;
+              padding: 2px;
+              width: 60px;
+              height: 30px;
+              background-color: #a9a9a9;
+              border-radius: 30px;
+              transition: background 0.4s;
+            }
+    
+            input.cmn-switch + label:before,
+            input.cmn-switch + label:after {
+              display: block;
+              position: absolute;
+              content: "";
+            }
+    
+            input.cmn-switch + label:before {
+              top: 2px;
+              left: 2px;
+              bottom: 2px;
+              right: 2px;
+              background-color: #F7BE71;
+              border-radius: 30px;
+              transition: background 0.4s;
+            }
+    
+            input.cmn-switch + label:after {
+              top: 4px;
+              left: 4px;
+              bottom: 4px;
+              width: 26px;
+              height: 26px;
+              background-color: #a9a9a9;
+              border-radius: 14px;
+              transition: margin 0.4s, background 0.4s;
+            }
+    
+            input.cmn-switch:checked + label {
+            //  background-color: #1797c0;
+            }
+    
+            input.cmn-switch:checked + label:before {
+                background-color: #B8FF62;
+            }
+    
+            input.cmn-switch:checked + label:after {
+              margin-left: 30px;
+            }   
+
+            .cameraLink {
+                background-color: white; 
+                border-radius: 5px;
+                text-align: center;
+                margin-top: 5px;
+                background-image: url("{!$Resource.camera_png}"); 
+                background-size: 42px 42px;
+                background-repeat: no-repeat;
+                background-position-x: calc(50% - 1px);
+                height: 42px;
+                padding-top: 16px;
+                color: white;
+                font-size: 9px;
+                font-weight: bold;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+        </style>
+            
+        <script type="text/javascript">
+            var knobOptions = {
+                                 fgColor: '#FFFFFF', 
+                                 bgColor: '#AAAAAA',
+                                 readOnly: 'true', 
+                                 width: '35', 
+                                 height: '35', 
+                                 thickness: '.2', 
+                                 skin: 'tron',
+                                 draw : function () {$(this.i).val(this.cv + '%')}
+                            };
+            
+            var answeredIds = {};
+            var currentCategory;
+            var currentQuestionSFID;
+            
+            $(function() {
+                var $menu = $('nav#menu');
+    
+                $menu.mmenu({});
+    
+                $menu.find( 'li > a' ).on('click',
+                    function( e ) {
+                        var href = $(this).attr( 'href' );
+                        $menu.one('closed.mm', function() {displayCategory(href.substring(1));});
+                    }
+                );
+
+                $(document).ready(function () {
+                    $('#pageContent').layout({
+                        applyDemoStyles: false,
+                        spacing_open:0,
+                        spacing_closed: 0,
+                        slidable:  false,
+                        togglerLength_closed: 0
+                    });
+                });
+            });
+
+            $.fn.scrollTo = function( target, options, callback ){
+              if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+              var settings = $.extend({
+                scrollTarget  : target,
+                offsetTop     : 50,
+                duration      : 500,
+                easing        : 'swing'
+              }, options);
+              return this.each(function(){
+                var scrollPane = $(this);
+                var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+                var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+                scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+                  if (typeof callback == 'function') { callback.call(this); }
+                });
+              });
+            }  
+                   
+            function displayCategory(category) {
+                if (currentQuestionSFID != undefined) {
+                    toggleDetails(currentQuestionSFID);
+                }
+    
+                $('#title').text(category);
+                document.title = category;
+    
+                if (currentCategory == undefined) {
+                    displayQuestions(category);
+                } else {
+                    save();
+                    $('#surveyTable').addClass('fadeOut');
+                    $('#surveyTable').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                        displayQuestions(category);
+                    });
+                }
+                
+                currentCategory = category;
+            }
+            
+            function displayQuestions(category) {
+                $('#surveyTable tbody tr').each(function() {
+                    if ($(this).attr('category') == category) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });            
+                $('#surveyTable').removeClass('fadeOut');
+                $('#surveyTable').addClass('animated fadeIn');
+            }
+            
+            function toggleDetails(sfid) {
+                var detailsDivId = '#details-' + sfid;
+                var dd = $(detailsDivId);
+                
+                if (sfid == currentQuestionSFID) { //Closing details
+                    closeDetails(sfid);
+                } else {
+                    if (currentQuestionSFID != undefined) {
+                        closeDetails(currentQuestionSFID);
+                    }
+    
+                    currentQuestionSFID = sfid;
+                    dd.show();
+                    $('.ui-layout-center').scrollTo(detailsDivId); // animate({scrollTop: $(detailsDivId).offset().top}, 1000);
+                    $('#row-' + sfid).css('background-color', 'white');
+                }
+            }
+           
+            function closeDetails(sfid) {
+                //Check if the unanswered icon is showing and if so, answer the question with the value
+                var unansweredDiv =  '#not-answered-' + sfid;
+                if ($(unansweredDiv).is(':visible')) {
+                    checkAnswerIconAndRow(sfid);
+                }
+                
+                $('#details-' + sfid).hide();
+                save();
+                currentQuestionSFID = undefined;
+                
+                document.getElementById('{!$Component.frmFile.parentId}').value = '';
+                document.getElementById('{!$Component.frmFile.file}').value = '';
+            }      
+        
+            function save() {
+                internalSave(actionSave);
+            }
+            
+            function internalSave(saveFunction) {
+                if (currentQuestionSFID != undefined) {
+                    var answeredField =  document.getElementById('{!$Component.responsesForm.answeredResponses}');
+                    answeredField.value = answeredField.value + currentQuestionSFID + ',';
+                    answeredIds[currentQuestionSFID] = true;
+                    saveFunction();
+                    processKnob();
+                }
+            }
+
+            function processKnob() {
+                var responseCount = 0, answeredCount = 0;
+                for (var sfid in answeredIds) {
+                    if (answeredIds[sfid] == true) {
+                        answeredCount++;
+                    }
+                    responseCount++;
+                }
+
+                var pct = Math.round((answeredCount / responseCount) * 100);
+                if (pct >= 0) {
+                    $('#knobDiv').show();
+                    $('#respKnob').val(pct).trigger('change');
+                }
+                
+                if (pct == 100) {
+                	alert('Survey completed.')
+                }
+            }
+
+            //Changes from not-answered to the icon of the new response
+            function checkAnswerIconAndRow(sfid) {
+                var unansweredDiv =  '#not-answered-' + sfid;
+                var answerDiv = '#answer-' + sfid;
+                if ($(unansweredDiv).is(':visible')) {
+                    $(unansweredDiv).hide();
+                    $(answerDiv).show();
+                }
+            }
+     
+            function bind(sfid) {
+                var apexCbId = 'input[data-id=\'' + sfid + '\']';
+                var htmlCbId = '#cb-' + sfid;
+                $(htmlCbId).prop('checked', $(apexCbId).prop('checked'));
+                
+                $(apexCbId).change(function() {
+                    $(htmlCbId).prop('checked', $(apexCbId).prop('checked'));
+                    checkAnswerIconAndRow(sfid);
+                });
+            }    
+
+            function displayImageUploadPanel(sfid) {
+                document.getElementById('{!$Component.frmFile.parentId}').value = sfid;
+                document.getElementById('{!$Component.frmFile.file}').click();
+                return false;
+            }
+
+            function uploadImage() {
+                var file = document.getElementById('{!$Component.frmFile.file}').value;
+                if (file != undefined && file != '' && file != null) {
+                    var state = {cat: currentCategory, sfid: currentQuestionSFID};
+                    document.getElementById('{!$Component.frmFile.state}').value = JSON.stringify(state);                   
+                    actionUpload();
+                }
+
+                return false;
+            }
+
+            function savePreUpload() {
+                $('.ui-layout-center').scrollTop(0); 
+                var popup = $('#statusPopup');
+                popup.height(Math.max($('#surveyTable').height(), $('.ui-layout-center').height()));
+                popup.show();
+
+                internalSave(actionSavePreUpload);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="pageContent" style='width: 100%; height: 100%'>
+            <div class="header ui-layout-north">
+                <table width='100%; height: 100%'>
+                    <tr>
+                        <td width='50px'><a href="#menu"/></td>
+                        <td id='title' valign='middle'></td>
+                        <td width='50px' style='text-align: right; padding-right: 5px; padding-top: 5px'>
+                            <div id='knobDiv' style='display: none;'>
+                                <input type="text" value="24" id='respKnob' class="dial" />
+                                <script>$(function() {$("#respKnob").knob(knobOptions);});</script>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="ui-layout-center">
+                <div id='statusPopup' class="popupBackground" style='display:none; text-align: center; padding-top: 150px; box-sizing:border-box'>
+                    <apex:image value="{!$Resource.spinner_white_png}" styleClass="spinner"/>
+                </div>
+
+                <apex:form id="frmFile">
+                    <apex:inputHidden value="{!image.parentID}" id="parentId" />
+                    <apex:inputHidden value="{!state}" id="state" />
+                    <apex:inputFile id="file" style="display:none" value="{!image.body}" filename="{!image.name}" accept="image/*" onchange="savePreUpload();"/>
+                    <apex:actionFunction action="{!upload}" name="actionUpload"/>
+                </apex:form>
+                <apex:messages />
+                <apex:outputPanel id="contentPanel">
+                    <apex:outputPanel rendered="{!responses <> null && responses.size > 0}">          
+                        <div id="content">
+                            <apex:form id="responsesForm">
+                                <table class='surveyTable' id='surveyTable'>    
+                                    <script>
+                                        answeredIds = {};
+                                    </script>
+                                    <apex:repeat value="{!responses}" var="r">
+                                        <tr id="row-{!r.id}" category="{!r.question__r.category__c}"
+                                            onclick="javascript:toggleDetails('{!r.id}');" 
+                                            style="display:none; background-color:{!IF(r.answered__c, '#ffffff', '#f0f0f0')}; cursor: pointer;">
+                                            
+                                            <td class="surveyTableCell" style="width: 50px">
+                                                <div class='surveyOrderDiv'>{!r.question__r.order__c}</div>
+                                                <div id='answer-{!r.id}' style="width: 30px; display:{!IF(r.answered__c, '', 'none;')}">
+                                                    <input type="checkbox" id="cb-{!r.id}" class="imgCheckbox"/>
+                                                    <label for="cb-{!r.id}"/>
+                                                </div>
+                                                <div id='not-answered-{!r.id}' style="display:{!IF(r.answered__c, 'none;', '')}" >
+                                                    <apex:image value="{!$Resource.not_answered_png}" width="25px"/>
+                                                </div>
+                                            </td>
+                                            <td class="surveyTableCell" style='padding-right: 10px'> 
+                                                {!r.question__r.question__c}
+                                            </td>
+                                        </tr>
+                                        <tr id='details-{!r.id}' style='display:none'>
+                                            <td colspan='2'>
+                                                <div class="selectPanel">
+                                                    <div class="selectTitle">
+                                                        <div style="display: flex; position:relative">
+                                                            <div style='display:inline-block'>Passed:</div>
+                                                            <apex:inputCheckbox id="toggle2" styleClass="cmn-toggle cmn-switch" value="{!r.Passed__c}" html-data-id="{!r.id}" />
+                                                            <apex:outputLabel for="toggle2" style="position:absolute; right:5px; top: 5px;"/>
+                                                        </div>
+                                                    </div>
+                                                    <div style="padding: 20px; width: 100%; box-sizing: border-box;">
+                                                        <apex:inputtextarea value="{!r.Comments__c}" rows="5" required="false" html-placeholder="Comments" style="height: 84px"/>
+                                                        <div class="cameraLink" onclick="javascript:displayImageUploadPanel('{!r.id}');">
+                                                            {!r.attachments.size}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    bind('{!r.id}');
+                                                    answeredIds['{!r.id}'] = {!r.Answered__c};
+                                                </script> 
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </table>
+                                <apex:inputHidden value="{!answeredResponses}" id="answeredResponses"/>
+                                <apex:actionFunction name="actionSave" action="{!save}" rerender=""/>
+                                <apex:actionFunction name="actionSavePreUpload" action="{!save}" oncomplete="uploadImage();"/>
+                            </apex:form>      
+                        </div>
+                        <script>
+                            $(function() {
+                                var stat = '{!state}';
+                                if (stat != '') {
+                                    var state = JSON.parse(stat);
+                                    displayCategory(state.cat);
+                                    toggleDetails(state.sfid);
+                                } else {
+                                    displayCategory('{!categories[0]}');
+                                }
+
+                                window.onbeforeunload = function() {
+                                    if (currentQuestionSFID != undefined) {toggleDetails(currentQuestionSFID);}
+                                };
+
+                                processKnob();
+                            });
+                        </script>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </div>
+            <apex:form rendered="{!survey = null}">
+                <apex:actionFunction name="actionPrepareData" action="{!prepareData}" reRender="contentPanel"/>
+                <script>
+                    window.onload = actionPrepareData;
+                </script>
+            </apex:form>
+            <nav id="menu">
+                <ul>
+                    <apex:variable value="0" var="idx"/>
+                    <apex:repeat value="{!categories}" var="cat"> <!-- add class='selected' to the first entry -->
+                        <li class="{!IF(VALUE(idx) = 0, 'mm-selected', '')}"><a href="#{!cat}">{!cat}</a></li>
+                        <apex:variable var="idx" value="{!VALUE(idx) + 1}"/>
+                    </apex:repeat>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</apex:page>

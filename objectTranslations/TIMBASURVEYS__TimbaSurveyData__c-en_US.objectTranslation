@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- CP Template Backup --></label>
+        <name>TIMBASURVEYS__CP_Template_Backup__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateOfLastNotification --></label>
+        <name>TIMBASURVEYS__DateOfLastNotification__c</name>
+    </fields>
+    <fields>
+        <label><!-- HasSites --></label>
+        <name>TIMBASURVEYS__HasSites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installed --></label>
+        <name>TIMBASURVEYS__Installed__c</name>
+    </fields>
+    <fields>
+        <label><!-- LogEnabled --></label>
+        <name>TIMBASURVEYS__LogEnabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- SF base url --></label>
+        <name>TIMBASURVEYS__SF_base_url__c</name>
+    </fields>
+    <fields>
+        <label><!-- SendUsageNotifications --></label>
+        <name>TIMBASURVEYS__SendUsageNotifications__c</name>
+    </fields>
+    <fields>
+        <label><!-- SiteUrl --></label>
+        <name>TIMBASURVEYS__SiteUrl__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurveyInvitationsSent --></label>
+        <name>TIMBASURVEYS__SurveyInvitationsSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- SurveysCreated --></label>
+        <name>TIMBASURVEYS__SurveysCreated__c</name>
+    </fields>
+    <fields>
+        <label><!-- ThemeEngineVersion --></label>
+        <name>TIMBASURVEYS__ThemeEngineVersion__c</name>
+    </fields>
+</CustomObjectTranslation>

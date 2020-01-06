@@ -8,10 +8,6 @@
         <plural>true</plural>
         <value><!-- Step --></value>
     </caseValues>
-    <fieldSets>
-        <label><!-- ViewDeploymentColumns --></label>
-        <name>copado__ViewDeploymentColumns</name>
-    </fieldSets>
     <fields>
         <label><!-- Attachment Id --></label>
         <name>copado__Attachment_Id__c</name>

@@ -40,8 +40,8 @@
     <reportType>CustomEntityCustomEntity$copado__Org__c$copado__Apex_Test_Result__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>false</showGrandTotal>
-    <showSubTotals>false</showSubTotals>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CHILD_CREATED_DATE</dateColumn>
         <interval>INTERVAL_LAST7</interval>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- ViewDeploymentColumns --></label>
-        <name>copado__ViewDeploymentColumns</name>
-    </fieldSets>
     <fields>
         <label><!-- Attachment Id --></label>
         <name>copado__Attachment_Id__c</name>

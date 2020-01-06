@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Survey Question</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Survey Questions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Skills And Knowledge</masterLabel>
+            <translation><!-- Skills And Knowledge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Store Appearance</masterLabel>
+            <translation><!-- Store Appearance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

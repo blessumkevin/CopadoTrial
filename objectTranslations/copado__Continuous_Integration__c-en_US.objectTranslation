@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- CustomFields --></label>
-        <name>copado__CustomFields</name>
-    </fieldSets>
     <fields>
         <label><!-- Active --></label>
         <name>copado__Active__c</name>

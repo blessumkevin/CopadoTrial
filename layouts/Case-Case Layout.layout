@@ -1,54 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
-    <feedLayout>
-        <autocollapsePublisher>true</autocollapsePublisher>
-        <compactFeed>true</compactFeed>
-        <feedFilterPosition>LeftFixed</feedFilterPosition>
-        <feedFilters>
-            <feedFilterType>AllUpdates</feedFilterType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>CallLogPost</feedItemType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>TextPost</feedItemType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>ChangeStatusPost</feedItemType>
-        </feedFilters>
-        <feedFilters>
-            <feedFilterType>FeedItemType</feedFilterType>
-            <feedItemType>ActivityEvent</feedItemType>
-        </feedFilters>
-        <fullWidthFeed>true</fullWidthFeed>
-        <hideSidebar>true</hideSidebar>
-        <highlightExternalFeedItems>false</highlightExternalFeedItems>
-        <rightComponents>
-            <componentType>HelpAndToolLinks</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Following</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Followers</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>Topics</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomLinks</componentType>
-        </rightComponents>
-        <rightComponents>
-            <componentType>CustomButtons</componentType>
-        </rightComponents>
-        <useInlineFiltersInConsole>false</useInlineFiltersInConsole>
-    </feedLayout>
-    <headers>PersonalTagging</headers>
-    <headers>PublicTagging</headers>
+    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -72,23 +25,11 @@
                 <field>AccountId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Type</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Reason</field>
+                <behavior>Readonly</behavior>
+                <field>Case_Age__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Priority</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ContactPhone</field>
@@ -97,93 +38,39 @@
                 <behavior>Readonly</behavior>
                 <field>ContactEmail</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Origin</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Web Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedEmail</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedName</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedDate</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedCompany</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedPhone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ClosedDate</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Additional Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Product__c</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Origin</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PotentialLiability__c</field>
+                <field>Priority</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>EngineeringReqNumber__c</field>
+                <field>Type</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SLAViolation__c</field>
+                <field>Reason</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>true</editHeading>
-        <label>System Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedById</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>LastModifiedById</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -209,12 +96,63 @@
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
+        <editHeading>true</editHeading>
+        <label>Web Information</label>
         <layoutColumns>
             <layoutItems>
-                <customLink>UpsellCrosssellOpportunity</customLink>
+                <behavior>Readonly</behavior>
+                <field>CreatedDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SuppliedEmail</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SuppliedName</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ClosedDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SuppliedCompany</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SuppliedPhone</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>System Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Custom Links</label>
+        <layoutColumns/>
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
@@ -222,12 +160,6 @@
     <quickActionList>
         <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Case.LogACall</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>Case.ChangeStatus</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.ContentPost</quickActionName>
@@ -254,13 +186,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>SOLUTION.ISSUE</fields>
-        <fields>SOLUTION.SOLUTION_NUMBER</fields>
-        <fields>SOLUTION.STATUS</fields>
-        <fields>CORE.USERS.ALIAS</fields>
-        <relatedList>RelatedSolutionList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -283,74 +208,18 @@
         <relatedList>RelatedCommentsList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedAttachmentList</relatedList>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
+        <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>true</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showKnowledgeComponent>true</showKnowledgeComponent>
+    <showKnowledgeComponent>false</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
-    <summaryLayout>
-        <masterLabel>00h1a0000012AGt</masterLabel>
-        <sizeX>3</sizeX>
-        <sizeY>4</sizeY>
-        <summaryLayoutItems>
-            <field>ContactId</field>
-            <posX>0</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>AccountId</field>
-            <posX>0</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>ContactPhone</field>
-            <posX>0</posX>
-            <posY>2</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>CaseNumber</field>
-            <posX>1</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>CreatedDate</field>
-            <posX>1</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Subject</field>
-            <posX>1</posX>
-            <posY>2</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Description</field>
-            <posX>1</posX>
-            <posY>3</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Status</field>
-            <posX>2</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Priority</field>
-            <posX>2</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>OwnerId</field>
-            <posX>2</posX>
-            <posY>2</posY>
-        </summaryLayoutItems>
-        <summaryLayoutStyle>CaseInteraction</summaryLayoutStyle>
-    </summaryLayout>
 </Layout>

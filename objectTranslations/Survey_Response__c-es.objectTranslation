@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Response</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Responses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answered --></label>
+        <name>Answered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Negative --></label>
+        <name>Negative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Passed --></label>
+        <name>Passed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Positive --></label>
+        <name>Positive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+        <relationshipLabel><!-- Responses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey --></label>
+        <name>Survey__c</name>
+        <relationshipLabel><!-- Responses --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

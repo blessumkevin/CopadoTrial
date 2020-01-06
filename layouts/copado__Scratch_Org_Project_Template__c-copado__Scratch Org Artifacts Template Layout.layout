@@ -34,6 +34,10 @@
                 <behavior>Edit</behavior>
                 <field>copado__Source_Org_Credential__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Source_Metadata_Type__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -163,7 +163,7 @@ webhookLookup.setUrl = function(templateUrl, recordId, skipValueSet){
 		JsRemoting.apiKey.createKey(ns,
 	        function(result){
 	            var url = webhookLookup.config.herokuServer+templateUrl.replace('__RECORDID__', recordId).replace('__APIKEY__', result);
-	            
+	            console.debug('url===1=> ',url);
 	            if(url.indexOf('&') > -1 && url.indexOf('?') == -1){
                     url = url.replace('&','?');
                 }

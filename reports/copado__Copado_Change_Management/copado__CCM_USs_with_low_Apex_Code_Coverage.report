@@ -64,7 +64,7 @@
             <column>copado__User_Story__c.copado__Apex_Code_Coverage__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>lessThan</operator>
-            <value>75</value>
+            <value>75.00</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

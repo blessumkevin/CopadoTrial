@@ -44,6 +44,14 @@
                 <behavior>Edit</behavior>
                 <field>copado__Last_Compliance_Scan_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Developer_Hub_Org__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Default_Scratch_Org_Definition__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -55,8 +63,20 @@
                 <field>copado__Validated_Status__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>copado__Type_Icon__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>copado__Validated_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Scratch_Org_Expiration_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__is_Developer_Hub_Org__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -109,6 +129,15 @@
         <relatedList>copado__Apex_Test_Result__c.copado__Org__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>copado__Branch__c</fields>
+        <fields>copado__Frequency__c</fields>
+        <fields>copado__Git_Snapshot_Permissions__c</fields>
+        <fields>copado__Git_Repository__c.NAME</fields>
+        <fields>copado__View_in_Git__c</fields>
+        <relatedList>copado__Git_Backup__c.copado__Org__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -173,6 +202,9 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>CREATED_DATE</fields>
+        <fields>copado__Highest_Priority_Violation__c</fields>
+        <fields>copado__Number_of_Violations__c</fields>
+        <fields>copado__Score_v11__c</fields>
         <relatedList>copado__Static_Code_Analysis_Result__c.copado__Org_Credential__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
@@ -189,13 +221,52 @@
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>copado__Org_Type__c</fields>
+        <fields>copado__Username__c</fields>
+        <fields>copado__Validated_Date__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>copado__Org__c.copado__Developer_Hub_Org__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>copado__Duration_in_days__c</fields>
+        <fields>copado__Scratch_Org_Definition_JSON__c</fields>
+        <relatedList>copado__Scratch_Org_Definition__c.copado__Developer_Hub_Org__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>copado__Artifact_Repository__c</fields>
+        <fields>copado__Description__c</fields>
+        <relatedList>copado__Artifact__c.copado__Org_Credential__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>copado__Source_Org_Credential__c</fields>
+        <fields>copado__SFDC_Login_Url__c</fields>
+        <fields>copado__Namespace__c</fields>
+        <fields>copado__Api_Version__c</fields>
+        <fields>copado__Project_JSON__c</fields>
+        <relatedList>copado__Scratch_Org_Project_Template__c.copado__Developer_Hub_Org__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>copado__Developer_Hub_Org__c</fields>
+        <fields>copado__SFDC_Login_Url__c</fields>
+        <fields>copado__Namespace__c</fields>
+        <fields>copado__Api_Version__c</fields>
+        <fields>copado__Project_JSON__c</fields>
+        <relatedList>copado__Scratch_Org_Project_Template__c.copado__Source_Org_Credential__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0Y0000012Iey</masterLabel>
+        <masterLabel>00h0Y000000l6W0</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

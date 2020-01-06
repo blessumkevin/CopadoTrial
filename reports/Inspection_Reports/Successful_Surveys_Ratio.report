@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Survey_Response__c.Positive__c:AVG</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Result</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Store__c.Inspections__r.Surveys__r$Name</field>
+    </columns>
+    <columns>
+        <field>Store__c.Inspections__r.Surveys__r.Responses__r$Name</field>
+    </columns>
+    <columns>
+        <field>Store__c.Inspections__r.Surveys__r.Responses__r$Passed__c</field>
+    </columns>
+    <columns>
+        <field>Store__c.Inspections__r.Surveys__r.Responses__r$Answered__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Store__c.Inspections__r$Completed__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Store__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Store__c.Inspections__r$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Successful Surveys Ratio</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Stores_with_Inspections_and_Surveys_and_Responses__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Store__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

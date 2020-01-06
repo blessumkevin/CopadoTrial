@@ -91,6 +91,22 @@
             <masterLabel>41.0</masterLabel>
             <translation><!-- 41.0 --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>42.0</masterLabel>
+            <translation><!-- 42.0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>43.0</masterLabel>
+            <translation><!-- 43.0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>44.0</masterLabel>
+            <translation><!-- 44.0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45.0</masterLabel>
+            <translation><!-- 45.0 --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Developer Hub Org --></label>

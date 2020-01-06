@@ -46,6 +46,10 @@
                 <behavior>Readonly</behavior>
                 <field>copado__Number_of_Violations__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>copado__Highest_Priority_Violation__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -86,10 +90,10 @@
         <fields>copado__File__c</fields>
         <fields>copado__Line__c</fields>
         <fields>copado__Rule__c</fields>
-        <fields>copado__Message__c</fields>
         <fields>copado__Priority__c</fields>
-        <fields>CREATED_DATE</fields>
+        <fields>copado__Message__c</fields>
         <fields>copado__Info_URL_Link__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>copado__Static_Code_Analysis_Violation__c.copado__Static_Code_Analysis_Result__c</relatedList>
         <sortField>copado__File__c</sortField>
         <sortOrder>Asc</sortOrder>

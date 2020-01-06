@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- Criteria Page Fields --></label>
-        <name>copado__Criteria_Page_Fields</name>
-    </fieldSets>
     <fields>
+        <help><!-- Action to be performed automatically by Copado --></help>
         <label><!-- Action --></label>
         <name>copado__Action__c</name>
     </fields>
@@ -23,6 +20,7 @@
         <name>copado__Filter_Criteria__c</name>
     </fields>
     <fields>
+        <help><!-- Automatically updated by copado when saving managing criteria --></help>
         <label><!-- Is Valid --></label>
         <name>copado__Is_Valid__c</name>
     </fields>
@@ -85,6 +83,7 @@
         <name>copado__Risk_Details__c</name>
     </fields>
     <fields>
+        <help><!-- Field to report on the Lightning Platform, Copado Doesn&apos;t action over this field --></help>
         <label><!-- Severity --></label>
         <name>copado__Severity__c</name>
     </fields>

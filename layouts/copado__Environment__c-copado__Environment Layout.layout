@@ -48,6 +48,14 @@
                 <behavior>Edit</behavior>
                 <field>copado__Index_Back_Promotion_metadata__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Promotion_Default_Credential__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>copado__Validation_Promotion_Default_Credential__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

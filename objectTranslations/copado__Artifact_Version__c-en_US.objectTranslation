@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label><!-- Artifact --></label>
+        <label><!-- Package --></label>
         <name>copado__Artifact__c</name>
-        <relationshipLabel><!-- Artifact Versions --></relationshipLabel>
+        <relationshipLabel><!-- Package Versions --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- The package version’s branch. Package version content is stored in this branch in the given repository. You may reach your repository information from the parent artifact record. --></help>
@@ -32,7 +32,7 @@
     <fields>
         <label><!-- Release --></label>
         <name>copado__Release__c</name>
-        <relationshipLabel><!-- Artifact Versions --></relationshipLabel>
+        <relationshipLabel><!-- Package Versions --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- Use this URL in order to install this package in a sandbox environment. --></help>

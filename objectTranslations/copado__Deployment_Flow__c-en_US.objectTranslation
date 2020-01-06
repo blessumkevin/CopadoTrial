@@ -36,16 +36,16 @@
             <translation><!-- Branches --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Git Artifacts</masterLabel>
-            <translation><!-- Git Artifacts --></translation>
+            <masterLabel>Git Package</masterLabel>
+            <translation><!-- Git Package --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Org Metadata</masterLabel>
             <translation><!-- Org Metadata --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Package Artifacts</masterLabel>
-            <translation><!-- Package Artifacts --></translation>
+            <masterLabel>Salesforce Package</masterLabel>
+            <translation><!-- Salesforce Package --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -120,7 +120,7 @@
         <name>copado__Main_Branch__c</name>
     </fields>
     <fields>
-        <help><!-- Link to open the Branch Management application for the Deployment Flow. --></help>
+        <help><!-- Link to open the Pipeline Manager to promote and back promote User Stories. --></help>
         <label><!-- Manage Releases --></label>
         <name>copado__Manage_Branches__c</name>
     </fields>

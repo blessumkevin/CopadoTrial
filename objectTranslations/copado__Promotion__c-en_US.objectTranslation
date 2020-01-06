@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldSets>
-        <label><!-- Copado Header Fields --></label>
-        <name>copado__Copado_Header_Fields</name>
-    </fieldSets>
-    <fieldSets>
-        <label><!-- Custom Fields --></label>
-        <name>copado__CustomFields</name>
-    </fieldSets>
-    <fieldSets>
-        <label><!-- ManageBranchesDialog --></label>
-        <name>copado__ManageBranchesDialog</name>
-    </fieldSets>
-    <fieldSets>
-        <label><!-- Pipeline Manager --></label>
-        <name>copado__Pipeline_Manager</name>
-    </fieldSets>
     <fields>
         <label><!-- Back Promotion --></label>
         <name>copado__Back_Promotion__c</name>
@@ -91,6 +75,10 @@
         <picklistValues>
             <masterLabel>Completed with errors</masterLabel>
             <translation><!-- Completed with errors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conflicts Resolved</masterLabel>
+            <translation><!-- Conflicts Resolved --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Draft</masterLabel>
