@@ -110,7 +110,7 @@
     <fields>
         <fullName>CCD_Test__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>This is an addition</description>
+        <description>This is an addition. 3/8/2020</description>
         <externalId>false</externalId>
         <label>CCD Test</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -122,6 +122,7 @@
     </fields>
     <fields>
         <fullName>CustomerPriority__c</fullName>
+        <description>3/8/2020</description>
         <externalId>false</externalId>
         <label>Customer Priority</label>
         <required>false</required>
