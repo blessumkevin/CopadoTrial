@@ -1,76 +1,183 @@
-var cronExpression = cronExpression || {};
-cronExpression.hourly = cronExpression.hourly || {};
-cronExpression.daily = cronExpression.daily || {};
-cronExpression.weekly = cronExpression.weekly || {};
+var cronBuilder = cronBuilder || {};
 
-cronExpression.selectedTab = 'hourly';
+((builder) => {
+    const STARTS = 'starts';
+    const EVERY = 'every';
+    const WEEKDAYS = 'weekdays';
+    const HOURLY = 'hourly';
+    const DAILY = 'daily';
+    const WEEKLY = 'weekly';
+    const SETTINGS = 'Settings';
 
-cronExpression.hourly.EVERY_X_HOURS = 0;
-cronExpression.hourly.START_HOUR = 0;
-cronExpression.hourly.START_MINUTE = 0;
-cronExpression.hourly.RADIOGROUP = '';
+    var builder = builder || {};
+    var hourlySettings = hourlySettings || {};
+    var dailySettings = dailySettings || {};
+    var weeklySettings = weeklySettings || {};
+    var selectedTab = HOURLY + SETTINGS;
 
-cronExpression.daily.EVERY_X_DAYS = 0;
-cronExpression.daily.START_HOUR = 0;
-cronExpression.daily.START_MINUTE = 0;
-cronExpression.daily.RADIOGROUP = '';
+    ((thisCron) => {
+        const EVERY_DAY_CRON = ' 1/1 * ? *';
+        var EVERY_X_HOURS = 0;
+        var START_HOUR = 0;
+        var START_MINUTE = 0;
+        thisCron.FREQUENCY = EVERY;
 
+        thisCron.generateCronExpression = () => {
+            var cronExpression = '';
+            _getValues();
+            if(thisCron.FREQUENCY == EVERY) {
+                cronExpression = '0 0 0/' + EVERY_X_HOURS + EVERY_DAY_CRON;
+            } else if(thisCron.FREQUENCY == STARTS) {
+                cronExpression = '0 ' + START_MINUTE + ' ' + START_HOUR + EVERY_DAY_CRON;
+            }
+            return cronExpression;
+        };
 
-cronExpression.weekly.START_HOUR = 0;
-cronExpression.weekly.START_MINUTE = 0;
+        var _getValues = () => {
+            var every_x_hours_hourOptions = document.getElementById('every_x_hours_hourOptions');
+            var hourly_starts_at_hourOptions = document.getElementById('hourly_starts_at_hourOptions');
+            var hourly_starts_at_minuteOptions = document.getElementById('hourly_starts_at_minuteOptions');
+            EVERY_X_HOURS = every_x_hours_hourOptions ? every_x_hours_hourOptions.value : 0;
+            START_HOUR = hourly_starts_at_hourOptions ? hourly_starts_at_hourOptions.value : 0;
+            START_MINUTE = hourly_starts_at_minuteOptions ? hourly_starts_at_minuteOptions.value : 0;
+        };
+    })(hourlySettings);
 
-cronExpression.result = '';
+    ((thisCron) => {
+        var EVERY_X_DAYS = 0;
+        var START_HOUR = 0;
+        var START_MINUTE = 0;
+        thisCron.FREQUENCY = EVERY;
 
-cronExpression.weekly.concatDaysOfWeek = function(){
-	var chkArray = [];
-	
-	$copado(".js-chk:checked").each(function() {
-		chkArray.push($copado(this).val());
-	});
-	var selected = chkArray.join(',');
-	return selected;
-};
-cronExpression.getValues = function(){
-	cronExpression.hourly.EVERY_X_HOURS = document.getElementById('hourlyEvery').value;
-	cronExpression.hourly.START_HOUR = document.getElementById('hourlyHourPart').value;
-	cronExpression.hourly.START_MINUTE = document.getElementById('hourlyMinPart').value;
+        thisCron.generateCronExpression = () => {
+            var cronExpression = '';
+            _getValues();
+            if(thisCron.FREQUENCY == EVERY) {
+                cronExpression = '0 ' + START_MINUTE + ' ' + START_HOUR + ' 1/' + EVERY_X_DAYS + ' * ? *';
+            } else if(thisCron.FREQUENCY == WEEKDAYS) {
+                cronExpression = '0 ' + START_MINUTE + ' ' + START_HOUR + ' ? * MON-FRI *';
+            }
+            return cronExpression;
+        };
 
-	cronExpression.daily.EVERY_X_DAYS = document.getElementById('dailyEvery').value;
-	cronExpression.daily.START_HOUR = document.getElementById('dailyHourPart').value;
-	cronExpression.daily.START_MINUTE = document.getElementById('dailyMinPart').value;
+        var _getValues = () => {
+            var every_x_daysInput = document.getElementById('every_x_daysInput');
+            var daily_starts_at_hourOptions = document.getElementById('daily_starts_at_hourOptions');
+            var daily_starts_at_minuteOptions = document.getElementById('daily_starts_at_minuteOptions');
+            EVERY_X_DAYS = every_x_daysInput ? every_x_daysInput.value : 0;
+            START_HOUR = daily_starts_at_hourOptions ? daily_starts_at_hourOptions.value : 0;
+            START_MINUTE = daily_starts_at_minuteOptions ? daily_starts_at_minuteOptions.value : 0;
+        };
+    })(dailySettings);
 
-	cronExpression.weekly.START_HOUR = document.getElementById('weeklyHourPart').value;
-	cronExpression.weekly.START_MINUTE = document.getElementById('weeklyMinPart').value;
-}
-cronExpression.calculate = function(){
-	cronExpression.getValues();
-	cronExpression.result = '';
-	if(cronExpression.selectedTab=='hourly'){
-		if(cronExpression.hourly.RADIOGROUP=='every'){
-			cronExpression.result = '0 0 0/'+cronExpression.hourly.EVERY_X_HOURS+' 1/1 * ? *';
-		}
-		else if(cronExpression.hourly.RADIOGROUP=='starts'){
-			cronExpression.result = '0 '+cronExpression.hourly.START_MINUTE+' '+cronExpression.hourly.START_HOUR+' 1/1 * ? *';
-		}
-	}
-	if(cronExpression.selectedTab=='daily'){
-		if(cronExpression.daily.RADIOGROUP=='every'){
-			cronExpression.result = '0 '+cronExpression.daily.START_MINUTE+' '+cronExpression.daily.START_HOUR+' 1/'+cronExpression.daily.EVERY_X_DAYS+' * ? *';
-		}
-		else if(cronExpression.daily.RADIOGROUP=='weekdays'){
-			cronExpression.result = '0 '+cronExpression.daily.START_MINUTE+' '+cronExpression.daily.START_HOUR+' ? * MON-FRI *';
-		}
-	}
-	if(cronExpression.selectedTab=='weekly'){
-		var daysOfWeek = cronExpression.weekly.concatDaysOfWeek();
-		cronExpression.result = '0 '+cronExpression.weekly.START_MINUTE+' '+cronExpression.weekly.START_HOUR+' ? * '+daysOfWeek+' *';
-	}
-	$copado('input[id$="if_cronExpression"]').val(cronExpression.result);
-	return cronExpression.result;
-};
-cronExpression.showCronExpression = function(){
-	$copado('input[id$="if_cronExpression"]').show();
-};
-cronExpression.hideCronExpression = function(){
-	$copado('input[id$="if_cronExpression"]').hide();
-};
+    ((thisCron) => {
+        var START_HOUR = 0;
+        var START_MINUTE = 0;
+        var DAYS_OF_WEEK = '';
+
+        thisCron.generateCronExpression = () => {
+            var cronExpression = '';
+            _getValues();
+            cronExpression = '0 ' + START_MINUTE + ' ' + START_HOUR + ' ? * ' + DAYS_OF_WEEK + ' *';
+            return cronExpression;
+        };
+
+        var _getValues = () => {
+            var weekly_starts_at_hourOptions = document.getElementById('weekly_starts_at_hourOptions');
+            var weekly_starts_at_minuteOptions = document.getElementById('weekly_starts_at_minuteOptions');
+            START_HOUR = weekly_starts_at_hourOptions ? weekly_starts_at_hourOptions.value : 0;
+            START_MINUTE = weekly_starts_at_minuteOptions ? weekly_starts_at_minuteOptions.value : 0;
+            DAYS_OF_WEEK = _getDaysOfWeek();
+        };
+
+        var _getDaysOfWeek = () => {
+            var dayCheckboxes = [];
+            var that = this;
+            $copado(".dayCheckbox:checked").each((index, checkbox) => {
+                dayCheckboxes.push($copado(checkbox).val());
+            });
+            return dayCheckboxes.join(',');
+        };
+    })(weeklySettings);
+
+    var _getSelectedSetting = () => {
+        if(selectedTab == HOURLY + SETTINGS) {
+            return hourlySettings;
+        } else if(selectedTab == DAILY + SETTINGS) {
+            return dailySettings;
+        } else if(selectedTab == WEEKLY + SETTINGS) {
+            return weeklySettings;
+        }
+        return null;
+    };
+
+    builder.setSelectedTab = (thisTab) => {
+        selectedTab = thisTab;
+        _switchTab();
+    };
+
+    var _switchTab = (thisTab) => {
+        var settingContainers = document.getElementsByClassName('settingsContainer');
+        if(settingContainers) {
+            for(var i = 0; i < settingContainers.length; i++) {
+                var thisContainer = settingContainers[i];
+                if(thisContainer.id == selectedTab) {
+                    thisContainer.style.display = 'block';
+                } else {
+                    thisContainer.style.display = 'none';
+                }
+            }
+        }
+    }
+
+    builder.setFrequency = (frequency, name) => {
+        if(frequency == HOURLY) {
+            hourlySettings.FREQUENCY = name;
+        } else if(frequency == DAILY) {
+            dailySettings.FREQUENCY = name;
+        }
+    };
+
+    var _generateCronExpression = () => {
+        var setting = _getSelectedSetting();
+    	console.assert(setting != null, 'Failed to automatically generate cron expression due to an internal error.');
+        var cronExpression = setting.generateCronExpression();
+    	$copado('input[id$="cronExpressionInput"]').val(cronExpression);
+    };
+
+    builder.setCronExpressionAndSave = () => {
+        var cronExpression = document.querySelector('.cronExpression');
+        if(cronExpression) {
+            setCronExpressionValue(cronExpression.value);
+        }
+    };
+
+    var _setControllerRadio = (thisInput) => {
+        var radioId = $copado(thisInput).data('controller-element');
+        var cronRadio = document.getElementById(radioId);
+        if(cronRadio) {
+            cronRadio.click();
+        }
+    };
+
+    $copado(document).ready(() => {
+        $copado('input[type="radio"].cronRadio,input[type="number"].cronInput,input[type="checkbox"].dayCheckbox').on('click', function() {
+            try {
+                if(this.type != 'radio') {
+                    _setControllerRadio(this);
+                }
+                _generateCronExpression();
+            } catch(error) {
+                console.error('error: ' + error);
+            }
+        });
+        $copado('select.cronInput').on('change', function() {
+            try {
+                _setControllerRadio(this);
+                _generateCronExpression();
+            } catch(error) {
+                console.error('error: ' + error);
+            }
+        });
+    });
+})(cronBuilder);

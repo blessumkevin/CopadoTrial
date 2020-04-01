@@ -50,18 +50,21 @@
     <filter>
         <criteriaItems>
             <column>FK_$copado__Sprint__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>In progress</value>
         </criteriaItems>
         <criteriaItems>
             <column>copado__User_Story__c.copado__Has_Apex_Code__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>1</value>
         </criteriaItems>
         <criteriaItems>
             <column>copado__User_Story__c.copado__Apex_Code_Coverage__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>lessThan</operator>
             <value>75</value>

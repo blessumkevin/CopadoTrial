@@ -27,6 +27,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Step__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>Completed with Errors</value>

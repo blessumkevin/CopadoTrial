@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Copado Integration Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Copado Integration Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- External System --></label>
+        <name>External_System__c</name>
+        <picklistValues>
+            <masterLabel>JIRA</masterLabel>
+            <translation><!-- JIRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visual Studio Team Services</masterLabel>
+            <translation><!-- Visual Studio Team Services --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Named Credential --></label>
+        <name>Named_Credential__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -2,6 +2,7 @@ function setWithoutRebinding(list, newList) {
     list.splice(0, list.length); // clear the array, without re-binding it.
     // NR: add elements in chunks, to avoid stack trace limits
     console.debug('setWithoutRebinding:::newList',Array.isArray(newList));
+    if(!newList) newList = [];
     while(newList.length)
         Array.prototype.push.apply(list, newList.splice(0,10000));
 }
@@ -134,12 +135,12 @@ MetadataGrid2.prototype._setGridFiltersByType = function() {
             console.debug("_setGridFiltersByType() translations");
         }
         that.eltGrid.jqxGrid('removefilter', 't');
-        var group = new $copado.jqx.filter();
+        /*var group = new $copado.jqx.filter();
         var filter = group.createfilter('stringfilter', that.filterByType, 'contains');
         group.addfilter(0, filter);
 
         that.eltGrid.jqxGrid('addfilter', 't', group);
-        that.eltGrid.jqxGrid('applyfilters');
+        that.eltGrid.jqxGrid('applyfilters');*/
     }
 };
 MetadataGrid2.prototype._reapplyFilters = function(tabIndex) {
@@ -190,8 +191,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
         },
         {
             text: copadoLabels.name,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'n',
             width: 400
@@ -206,28 +207,32 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
         },
         {
             text: copadoLabels.LASTMODIFIEDBY,
-            filtertype: 'textbox',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'b',
             width: 220
         },
         {
             text: copadoLabels.LastModifiedDate,
-            filtertype: 'textbox',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable: false,
             datafield: 'd',
             width: 120
         },
         {
             text: copadoLabels.CREATEDBY,
-            filtertype: 'textbox',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'cb',
             width: 220
         },
         {
             text: copadoLabels.CREATEDDATE,
-            filtertype: 'textbox',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable: false,
             datafield: 'cd',
             width: 120
@@ -246,16 +251,17 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             },
             {
                 text: copadoLabels.name,
-                filtertype: 'textbox',
-                filtercondition: 'contains',
+                filtertype: 'input',
+                columntype: 'textbox',
                 editable: false,
                 datafield: 'n',
-                width: '70%'
+                width: '60%'
             },
             {
                 text: copadoLabels.type,
                 editable: false,
-                width: '20%',
+                width: '30%',
+                filterable: false,
                 cellsrenderer: function(){
                     return 'ApexClass';
                 }
@@ -274,8 +280,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
                 },
                 {
                     text: copadoLabels.name,
-                    filtertype: 'textbox',
-                    filtercondition: 'contains',
+                    filtertype: 'input',
+                    columntype: 'textbox',
                     editable: false,
                     datafield: 'name',
                     width: '40%'
@@ -291,10 +297,10 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
                 },
                 {
                     text: copadoLabels.LastModifiedDate,
-                    filtertype: 'textbox',
+                    filtertype: 'range',
                     editable: false,
                     datafield: 'lastUpdate',
-                    cellsformat: 'M/d/yyyy',
+                    cellsformat: 'yyyy/MM/dd',
                     width: '25%'
                 }
             ];
@@ -302,8 +308,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             columns = [
                 {
                     text: copadoLabels.name,
-                    filtertype: 'textbox',
-                    filtercondition: 'contains',
+                    filtertype: 'input',
+                    columntype: 'textbox',
                     editable: false,
                     datafield: 'n'
                 },
@@ -318,30 +324,34 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
                 },
                 {
                     text: copadoLabels.LastModifiedById,
-                    filtertype: 'textbox',
+                    filtertype: 'input',
+                    columntype: 'textbox',
                     editable: false,
                     datafield: 'b',
                     width: 120
                 },
                 {
                     text: copadoLabels.LastModifiedDate,
-                    filtertype: 'textbox',
+                    filtertype: 'range',
                     editable: false,
+                    cellsformat: 'yyyy/MM/dd',
                     datafield: 'd',
                     width: 120
                 },
                 {
                     text: copadoLabels.CREATEDBY,
-                    filtertype: 'textbox',
+                    filtertype: 'input',
+                    columntype: 'textbox',
                     editable: false,
                     datafield: 'cb',
                     width: 220
                 },
                 {
                     text: copadoLabels.CREATEDDATE,
-                    filtertype: 'textbox',
+                    filtertype: 'range',
                     editable: false,
                     datafield: 'cd',
+                    cellsformat: 'yyyy/MM/dd',
                     width: 120}
             ];
         }
@@ -361,8 +371,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
         }, {
 
             text: copadoLabels.name,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'n',
             width: '30%'
@@ -376,27 +386,29 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             width: '10%'
         }, {
             text: copadoLabels.LastModifiedById,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'b',
             width: 220
         }, {
             text: copadoLabels.LastModifiedDate,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable: false,
             datafield: 'd',
             width: 120
         }, {
             text: copadoLabels.CREATEDBY,
-            filtertype: 'textbox',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable:false,
             datafield:'cb',
             width:220
         },{
             text: copadoLabels.CREATEDDATE,
-            filtertype: 'textbox',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable:false,
             datafield:'cd',
             width:120
@@ -413,8 +425,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
           },
           {
               text: copadoLabels.name,
-              filtertype: 'textbox',
-              filtercondition: 'contains',
+              filtertype: 'input',
+              columntype: 'textbox',
               editable: false,
               datafield: 'n',
               width: '45%'
@@ -437,17 +449,14 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             width: 60
         }, {
             text: copadoLabels.name,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: true,
             datafield: 'n',
             width: '30%',
             validation: function (cell, value) {
                 if (!value || value == " ") {
                     return { result: false, message: "You must specify a value" };
-                }
-                if (value.indexOf(' ') >= 0) {
-                    return { result: false, message: "Remove all blank spaces" };
                 }
                 return true;
             }
@@ -470,15 +479,15 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             }
         }, {
             text: copadoLabels.LastModifiedById,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'b',
             width: 220
         }, {
             text: copadoLabels.LastModifiedDate,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable: false,
             datafield: 'd',
             width: 120
@@ -495,8 +504,8 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             width: 60
         }, {
             text: copadoLabels.name,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'n',
             width: '30%'
@@ -510,21 +519,21 @@ MetadataGrid2.prototype._getColumnsByGridMode = function() {
             width: '10%'
         }, {
             text: copadoLabels.LastModifiedById,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'input',
+            columntype: 'textbox',
             editable: false,
             datafield: 'b',
             width: 220
         }, {
             text: copadoLabels.LastModifiedDate,
-            filtertype: 'textbox',
-            filtercondition: 'contains',
+            filtertype: 'range',
+            cellsformat: 'yyyy/MM/dd',
             editable: false,
             datafield: 'd',
             width: 120
         },
-            {text: copadoLabels.CREATEDBY, filtertype: 'textbox', editable:false, datafield:'cb', width:220},
-            {text: copadoLabels.CREATEDDATE, filtertype: 'textbox', editable:false, datafield:'cd', width:120}
+            {text: copadoLabels.CREATEDBY, filtertype: 'input', columntype: 'textbox', editable:false, datafield:'cb', width:220},
+            {text: copadoLabels.CREATEDDATE, filtertype: 'range', cellsformat: 'yyyy/MM/dd', editable:false, datafield:'cd', width:120}
         ];
     }
     return columns;
@@ -565,12 +574,12 @@ MetadataGrid2.prototype.render = function(cbAfterRender) {
     }
 
     // rendering the metadata type filter and binding its actions
-    console.log('isTypeFilterable====> ',this.isTypeFilterable);
+    console.debug('isTypeFilterable====> ',this.isTypeFilterable);
     if(this.isTypeFilterable) {
 
         this.eltMetaDataTypeFilter = this.eltMain.find('.mg2_scaleFilter');
-        console.log('this.eltMetaDataTypeFilter==> ',this.eltMetaDataTypeFilter);
-        console.log('this.filterByTypeList==> ',this.filterByTypeList);
+        console.debug('this.eltMetaDataTypeFilter==> ',this.eltMetaDataTypeFilter);
+        console.debug('this.filterByTypeList==> ',this.filterByTypeList);
         this.eltMetaDataTypeFilter.jqxComboBox({
             source: this.filterByTypeList,
             selectedIndex: 0,
@@ -579,10 +588,10 @@ MetadataGrid2.prototype.render = function(cbAfterRender) {
         });
         this.eltMetaDataTypeFilter.bind('select', function(event) {
             var args = event.args;
-            console.log('args===> ',args);
+            console.debug('args===> ',args);
             if (args) {
                 that.filterByTypeSelectedIndex = args.index;
-                that.filterByType = that.filterByTypeList[that.filterByTypeSelectedIndex];
+                that.filterByType = args.item.label;
             }
         });
         this.eltMetaDataTypeFilter.bind('close', function(event) {
@@ -626,16 +635,16 @@ MetadataGrid2.prototype.render = function(cbAfterRender) {
             {name: 't', type: 'string'},
             {name: 'n', type: 'string'},
             {name: 'b', type: 'string'},
-            {name: 'd', type: 'string'},
+            {name: 'd', type: 'date'},
             {name: 'cb', type: 'string'},
-            {name: 'cd', type: 'string'}
+            {name: 'cd', type: 'date'}
         ];
     } else {
         dataFieldsMap = [
             {name: 's', type: 'bool'},
             {name: 'name', type: 'string'},
             {name: 'type', type: 'string'},
-            {name: 'lastUpdate', type: 'string'}
+            {name: 'lastUpdate', type: 'date'}
         ];
     }
     var source = {
@@ -817,48 +826,44 @@ MetadataGrid2.prototype.loadMetaDataTypes = function(callbackFinished, forceRelo
 
     // never reload the metadata types
     if(this.filterByTypeList.length &&!forceReloading) {
-        console.log('hey');
         if(callbackFinished)
             callbackFinished(event);
         return;
     }
     if(!preDefinedSource){
-    JsRemoting.metaData.getList(
-        this.conf.data.orgId,
-        this.conf.ns,
-        function(result) {
-                console.log('result====> ',result);
-                console.log('MetadataGrid2.loadMetaDataTypes()', result.length);
+        JsRemoting.metaData.getList(
+            this.conf.data.orgId,
+            this.conf.ns,
+            function(result) {
                 if(!result || !result.length){
                     // TODO: remove result row and comment out for alert when backend implements dx login for metadataTypesRetriever
                     result = MetadataGrid2.defaultTypes.split(',');
                     //alert('Could not load metadata types from the server');
                 }
 
+                setWithoutRebinding(that.filterByTypeList, result);
 
-            setWithoutRebinding(that.filterByTypeList, result);
+                // TODO: this shouldnt be here, since it's UI
+                if(that.isTypeFilterable) {
+                    that.eltMetaDataTypeFilter.jqxComboBox('source', that.filterByTypeList);
+                }
 
-            // TODO: this shouldnt be here, since it's UI
-            if(that.isTypeFilterable) {
-                that.eltMetaDataTypeFilter.jqxComboBox('source', that.filterByTypeList);
+                if(callbackFinished)
+                    callbackFinished();
+            },
+            function(event) {
+                console.error('loadMetaDataTypes()', event);
+                alert('Exception: ' + event.message);
+                if(callbackFinished)
+                    callbackFinished(event);
+            },
+            function(event) {
+                console.error('loadMetaDataTypes() #2', event);
+                alert('Exception: ' + event.message);
+                if(callbackFinished)
+                    callbackFinished(event);
             }
-
-            if(callbackFinished)
-                callbackFinished();
-        },
-        function(event) {
-            console.error('loadMetaDataTypes()', event);
-            alert('Exception: ' + event.message);
-            if(callbackFinished)
-                callbackFinished(event);
-        },
-        function(event) {
-            console.error('loadMetaDataTypes() #2', event);
-            alert('Exception: ' + event.message);
-            if(callbackFinished)
-                callbackFinished(event);
-        }
-    );
+        );
     } else{
         that.filterByTypeList = preDefinedSource;
         that.eltMetaDataTypeFilter.jqxComboBox('source', that.filterByTypeList);
@@ -924,11 +929,12 @@ MetadataGrid2.prototype.loadMetaData = function(callbackFinished, forceRefresh) 
        force: forceRefresh,
        synchronous: false,
        success: function(allMetaData, cachedDate){
-            console.debug('MetadataGrid2.loadMetaData done', '#'+allMetaData.length, cachedDate, that.selectedMetadata.length, that.filterByType);
+            if(allMetaData) console.debug('MetadataGrid2.loadMetaData done ', '#'+allMetaData.length, cachedDate, that.selectedMetadata.length, that.filterByType);
+            else allMetaData = [];
             var existingFlag = false;
             for(var j=0; j<that.selectedMetadata.length; j++){
                 for(var i=0; i<allMetaData.length; i++){
-                    if(allMetaData[i].n == that.selectedMetadata[j].n) existingFlag = true;
+                    if(allMetaData[i].n == that.selectedMetadata[j].n && allMetaData[i].t == that.selectedMetadata[j].t) existingFlag = true;
                 }
                 if(existingFlag === false && !conf.isScalable){
                     deletedMetadataItems += that.selectedMetadata[j].n + ', ';
@@ -962,7 +968,7 @@ MetadataGrid2.prototype.loadMetaData = function(callbackFinished, forceRefresh) 
 // (re) loads all the data of the grid, does not render.
 MetadataGrid2.prototype.loadData = function(callbackFinished) {
     var that = this;
-    console.log('MetadataGrid2.loadData() isTypeFilterable=', that.isTypeFilterable);
+    console.debug('MetadataGrid2.loadData() isTypeFilterable=', that.isTypeFilterable);
     this.loadSelectedMetaData(function(err) {
         if(err) {
             console.error('MetadataGrid2.loadData() error=', err);
@@ -995,6 +1001,7 @@ MetadataGrid2.prototype.refreshCache = function(callbackFinished) {
 MetadataGrid2.prototype._matchSelectedItemsWithAllMetaData = function(allMetaData) {
     var i, e, t, idx_allItems = {};
     // create a quick index of all the metadata items.
+    if(!allMetaData) allMetaData = [];
     for(i=0 ; i < allMetaData.length ; i++ ) {
         e = allMetaData[i];
         e.s = e.s || false;
@@ -1075,15 +1082,12 @@ MetadataGrid2.prototype.addItemsIfMissing = function(items) {
         idx_selectedItems[e.t+' '+e.n] = e;
     }
     // now see if each item in items exists or needs to be added and/or selected.
-    console.log('idx_selectedItems===> ',idx_selectedItems);
     for(var i=0 ; i < items.length ; i++) {
         e = items[i];
         var key = e.t+' '+e.n;
         if( idx_allItems[key] ) {
             idx_allItems[key].s = e.s;
             // if the element is selected, ensure it is in the .selectedMetadata array
-            console.log('e===> ',e);
-            console.log('idx_selectedItems[key]====> ',idx_selectedItems[key]);
             if(e.s && !idx_selectedItems[key]) {
                 //e.s = true;
                 this.selectedMetadata.push(e);
@@ -1097,8 +1101,6 @@ MetadataGrid2.prototype.addItemsIfMissing = function(items) {
             }
         }
     }
-    console.log('items====> ',items);
-    console.log('selectedMetadata====> ',this.selectedMetadata);
 };
 
 // fetches the selected data again. Useful for the "cancel" action

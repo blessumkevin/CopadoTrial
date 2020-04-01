@@ -101,7 +101,23 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>standard__SalesforceCMS</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Copado_DX</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>copado__Copado_Console</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Copado_Integrations</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>DEVHUB_bfptxmkvpj1afkozjmha</name>
         <type>ConnectedApp</type>
     </appMenuItems>
 </AppMenu>

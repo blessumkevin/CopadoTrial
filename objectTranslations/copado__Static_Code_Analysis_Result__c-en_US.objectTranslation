@@ -25,6 +25,11 @@
         <name>copado__Critical__c</name>
     </fields>
     <fields>
+        <label><!-- Deployment Step --></label>
+        <name>copado__Deployment_Step__c</name>
+        <relationshipLabel><!-- Static Code Analysis Results --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Details --></label>
         <name>copado__Details__c</name>
     </fields>

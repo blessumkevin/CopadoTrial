@@ -15,6 +15,7 @@
     <filter>
         <criteriaItems>
             <column>copado__User_Persona_Assignment__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Approved,Permissions Assigned</value>

@@ -16,6 +16,10 @@
         <label><!-- CustomFields --></label>
         <name>copado__CustomFields</name>
     </fieldSets>
+    <fieldSets>
+        <label><!-- Pipeline Deployment Modal --></label>
+        <name>copado__Pipeline_Deployment_Modal</name>
+    </fieldSets>
     <fields>
         <label><!-- Build Task --></label>
         <name>copado__Build_Task__c</name>
@@ -51,6 +55,18 @@
         <name>copado__Deployment_Jobs_Count__c</name>
     </fields>
     <fields>
+        <label><!-- Deployment Last Step --></label>
+        <name>copado__Deployment_Last_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Source Type --></label>
+        <name>copado__Deployment_Source_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Type --></label>
+        <name>copado__Deployment_Type__c</name>
+    </fields>
+    <fields>
         <label><!-- Deployment command sent --></label>
         <name>copado__Deployment_command_sent__c</name>
     </fields>
@@ -66,6 +82,11 @@
     <fields>
         <label><!-- Last Compliance Scan Date --></label>
         <name>copado__Last_Compliance_Scan_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is auto populated when a manual task is pending on deployment. --></help>
+        <label><!-- Paused --></label>
+        <name>copado__Paused__c</name>
     </fields>
     <fields>
         <label><!-- Promotion --></label>
@@ -96,6 +117,10 @@
     <fields>
         <label><!-- Server_URL --></label>
         <name>copado__Server_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Environment --></label>
+        <name>copado__Source_Environment__c</name>
     </fields>
     <fields>
         <label><!-- Status --></label>

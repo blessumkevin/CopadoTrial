@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Back-Promotion Behavior --></label>
+        <name>copado__Back_Promotion_Behavior__c</name>
+        <picklistValues>
+            <masterLabel>Automated</masterLabel>
+            <translation><!-- Automated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation><!-- Manual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Back-Promotion Schedule --></label>
+        <name>copado__Back_Promotion_Schedule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Back-Promotion Scheduled Job ID --></label>
+        <name>copado__Back_Promotion_Scheduled_Job_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>copado__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set to 1 to deploy each story individually. Batching deployments speeds up the process but causes all stories in a batch to succeed or fail together. This can delay the deployment of some stories and make it harder to identify the cause of errors. --></help>
+        <label><!-- Scheduled Back-Promotions Max Batch Size --></label>
+        <name>copado__Max_Scheduled_Back_Promotion_Batch_Size__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set to 1 to deploy each story individually. Batching deployments speeds up the process but causes all stories in a batch to succeed or fail together. This can delay the deployment of some stories and make it harder to identify the cause of errors. --></help>
+        <label><!-- Scheduled Deployment Max Batch Size --></label>
+        <name>copado__Max_Scheduled_Promotion_Batch_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Behavior --></label>
+        <name>copado__Promotion_Behavior__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Schedule --></label>
+        <name>copado__Promotion_Schedule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Scheduled Job ID --></label>
+        <name>copado__Promotion_Scheduled_Job_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule Back-Promotions --></label>
+        <name>copado__Schedule_Back_Promotion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Schedule Deployments --></label>
+        <name>copado__Schedule_Promotion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Status After Deployment --></label>
+        <name>copado__Story_Status_After_Deployment__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Batch Size fields for Promotion or Back Promotion needs to be between 1 and 2000 --></errorMessage>
+        <name>copado__Batch_Size_Valid_Interval</name>
+    </validationRules>
+</CustomObjectTranslation>

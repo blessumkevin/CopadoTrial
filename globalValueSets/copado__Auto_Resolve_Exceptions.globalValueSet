@@ -26,6 +26,11 @@
         <label>AuraDefinitionBundle</label>
     </customValue>
     <customValue>
+        <fullName>CustomObject</fullName>
+        <default>false</default>
+        <label>CustomObject</label>
+    </customValue>
+    <customValue>
         <fullName>Layout</fullName>
         <default>false</default>
         <label>Layout</label>

@@ -16,6 +16,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <header>Draft deployments</header>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado/copado__Draft_deployments</report>
@@ -33,6 +34,7 @@
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
             <header>Scheduled deployments</header>
             <indicatorHighColor>#54C254</indicatorHighColor>
             <indicatorLowColor>#C25454</indicatorLowColor>
@@ -47,6 +49,7 @@
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
             <header>Scheduled deployments (this week)</header>
             <indicatorHighColor>#54C254</indicatorHighColor>
             <indicatorLowColor>#C25454</indicatorLowColor>
@@ -67,6 +70,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <header>Completed deployments</header>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado/copado__Completed_deployments</report>
@@ -81,6 +85,7 @@
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
+            <groupingSortProperties/>
             <header>Steps with errors</header>
             <indicatorHighColor>#54C254</indicatorHighColor>
             <indicatorLowColor>#C25454</indicatorLowColor>

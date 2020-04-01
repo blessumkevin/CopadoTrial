@@ -65,6 +65,38 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Datetime Completed --></label>
+        <name>Datetime_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Datetime Deployed To Production --></label>
+        <name>Datetime_Deployed_To_Production__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enable Logs --></label>
+        <name>Enable_Logs__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- JIRA key --></label>
+        <name>JIRA_key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Time (Hours) --></label>
+        <name>Lead_Time_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Time (Minutes) --></label>
+        <name>Lead_Time_Minutes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Components --></label>
+        <name>Number_Of_Components__c</name>
+    </fields>
+    <fields>
         <label><!-- SCA Score --></label>
         <name>SCA_Score__c</name>
     </fields>
@@ -265,6 +297,10 @@
     <fields>
         <label><!-- Legal --></label>
         <name>copado__Legal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manual Step Required --></label>
+        <name>copado__Manual_Step_Required__c</name>
     </fields>
     <fields>
         <label><!-- Manual Tests Passed --></label>
@@ -639,7 +675,7 @@
     </fields>
     <fields>
         <help><!-- If checked, the User Story is marked as ready to be promoted. The user story will appear as &apos;Ahead&apos; and available to be selected in the Promotion and Branch Management pages. --></help>
-        <label><!-- Promote Change --></label>
+        <label><!-- Ready to Promote --></label>
         <name>copado__Promote_Change__c</name>
     </fields>
     <fields>
@@ -906,6 +942,10 @@
     <webLinks>
         <label><!-- Pull_Request --></label>
         <name>copado__Pull_Request</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Ready_for_Promotion --></label>
+        <name>copado__Ready_for_Promotion</name>
     </webLinks>
     <webLinks>
         <label><!-- Run_Compliance_Scan --></label>

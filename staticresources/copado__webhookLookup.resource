@@ -104,7 +104,8 @@ webhookLookup.applyMultiReferal = function(){
         for(var i = 0; i < webhookLookup.multiReferals.length; i++){
             templateUrl = templateUrl.replace('__RECORDID_'+i+'__', webhookLookup.referalMap[webhookLookup.multiReferals[i].toLowerCase().trim()]);
         }
-        url += templateUrl.replace('api_key=__APIKEY__', '');
+        //removed & after api key for multi referral
+        url += templateUrl.replace('api_key=__APIKEY__&', '');
         webhookLookup.setValue(url);
         webhookLookup.onSuccessCB();
         webhookLookup.hide(true);
@@ -163,7 +164,7 @@ webhookLookup.setUrl = function(templateUrl, recordId, skipValueSet){
 		JsRemoting.apiKey.createKey(ns,
 	        function(result){
 	            var url = webhookLookup.config.herokuServer+templateUrl.replace('__RECORDID__', recordId).replace('__APIKEY__', result);
-	            
+	            console.debug('url===1=> ',url);
 	            if(url.indexOf('&') > -1 && url.indexOf('?') == -1){
                     url = url.replace('&','?');
                 }

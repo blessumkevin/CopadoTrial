@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Callout Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Callout Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Callout Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Response Body --></label>
+        <name>Response_Body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Code --></label>
+        <name>Status_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Callout Logs --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

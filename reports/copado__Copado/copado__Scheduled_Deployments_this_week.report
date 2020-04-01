@@ -12,6 +12,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Deployment__c.copado__Schedule__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>Deploy later</value>

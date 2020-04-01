@@ -18,6 +18,15 @@
         <name>copado__Commits_Behind__c</name>
     </fields>
     <fields>
+        <label><!-- Connection Behavior Override --></label>
+        <name>copado__Connection_Behavior_Override__c</name>
+        <relationshipLabel><!-- Pipeline Connections --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Connection Behavior --></label>
+        <name>copado__Connection_Behavior__c</name>
+    </fields>
+    <fields>
         <label><!-- Pipeline --></label>
         <name>copado__Deployment_Flow__c</name>
         <relationshipLabel><!-- Pipeline Connections --></relationshipLabel>

@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -311,7 +411,7 @@
         <formula>HYPERLINK(&apos;/apex/&apos;&amp;
 IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;,
   IF(isblank($Setup.copado__Settings__c.copado__Namespace__c),&apos;copado__&apos;,$Setup.copado__Settings__c.copado__Namespace__c)
-)&amp;IF( ISPICKVAL(copado__Calculate_Based_on__c, &apos;User Story&apos;), IF( copado__Active__c,&apos;PipelineManager?id=&apos;&amp;Id, &apos;PipelineDiagram?id=&apos;&amp;Id), &apos;BranchManagement?id=&apos;&amp;Id), &apos;Pipeline Manager&apos;, &apos;_blank&apos;)</formula>
+)&amp;IF( ISPICKVAL(copado__Calculate_Based_on__c, &apos;User Story&apos;), IF( copado__Active__c,&apos;PipelineManager?mode=manager&amp;id=&apos;&amp;Id, &apos;PipelineManager?mode=diagram&amp;id=&apos;&amp;Id), &apos;BranchManagement?id=&apos;&amp;Id), &apos;Pipeline Manager&apos;, IF($User.UIThemeDisplayed != &quot;Theme4d&quot;,&apos;_blank&apos;,&apos;_self&apos;))</formula>
         <inlineHelpText>Link to open the Branch Management application for the Deployment Flow.</inlineHelpText>
         <label>Manage Releases</label>
         <required>false</required>
@@ -435,22 +535,12 @@ This value will prefill the order by field on related Promotion record creation 
         <availability>online</availability>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
         <height>600</height>
-        <isResizable>true</isResizable>
         <linkType>url</linkType>
         <masterLabel>Manage Releases</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>noSidebar</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/apex/{!
-IF($Setup.copado__Settings__c.copado__Namespace__c=&apos;none&apos;,&apos;&apos;, &apos;copado__&apos;) &amp; 
-IF( 
-ISPICKVAL(copado__Deployment_Flow__c.copado__Calculate_Based_on__c, &apos;User Story&apos;),   IF( copado__Deployment_Flow__c.copado__Active__c , &apos;PipelineManager&apos;, &apos;PipelineDiagram&apos;) , &apos;BranchManagement&apos;)}?Id={!copado__Deployment_Flow__c.Id}</url>
+        <url>/apex/{!IF($Setup.copado__Settings__c.copado__Namespace__c = &apos;none&apos;,&apos;&apos;,$Setup.copado__Settings__c.copado__Namespace__c)}{!IF(ISPICKVAL(copado__Deployment_Flow__c.copado__Calculate_Based_on__c, &apos;User Story&apos;), &apos;PipelineManager&apos;,&apos;BranchManagement&apos;)}?Id={!copado__Deployment_Flow__c.Id}&amp;mode={!IF(copado__Deployment_Flow__c.copado__Active__c, &apos;manager&apos;, &apos;diagram&apos;)}</url>
     </webLinks>
     <webLinks>
         <fullName>copado__Manage_Environment_Variables</fullName>

@@ -18,6 +18,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Promotion__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>In Progress</value>

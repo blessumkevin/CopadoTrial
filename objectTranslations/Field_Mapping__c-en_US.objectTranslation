@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Field Mappings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Make this checkbox checked if you don&apos;t want this field to be updated from third party platform. --></help>
+        <label><!-- Exclude from Salesforce update --></label>
+        <name>Exclude_from_su__c</name>
+    </fields>
+    <fields>
+        <help><!-- That field is defined to exclude Mapping records in use on code level for look up purposes(like developer id and project id Mapping)
+Make it checked for the fields which do not exist on external system. --></help>
+        <label><!-- Exclude from Third Party update --></label>
+        <name>Exclude_from_tpu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Field Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Salesforce Field Name --></label>
+        <name>Salesforce_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Field Type --></label>
+        <name>Target_Field_Type__c</name>
+        <picklistValues>
+            <masterLabel>integer</masterLabel>
+            <translation><!-- integer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>object</masterLabel>
+            <translation><!-- object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>string</masterLabel>
+            <translation><!-- string --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Third Party Field Name --></label>
+        <name>Third_Party_Field_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

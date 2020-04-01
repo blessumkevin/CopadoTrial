@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Active --></label>
+        <name>copado__Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attachment Options --></label>
+        <name>copado__Attachment_Options__c</name>
+        <picklistValues>
+            <masterLabel>Insert Attachments</masterLabel>
+            <translation><!-- Insert Attachments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Attachments</masterLabel>
+            <translation><!-- No Attachments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remove Attachments</masterLabel>
+            <translation><!-- Remove Attachments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Replace Attachments</masterLabel>
+            <translation><!-- Replace Attachments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upsert Attachments</masterLabel>
+            <translation><!-- Upsert Attachments --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Batch Size --></label>
+        <name>copado__Batch_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Continue on Error --></label>
+        <name>copado__Continue_on_Error__c</name>
+        <picklistValues>
+            <masterLabel>Continue deployment until blocker issue</masterLabel>
+            <translation><!-- Continue deployment until blocker issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stop deployment on first issue</masterLabel>
+            <translation><!-- Stop deployment on first issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>copado__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter Logic --></label>
+        <name>copado__Filter_Logic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Object --></label>
+        <name>copado__Main_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Match Owners --></label>
+        <name>copado__Match_Owners__c</name>
+    </fields>
+    <fields>
+        <label><!-- Match Record Type --></label>
+        <name>copado__Match_Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max. Record Limit --></label>
+        <name>copado__Max_Record_Limit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Template Source Org --></label>
+        <name>copado__Template_Source_Org__c</name>
+        <relationshipLabel><!-- Data Templates --></relationshipLabel>
+    </fields>
+    <webLinks>
+        <label><!-- Import_Templates --></label>
+        <name>copado__Import_Templates</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -21,6 +21,10 @@
         <name>copado__Back_Promotion__c</name>
     </fields>
     <fields>
+        <label><!-- Connection Behavior --></label>
+        <name>copado__Connection_Behavior__c</name>
+    </fields>
+    <fields>
         <help><!-- Select if you wish to move added permission sets to a Full Permission Sets deployment step.  This will remove them from the Metadata deployment step. --></help>
         <label><!-- Create Full Permission Sets Step --></label>
         <name>copado__Create_Full_Permission_Sets_Step__c</name>

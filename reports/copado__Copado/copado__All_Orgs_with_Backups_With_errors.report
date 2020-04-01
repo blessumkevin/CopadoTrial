@@ -18,6 +18,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Org__c$copado__Error__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>notEqual</operator>
             <value></value>

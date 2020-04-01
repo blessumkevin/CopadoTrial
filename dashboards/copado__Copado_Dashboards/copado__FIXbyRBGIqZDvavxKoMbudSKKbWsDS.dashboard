@@ -22,6 +22,7 @@
                 <displayUnits>Integer</displayUnits>
                 <gaugeMax>100.0</gaugeMax>
                 <gaugeMin>0.0</gaugeMin>
+                <groupingSortProperties/>
                 <header>Average Sprint Code Coverage</header>
                 <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
                 <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
@@ -58,6 +59,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__User_Story__c.copado__Status__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>User Stories with low Apex Code Coverage</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>copado__Copado_Change_Management/copado__CCM_USs_with_low_Apex_Code_Coverage</report>
@@ -85,6 +87,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__Test_Run__c.copado__Status__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>Total Test Runs</header>
                 <legendPosition>Right</legendPosition>
                 <report>copado__Copado_Change_Management/copado__CCM_Sprint_Test_Runs</report>
@@ -106,26 +109,31 @@
                 <flexComponentProperties>
                     <flexTableColumn>
                         <reportColumn>FK_NAME</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>FK_copado__User_Story__c.copado__User_Story_Title__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__Test_Run__c.copado__Tester__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>CUST_NAME</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__Test_Script__c.copado__Test_Title__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
@@ -135,6 +143,7 @@
                     </flexTableSortInfo>
                     <hideChatterPhotos>true</hideChatterPhotos>
                 </flexComponentProperties>
+                <groupingSortProperties/>
                 <header>CCM - Pending Test Runs</header>
                 <report>copado__Copado_Change_Management/copado__CCM_Pending_Test_Runs</report>
             </dashboardComponent>
@@ -157,6 +166,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__Test_Run__c.copado__Status__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>Test Runs by Status</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>copado__Copado_Change_Management/copado__CCM_Sprint_Test_Runs</report>
@@ -178,31 +188,37 @@
                 <flexComponentProperties>
                     <flexTableColumn>
                         <reportColumn>copado__User_Story__c.copado__User_Story_Title__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__User_Story__c.Name</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__Pull_Request__c.Name</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__User_Story__c.copado__Status__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__Pull_Request__c.copado__Requested_Reviewers__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
                     <flexTableColumn>
                         <reportColumn>copado__User_Story__c.copado__Last_Validation_Deployment_Status__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>detail</type>
                     </flexTableColumn>
@@ -212,6 +228,7 @@
                     </flexTableSortInfo>
                     <hideChatterPhotos>true</hideChatterPhotos>
                 </flexComponentProperties>
+                <groupingSortProperties/>
                 <header>CCM - Pull requests</header>
                 <report>copado__Copado_Change_Management/copado__CCM_Pull_requests</report>
             </dashboardComponent>

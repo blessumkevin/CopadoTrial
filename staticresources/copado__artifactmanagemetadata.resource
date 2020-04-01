@@ -115,13 +115,13 @@ copadoApp.init = function(conf, force, isScalable, type){
                 columntype: 'checkbox',
                 filtertype: 'bool',
                 datafield: 's',
-                width: 60
+                width: '5%'
             },
             {
                 text: 'Retrieve',
                 columntype: 'checkbox',
                 datafield: 'rd',
-                width: 90,
+                width: '5%',
                 cellsrenderer: function(row, columnfield, value, defaulthtml, columnproperties) {
                     if(typeof value === 'undefined' || value === null) {
                         value = false;
@@ -130,11 +130,11 @@ copadoApp.init = function(conf, force, isScalable, type){
             },
             {
                 text: copadoLabels.name,
-                filtertype: 'textbox',
-                filtercondition: 'contains',
+                columntype: 'textbox',
+                filtertype: 'input',
                 editable: false,
                 datafield: 'n',
-                width: 400
+                width: '30%'
             },
             {
                 text: copadoLabels.type,
@@ -142,35 +142,40 @@ copadoApp.init = function(conf, force, isScalable, type){
                 filterable: !this.isTypeFilterable,
                 filtertype: this.TypeFilterType,
                 editable: false,
+                width: '10%',
                 columntype: 'textbox'
             },
             {
                 text: copadoLabels.LASTMODIFIEDBY,
-                filtertype: 'textbox',
+                columntype: 'textbox',
+                filtertype: 'input',
                 editable: false,
                 datafield: 'b',
-                width: 220
+                width: '15%'
             },
             {
                 text: copadoLabels.LastModifiedDate,
-                filtertype: 'textbox',
+                filtertype: 'range',
+                cellsformat: 'yyyy/MM/dd',
                 editable: false,
                 datafield: 'd',
-                width: 120
+                width: '10%'
             },
             {
                 text: copadoLabels.CREATEDBY,
-                filtertype: 'textbox',
+                columntype: 'textbox',
+                filtertype: 'input',
                 editable: false,
                 datafield: 'cb',
-                width: 220
+                width: '15%'
             },
             {
                 text: copadoLabels.CREATEDDATE,
-                filtertype: 'textbox',
+                filtertype: 'range',
+                cellsformat: 'yyyy/MM/dd',
                 editable: false,
                 datafield: 'cd',
-                width: 120
+                width: '10%'
             }
         ];
         return columns;

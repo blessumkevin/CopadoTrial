@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,12 +117,31 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>User_Story_Record_Page</content>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>User_Story_Record_Page_Unmanaged</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -62,11 +161,6 @@
         <fullName>copado__CBM_Fields</fullName>
         <availableFields>
             <field>copado__Acceptance_Criteria_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Acceptance_Criteria__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -121,11 +215,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Compliance_Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>copado__Compliance__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -146,12 +235,7 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Developer__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Documentation_Complete__c</field>
+            <field>copado__Environment_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -162,11 +246,6 @@
         </availableFields>
         <availableFields>
             <field>copado__Epic__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Exclude_From_CBM__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -206,12 +285,12 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>LastModifiedDate</field>
+            <field>copado__Last_Compliance_Scan_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Last_Compliance_Scan_Date__c</field>
+            <field>copado__Last_Promotion_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -261,11 +340,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Org_Credential__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>OwnerId</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -292,11 +366,6 @@
         </availableFields>
         <availableFields>
             <field>copado__Project__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Promote_Change__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -347,11 +416,6 @@
         </availableFields>
         <availableFields>
             <field>SystemModstamp</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Team__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -418,11 +482,6 @@
         </displayedFields>
         <displayedFields>
             <field>copado__Status__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>copado__Sprint__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -526,6 +585,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>copado__Environment_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>copado__Environment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -582,6 +646,11 @@
         </availableFields>
         <availableFields>
             <field>copado__Last_Compliance_Scan_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Last_Promotion_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -1666,7 +1735,7 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Environment__c</field>
+            <field>copado__Environment_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -1722,6 +1791,11 @@
         </availableFields>
         <availableFields>
             <field>copado__Last_Compliance_Scan_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Last_Promotion_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -1841,17 +1915,7 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>copado__Release__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>copado__Sprint__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>copado__Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -2032,6 +2096,11 @@
         </availableFields>
         <availableFields>
             <field>copado__Documentation_Complete__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Environment_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -2426,6 +2495,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>copado__Environment_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>copado__Environment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2482,6 +2556,11 @@
         </availableFields>
         <availableFields>
             <field>copado__Last_Compliance_Scan_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>copado__Last_Promotion_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </availableFields>
@@ -3561,6 +3640,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>copado__Environment_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>copado__Environment__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -4634,6 +4718,96 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Datetime_Completed__c</fullName>
+        <description>This will get filled out with the current datetime the very first time this User Story gets marked as either &quot;Promote And Deploy&quot; or &quot;Ready To Promote&quot;. If this field is already filled out, it will not be updated, so this is filled in once and only once. This is filled in via the workflow rule &quot;Fill In Datetime Completed Field&quot;.</description>
+        <externalId>false</externalId>
+        <label>Datetime Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Datetime_Deployed_To_Production__c</fullName>
+        <description>This will get filled in with the current datetime once this User Story has the &quot;Environment&quot; field filled in with the value &quot;Production&quot;. This will happen when the User Story is successfully deployed there. This is filled in by the process builder labeled &quot;Stop Indexing Metadata &amp; Mark &quot;Datetime Deployed&quot; Once User Story Reaches Production (Invocable)&quot;.</description>
+        <externalId>false</externalId>
+        <label>Datetime Deployed To Production</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Logs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Enable Logs</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>External_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JIRA_key__c</fullName>
+        <externalId>false</externalId>
+        <label>JIRA key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Time_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Datetime_Deployed_To_Production__c  -  Datetime_Completed__c) * 24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Time (Hours)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Time_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Datetime_Deployed_To_Production__c  -  Datetime_Completed__c) * 1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Time (Minutes)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Of_Components__c</fullName>
+        <description>Displays the number of components currently linked to the User Story.</description>
+        <externalId>false</externalId>
+        <label>Number Of Components</label>
+        <summaryForeignKey>copado__User_Story_Metadata__c.copado__User_Story__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>SCA_Score__c</fullName>
         <description>This field is updated by a process that pastes the most recent SCA results.</description>
         <externalId>false</externalId>
@@ -5136,6 +5310,17 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Legal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>copado__Manual_Step_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If any of the Quality Gates are Manual Steps (Pull Request, Manual Test, or Manual Approval), the story should be marked as &apos;Manual Step Required&apos;.</description>
+        <externalId>false</externalId>
+        <label>Manual Step Required</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -5694,7 +5879,7 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <description>If checked, the User Story is marked as ready to be promoted. The user story will appear as &apos;Ahead&apos; and available to be selected in the Branch Management and Promotion pages.</description>
         <externalId>false</externalId>
         <inlineHelpText>If checked, the User Story is marked as ready to be promoted. The user story will appear as &apos;Ahead&apos; and available to be selected in the Promotion and Branch Management pages.</inlineHelpText>
-        <label>Promote Change</label>
+        <label>Ready to Promote</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -6111,6 +6296,22 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <columns>copado__Promote_Change__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>copado__Cli_Listview</fullName>
+        <columns>NAME</columns>
+        <columns>copado__User_Story_Title__c</columns>
+        <columns>copado__Status__c</columns>
+        <columns>copado__Project__c</columns>
+        <columns>copado__Org_Credential__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>copado__Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <label>Cli Listview</label>
     </listViews>
     <nameField>
         <displayFormat>US-{0000000}</displayFormat>
@@ -7593,7 +7794,8 @@ copado__Promote_and_Deploy__c = true
         <fullName>Static_Code_Analysis_Results</fullName>
         <active>false</active>
         <description>This enforces any sort of conditions you may want on the Static Code Analysis results of a User Story (i.e. whether they have to be run and/or achieve certain results). What is written here is that the SCA Score cannot be blank or greater than zero.</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND(
+copado__Has_Apex_Code__c = true,
 OR( 
 AND( 
 PRIORVALUE(copado__Promote_Change__c) = false, 
@@ -7678,20 +7880,19 @@ SCA_Score__c &gt; 0
         <fullName>copado__Add_Apex_Tests</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
         <hasMenubar>false</hasMenubar>
         <hasScrollbars>true</hasScrollbars>
         <hasToolbar>false</hasToolbar>
         <height>600</height>
         <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>Add Apex Tests</masterLabel>
         <openType>newWindow</openType>
+        <page>copado__AddTestClasses</page>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/apex/{!IF($Setup.copado__Settings__c.copado__Namespace__c == &apos;none&apos;, &apos;&apos;, $Setup.copado__Settings__c.copado__Namespace__c)}metadataselector?id={!copado__User_Story__c.Id}&amp;mode=ApexTests</url>
     </webLinks>
     <webLinks>
         <fullName>copado__Add_Commits</fullName>
@@ -7860,6 +8061,18 @@ SCA_Score__c &gt; 0
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>/apex/{!IF($Setup.copado__Settings__c.copado__Namespace__c == &apos;none&apos;, &apos;&apos;, $Setup.copado__Settings__c.copado__Namespace__c)}UserStoryPageWaitingFor?id={!copado__User_Story__c.Id}&amp;type=pullRequest</url>
+    </webLinks>
+    <webLinks>
+        <fullName>copado__Ready_for_Promotion</fullName>
+        <availability>online</availability>
+        <description>Submits user story for Copado Continuous Delivery</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Submit</masterLabel>
+        <openType>sidebar</openType>
+        <page>copado__UserStoryReadyForPromote</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>copado__Run_Compliance_Scan</fullName>

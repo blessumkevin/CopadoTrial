@@ -27,6 +27,23 @@
         <relationshipLabel><!-- Snapshot Differences (Destination Org Credential) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- Salesforce configuration files are in the XML format. You can change it to a different format for a faster comparison time and better readability of the differences. --></help>
+        <label><!-- Format --></label>
+        <name>copado__Format__c</name>
+        <picklistValues>
+            <masterLabel>JSON</masterLabel>
+            <translation><!-- JSON --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XML</masterLabel>
+            <translation><!-- XML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YAML</masterLabel>
+            <translation><!-- YAML --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Last Run --></label>
         <name>copado__Last_Run__c</name>
     </fields>

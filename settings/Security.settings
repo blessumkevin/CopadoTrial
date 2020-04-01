@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SecuritySettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canUsersGrantLoginAccess>true</canUsersGrantLoginAccess>
+    <enableAdminLoginAsAnyUser>true</enableAdminLoginAsAnyUser>
+    <enableAuditFieldsInactiveOwner>false</enableAuditFieldsInactiveOwner>
+    <enableAuraSecureEvalPref>false</enableAuraSecureEvalPref>
+    <enableRequireHttpsConnection>true</enableRequireHttpsConnection>
+    <isTLSv12Required>false</isTLSv12Required>
+    <isTLSv12RequiredCommunities>false</isTLSv12RequiredCommunities>
     <networkAccess>
         <ipRanges>
             <description>Copado Laptop</description>
@@ -29,6 +36,7 @@
     </networkAccess>
     <passwordPolicies>
         <complexity>AlphaNumeric</complexity>
+        <enableSetPasswordInApi>true</enableSetPasswordInApi>
         <expiration>Never</expiration>
         <historyRestriction>0</historyRestriction>
         <lockoutInterval>FifteenMinutes</lockoutInterval>
@@ -39,7 +47,10 @@
         <questionRestriction>DoesNotContainPassword</questionRestriction>
     </passwordPolicies>
     <sessionSettings>
-        <disableTimeoutWarning>false</disableTimeoutWarning>
+        <allowUserAuthenticationByCertificate>false</allowUserAuthenticationByCertificate>
+        <canConfirmEmailChangeInLightningCommunities>false</canConfirmEmailChangeInLightningCommunities>
+        <canConfirmIdentityBySmsOnly>true</canConfirmIdentityBySmsOnly>
+        <disableTimeoutWarning>true</disableTimeoutWarning>
         <enableCSPOnEmail>true</enableCSPOnEmail>
         <enableCSRFOnGet>true</enableCSRFOnGet>
         <enableCSRFOnPost>true</enableCSRFOnPost>
@@ -49,20 +60,24 @@
         <enableClickjackNonsetupUserHeaderless>false</enableClickjackNonsetupUserHeaderless>
         <enableClickjackSetup>true</enableClickjackSetup>
         <enableContentSniffingProtection>true</enableContentSniffingProtection>
+        <enableLightningLogin>true</enableLightningLogin>
+        <enableLightningLoginOnlyWithUserPerm>false</enableLightningLoginOnlyWithUserPerm>
         <enablePostForSessions>false</enablePostForSessions>
         <enableSMSIdentity>true</enableSMSIdentity>
+        <enableU2F>false</enableU2F>
         <enableUpgradeInsecureRequests>true</enableUpgradeInsecureRequests>
         <enableXssProtection>true</enableXssProtection>
         <enforceIpRangesEveryRequest>false</enforceIpRangesEveryRequest>
         <forceLogoutOnSessionTimeout>true</forceLogoutOnSessionTimeout>
         <forceRelogin>true</forceRelogin>
+        <hasRetainedLoginHints>false</hasRetainedLoginHints>
+        <hasUserSwitching>true</hasUserSwitching>
         <hstsOnForcecomSites>false</hstsOnForcecomSites>
         <identityConfirmationOnEmailChange>false</identityConfirmationOnEmailChange>
         <identityConfirmationOnTwoFactorRegistrationEnabled>true</identityConfirmationOnTwoFactorRegistrationEnabled>
         <lockSessionsToDomain>true</lockSessionsToDomain>
         <lockSessionsToIp>false</lockSessionsToIp>
         <lockerServiceCSP>false</lockerServiceCSP>
-        <lockerServiceFrozenRealm>false</lockerServiceFrozenRealm>
         <redirectionWarning>true</redirectionWarning>
         <referrerPolicy>true</referrerPolicy>
         <requireHttpOnly>false</requireHttpOnly>
@@ -70,4 +85,9 @@
         <securityCentralKillSession>true</securityCentralKillSession>
         <sessionTimeout>TwentyFourHours</sessionTimeout>
     </sessionSettings>
+    <singleSignOnSettings>
+        <enableMultipleSamlConfigs>true</enableMultipleSamlConfigs>
+        <enableSamlJitProvisioning>false</enableSamlJitProvisioning>
+        <enableSamlLogin>false</enableSamlLogin>
+    </singleSignOnSettings>
 </SecuritySettings>

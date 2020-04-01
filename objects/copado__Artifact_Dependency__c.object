@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -58,9 +158,9 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>The artifact record which cannot be installed or managed without the depending</inlineHelpText>
-        <label>Dependent Artifact</label>
+        <label>Dependent Package</label>
         <referenceTo>copado__Artifact__c</referenceTo>
-        <relationshipLabel>Artifact_Dependencies</relationshipLabel>
+        <relationshipLabel>Package Dependencies (Dependent Artifact)</relationshipLabel>
         <relationshipName>Artifact_Dependencies</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -75,7 +175,7 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>The minumum or exact version of depending artifact. This particular version will be used during version creation and installation operations.</inlineHelpText>
-        <label>Depending Artifact Version</label>
+        <label>Depending Package Version</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Value does not exist or does not match filter criteria. Depending version should be selected among the depending artifact&apos;s versions.</errorMessage>
@@ -87,7 +187,7 @@
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>copado__Artifact_Version__c</referenceTo>
-        <relationshipLabel>Artifact_Dependencies</relationshipLabel>
+        <relationshipLabel>Package Dependencies</relationshipLabel>
         <relationshipName>Artifact_Dependencies</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -100,9 +200,9 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>The depending package artifact which contains required dependencies for the dependent package&apos;s metadata</inlineHelpText>
-        <label>Depending Artifact</label>
+        <label>Depending Package</label>
         <referenceTo>copado__Artifact__c</referenceTo>
-        <relationshipLabel>Artifact_Dependencies (Depending Artifact)</relationshipLabel>
+        <relationshipLabel>Package Dependencies (Depending Artifact)</relationshipLabel>
         <relationshipName>Artifact_Dependencies1</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -120,14 +220,14 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <label>Artifact Dependency</label>
+    <label>Package Dependency</label>
     <nameField>
         <displayFormat>AD-{00000}</displayFormat>
         <label>Artifact Dependencies Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Artifact_Dependencies</pluralLabel>
+    <pluralLabel>Package Dependencies</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>

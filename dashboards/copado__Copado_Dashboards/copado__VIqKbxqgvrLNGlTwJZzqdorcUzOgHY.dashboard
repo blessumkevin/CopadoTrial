@@ -22,6 +22,7 @@
                 <displayUnits>Auto</displayUnits>
                 <gaugeMax>100.0</gaugeMax>
                 <gaugeMin>0.0</gaugeMin>
+                <groupingSortProperties/>
                 <header>Sprint Progress</header>
                 <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
                 <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
@@ -48,6 +49,7 @@
                 </chartSummary>
                 <componentType>Metric</componentType>
                 <displayUnits>Auto</displayUnits>
+                <groupingSortProperties/>
                 <header>Total Story Points</header>
                 <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
                 <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
@@ -78,6 +80,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__User_Story__c.copado__Developer__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>Assigned Work (Story Points)</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
@@ -102,6 +105,7 @@
                 </chartSummary>
                 <componentType>Metric</componentType>
                 <displayUnits>Auto</displayUnits>
+                <groupingSortProperties/>
                 <header>Team&apos;s Velocity (Completed Story Points)</header>
                 <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
                 <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
@@ -132,6 +136,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__User_Story__c.copado__Status__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>User Stories by Status</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>copado__Copado_Change_Management/copado__CCM_Crrent_Sprint_More_info</report>
@@ -162,6 +167,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__User_Story__c.copado__Status__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>Pending Work (Story Points)</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
@@ -192,6 +198,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>copado__User_Story__c.copado__Developer__c</groupingColumn>
+                <groupingSortProperties/>
                 <header>Progress by Developer</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>copado__Copado_Change_Management/copado__CCM_Current_Sprint_by_Developer</report>

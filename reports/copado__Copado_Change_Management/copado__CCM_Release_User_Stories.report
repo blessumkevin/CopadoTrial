@@ -44,12 +44,14 @@
     <filter>
         <criteriaItems>
             <column>FK_$copado__Release__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
             <column>copado__User_Story__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>Rejected,Cancelled</value>

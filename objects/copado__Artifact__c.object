@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -59,9 +159,9 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <inlineHelpText>This is Repository where the Artifact can be stored, in the master branch</inlineHelpText>
-        <label>Artifact Repository</label>
+        <label>Package Repository</label>
         <referenceTo>copado__Git_Repository__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
+        <relationshipLabel>Packages</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -84,7 +184,6 @@
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>copado__Artifact_Version__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -121,7 +220,6 @@
         <inlineHelpText>Org Credential where the metadata of the Artifact is going to be retrieved from</inlineHelpText>
         <label>Source Org Credential</label>
         <referenceTo>copado__Org__c</referenceTo>
-        <relationshipLabel>Artifacts</relationshipLabel>
         <relationshipName>Artifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -455,14 +553,13 @@
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>copado__Org__c</referenceTo>
-        <relationshipLabel>Artifacts (Target Dev Hub Org)</relationshipLabel>
         <relationshipName>packageArtifacts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Artifact</label>
+    <label>Package</label>
     <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
@@ -474,17 +571,17 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Artifact Name</label>
+        <label>Package Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Artifacts</pluralLabel>
+    <pluralLabel>Packages</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>copado__Git_Artifact</fullName>
         <active>true</active>
-        <description>Version control system centric artifact</description>
-        <label>Git Artifact</label>
+        <description>Version Control System centric package</description>
+        <label>Git Package</label>
         <picklistValues>
             <picklist>copado__Package_Type__c</picklist>
             <values>
@@ -683,8 +780,8 @@
     <recordTypes>
         <fullName>copado__Package_Artifact</fullName>
         <active>true</active>
-        <description>Salesforce unmanaged, unlocked or manage package as a artifact</description>
-        <label>Package Artifact</label>
+        <description>Salesforce unlocked, First Generation Package or Second-Generation Package as a package</description>
+        <label>Salesforce Package</label>
         <picklistValues>
             <picklist>copado__Package_Type__c</picklist>
             <values>
@@ -886,27 +983,27 @@
         <fullName>copado__ArtifactNameCannotChange</fullName>
         <active>true</active>
         <errorConditionFormula>PRIORVALUE(Name) != Name</errorConditionFormula>
-        <errorMessage>Artifact names are in use for DX folder structure, therefore, artifact names are not editable.</errorMessage>
+        <errorMessage>Package names are in use for DX folder structure, therefore, package names are not editable.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Artifact_Repo_Control_For_Package_Type</fullName>
         <active>true</active>
-        <description>Artifact Reposiroty null control depending of Package Type</description>
+        <description>Package Repository null control depending of Package Type</description>
         <errorConditionFormula>IF(
 OR(
 AND(ISBLANK(copado__Artifact_Repository__c), 
 (ISPICKVAL(copado__Package_Type__c, &apos;Unlocked&apos;) || ISPICKVAL(copado__Package_Type__c, &apos;Second-Generation Package&apos;))),
-(NOT(ISBLANK(copado__Artifact_Repository__c)) &amp;&amp; ISPICKVAL(copado__Package_Type__c, &apos;Unmanaged&apos;))), true, false
+(NOT(ISBLANK(copado__Artifact_Repository__c)) &amp;&amp; ISPICKVAL(copado__Package_Type__c, &apos;First-Generation Package&apos;))), true, false
 )</errorConditionFormula>
         <errorDisplayField>copado__Artifact_Repository__c</errorDisplayField>
-        <errorMessage>Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for Unmanaged Packages</errorMessage>
+        <errorMessage>Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for First Second Generation Packages</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Name_should_not_contain_empty_space</fullName>
         <active>true</active>
         <errorConditionFormula>CONTAINS(Name,&apos; &apos;)</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Artifact name cannot contain white spaces</errorMessage>
+        <errorMessage>Package name cannot contain white spaces</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
     <webLinks>
@@ -959,7 +1056,7 @@ AND(ISBLANK(copado__Artifact_Repository__c),
         <displayType>button</displayType>
         <height>600</height>
         <linkType>page</linkType>
-        <masterLabel>Manage Artifact Content</masterLabel>
+        <masterLabel>Manage Package Content</masterLabel>
         <openType>noSidebar</openType>
         <page>copado__ArtifactPackage</page>
         <protected>false</protected>

@@ -6,6 +6,14 @@
                 <name>collapsed</name>
                 <value>false</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideChatterActions</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>numVisibleActions</name>
+                <value>4</value>
+            </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
         <name>header</name>
@@ -30,7 +38,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
-                <value>NONE</value>
+                <value>ADVGRID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>6</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
@@ -45,7 +61,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
-                <value>NONE</value>
+                <value>ADVGRID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
@@ -64,7 +88,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
-                <value>NONE</value>
+                <value>ADVGRID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>6</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
@@ -132,7 +164,15 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
-                <value>NONE</value>
+                <value>ADVGRID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
@@ -203,7 +243,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>Conflict Resolution</value>
+                <value>Overlap Awareness</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>

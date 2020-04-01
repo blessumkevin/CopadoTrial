@@ -22,6 +22,11 @@
         <name>copado__Compliance_Status__c</name>
     </fields>
     <fields>
+        <label><!-- Incoming Connection Behavior --></label>
+        <name>copado__Connection_Behavior__c</name>
+        <relationshipLabel><!-- Environment Default Behavior --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Current Code Coverage --></label>
         <name>copado__Current_Code_Coverage__c</name>
     </fields>
@@ -38,6 +43,43 @@
     <fields>
         <label><!-- Last Compliance Scan Date --></label>
         <name>copado__Last_Compliance_Scan_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Deployment Status --></label>
+        <name>copado__Latest_Deployment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed Successfully</masterLabel>
+            <translation><!-- Completed Successfully --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed with Errors</masterLabel>
+            <translation><!-- Completed with Errors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In progress</masterLabel>
+            <translation><!-- In progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merge Conflict</masterLabel>
+            <translation><!-- Merge Conflict --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Latest Deployment --></label>
+        <name>copado__Latest_Deployment__c</name>
+        <relationshipLabel><!-- Environments --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- Maximum Static Code Analysis Score --></help>

@@ -46,6 +46,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Selenium_Test_Run__c.copado__Last_Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>Provider Failure,Completed with errors</value>

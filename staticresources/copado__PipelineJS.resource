@@ -1,526 +1,899 @@
+/* Minimap */
+(function($, pipelineConnector) {
+    $.fn.minimap = function($mapSource, elem) {
+        var x, y, l, t, w, h;
+        var $window = $(window);
+        var $minimap = this;
+        var minimapWidth = $minimap.width();
+        var minimapHeight = $minimap.height();
+        var $viewport = $("<div></div>").addClass("minimap-viewport");
+        $minimap.append($viewport);
+        synchronize();
 
-(function ( $ ) {
-    $.fn.connectSVG = function(param){
+        $window.on("resize", synchronize);
+        $mapSource.on("scroll", synchronize);
+        $mapSource.on("drag", init);
+        $minimap.on("mousedown touchstart", down);
 
-        var _canvas;
-        var _ctx;
-        var _lines = new Array();
-        var _me = this;
-        var _parent = param || document;
+        function down(e) {
+            var moveEvent, upEvent;
+            var pos = $minimap.position();
 
-        //Initialize Canvas object
-        _canvas = $('<canvas/>')
-                    .attr('width',$(_parent).width())
-                    .attr('height',$(_parent).height());
-        if($('#boxCanvas canvas').length==0)$('#boxCanvas').append(_canvas);
+            x = Math.round(pos.left + l + w / 2);
+            y = Math.round(pos.top + t + h / 2);
+            move(e);
 
-        this.drawLine = function(option){
-            //It will push line to array.
-            _lines.push(option);
-            this.connect(option);
-        };
-        this.drawAllLine=function(option){
-            if(option.left_selector != '' && typeof option.left_selector !== 'undefined' && $(option.left_selector).length>0){
-                $(option.left_selector).each(function(index){
-                    var option2 = new Object();
-                    $.extend(option2, option);
-                    option2.left_node = $(this).attr('id');
-                    option2.right_node = $(this).data(option.data_attribute);
-                    if(option2.right_node != '' && typeof option2.right_node !== 'undefined'){
-                        _me.drawLine(option2);
-                    }
-                });
+            if (e.type === 'touchstart') {
+                moveEvent = 'touchmove.minimapDown';
+                upEvent = 'touchend';
+            } else {
+                moveEvent = 'mousemove.minimapDown';
+                upEvent = 'mouseup';
             }
-        };
+            $window.on(moveEvent, move);
+            $window.on(upEvent, up);
+        }
 
-        //This Function is used to connect two different div with a dotted line.
-        this.connect = function(option) {
-            _ctx=_canvas[0].getContext('2d');
-            _ctx.beginPath();
+        function move(e) {
+            e.preventDefault();
 
-            try{
-                var _destinationBox = new Object();
-                var _color;
-                var _dash;
-                var _left = new Object();
-                var _right = new Object();
-                var _error = (option.error == 'show') || false;
-                var headerHeight = option.headerHeight || 0;
-
-                if(option.left_node != '' && typeof option.left_node !== 'undefined' && option.right_node != '' && typeof option.right_node !== 'undefined' && $(option.left_node).length>0 && $(option.right_node).length>0){
-
-                    //To decide colour of the line
-                    switch (option.color){
-                        case 'copado-blue':
-                            _color = '#3593c6';
-                            break;
-                    }
-
-                    //To decide style of the line. dotted or solid
-                    switch (option.style){
-                        case 'solid':
-                            _dash = [0,0];
-                            break;
-                    }
-
-                    //If left_node is actually right side, following code will switch elements.
-                    $(option.right_node).each(function(index,value){
-                        _left_node = $(option.left_node);
-                        _right_node = $(value);
-                        _dest_node = ( _left_node==$(option.destinationNode) )?_left_node:_right_node;
-
-                        var drawArrowWhere = 'left-side';
-
-                        if(_left_node.left >= _right_node.left){
-                            _tmp = _left_node
-                            _left_node = _right_node
-                            _right_node =_tmp;
-                            if(_dest_node==_left_node)drawArrowWhere='right-side';
-                        }
-                        var scope_Padding = parseInt($copado('.slds-scope').css('padding'));
-                        //Get Left point and Right Point
-                        _left.x =parseInt(_left_node.css('left')) + _left_node.outerWidth() -scope_Padding;
-                        _left.y = parseInt(_left_node.css('top')) - headerHeight + (_left_node.outerHeight()/2) ;
-                        _right.x = parseInt(_right_node.css('left')) -scope_Padding;
-                        _right.y = parseInt(_right_node.css('top')) - headerHeight + ( _right_node.outerHeight()/2);
-
-                        //Draw Line
-                        var _gap = option.horizantal_gap || 0 ;
-
-                        _destinationBox.x = parseInt(_dest_node.css('left')) + _dest_node.outerWidth() -scope_Padding;
-                        _destinationBox.y = parseInt(_dest_node.css('top')) - headerHeight + (_dest_node.outerHeight()
-                        /2);
-
-                        //Draw arrow either on the left or the rigth
-                        if(drawArrowWhere=='left-side'){
-                            _ctx.moveTo(_destinationBox.x-205, _destinationBox.y+0);
-                            _ctx.lineTo(_destinationBox.x-218, _destinationBox.y-7);
-                            _ctx.lineTo(_destinationBox.x-215, _destinationBox.y+0);
-                            _ctx.lineTo(_destinationBox.x-218, _destinationBox.y+7);
-                            _ctx.lineTo(_destinationBox.x-205, _destinationBox.y+0);
-                            _ctx.fillStyle=_color;
-                            _ctx.fill();
-                        }
-                        else{
-                            _ctx.moveTo(_destinationBox.x-0, _destinationBox.y+0);
-                            _ctx.lineTo(_destinationBox.x+13, _destinationBox.y-7);
-                            _ctx.lineTo(_destinationBox.x+10, _destinationBox.y+0);
-                            _ctx.lineTo(_destinationBox.x+13, _destinationBox.y+7);
-                            _ctx.lineTo(_destinationBox.x-0, _destinationBox.y+0);
-                            _ctx.fillStyle=_color;
-                            _ctx.fill();
-                        }
-
-                        _ctx.moveTo(_left.x+0, _left.y+0);
-                        if(_gap != 0){
-                            _ctx.lineTo(_left.x + _gap, _left.y);
-                            _ctx.lineTo(_right.x - _gap, _right.y);
-                        }
-                        _ctx.lineTo(_right.x, _right.y);
-                        _ctx.lineWidth=option.width||2;
-                        _ctx.strokeStyle = _color;
-                        _ctx.stroke();
-                    });
+            if (e.type.match(/touch/)) {
+                if (e.touches.length > 1) {
+                    return;
                 }
-                else{
-                    if(_error) alert('Mandatory Fields are missing or incorrect');
-                }
+                var event = e.touches[0];
+            } else {
+                var event = e;
             }
-            catch(err){
-                if(_error) alert('Mandatory Fields are missing or incorrect');
-            }
-        };
 
-        //It will redraw all line when screen resizes
-        $(window).resize(function(){
-            _me.redrawLines();
-        });
-        this.redrawLines = function(){
-            if(!_ctx)_ctx=_canvas[0].getContext('2d');
-            _ctx.clearRect(0,0,$(_parent).width(),$(_parent).height());
-            _lines.forEach(function(entry){
-                entry.resize=true;
-                _me.connect(entry);
+            var dx = event.clientX - x;
+            var dy = event.clientY - y;
+            if (l + dx < 0) {
+                dx = -l;
+            }
+            if (t + dy < 0) {
+                dy = -t;
+            }
+            if (l + w + dx > minimapWidth) {
+                dx = minimapWidth - l - w;
+            }
+            if (t + h + dy > minimapHeight) {
+                dy = minimapHeight - t - h;
+            }
+
+            x += dx;
+            y += dy;
+
+            l += dx;
+            t += dy;
+
+            var coefX = minimapWidth / $mapSource[0].scrollWidth;
+            var coefY = minimapHeight / $mapSource[0].scrollHeight;
+            var left = l / coefX;
+            var top = t / coefY;
+
+            $mapSource[0].scrollLeft = Math.round(left);
+            $mapSource[0].scrollTop = Math.round(top);
+
+            redraw();
+        }
+
+        function up() {
+            $window.off('.minimapDown');
+        }
+
+        function synchronize() {
+            var dims = [$mapSource.width(), $mapSource.height()];
+            var scroll = [$mapSource.scrollLeft(), $mapSource.scrollTop()];
+            var scaleX = minimapWidth / $mapSource[0].scrollWidth;
+            var scaleY = minimapHeight / $mapSource[0].scrollHeight;
+
+            var lW = dims[0] * scaleX;
+            var lH = dims[1] * scaleY;
+            var lX = scroll[0] * scaleX;
+            var lY = scroll[1] * scaleY;
+
+            w = Math.round(lW);
+            h = Math.round(lH);
+            l = Math.round(lX);
+            t = Math.round(lY);
+            //set the mini viewport dimensions
+            redraw();
+        }
+
+        function redraw() {
+            $viewport.css({
+                width: w,
+                height: h,
+                left: l,
+                top: t
             });
-        };
+
+            // Recalculate SVG
+            ccd.connectAll();
+        }
+
+        function calculateHeightFactor() {
+            var firstColumnEnvNumber = $copado($mapSource.children('.column').get(0)).find(elem).length;
+            var secondColumnEnvNumber = $copado($mapSource.children('.column').get(1)).find(elem).length;
+            var heightFactor = 0;
+
+            columnsNumber = firstColumnEnvNumber > secondColumnEnvNumber ? firstColumnEnvNumber : secondColumnEnvNumber;
+
+            if (columnsNumber <= 10) {
+                heightFactor = 0.5;
+            } else if (columnsNumber > 10 && columnsNumber <= 30) {
+                heightFactor = 0.6;
+            } else if (columnsNumber > 30 && columnsNumber <= 50) {
+                heightFactor = 0.7;
+            } else if (columnsNumber > 50 && columnsNumber <= 65) {
+                heightFactor = 0.8;
+            } else if (columnsNumber > 65 && columnsNumber <= 80) {
+                heightFactor = 0.9;
+            } else if (columnsNumber > 80) {
+                heightFactor = 1;
+            }
+
+            return heightFactor;
+        }
+
+        function init() {
+            $minimap.find('.minimap-node').remove();
+            //creating mini version of the supplied children
+
+            var heightFactor = calculateHeightFactor();
+
+            $mapSource.find(elem).each(function() {
+                var $child = $(this);
+                var mini = $('<div></div>').addClass('minimap-node');
+                $minimap.append(mini);
+
+                var ratioX = minimapWidth / $mapSource[0].scrollWidth;
+                var ratioY = minimapHeight / $mapSource[0].scrollHeight;
+
+                var ratioX = (minimapWidth / $mapSource[0].scrollWidth) * 0.8;
+                var ratioY = (minimapHeight / $mapSource[0].scrollHeight) * heightFactor;
+
+                var wM = $child.width() * ratioX;
+                var hM = $child.height() * ratioY;
+                var xM = ($child.position().left + $mapSource.scrollLeft()) * ratioX;
+                var yM = ($child.position().top + $mapSource.scrollTop()) * ratioY;
+
+                mini.css({
+                    width: Math.round(wM),
+                    height: Math.round(hM),
+                    left: Math.round(xM),
+                    top: Math.round(yM)
+                });
+            });
+
+
+
+        }
+
+        init();
+
         return this;
+    }
+})(jQuery, ccd);
+
+
+/* It detects collisions between two DOM elements */
+var overlaps = (function() {
+    function getPositions(elem) {
+        var pos, width, height;
+        pos = $copado(elem).position();
+        width = $copado(elem).width() / 2;
+        height = $copado(elem).height();
+        return [
+            [pos.left, pos.left + width],
+            [pos.top, pos.top + height]
+        ];
+    }
+
+    function comparePositions(p1, p2) {
+        var r1, r2;
+        r1 = p1[0] < p2[0] ? p1 : p2;
+        r2 = p1[0] < p2[0] ? p2 : p1;
+        return r1[1] > r2[0] || r1[0] === r2[0];
+    }
+
+    return function(a, b) {
+        var pos1 = getPositions(a),
+            pos2 = getPositions(b);
+        return comparePositions(pos1[0], pos2[0]) && comparePositions(pos1[1], pos2[1]);
     };
-}( jQuery ));
-
-var pipelineConnector = pipelineConnector || {};
-pipelineConnector.data = pipelineConnector.data || {};
-pipelineConnector.config = pipelineConnector.config || {};
-pipelineConnector.branch = pipelineConnector.branch || {};
-pipelineConnector.floater = pipelineConnector.floater || {};
-pipelineConnector.labels = pipelineConnector.labels || {};
-
-pipelineConnector.config.ns = copadoApp.ns;
-pipelineConnector.config.currentUserId = '';
-pipelineConnector.config.canvas = $copado('#boxCanvas').connectSVG($copado("html"));
-pipelineConnector.data.flowId = copadoApp.data.flowId;
-pipelineConnector.data.mapStepIdEnvironments = [];
-pipelineConnector.data.mapStepEnvConnections = new Map();
-pipelineConnector.data.mapBoxIdToStepId = [];
-pipelineConnector.data.stepIds = [];
-pipelineConnector.data.env2branchMap = [];
-pipelineConnector.data.permissions = [];
-pipelineConnector.data.positionArray = [];
-pipelineConnector.data.prodBox = '';
-pipelineConnector.data.targetToSource = new Map();
-pipelineConnector.labels.LOADING = 'Loading';
+})();
 
 
-pipelineConnector.logMapElements = function(value, key, map) {
-  !pipelineConnector.data.mapStepEnvConnections.has(value) ? pipelineConnector.data.prodBox = value : '';
-  if(!pipelineConnector.data.targetToSource.has('wrapper_'+value)){
-  	pipelineConnector.data.targetToSource.put('wrapper_'+value,'wrapper_'+key);
-  } else {
-  	var innerArray = new Array();
-  	innerArray = innerArray.concat(pipelineConnector.data.targetToSource.get('wrapper_'+value));
-  	innerArray.push('wrapper_'+key);
-  	pipelineConnector.data.targetToSource.put('wrapper_'+value,innerArray);
-  }
-}
+// Continuous Delivery Javascript
+var ccd = ccd || {};
+var copadoApp = copadoApp ? copadoApp : {};
+var staticResourcesPath = staticResourcesPath ? staticResourcesPath : '';
 
-pipelineConnector.fixInCanvas = function(flowWidth){
-    var $win = $copado(window);
-    var $doc = $copado(document);
-    $copado('#boxCanvas').css('width',flowWidth);
-    $canvas = $copado("#boxCanvas canvas");
-    if(flowWidth <=  $win.width()){
-        $canvas.prop('width',  $win.width());
-        $copado('#boxCanvas').css('width',flowWidth);
-        //$doc.css('width',$win.width());
-    }else{
-        $canvas.prop('width',  flowWidth);
-        $copado('#boxCanvas').css('width',flowWidth);
-        //$doc.css('width',flowWidth);
-    }
-    if(callHeaderMode){
-        var mode = callHeaderMode();
-        if(mode === 'diagram'){
-            $copado('#boxCanvas').css('padding-top',$copado("[id$='headerPanel']").height()+20);
-            $copado('div.bodyDiv.brdPalette.brandPrimaryBrd').css('position','fixed');
+((pipelineConnector) => {
+
+    var pipelineConnector = pipelineConnector || {};
+    var boxClassIdentifier = '.box-container';
+
+    var signum = (x) => {
+        return (x < 0) ? -1 : 1;
+    };
+
+    var absolute = (x) => {
+        return (x < 0) ? -x : x;
+    };
+
+    var getConnectionsList = () => {
+        if (ccd.data.connections.length > 0) {
+            pipelineConnector.data.connectionsList = JSON.parse(ccd.data.connections);
         }
-    }
-}
-var stageWidth;
-var minLeft;
-var maxTop = 0;
-pipelineConnector.positionEnvBoxes= function(){
+    };
 
-    pipelineConnector.data.prodBox = '';
-    pipelineConnector.data.targetToSource = new Map();
-    pipelineConnector.data.positionArray = [];
-	pipelineConnector.data.mapStepEnvConnections.forEach(pipelineConnector.logMapElements)
-	var totalWidth = $copado('#boxCanvas').width();
-	var totalStage = pipelineConnector.data.targetToSource.size+1; // steps + prod
-	var calculatedCol = totalWidth / totalStage;
-	stageWidth =  calculatedCol < 245 ? 245 : calculatedCol;
-	var boxWidth = $copado('.jsEnvBoxWrapper').first().width();
-	var bufferWidth = stageWidth - boxWidth;
-	var calculatedTotalWidth = (stageWidth * totalStage);
-    if(calculatedTotalWidth > totalWidth){
-        pipelineConnector.fixInCanvas(calculatedTotalWidth);
-        setTimeout(function() {pipelineConnector.positionEnvBoxes();},100);
-        return;
-    } else {
-        pipelineConnector.fixInCanvas();
-    }
-	var wrapperId = 'wrapper_' + pipelineConnector.data.prodBox;
-	var leftSpace = totalWidth -boxWidth - 20;
-	var topSpace = $copado("[id$='headerPanel']").height() + 40;
-	pipelineConnector.setCoordinates(wrapperId,leftSpace,topSpace,bufferWidth,boxWidth);
-    setTimeout(function() {
-        $copado('.jsEnvBoxWrapper').each(function(){
-            var current = $copado(this).css('left');
-            $copado(this).css('left',parseInt(current)-minLeft+20);
+    var drawPath = (svg, path, startX, startY, endX, endY) => {
+        var stroke = parseFloat(path.css('stroke-width'));
+        var offsetHeight = 20;
+
+        if (endY < startY && startY > 0) {
+            svg.attr('height', startY + offsetHeight);
+
+        } else if (svg.attr('height') < endY) {
+            svg.attr('height', endY + offsetHeight);
+        }
+
+        if (svg.attr('width') < (startX + stroke)) {
+            svg.attr('width', (startX + stroke));
+        }
+
+        if (svg.attr('width') < (endX + stroke)) {
+            svg.attr('width', (endX + stroke));
+        }
+
+        var deltaX = (endX - startX) * 0.15;
+        var deltaY = (endY - startY) * 0.15;
+        var delta = startY !== endY ? 25 : deltaY < absolute(deltaX) ? deltaY : absolute(deltaX);
+        var offset = 30;
+        var arc1 = 1;
+        var arc2 = 0;
+
+        if (startY > endY) {
+            arc1 = 0;
+            arc2 = 1;
+        }
+
+        var belowPoint = startY > endY ? -1 : 1;
+        delta = startY > endY ? absolute(delta) : delta;
+        if(absolute(startY - endY) > 5 ) {
+        path.attr('d', ' M' + startX + ' ' + startY +
+            ' H' + (startX + delta + offset) +
+            ' A' + delta + ' ' + delta + ' 0 0 ' + arc1 + ' ' + (offset + startX + 2 * delta) + ' ' + (startY + delta * belowPoint * signum(delta)) +
+            ' V' + (endY) +
+            ' H' + endX);
+        } else {
+
+            path.attr('d', ' M' + startX + ' ' + startY +
+                        ' H' + endX);
+        }
+    };
+
+    var connectElements = (svg, path, startElem, endElem) => {
+        var svgContainer = $copado('#svgContainer');
+
+        if (Object.keys(startElem).length === 0 || Object.keys(endElem).length === 0) {
+            return;
+        }
+
+        if (startElem.offset().left > endElem.offset().left) {
+            var temp = startElem;
+            startElem = endElem;
+            endElem = temp;
+        }
+
+        var svgTop = svgContainer.offset().top;
+        var svgLeft = svgContainer.offset().left;
+
+        var startCoord = startElem.offset();
+        var endCoord = endElem.offset();
+
+
+        var startX = startCoord.left + startElem.outerWidth() - svgLeft;
+        var startY = startCoord.top + 0.5 * startElem.outerHeight() - svgTop;
+        var endX = endCoord.left - svgLeft;
+        var endY = endCoord.top + 0.5 * endElem.outerHeight() - svgTop;
+
+        if (startY > endY && startY - endY < 3) {
+            startY = endY;
+        }
+        if (endY > startY && endY - startY < 3) {
+            endY = startY;
+        }
+
+        drawPath(svg, path, startX - 10, startY, endX - 5, endY);
+    };
+
+    var getLineArrows = () => {
+        var svgContainer = document.getElementById('svgContainer');
+        var svgs = svgContainer.children;
+        var i, j;
+        var svgNS = 'http://www.w3.org/2000/svg';
+        var id, svg, mainPath, defs, defTags, path, marker;
+
+        for (var i = 0; i < svgs.length; i++) {
+
+            id = svgs[i].getAttribute('id');
+
+            svg = document.getElementById(id);
+            defs = document.createElementNS(svgNS, 'defs');
+
+            svg.appendChild(defs);
+
+            defTags = document.getElementsByTagName('defs');
+
+            path = document.createElementNS(svgNS, 'path');
+            path.setAttributeNS(null, 'd', 'M0,0 L0,6 L9,3 z');
+            path.setAttributeNS(null, 'fill', '#f00');
+
+            marker = document.createElementNS(svgNS, 'marker');
+
+            marker.appendChild(path);
+
+            marker.setAttributeNS(null, 'id', 'arrow');
+            marker.setAttributeNS(null, 'markerWidth', 20);
+            marker.setAttributeNS(null, 'markerHeight', 20);
+            marker.setAttributeNS(null, 'refX', 0);
+            marker.setAttributeNS(null, 'refY', 3);
+            marker.setAttributeNS(null, 'orient', 'auto');
+            marker.setAttributeNS(null, 'markerUnits', 'strokeWidth');
+            marker.setAttributeNS(null, 'viewBox', '0 0 20 20');
+
+            for (j = 0; j < defTags.length; j++) {
+                defTags[j].appendChild(marker);
+            }
+
+            mainPath = svg.getElementsByTagName('path')[0];
+            mainPath.setAttributeNS(null, 'marker-end', 'url(#arrow)');
+        }
+    };
+
+    var adjustSvgDimensions = () => {
+        // Expand svg more to see arrows
+        var svgContainer = $copado('#svgContainer');
+        var svg, svgHeight, svgWidth;
+
+        svgContainer.children().each(function() {
+            svg = $copado(this);
+            svgHeight = parseFloat(svg.attr('height'));
+            svgWidth = parseFloat(svg.attr('width'));
+
+            svg.attr('height', svgHeight + 20);
+            svg.attr('width', svgWidth + 10);
+
         });
-        var canvasWidth = parseInt($canvas.prop('width'));
-        $canvas.prop('width',  canvasWidth - minLeft + 100);
-        $copado(document).css('width',canvasWidth - minLeft + 100);
-        $copado('#boxCanvas').css('width',$copado('body').width());
+    };
 
-        $canvas.prop('height', maxTop+75);
-    pipelineConnector.config.canvas.redrawLines();
-    unlockScreen();
-    },100);
-}
-
-pipelineConnector.setCoordinates = function(wrapperId,leftSpace,topSpace,bufferWidth,boxWidth,order){
-	var innerTop = order ? topSpace + (100 * order) : topSpace;
-	maxTop = maxTop < innerTop ? innerTop : maxTop;
-	var box = document.getElementById(wrapperId);
-	if(pipelineConnector.data.positionArray.indexOf(leftSpace+'_'+innerTop) >= 0 ){
-	    pipelineConnector.setCoordinates(wrapperId,leftSpace,topSpace,bufferWidth,boxWidth,order+1);
-	    return;
-    } else {
-        pipelineConnector.data.positionArray.push(leftSpace+'_'+innerTop);
-    }
-    if (box != null) {
-        box.style.left = leftSpace+'px';
-        box.style.top = innerTop+'px'
-        if(!minLeft || minLeft > leftSpace){
-            minLeft = leftSpace;
+    var createSvgs = () => {
+        var svgContainer = $copado('#svgContainer');
+        var connectionsList = pipelineConnector.data.targetToSourceList;
+        if (!connectionsList) {
+            return;
         }
-    }
-    var inner = pipelineConnector.data.targetToSource.has(wrapperId) ? pipelineConnector.data.targetToSource.get(wrapperId) : new Array();
-    var depth = Array.isArray(inner) ? inner.length : 1;
+        connectionsList.forEach((connection, index) => {
 
-    if(depth > 0){
-        var positioner = 0;
-        var calc = (stageWidth - boxWidth - 90);
-        if(calc > 0){
-            positioner = calc;
+            svgContainer.append(` <svg id="svg${index}" width="0" height="0" >
+                <path id="path${index}"/>
+            </svg>`);
+        });
+    };
+
+    pipelineConnector.connectAll = () => {
+        var connectionsList = pipelineConnector.data.targetToSourceList;
+        if (!connectionsList) {
+            return;
         }
-    	leftSpace = leftSpace - positioner - boxWidth-90;
-    	for (var x = 0; x < depth; x++) {
-			var key = Array.isArray(inner) ? inner[x] : inner;
-    		pipelineConnector.setCoordinates(key,leftSpace,topSpace,bufferWidth,boxWidth,x);
-    	}
-    }
-}
+        connectionsList.forEach((connection, index) => {
 
-pipelineConnector.drawSVGlines = function(leftNode, rightNode, destinationNode, envConnection) {
-    pipelineConnector.config.canvas.drawLine({
-        left_node: leftNode,
-        right_node: rightNode,
-        destinationNode: destinationNode,
-        horizantal_gap: 25,
-        error: true,
-        style: 'solid',
-        color: 'copado-blue',
-        width: 2,
-        headerHeight: $copado("[id$='headerPanel']").height() + 20
-    });
-};
-pipelineConnector.drawEnvironmentConnections = function() {
-    for (i = 0; i < copadoApp.envConnections.length; i++) {
-        pipelineConnector.drawEnvironmentConnection(copadoApp.envConnections[i].fromEnvId, copadoApp.envConnections[i].toEnvId, copadoApp.envConnections[i]);
-    }
-};
+            connectElements($copado(`#svg${index}`), $copado(`#path${index}`), $copado(`#${connection.origin}`), $copado(`#${connection.target}`));
 
-pipelineConnector.drawEnvironmentConnection = function(fromEnvId, toEnvId, envConnection) {
-    pipelineConnector.setDestinatonEnvName(fromEnvId, toEnvId);
-    var fromEnvBox = '#wrapper_' + fromEnvId;
-    var toEnvBox = '#wrapper_' + toEnvId;
-    pipelineConnector.drawSVGlines(fromEnvBox, toEnvBox, toEnvBox, envConnection);
-};
-pipelineConnector.drawEnvironmentBoxes = function() {
-    console.info('Drawing Environment Boxes...');
-    if(copadoApp.environments.length > 0){
-        for (var i = 0; i < copadoApp.environments.length; i++) {
-                pipelineConnector.addEnvBox(copadoApp.environments[i].envName, copadoApp.environments[i].envId, copadoApp.environments[i].flowStepId, copadoApp.environments[i].branch, copadoApp.environments[i], copadoApp.environments[i].needsOauth, copadoApp.environments[i].fromEnvId, copadoApp.environments[i].toEnvId);
+        });
+    };
+
+    var setMinimap = () => {
+        var myWrapper = $copado('.pipeline');
+        var $minimap = $copado('#minimap');
+
+        if (pipelineConnector.data.isSalesforceClassic) {
+            $copado('#minimap').css({ 'bottom': '95px', 'right': '80px' });
         }
-    }
 
-    // Give the browser a few ms to stabilize the DOM
-    /*window.setTimeout(function() {
-        pipelineConnector.getsetCoordinates();
-        pipelineConnector.initialiseDraggable();
-    },100);*/
-};
-pipelineConnector.setDestinatonEnvName = function(fromEnvId, toEnvId) {
-    var toEnvName = $copado('#' + toEnvId + '_title').text();
-    $copado('#nextDestEnvBody_' + fromEnvId).text(toEnvName);
-    if (toEnvName.length > 0) $copado('#detailModeBody_' + fromEnvId).show();
-};
-pipelineConnector.setEnvironmentValues = function(envId, destEnvName, destEnvId, flowStepId) {
-    console.info('Setting Environment values...');
-    pipelineConnector.setDestinatonEnvName(envId, destEnvId);
-    $copado('#wrapper_' + envId).attr('data-flowStepId', flowStepId);
-};
-pipelineConnector.buildEnvBox = function(envName, envId, style, branch, env, flowStepId, needsOauth, fromEnvId, toEnvId) {
-    style = (style == '' || style == null || typeof style == 'undefined') ? '' : style;
-    branch = (typeof branch == 'undefined' || branch == null) ? '' : htmlEntities(branch);
-    envId = envId || branch;
-    var s = "<div style='" + style + "' class='jsEnvBoxWrapper' id='wrapper_" + envId + "' data-flowStepId='"+flowStepId+"' data-floaters='' data-branch='" + branch + "'>" +
-        "<div id='box_" + envId + "' data-branch='" + branch + "' data-boxId='' class='envBox' style='background-color:white !important; border-color:#3593c6;margin-left:5px !important;border-radius:5px'>";
-
-    if((env.orgType != 'Scratch Org') && ((fromEnvId && fromEnvId != envName) || !fromEnvId)) {
-        s+= "<div style='float: left;height: 100%;text-align: center;background-color:#3593c6;'>" +
-        "<input type='button' onclick='createOrg(\"" + flowStepId + "\",\"" + envId + "\",\"" + envName + "\",\"" +  !fromEnvId + "\");' data-branch='" + branch + "' data-parentSelector='box_" + envId + "' class='createEnv' value='+' title='Create new Environment Connection' /></div>"
-    }
-
-    s+= "<div style='width:100%;height:100%;";
-    if(!needsOauth) {
-        s+= "padding-top: 15px;";
-    }
-
-    s+="'><div  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;margin-top:2px;'>" +
-        "<b><span id='" + envId + "_title' class='title' style='color:#16325c;' target='_blank' title='" + envName + "'>";
-    if(!needsOauth){
-        s+= '&#x2714;';
-    }
-    s+= htmlEntities(envName) + "</span></b></br>" +
-        "<div class='title' style='color:#d0d9e2;font-size:12px;padding:0;' title='"+branch+"'>branch : "+htmlEntities(branch)+"</div></div>";
-        
-    if(needsOauth) {
-        s+="<div><apex:commandButton onclick='doOauth(\"" + flowStepId + "\",\"" + envId + "\",\"" + envName + "\",\"" + branch + "\");' value='Authenticate' title='Authenticate' styleClass='btn slds-button' style='cursor:pointer;color:#3593c6;'>Authenticate</apex:commandButton></div>";
-    }
-    s+= "</div></div></div>"
-
-    return s;
-};
-pipelineConnector.environmentboxOnCanvas = function(envId) {
-    if ($copado('#box_' + envId).length) return true;
-    return false;
-};
-pipelineConnector.counter = 0;
-pipelineConnector.addEnvBox = function(envName, envId, flowStepId, branch, environment, needsOauth, fromEnvId, toEnvId) {
-    var style = '';
-    if(!envId) return;
-    envId = envId || branch;
-
-    if (pipelineConnector.environmentboxOnCanvas(envId) == false) {
-        $copado("#boxCanvas").append(pipelineConnector.buildEnvBox(envName, envId, style, branch, environment, flowStepId, needsOauth, fromEnvId, toEnvId));
-        $copado('#wrapper_' + envId).attr('data-flowStepId', flowStepId);
-        var box = document.getElementById('wrapper_' + envId);
-        if(box) {
-            box.style.left = '30px';
-            box.style.top = '30px';
+        if ($copado(boxClassIdentifier).length > 0) {
+            $copado('#minimap').minimap(myWrapper, boxClassIdentifier);
+            $minimap.show();
         }
-        $copado('#box_' + envId).attr('data-boxId', flowStepId);
-        $copado("#box_" + envId + "_content").attr('data-stepContent', flowStepId);
-    }
-    pipelineConnector.counter++;
-};
-pipelineConnector.splitCoordinates = function(s) {
-    var data = s.split(',');
-    return data;
-};
-pipelineConnector.queryFlowSteps = function() {
-    var NS = pipelineConnector.config.ns;
-    copadoApp.envConnections = [];
-    copadoApp.finalDestination = '';
-    var fromIds = [];
-    var toIds = [];
-    pipelineConnector.data.env2branchMap = [];
-    pipelineConnector.data.stepIds = [];
-    var records = JsRemoting.deploymentFlows.queryFlowSteps(pipelineConnector.config.ns, pipelineConnector.data.flowId);
-    for (var i = 0; i < records.length; i++) {
-        var r = records[i];
-        var key = r[NS + 'Source_Environment__c'] ? r[NS + 'Source_Environment__c'] : r[NS + 'Branch__c'];
-        var destinationBranch = r[NS + 'Destination_Environment__c'] ? r[NS + 'Destination_Environment__c'] : r[NS + 'Destination_Branch__c'];
-        pipelineConnector.data.env2branchMap[key] = r[NS + 'Branch__c'];
 
-        copadoApp.envConnections.push({
-            flowStepId: r.Id,
-            fromEnvId:  r[NS + 'Source_Environment__c'] ? r[NS + 'Source_Environment__c'] : r[NS + 'Branch__c'],
-            fromEnvName: r[NS + 'Source_Environment__r'] ? r[NS + 'Source_Environment__r'].Name : r[NS + 'Branch__c'],
-            toEnvId: r[NS + 'Destination_Environment__c'] ? r[NS + 'Destination_Environment__c'] : r[NS + 'Destination_Branch__c'],
-            toEnvName: r[NS + 'Destination_Environment__r'] ? r[NS + 'Destination_Environment__r'].Name : r[NS + 'Destination_Branch__c'],
-            branch: r[NS + 'Branch__c'],
-            orgType : r[NS + 'Source_Environment__r'] ? r[NS + 'Source_Environment__r'][NS+'Type__c'] : '',
-            needsOauth : pipelineConnector.stepNeedsOauth(r)
+    };
+
+    var initLineConnections = () => {
+
+        createSvgs();
+        getLineArrows();
+        pipelineConnector.connectAll();
+        adjustSvgDimensions();
+
+    };
+
+
+    var formatConnections = (connectionsList) => {
+        var convertedList = [];
+        var stage, fromEnvId, toEnvId, columnNumber;
+        var finalConnectionList = [];
+        var connectionData;
+        var fromEnvId, toEnvId, columnNumber;
+        var fromEnvName, toEnvName;
+        var namespace = pipelineConnector.config.ns;
+
+        for (var key in connectionsList) {
+            stage = connectionsList[key];
+
+            for (var stageObject in stage) {
+
+                if (stageObject !== 'Final') {
+
+                    for (var j = 0; j < stage[stageObject].length; j++) {
+                        fromEnvId = stage[stageObject][j].currentStep[namespace + 'Source_Environment__c'] ? stage[stageObject][j].currentStep[namespace + 'Source_Environment__c'] : stage[stageObject][j].currentStep[namespace + 'Branch__c'];
+                        toEnvId = stage[stageObject][j].currentStep[namespace + 'Destination_Environment__c'] ? stage[stageObject][j].currentStep[namespace + 'Destination_Environment__c'] : stage[stageObject][j].currentStep[namespace + 'Destination_Branch__c'];
+                        fromEnvName = stage[stageObject][j].currentStep[namespace + 'Source_Environment__r'] ? stage[stageObject][j].currentStep[namespace + 'Source_Environment__r'].Name : '';
+                        toEnvName = stage[stageObject][j].currentStep[namespace + 'Destination_Environment__r'] ? stage[stageObject][j].currentStep[namespace + 'Destination_Environment__r'].Name : '';
+                        columnNumber = key.replace('Stage ', '');
+                        convertedList.push({
+                            originName: fromEnvName,
+                            targetName: toEnvName,
+                            origin: `wrapper_${fromEnvId}`,
+                            target: `wrapper_${toEnvId}`,
+                            column: columnNumber
+                        });
+                    }
+                }
+            }
+        }
+
+        pipelineConnector.data.targetToSourceList = convertedList;
+
+        finalConnectionList = [{
+            target: convertedList[0].target,
+            connections: [convertedList[0].origin],
+            column: convertedList[0].column
+        }];
+
+        convertedList.forEach((item) => {
+
+            if (item.target === finalConnectionList[finalConnectionList.length - 1].target && item.column === finalConnectionList[finalConnectionList.length - 1].column) {
+                finalConnectionList[finalConnectionList.length - 1].connections.push(item.origin);
+
+            } else {
+
+                connectionData = {
+                    target: item.target,
+                    connections: [item.origin],
+                    column: item.column
+                };
+
+                finalConnectionList.push(connectionData);
+
+            }
         });
 
-        fromIds.push(key);
-        pipelineConnector.data.mapStepEnvConnections.put(key,destinationBranch);
-        toIds.push(destinationBranch);
-        pipelineConnector.data.mapStepIdEnvironments[r.Id] = key + '-' + destinationBranch;
-        // we add both forward src->dest and the reverse (backdeploy)
-        pipelineConnector.data.mapBoxIdToStepId[key + '-' + destinationBranch] = r.Id;
-        pipelineConnector.data.mapBoxIdToStepId[destinationBranch + '-' + key] = r.Id;
-        pipelineConnector.data.stepIds.push(r.Id);
-    }
+        return finalConnectionList;
+    };
 
-    for (var j = 0; j < toIds.length; j++) {
-        if (fromIds.indexOf(toIds[j]) < 0) {
-            copadoApp.finalDestination = toIds[j];
-        }
-    }
-};
-pipelineConnector.stepNeedsOauth = function(step){
-    var NS = pipelineConnector.config.ns;
-    var stepSource = step[NS + 'Source_Environment__c'];
-    if(stepSource){
-        var q = 'SELECT Id FROM '+NS +'Org__c WHERE '+NS +'Environment__c = \''+stepSource+'\' AND ('+NS +'Default_Credential__c = true OR CreatedById = \''+pipelineConnector.config.currentUserId+'\'' +')';
-        var result =  sforce.connection.query(q);
-        var records = result.getArray('records');
-        if(!records || records.length <= 0) {
-            return true;
-        }
-    } else {
-        return true;
-    }
-    return false;
-}
+    var getConnectedEnvironments = (connectionList, index) => {
 
-pipelineConnector.getFlowSteps = function() {
-    console.info('Get Flow Steps...');
-    pipelineConnector.queryFlowSteps();
-    copadoApp.environments = pipelineConnector.createEnvironmentArray(copadoApp.envConnections);
-};
-pipelineConnector.addToEnvironmentArray = function(envConns) {
-    var map = new Object();
-    for (var i = 0; i < envConns.length; i++) {
-        var conn = envConns[i];
-        pipelineConnector.data.env2branchMap[conn.fromEnvId] = conn.branch;
-        var tmpFrom = {
-            envName: conn.fromEnvName || conn.branch,
-            envId: conn.fromEnvId || conn.branch,
-            flowStepId: conn.flowStepId,
-            branch: conn.branch,
-            orgType: conn.orgType,
-            needsOauth: conn.needsOauth,
-            fromEnvId: conn.fromEnvId,
-            toEnvId: conn.toEnvId
-        };
-        var tmpTo = null;
-        if (tmpFrom.toEnvId && tmpFrom.toEnvId !== null || tmpFrom.toEnvId !== '') {
-            tmpTo = {
-                envName: conn.toEnvName,
-                envId: conn.toEnvId,
-                flowStepId: conn.flowStepId,
-                fromEnvId: conn.fromEnvId,
-                branch: ''
-            };
-            // never overwrite an existing env.
-            if(!map[conn.toEnvId])
-                map[conn.toEnvId] = tmpTo;
+        var currentColumn = parseInt(connectionList[index].column, 10);
+        var lastColumn;
+        var lastColumnElems;
+        var connectedEnv = [];
+        var data = {};
+        var connectionFound;
+
+        if (currentColumn > 1) {
+
+            lastColumn = (currentColumn - 1).toString();
+
+            lastColumnElems = connectionList.filter((connection) => {
+                return connection.column === lastColumn;
+
+            });
+
+            connectionList[index].connections.forEach((connection, index) => {
+
+                connectionFound = lastColumnElems.find((item) => {
+                    return item.target === connection;
+                });
+
+                data = {
+                    id: connection,
+                    isConnected: connectionFound && connection === connectionFound.target ? true : false
+                };
+
+                connectedEnv.push(data);
+            });
+
+            connectedEnv = connectedEnv.sort(function(x, y) {
+                return (x.isConnected === y.isConnected) ? 0 : x.isConnected ? -1 : 1;
+            });
         }
-        map[conn.fromEnvId] = tmpFrom;
-    }
-    for (var v in map) {
-        var branch = (typeof pipelineConnector.data.env2branchMap[map[v].envId] != 'undefined') ? pipelineConnector.data.env2branchMap[map[v].envId] : copadoApp.data.mainBranch;
-        copadoApp.environments.push({
-            envName: map[v].envName,
-            envId: map[v].envId,
-            flowStepId: map[v].flowStepId,
-            branch: branch,
-            _tto: map[v]._tto,
-            orgType: map[v].orgType,
-            needsOauth: map[v].needsOauth,
-            fromEnvId: map[v].fromEnvId,
-            toEnvId: map[v].toEnvId
+
+        return connectedEnv;
+    };
+
+
+    var hasPreviousConnection = (connectionList, elemConnection) => {
+
+        var currentColumn = parseInt(elemConnection.column, 10);
+        var lastColumn;
+        var lastColumnElems;
+        var isConnected = [];
+        var connectionFound, allConnected = false;
+
+        if (currentColumn > 1) {
+
+            lastColumn = (currentColumn - 1).toString();
+
+            lastColumnElems = connectionList.filter((connection) => {
+                return connection.column === lastColumn;
+            });
+
+            elemConnection.connections.forEach((connection, index) => {
+
+                connectionFound = lastColumnElems.find((item) => {
+                    return item.target === connection;
+                });
+
+                isConnected[index] = (connectionFound && connection === connectionFound.target) ? true : false;
+            });
+
+            allConnected = isConnected[0];
+            isConnected.forEach((item) => {
+                allConnected = allConnected && item;
+            });
+
+        } else {
+            allConnected = true;
+        }
+
+        return allConnected;
+    };
+
+    var moveBoxes = (displaceHeightValue) => {
+        var boxes = $copado(boxClassIdentifier);
+        var currentOffset = 0;
+
+        boxes.each(function(index) {
+
+            var $box = $copado(this);
+            currentOffset = $box.offset().top;
+            $box.offset({ top: currentOffset + displaceHeightValue });
         });
-    }
-    return copadoApp.environments;
-};
-pipelineConnector.createEnvironmentArray = function(envConnections) {
-    copadoApp.environments = [];
-    return pipelineConnector.addToEnvironmentArray(envConnections);
-};
-pipelineConnector.getPermissions = function() {
-    pipelineConnector.data.permissions = JsRemoting.backDeploy.getPermissionsForUser(pipelineConnector.config.ns, pipelineConnector.config.currentUserId);
-};
-pipelineConnector.loadPage = function() {
-    try {
-        lockScreen();
-        pipelineConnector.getPermissions();
-        //pipelineConnector.getFlowStepCoordinates();
-        pipelineConnector.getFlowSteps();
-        pipelineConnector.drawEnvironmentBoxes();
-        pipelineConnector.positionEnvBoxes();
-        window.setTimeout(function() {
-            pipelineConnector.drawEnvironmentConnections();
-        },100);
-        $copado('#boxCanvas canvas').css('margin-top',$copado('#headerPanel').outerHeight()+20);
-    } catch (error) {
-        console.error(error);
+    };
+
+
+    var moveBoxesInColumn = ($column, offsetTopLimit, id) => {
+        var boxHeight = $copado(boxClassIdentifier).height() + 10;
+
+        $column.children().each(function(index) {
+
+            var $box = $copado(this);
+            var boxOffsetTop = $box.offset().top;
+            var isCollided = true;
+
+            if (boxOffsetTop >= offsetTopLimit && $box.attr('id') === id) {
+                $box.offset({ top: boxOffsetTop + boxHeight });
+            }
+        });
+    };
+
+    var handleCollisions = ($column, columnGroups) => {
+        var haveCollisions = true;
+        while (haveCollisions) {
+            $column.children().each(function(index) {
+                var box = $copado(this);
+                var offsetTop = 0;
+                var isCollided = true;
+                var collisionedEnv;
+                haveCollisions = true;
+
+                var collisions = $column.find(boxClassIdentifier).not(box).map(function(i) {
+                    return { id: $column.children()[i].id, collision: overlaps(box, this) };
+                });
+
+                collisions = collisions.filter((index, item) => item.collision === true);
+
+                if (collisions.length > 0) {
+                    for (var i = 0; i < collisions.length; i++) {
+                        // console.log(box.attr('id') + ' has a collision with ' + collisions[i].id);
+                        offsetTop = box.offset().top;
+
+                        moveBoxesInColumn($column, offsetTop, box.attr('id'));
+
+                        isCollided = true;
+                        collisionedEnv = $copado(`#${collisions[i].id}`);
+
+                        while (isCollided) {
+
+                            collisionedEnv.offset({ top: collisionedEnv.offset().top - 20 });
+
+                            if (!overlaps(collisionedEnv, $copado(`#${box.attr('id')}`)) || collisions[i].id === box.attr('id')) {
+                                collisionedEnv.offset({ top: collisionedEnv.offset().top + 15 });
+                                isCollided = false;
+                            }
+                        }
+                    }
+                } else {
+                    haveCollisions = false;
+                }
+            });
+        }
+    };
+
+    var calculateSmartPositioning = () => {
+
+        if ($copado(boxClassIdentifier).length > 0) {
+            lockScreen();
+
+            var firstItemTop, lastItemTop;
+            var totalHeight = 0;
+            var boxHeight = $copado(boxClassIdentifier).height() + 10;
+            var connectionsList = pipelineConnector.data.connectionsList;
+            var formattedConnectionsList = formatConnections(connectionsList);
+            var lastBoxPosition = 0;
+            var connectedEnv, connections;
+            var $columns, $box;
+            var lastPositionedBox;
+            var classicHeaderHeight = $copado('#AppBodyHeader').height() + 3;
+            var connectedElements, noConnectedElements;
+
+            formattedConnectionsList.forEach((item, index) => {
+
+                if (item.connections.length > 1 && !hasPreviousConnection(formattedConnectionsList, item)) {
+
+                    connectedEnv = getConnectedEnvironments(formattedConnectionsList, index);
+                    connectedElements = connectedEnv.filter(element => element.isConnected);
+                    noConnectedElements = connectedEnv.filter(element => !element.isConnected);
+                    connectedEnv = noConnectedElements.concat(connectedElements);
+                    item.connections = connectedEnv.map(x => x.id);
+
+                    lastPositionedBox = connectedEnv.find((item) => {
+                        return item.isConnected;
+                    });
+
+                    if (lastPositionedBox) {
+
+                        connectedEnv.forEach((box, index) => {
+
+                            if (box.isConnected) {
+
+                                firstItemTop = $copado(`#${connectedElements[0].id}`).position().top;
+                                lastItemTop = $copado(`#${connectedElements[connectedElements.length - 1].id}`).position().top;
+                                totalHeight = Math.floor((lastItemTop + firstItemTop) / 2);
+                                $copado(`#${item.target}`).offset({ top: totalHeight });
+
+                            } else {
+
+                                lastItemTop = $copado(`#${lastPositionedBox.id}`).offset().top;
+                                totalHeight = lastItemTop - boxHeight;
+                                $copado(`#${box.id}`).offset({ top: totalHeight });
+
+                            }
+
+                            lastPositionedBox = box;
+                        });
+
+                    } else {
+
+                        firstItemTop = $copado(`#${noConnectedElements[0].id}`).position().top;
+                        lastItemTop = $copado(`#${noConnectedElements[noConnectedElements.length - 1].id}`).position().top;
+                        totalHeight = Math.floor((lastItemTop + firstItemTop) / 2);
+                        $copado(`#${item.target}`).offset({ top: totalHeight });
+                    }
+
+                } else {
+
+                    firstItemTop = $copado(`#${item.connections[0]}`).position().top;
+                    lastItemTop = $copado(`#${item.connections[item.connections.length - 1]}`).position().top;
+                    totalHeight = Math.floor((lastItemTop + firstItemTop) / 2);
+
+                    if (pipelineConnector.data.isSalesforceClassic) {
+                        totalHeight += classicHeaderHeight;
+                    }
+
+                    $copado(`#${item.target}`).offset({ top: totalHeight });
+                }
+            });
+
+            // Check if all box position calculations are inside the container and displace it if not
+            var boxes = $copado(boxClassIdentifier);
+            var filterOffset = $copado('.filter-main-object').offset().top + $copado('.filter-main-object').height();
+
+            boxes.each(function(index) {
+                var $box = $copado(this);
+                var displaceHeightValue = 0;
+                var margin = 20;
+
+                if ($box.offset().top < filterOffset) {
+                    displaceHeightValue = filterOffset - $box.offset().top + margin;
+                    moveBoxes(displaceHeightValue);
+                }
+            });
+
+            // Check collisions. If there are one between 2 boxes, put the box immediately bellow the other one, and move the rest of the boxes
+            $columns = $copado('.pipeline').children();
+
+            $columns.each(function(index) {
+                var $column = $copado(this);
+                var columnBoxesNumber = $column.children().length;
+                var columnGroups = formattedConnectionsList.filter((connection) => {
+                    return parseInt(connection.column, 10) === index + 1;
+                });
+                if (columnBoxesNumber > 1) {
+                    handleCollisions($column, columnGroups);
+                }
+            });
+        }
+
         unlockScreen();
-        alert(error);
-    }
-};
+    };
 
+    var handleDropdownMenus = () => {
+        var envDropdowns = document.querySelectorAll('.box-container div.slds-dropdown');
+        var diagramDropdown = document.querySelector('.diagramDropwdown');
+        var filterDropdown = document.querySelector('.filter-main-object div.slds-dropdown');
+        var dropdowns;
+
+        if (document.querySelector('.slds-dropdown-trigger_click.diagramDropwdown')) {
+            document.querySelector('.slds-dropdown-trigger_click.diagramDropwdown').addEventListener('click', (event) => {
+                var thisMenu = event.target.closest('.slds-dropdown-trigger_click');
+                if (thisMenu.className.includes('diagramDropwdown')) {
+                    thisMenu.classList.toggle('slds-is-open');
+                }
+            });
+        }
+
+        document.querySelector('.slds-dropdown-trigger_click.filterOptionsMenu').addEventListener('click', (event) => {
+            var thisMenu = event.target.closest('.slds-dropdown-trigger_click');
+            if (thisMenu.className.includes('filterOptionsMenu')) {
+                thisMenu.classList.toggle('slds-is-open');
+            }
+        });
+
+        if (envDropdowns.length > 0) {
+
+            document.addEventListener('click', (event) => {
+                for (var i = 0; i < envDropdowns.length; i++) {
+                    var isClickInside = envDropdowns[i].contains(event.target);
+                    var button = envDropdowns[i].parentElement.querySelector('.slds-dropdown-trigger > button');
+                    var isTriggered = button && button.contains(event.target);
+
+                    if (!isClickInside && !isTriggered) {
+                        $copado(envDropdowns[i]).addClass('slds-hide');
+                    }
+                }
+
+                if (!(event.target.closest('button') && event.target.className.includes('diagramActionButton'))) {
+                    $copado(diagramDropdown).removeClass('slds-is-open');
+                }
+
+                if (!(event.target.closest('button') && event.target.closest('button').id === 'filterSettings')) {
+                    $copado(filterDropdown).parent().removeClass('slds-is-open');
+                }
+            });
+        }
+    };
+
+    pipelineConnector.loadPage = () => {
+        try {
+            getConnectionsList();
+            if (!pipelineConnector.data.connectionsList) {
+                return;
+            }
+            calculateSmartPositioning();
+            initLineConnections();
+            setMinimap();
+            handleDropdownMenus();
+
+        } catch (error) {
+            console.error(error);
+            unlockScreen();
+            alert(error);
+        }
+    };
+
+    pipelineConnector.updateLastDeployment = (envId, deploymentStatus) => {
+
+        var statusMap = {
+            'Completed Successfully': copadoApp.icons.success,
+            'Completed with Errors': copadoApp.icons.failed,
+            'In progress': copadoApp.icons.paused,
+            'Outdated': copadoApp.icons.paused
+        }
+        var idString = '#deploymentStatus_' + envId;
+        var environmentStatus = $copado(idString);
+
+        if (environmentStatus) {
+            $copado(environmentStatus).attr('src', statusMap[deploymentStatus]);
+        }
+    };
+
+    pipelineConnector.openDropdownMenu = (currentButton) => {
+        var box = currentButton.closest('.env-box');
+        var dropdown = box.nextElementSibling;
+
+        if ($copado(dropdown).hasClass('slds-hide')) {
+            $copado('.slds-dropdown.envActionDropdown').addClass('slds-hide');
+            $copado(dropdown).removeClass('slds-hide');
+        } else {
+            $copado('.slds-dropdown.envActionDropdown').addClass('slds-hide');
+            $copado(dropdown).addClass('slds-hide');
+        }
+    };
+
+    pipelineConnector.createOrg = (stepId, envId, envName, useStep) => {
+        lockScreen();
+        createOrgCredentials(stepId, envId, '', '', 'true', useStep);
+    };
+
+    pipelineConnector.isManagerRunning = (currentMode) => {
+        if (currentMode === 'manager') {
+            promotableUserStories();
+        } else {
+            reRenderPipelineWrapper();
+        }
+    };
+
+    pipelineConnector.openConnectionBehavior = (connectionBehaviorId) => {
+        window.open('/' + connectionBehaviorId, '_blank');
+    };
+
+    pipelineConnector.fromAcf2Open = () => {
+        $copado('[id$=dependencyUSComponent]').show();
+        $copado('[id$=operationModal]').hide();
+        $copado('[id$=promotionListModal]').hide();
+        applyRenderSVG(undefined, ['chevrondown']);
+        unlockScreen();
+    };
+
+    pipelineConnector.reRenderFunction = () => {
+        ccd.loadPage();
+        renderPageMessage();
+    };
+
+    pipelineConnector.toggleNewConnectionIcon = (elem) => {
+
+        var box = $copado(elem).find('.connection-behaviour-override');
+
+        if (box.hasClass('hide')) {
+            box.removeClass('hide');
+            box.addClass('show');
+
+        } else {
+            box.addClass('hide');
+            box.removeClass('show');
+        }
+    };
+
+
+    var definePipelineConnector = () => {
+        pipelineConnector.data = pipelineConnector.data || {};
+        pipelineConnector.config = pipelineConnector.config || {};
+        pipelineConnector.config.ns = copadoApp.ns;
+        pipelineConnector.data.flowId = copadoApp.data.flowId;
+        pipelineConnector.data.isSalesforceClassic = copadoApp.data.isClassic === "true" ? true : false;
+
+        pipelineConnector.data.connectionsList = [];
+    };
+
+
+    $copado(document).ready(() => {
+        definePipelineConnector();
+
+    });
+
+})(ccd);

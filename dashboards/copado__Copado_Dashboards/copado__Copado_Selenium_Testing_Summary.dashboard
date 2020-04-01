@@ -16,6 +16,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Failed_Selenium_Test_Runs</report>
             <showPercentage>false</showPercentage>
@@ -34,6 +35,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Selenium_Test_Runs_by_Status</report>
             <showPercentage>false</showPercentage>
@@ -52,6 +54,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Last_Run_Selenium_Test_Runs_Today</report>
             <showPercentage>false</showPercentage>
@@ -70,6 +73,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Last_Run_Selenium_Test_Runs_Yesterday</report>
             <showPercentage>false</showPercentage>
@@ -91,6 +95,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Failed_Selenium_Test_Runs_by_Environmen</report>
             <showPercentage>false</showPercentage>
@@ -109,6 +114,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Selenium_Test_Runs_by_Environment</report>
             <showPercentage>false</showPercentage>
@@ -130,6 +136,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Selenium_Test_Results_TODAY</report>
             <showPercentage>false</showPercentage>
@@ -148,6 +155,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Selenium_Test_Results_YESTERDAY</report>
             <showPercentage>false</showPercentage>
@@ -166,6 +174,7 @@
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingSortProperties/>
             <legendPosition>Bottom</legendPosition>
             <report>copado__Copado_Selenium_Reports/copado__Selenium_Test_Results_THIS_WEEK</report>
             <showPercentage>false</showPercentage>

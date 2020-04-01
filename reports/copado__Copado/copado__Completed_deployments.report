@@ -12,6 +12,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Deployment__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>Completed Successfully,Completed with Errors</value>

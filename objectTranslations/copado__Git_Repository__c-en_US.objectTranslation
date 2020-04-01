@@ -53,6 +53,19 @@
         <name>copado__Pull_Request_Base_URL__c</name>
     </fields>
     <fields>
+        <help><!-- Choose between standard Metadata API folder and file structure or DX source structure that uses a different set of files and file extensions. Default is Metadata. --></help>
+        <label><!-- Source Format --></label>
+        <name>copado__Source_Format__c</name>
+        <picklistValues>
+            <masterLabel>DX</masterLabel>
+            <translation><!-- DX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Metadata</masterLabel>
+            <translation><!-- Metadata --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help><!-- Base URL of your Repository, e.g.: https://github.com/[COMPANY]/[REPOSITORY]/releases/tag/ --></help>
         <label><!-- Tag Base URL --></label>
         <name>copado__Tag_Base_URL__c</name>

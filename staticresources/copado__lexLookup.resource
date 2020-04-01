@@ -49,6 +49,7 @@ function startSearch(componentId, repoId, attName) {
     var q = "Select Id, Body, LastModifiedDate, Name, ParentId From Attachment where Name='" + attName + "' and parentId = '" + repoId + "' order by LastModifiedDate DESC limit 1";
     var result = sforce.connection.query(q);
     var records = result.getArray("records");
+
     if(records.length > 0) {
         var res = Base64.decode(records[0].Body);
         var cacheDate = records[0].LastModifiedDate;
@@ -56,6 +57,7 @@ function startSearch(componentId, repoId, attName) {
     }
 
     if (branches.length > 0) {
+
         for(var i = 0; i < branches.length ; i++){
             var record = branches[i].name;
             if(record.indexOf(searchText.value) > -1)
@@ -63,12 +65,10 @@ function startSearch(componentId, repoId, attName) {
         }
         document.querySelector(selector+" #search-text-info").innerHTML = '"'+searchText.value + '" in branches';
         recordLst.appendChild(createRecordLi(componentId,'Manage Branches',true,'refreshBranchIcon',true));
-        if(branch && branch.applyRenderSVG) branch.applyRenderSVG([],['refreshBranchIcon','branchItemIcon']);
         hideLoader(componentId);
     } else {
         document.querySelector(selector+" #search-text-info").innerHTML = '"" in branches';
         recordLst.appendChild(createRecordLi(componentId,'Manage Branches',true,'refreshBranchIcon',true));
-        if(branch && branch.applyRenderSVG) branch.applyRenderSVG([],['refreshBranchIcon','branchItemIcon']);
         hideLoader(componentId);
     }
 

@@ -96,6 +96,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>copado__Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>copado__Progress__c</field>
             </layoutItems>
             <layoutItems>
@@ -224,11 +228,19 @@
                 <behavior>Edit</behavior>
                 <field>copado__Stop_Indexing_Metadata__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Datetime_Completed__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>copado__Exclude_From_CBM__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Datetime_Deployed_To_Production__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -300,6 +312,16 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>copado__Perform_Validation</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>8</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__Pull_Request</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>9</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>copado__Commit_Files</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>0</sortOrder>
@@ -315,43 +337,41 @@
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Run_Static_Code_Analysis</actionName>
+            <actionName>copado__Ready_for_Promotion</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>3</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Apex_Test</actionName>
+            <actionName>copado__Run_Static_Code_Analysis</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Manage_Selenium_Tests</actionName>
+            <actionName>copado__Apex_Test</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Run_Compliance_Scan</actionName>
+            <actionName>copado__Manage_Selenium_Tests</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>6</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>copado__Perform_Validation</actionName>
+            <actionName>copado__Run_Compliance_Scan</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>7</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>copado__Pull_Request</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>8</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>CREATEDBY_USER</fields>
         <fields>CREATED_DATE</fields>
-        <fields>copado__Score_v11__c</fields>
         <fields>copado__Number_of_Violations__c</fields>
+        <fields>copado__Score_v11__c</fields>
         <relatedList>copado__Static_Code_Analysis_Result__c.copado__User_Story__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -365,12 +385,14 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>copado__Promotion__c.NAME</fields>
+        <fields>User.CREATED</fields>
+        <fields>copado__Promotion__c.CREATED_DATE</fields>
         <fields>copado__Promotion__c.copado__Status__c</fields>
         <fields>copado__Promotion__c.copado__Source_Environment__c</fields>
-        <fields>copado__Promotion__c.copado__Source_Org_Credential__c</fields>
         <fields>copado__Promotion__c.copado__Destination_Environment__c</fields>
-        <fields>copado__Promotion__c.copado__Destination_Org_Credential__c</fields>
         <relatedList>copado__Promoted_User_Story__c.copado__User_Story__c</relatedList>
+        <sortField>copado__Promotion__c.CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -392,11 +414,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>copado__Git_Org_Commit__c.NAME</fields>
         <fields>copado__Git_Org_Commit__c.copado__Commit_Date__c</fields>
-        <fields>copado__Git_Org_Commit__c.copado__Commit_Message__c</fields>
-        <fields>copado__Git_Org_Commit__c.copado__Status__c</fields>
-        <fields>copado__View_in_Git__c</fields>
+        <fields>User.CREATED</fields>
+        <fields>copado__Git_Org_Commit__c.copado__View_in_Git__c</fields>
         <relatedList>copado__User_Story_Commit__c.copado__User_Story__c</relatedList>
         <sortField>copado__Git_Org_Commit__c.copado__Commit_Date__c</sortField>
         <sortOrder>Desc</sortOrder>
@@ -406,6 +426,7 @@
         <fields>NAME</fields>
         <fields>copado__Status__c</fields>
         <fields>copado__Status_Icon__c</fields>
+        <fields>LAST_UPDATE</fields>
         <fields>copado__Metadata_API_Name__c</fields>
         <relatedList>copado__User_Story_Metadata__c.copado__User_Story__c</relatedList>
     </relatedLists>

@@ -2,14 +2,14 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <help><!-- This is Repository where the Artifact can be stored, in the master branch --></help>
-        <label><!-- Artifact Repository --></label>
+        <label><!-- Package Repository --></label>
         <name>copado__Artifact_Repository__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Latest Package Version --></label>
         <name>copado__Artifact_Version__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Description --></label>
@@ -24,7 +24,7 @@
         <help><!-- Org Credential where the metadata of the Artifact is going to be retrieved from --></help>
         <label><!-- Source Org Credential --></label>
         <name>copado__Org_Credential__c</name>
-        <relationshipLabel><!-- Artifacts --></relationshipLabel>
+        <relationshipLabel><!-- Packages (Source Org Credential) --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- Related package identifier. Being used as a Package Id for package version creation and also in use into the sfdx-project.json file as a package alias. --></help>
@@ -246,28 +246,28 @@
             <errorMessage><!-- Only dev hub org credentials can be selected. Given value not found or it is not a dev hub org. --></errorMessage>
         </lookupFilter>
         <name>copado__Target_Dev_Hub_Org__c</name>
-        <relationshipLabel><!-- Artifacts (Target Dev Hub Org) --></relationshipLabel>
+        <relationshipLabel><!-- Packages (Target Dev Hub Org) --></relationshipLabel>
     </fields>
     <recordTypes>
-        <description><!-- Version control system centric artifact --></description>
-        <label><!-- Git Artifact --></label>
+        <description><!-- Version Control System centric package --></description>
+        <label><!-- Git Package --></label>
         <name>copado__Git_Artifact</name>
     </recordTypes>
     <recordTypes>
-        <description><!-- Salesforce unmanaged, unlocked or manage package as a artifact --></description>
-        <label><!-- Package Artifact --></label>
+        <description><!-- Salesforce unlocked, First Generation Package or Second-Generation Package as a package --></description>
+        <label><!-- Salesforce Package --></label>
         <name>copado__Package_Artifact</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- Artifact names are in use for DX folder structure, therefore, artifact names are not editable. --></errorMessage>
+        <errorMessage><!-- Package names are in use for DX folder structure, therefore, package names are not editable. --></errorMessage>
         <name>copado__ArtifactNameCannotChange</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for Unmanaged Packages --></errorMessage>
+        <errorMessage><!-- Repository relation for packages is required for Unlocked and Second Generation Packages and should be empty for First Second Generation Packages --></errorMessage>
         <name>copado__Artifact_Repo_Control_For_Package_Type</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Artifact name cannot contain white spaces --></errorMessage>
+        <errorMessage><!-- Package name cannot contain white spaces --></errorMessage>
         <name>copado__Name_should_not_contain_empty_space</name>
     </validationRules>
     <webLinks>

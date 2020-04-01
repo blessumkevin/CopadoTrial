@@ -65,6 +65,10 @@ WARNING: Credits consumption will apply as a regular deployment since resource-w
         <name>copado__Org_Count__c</name>
     </fields>
     <fields>
+        <label><!-- Read Only --></label>
+        <name>copado__Read_Only__c</name>
+    </fields>
+    <fields>
         <label><!-- Run all tests --></label>
         <name>copado__Run_all_tests__c</name>
     </fields>

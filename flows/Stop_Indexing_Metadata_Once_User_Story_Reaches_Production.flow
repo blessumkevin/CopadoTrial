@@ -16,7 +16,7 @@
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <stringValue>The Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-1 invocable process failed to start because no records in your org match the record Id specified. In the entities that invoke Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-1, such as other processes, check the value for this input: SObjectId.</stringValue>
+                <stringValue>The Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-2 invocable process failed to start because no records in your org match the record Id specified. In the entities that invoke Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-2, such as other processes, check the value for this input: SObjectId.</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -42,7 +42,7 @@
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <stringValue>The Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-1 invocable process failed to start because a valid value wasn&apos;t found. This can happen when entities that invoke Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-1, such as other processes, don&apos;t have values for either the SObject or SObjectId. For example: 
+                <stringValue>The Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-2 invocable process failed to start because a valid value wasn&apos;t found. This can happen when entities that invoke Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-2, such as other processes, don&apos;t have values for either the SObject or SObjectId. For example: 
 -An SObject or SObject ID wasn&apos;t specified.
 -A value might have been included, but it was null at runtime. </stringValue>
             </value>
@@ -171,9 +171,20 @@
             <label>SObject Id Not Null</label>
         </rules>
     </decisions>
-    <description>This process will stop indexing metadata once the User Story reaches Production. It is invoked by another process.</description>
-    <interviewLabel>Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-1_InterviewLabel</interviewLabel>
-    <label>Stop Indexing Metadata Once User Story Reaches Production</label>
+    <description>This process will stop indexing metadata once the User Story reaches Production. It is invoked by another process. This will now also fill the &quot;Datetime Deployed To Production&quot; field with the current datetime.</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>NOW ()</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A2_6586651623</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW ()</expression>
+    </formulas>
+    <interviewLabel>Stop_Indexing_Metadata_Once_User_Story_Reaches_Production-2_InterviewLabel</interviewLabel>
+    <label>Stop Indexing Metadata &amp; Mark &quot;Datetime Deployed&quot; Once User Story Reaches Production</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
@@ -230,6 +241,9 @@
         <label>Update &quot;Stop Indexing Metadata&quot; Checkbox to &quot;True&quot;</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -277,6 +291,86 @@
             <field>copado__Stop_Indexing_Metadata__c</field>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>copado__User_Story__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[copado__User_Story__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_1_A2</name>
+        <label>Update &quot;Datetime Deployed To Production&quot; field.</label>
+        <locationX>100</locationX>
+        <locationY>300</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SObject.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>DateTime</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Datetime Deployed To Production</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Datetime_Deployed_To_Production__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A2_6586651623</elementReference>
             </value>
         </inputAssignments>
         <object>copado__User_Story__c</object>

@@ -21,6 +21,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Apex_Test_Result__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>Errors</value>

@@ -5,6 +5,11 @@
         <name>copado__Compliance_Result_Tab</name>
     </fieldSets>
     <fields>
+        <label><!-- Deployment Step --></label>
+        <name>copado__Deployment_Step__c</name>
+        <relationshipLabel><!-- Compliance Scan Results --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Deployment --></label>
         <name>copado__Deployment__c</name>
         <relationshipLabel><!-- Compliance Scan Results --></relationshipLabel>

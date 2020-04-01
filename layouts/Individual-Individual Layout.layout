@@ -110,6 +110,19 @@
         <fields>LEAD.PHONE</fields>
         <relatedList>RelatedLeadListIndividual</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>EmailAddress</fields>
+        <fields>EmailMailBox</fields>
+        <fields>EmailDomain</fields>
+        <relatedList>ContactPointEmails</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TelephoneNumber</fields>
+        <fields>PhoneType</fields>
+        <fields>FormattedNationalPhoneNumber</fields>
+        <fields>IsPersonalPhone</fields>
+        <relatedList>ContactPointPhones</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

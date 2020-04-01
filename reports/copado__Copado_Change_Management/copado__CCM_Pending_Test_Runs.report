@@ -21,6 +21,7 @@
     <filter>
         <criteriaItems>
             <column>copado__Test_Run__c.copado__Status__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Ready for testing,In progress</value>
