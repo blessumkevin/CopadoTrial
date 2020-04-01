@@ -14,4 +14,11 @@
         <shortDescription>Test Label</shortDescription>
         <value>{!Environment.Test_Label}</value>
     </labels>
+    <labels>
+        <fullName>URL_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>URL Label</shortDescription>
+        <value>https://baseline.com</value>
+    </labels>
 </CustomLabels>
