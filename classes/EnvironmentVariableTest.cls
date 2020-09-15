@@ -11,16 +11,3 @@ public class EnvironmentVariableTest {
         System.assertEquals('Default description', savedAcc.Description);
     }
 }
-'ajedrlk nseldfn 
-    
-    sef nskrng 
-    rg
-     
-     tgh 
-     drm,g dmrng dr
-     rd
-     rg ndrkgn drg 
-     
-     drg ndnrg kdnrkg nodrg 
-     dr
-     g djnrg ndr
