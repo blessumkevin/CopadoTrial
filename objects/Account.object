@@ -110,7 +110,7 @@
     <fields>
         <fullName>CCD_Test__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>This is an addition</description>
+        <description>This is an addition outside of Copado</description>
         <externalId>false</externalId>
         <label>CCD Test</label>
         <trackFeedHistory>false</trackFeedHistory>
