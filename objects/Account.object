@@ -128,7 +128,7 @@
     <fields>
         <fullName>CCD_Test__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>This is an addition</description>
+        <description>This is an addition outside of Copado</description>
         <externalId>false</externalId>
         <label>CCD Test</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -320,6 +320,14 @@
     <fields>
         <fullName>Site</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Test20__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Test20</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>TickerSymbol</fullName>
