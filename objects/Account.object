@@ -304,6 +304,15 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Test20__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Adding</description>
+        <externalId>false</externalId>
+        <label>Test20</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>TickerSymbol</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
