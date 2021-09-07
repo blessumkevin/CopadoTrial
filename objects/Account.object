@@ -296,6 +296,7 @@
     <fields>
         <fullName>Test20__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Adding</description>
         <externalId>false</externalId>
         <label>Test20</label>
         <trackFeedHistory>false</trackFeedHistory>
