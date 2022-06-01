@@ -324,6 +324,7 @@
     <fields>
         <fullName>Test20__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Test desc</description>
         <externalId>false</externalId>
         <label>Test20</label>
         <trackFeedHistory>false</trackFeedHistory>
