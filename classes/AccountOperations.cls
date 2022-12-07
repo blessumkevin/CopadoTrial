@@ -7,7 +7,7 @@ public class AccountOperations {
         }
     }
        //New methods introduced by Developer 1 working on the US-003
-       //testing
+       //testing once again
     public static Account setDefaultBillingAddress(Account a){
         a.billingstreet = 'Po Castellana, 77 5th floor'; // DEV 1 updates
         a.billingstate = 'Madrid';
